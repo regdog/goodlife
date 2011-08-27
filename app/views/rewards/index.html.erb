@@ -1,0 +1,11 @@
+<% tableize @rewards,
+            :name => 'rewards',
+            :header => 'Listing Rewards',
+            :generate_css => 'true' do |reward| %>
+
+     <h3><%= reward.name %></h3>
+     <p>
+       <%= reward.description %>
+       <%= link_to 'show', :action => :index %>
+
+<% end %>
