@@ -12,10 +12,16 @@
 
   <div class="column grid_14">
     <% if user_signed_in? %>
-        <%= current_user.email %> is logged in. If user is not you, click <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+        <%= current_user.name %> is logged in. Not you? Click <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
     <% else %>
         <%= link_to "Register", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %>
     <% end %>
+    <%= form_tag search_path, :method=>'get' do%>
+		<p>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag 'Search' %>
+		</p>
+	<% end %>
     <p class="notice">
       <%= notice %>
       <% if user_signed_in? %>

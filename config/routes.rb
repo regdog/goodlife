@@ -1,16 +1,21 @@
 GoodLife::Application.routes.draw do
+  
   get 'checkins/index'
   resources :feats
   resources :rewards
+  resources :authentications
 
+  get 'search/index', :as => :search
   match 'checkins/myteam' => 'checkins#show_my_team'
   match 'checkins/mychallenges' => 'checkins#show_my_challenges'
   match 'checkins/all' => 'checkins#all'
 
-  devise_for :users
+  devise_for :users, :controllers => {:omniauth_callbacks=>'users/omniauth_callbacks'}
   match '/user' => "feats#index", :as => :user_root
 
   match 'feats/checkin/:feat_id' => 'feats#checkin'
+  
+  root :to => "welcome#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -60,7 +65,6 @@ GoodLife::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 

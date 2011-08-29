@@ -1,0 +1,23 @@
+
+<% tableize @result,
+            :name => 'Results',
+            :header => 'Listing Search Results',
+            :cols => 3,
+            :generate_css => 'true' do |result| %>
+     <% if result.kind_of?(Feat) %>
+     	<h3><%= "!#{result[:title]}" %></h3>
+     	<p>
+       		<%= result[:description] %>
+     	<p>
+	 <%elsif result.kind_of?(User) %>
+	 	<h3><%= "!#{result[:name]}" %></h3>
+     	<p>
+       		<%= result[:email] %>
+     	<p>
+	 <%elsif result.kind_of?(Reward) %>
+	 	<h3><%= "!#{result[:name]}" %></h3>
+     	<p>
+       		<%= result[:description] %>
+     	<p>
+	 <%end%>
+<% end %>

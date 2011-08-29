@@ -2,6 +2,7 @@ class CheckinsController < ApplicationController
   layout 'main'
 
   def index
+    @checkins = Checkin.all
   end
 
   def show_my_team
