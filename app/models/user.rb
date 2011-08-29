@@ -16,6 +16,17 @@ class User < ActiveRecord::Base
   has_many :checkins
   has_and_belongs_to_many :challenges
 
+  # all other people checkins with same feats of my challenges
+  def others_checkins_with_same_feats_of_my_challenges
+    challenge_ids = self.challenges.map{|x|x.id}.flatten
+    Checkin.all_for_challenges(challenge_ids).uniq.delete_if{|x| x.user_id == self.id}
+  end
+
+  # all my challenges contains the feat
+  def challenges_by_feat(feat)
+    self.challenges.delete_if{|x| not feat.challenges.include?(x)}
+  end
+
   # accept a challenge
   def accept_challenge(challenge)
     self.challenges << challenge

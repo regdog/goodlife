@@ -6,7 +6,7 @@ class CreateFeats < ActiveRecord::Migration
       t.text          :why
       t.text          :how
       t.integer       :bonus_point
-      t.integer       :done_count
+      t.integer       :done_count, :default => 0
       t.date          :date_available
       t.timestamps
     end

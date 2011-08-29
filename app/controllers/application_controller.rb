@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       @my_team = current_user.friends
       @my_team << current_user
       @my_team = @my_team.sort_by {|m| [m.sign_in_count]}.reverse!
-      @my_team.flatten!
+      @my_team.flatten
     end
   end
 end

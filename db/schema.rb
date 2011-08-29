@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20110829100004) do
 
   add_index "challenges", ["name"], :name => "index_challenges_on_name", :unique => true
 
+  create_table "challenges_feats", :id => false, :force => true do |t|
+    t.integer  "feat_id"
+    t.integer  "challenge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "challenges_users", :id => false, :force => true do |t|
     t.integer  "user_id"
     t.integer  "challenge_id"
@@ -64,13 +71,6 @@ ActiveRecord::Schema.define(:version => 20110829100004) do
     t.integer  "bonus_point"
     t.integer  "done_count"
     t.date     "date_available"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "feats_challenges", :force => true do |t|
-    t.integer  "feats_id"
-    t.integer  "challenges_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

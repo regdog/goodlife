@@ -4,8 +4,8 @@ class CreateRewards < ActiveRecord::Migration
       t.string      :name, :null => false
       t.text        :description
       t.integer     :redeem_point
-      t.float       :save_money
-      t.decimal     :redeem_count, :precision => 8, :scale => 2
+      t.decimal     :save_money, :precision => 8, :scale => 2
+      t.integer     :redeem_count, :default => 0
       t.timestamps
     end
   end

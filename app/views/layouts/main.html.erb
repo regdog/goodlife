@@ -76,6 +76,16 @@
          <% end %>
        </div>
     </div>
+    <div class="row">
+       <div class="column grid_3">
+         <h3>my challenges</h3>
+         <% current_user.challenges.each do |c| %>
+          <p>
+          <span><%= "#{c.name} #{c.feats.size}" %></span>
+          </p>
+         <% end %>
+       </div>
+    </div>
   <% end %>
   </div>
 </div>
