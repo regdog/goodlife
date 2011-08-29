@@ -1,4 +1,4 @@
-class ChallengeUser < ActiveRecord::Migration
+class ChallengesUsers < ActiveRecord::Migration
   def self.up
     create_table :challenges_users, :id => false do |t|
       t.references  :user

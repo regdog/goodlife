@@ -5,14 +5,17 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql' # gem 'mysql2', '~> 0.2.6'
-
+gem 'mysql' 
 gem 'devise', '1.4.2'
 gem 'devise_invitable', '~> 0.5.4'
-# gem 'geo_ip', '~> 0.4.0'
-
+gem 'mongrel'
+gem 'omniauth'
+gem "nifty-generators", :group => :development
+gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'meta_search'
 gem 'kaminari'
+
+# gem 'geo_ip', '~> 0.4.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
