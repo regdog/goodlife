@@ -1,5 +1,4 @@
 class FeatsController < ApplicationController
-  layout 'main'
 
   def index
     @tag = FeatCategory.find(params[:tag_id]) if params[:tag_id]

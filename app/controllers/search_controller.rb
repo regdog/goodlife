@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
-  layout 'main'
-  
+
   def index
     @feat_search ||= {:title_contains => params[:search]}
     @user_search ||= {:name_contains => params[:search]}
