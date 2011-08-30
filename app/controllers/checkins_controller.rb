@@ -1,5 +1,4 @@
 class CheckinsController < ApplicationController
-  layout 'main'
 
   def index
     if current_user

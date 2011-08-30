@@ -1,5 +1,4 @@
 class RewardsController < ApplicationController
-  layout 'main'
 
   def index
     @tag = RewardCategory.find(params[:tag_id]) if params[:tag_id]
