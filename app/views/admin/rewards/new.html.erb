@@ -23,6 +23,11 @@
         <%= f.label "save money" %><br/>
         <%= f.text_field :save_money %>
       </p>
+      <div class="field">
+        <%= f.fields_for :images do |image_fields| %>
+	      <%= image_fields.file_field :upload %>
+        <% end %>
+      </div>
       <p><%= f.submit "Create" %></p>
     <% end %>
   </div>

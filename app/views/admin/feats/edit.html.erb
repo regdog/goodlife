@@ -28,6 +28,11 @@
         <%= f.label "Points" %><br/>
         <%= f.text_field :bonus_point %>
       </p>
+      <div class="field">
+        <%= f.fields_for :images do |image_fields| %>
+	      <%= image_fields.file_field :upload %>
+        <% end %>
+      </div>
       <p><%= f.submit "Update" %></p>
       <div style="float:right;">
 		<%= link_to 'Delete This Feat', admin_feat_path(:id=>@feat), :confirm => 'Are you sure?', :method => :delete %>

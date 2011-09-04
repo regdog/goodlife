@@ -11,6 +11,7 @@ class Admin::RewardsController < Admin::BaseController
 
   def new
     @reward = Reward.new
+    @reward.images.build
   end
 
   def create
@@ -29,6 +30,7 @@ class Admin::RewardsController < Admin::BaseController
 
   def edit
     @reward = Reward.find(params[:id])
+    @reward.images.build
     @search = Reward.search(params[:search])
   end
 

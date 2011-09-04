@@ -24,6 +24,11 @@
         <%= f.label "save money" %><br/>
         <%= f.text_field :save_money %>
       </p>
+      <div class="field">
+        <%= f.fields_for :images do |image_fields| %>
+	      <%= image_fields.file_field :upload %>
+        <% end %>
+      </div>
       <p><%= f.submit "Update" %></p>
       <div style="float:right;">
 		<%= link_to 'Delete This Reward', admin_reward_path(:id=>@reward), :confirm => 'Are you sure?', :method => :delete %>

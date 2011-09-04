@@ -4,6 +4,10 @@ class Feat < ActiveRecord::Base
   has_many :checkins
   has_and_belongs_to_many :challenges
 
+# paperclip image upload
+  has_many :images, :as => :attachable, :dependent => :destroy
+  accepts_nested_attributes_for :images, :allow_destroy => true
+
   default_scope order('done_count DESC')
 
   def category_id

@@ -11,6 +11,7 @@ class Admin::FeatsController < Admin::BaseController
 
   def new
     @feat = Feat.new
+    @feat.images.build
   end
 
   def create
@@ -29,6 +30,7 @@ class Admin::FeatsController < Admin::BaseController
 
   def edit
     @feat = Feat.find(params[:id])
+    @feat.images.build
     @search = Feat.search(params[:search])
   end
 
