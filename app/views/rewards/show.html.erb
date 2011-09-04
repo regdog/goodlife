@@ -1,2 +1,4 @@
-<h1>Rewards#show</h1>
-<p>Find me in app/views/rewards/show.html.erb</p>
+<h1>!<%= @reward.name %> </h1>
+<p><%= @reward.description.html_safe %></p>
+<p><%= @reward.redeem_point %></p>
+<p>$ <%= @reward.save_money %></p>

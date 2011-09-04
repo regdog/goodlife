@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="column grid_10">
+    <h1>New Reward</h1>
+    <p><a href="/admin/rewards">&laquo; Back to Reward List</a></p>
+    <%= form_for @reward, :url => {:action => "create"} do |f| %>
+      <p>
+        <%= f.label "Category" %><br/>
+        <%= collection_select :reward, :category_id, RewardCategory.all, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
+      </p>
+      <p>
+        <%= f.label "Name" %><br/>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label "Description" %><br/>
+        <%= f.text_area :description, :size => "80x10" %>
+      </p>
+      <p>
+        <%= f.label "redeem point" %><br/>
+        <%= f.text_field :redeem_point %>
+      </p>
+      <p>
+        <%= f.label "save money" %><br/>
+        <%= f.text_field :save_money %>
+      </p>
+      <p><%= f.submit "Create" %></p>
+    <% end %>
+  </div>
+  <%# render :partial => 'crud_right' %>
+</div>

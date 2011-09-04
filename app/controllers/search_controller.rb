@@ -1,9 +1,9 @@
 class SearchController < ApplicationController
 
   def index
-    @feat_search ||= {:title_contains => params[:search]}
+    @feat_search ||= {:title_or_description_contains => params[:search]}
     @user_search ||= {:name_contains => params[:search]}
-    @reward_search = {:name_contains => params[:search]}
+    @reward_search = {:name_or_description_contains => params[:search]}
     
     @result ||= []
 

@@ -6,7 +6,7 @@
 
      <h3><%= "!#{feat.title}" %></h3>
      <p>
-       <%= feat.description %>
+       <%= raw feat.description %>
      </p>
       <%= link_to 'did it', :action => :checkin, :feat_id => feat.id if current_user %>
 

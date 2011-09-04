@@ -29,7 +29,13 @@ render_navigation :main, :generate_css => true do
       # i.titled 'contribute to the wiki!'
       i.links_to :controller => :rewards
     end
-    
+
+    add_item do |i|
+      i.named 'Admin'
+      # i.titled 'contribute to the wiki!'
+      i.links_to :controller => 'admin/dashboard'
+    end
+
     # you can pass add_item a block to just like the tabnav!
     #  
     # add_item do |i|

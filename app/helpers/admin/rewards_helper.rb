@@ -1,0 +1,2 @@
+module Admin::RewardsHelper
+end

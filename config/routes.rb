@@ -1,5 +1,30 @@
 GoodLife::Application.routes.draw do
-  
+  get "checkins/index"
+
+  get "content_nodes/index"
+
+  get "content_nodes/new"
+
+  get "content_nodes/create"
+
+  get "partners/index"
+
+  get "partners/new"
+
+  get "partners/create"
+
+  get "rewards/index"
+
+  get "rewards/new"
+
+  get "rewards/create"
+
+  get "feats/new"
+
+  get "feats/create"
+
+  get "feats/index"
+
   get 'checkins/index'
   resources :feats
   resources :rewards
@@ -13,8 +38,26 @@ GoodLife::Application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks=>'users/omniauth_callbacks'}
   match '/user' => "feats#index", :as => :user_root
 
-  match 'feats/checkin/:feat_id' => 'feats#checkin'
-  
+  match 'feats/checkins/:feat_id' => 'feats#checkin'
+
+  namespace :admin do
+       # Directs /admin/products/* to Admin::ProductsController
+       # (app/controllers/admin/products_controller.rb)
+    root :to => "dashboard#index"
+    match 'admin/checkins' => 'checkins#index'
+    resources :content_nodes
+    resources :feats
+    resources :feat_categories
+    resources :rewards
+    resources :reward_categories
+    resources :challenges
+    resources :partners
+
+    match 'feats/list_by_category/:key' => 'feats#list_by_category'
+    match 'rewards/list_by_category/:key' => 'rewards#list_by_category'
+  end
+
+
   root :to => "welcome#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

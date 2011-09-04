@@ -1,10 +1,5 @@
-.sidebar h3 {
-    background: none repeat scroll 0 0 #C8C866;
-    color: #000000;
-    margin: 0;
-    padding: 5px 0 3px;
-    text-align: center;
-}
-.sidebar div {
-    background: none repeat scroll 0 0 #C5E6F6;
+.full .feat {
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
 }
