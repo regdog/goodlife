@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(:version => 20110904120910) do
 
   add_index "tags", ["name", "type"], :name => "index_tags_on_name_and_type", :unique => true
 
-  create_table "uploads", :force => true do |t|
+  create_table "images", :force => true do |t|
     t.string   "filename"
     t.integer  "width",        :default => 0, :null => false
     t.integer  "height",       :default => 0, :null => false

@@ -1,4 +1,6 @@
 GoodLife::Application.routes.draw do
+  get "images/show"
+
   get "checkins/index"
 
   get "content_nodes/index"

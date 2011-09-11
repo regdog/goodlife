@@ -1,10 +1,8 @@
-# Represents an image
-#
 class Image < Upload
-  belongs_to :feat
-  belongs_to :reward
-  has_attached_file :upload, :style => { :small => "200x200", :thumb => "75x75" }
+  has_attached_file :upload,
+                    :styles => { :medium => "200x200>", :small => "150x150>", :thumb => "75x75#" },
+                    :url => "/uploads/:class/:id/:style.:extension",
+                    :path => ":rails_root/public/uploads/:class/:id/:style.:extension"
 
-  validates_attachment_size :upload, :less_than => 3.megabytes
-
+  validates_attachment_size :upload, :less_than => 2.megabytes
 end

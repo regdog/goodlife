@@ -11,7 +11,7 @@ class Admin::RewardsController < Admin::BaseController
 
   def new
     @reward = Reward.new
-    @reward.images.build
+    @reward.build_image
   end
 
   def create
@@ -30,13 +30,12 @@ class Admin::RewardsController < Admin::BaseController
 
   def edit
     @reward = Reward.find(params[:id])
-    @reward.images.build
     @search = Reward.search(params[:search])
   end
 
   def update
     @reward = Reward.find(params[:id])
-
+    @search = Reward.search(params[:search])
     respond_to do |format|
       if @reward.update_attributes(params[:reward])
         format.html { redirect_to(@reward,:notice => 'Reward was successfully updated.') }

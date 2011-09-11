@@ -5,7 +5,7 @@
 
      <h3><%= reward.name %></h3>
      <p>
-       <%= raw reward.description %>
+       <%= raw truncate reward.description, :length => 60, :separator => ' ' %>
      </p>
      <%= link_to 'show', :action => :index %>
 

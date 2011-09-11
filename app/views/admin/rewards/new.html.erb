@@ -2,7 +2,7 @@
   <div class="column grid_10">
     <h1>New Reward</h1>
     <p><a href="/admin/rewards">&laquo; Back to Reward List</a></p>
-    <%= form_for @reward, :url => {:action => "create"} do |f| %>
+    <%= form_for @reward, :url => {:action => "create"}, :html => { :multipart => true } do |f| %>
       <p>
         <%= f.label "Category" %><br/>
         <%= collection_select :reward, :category_id, RewardCategory.all, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
@@ -23,12 +23,12 @@
         <%= f.label "save money" %><br/>
         <%= f.text_field :save_money %>
       </p>
-      <div class="field">
-        <%= f.fields_for :images do |image_fields| %>
-	      <%= image_fields.file_field :upload %>
+      <div class="Upload">
+        <%= f.fields_for :image do |image_form| %>
+          <p><%= image_form.file_field :upload %></p>
         <% end %>
       </div>
-      <p><%= f.submit "Create" %></p>
+      <p><%= f.submit %></p>
     <% end %>
   </div>
   <%# render :partial => 'crud_right' %>

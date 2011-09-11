@@ -27,12 +27,15 @@
         <%= f.label "Points" %><br/>
         <%= f.text_field :bonus_point %>
       </p>
-      <div class="field">
-        <%= f.fields_for :images do |image_fields| %>
-	      <%= image_fields.file_field :upload %>
+      <div class="newPaperclipFiles">
+        <%= f.fields_for :image do |builder| %>
+          <p>
+            <%= builder.label "Add A Photo" %>
+            <%= builder.file_field :upload %>
+          </p>
         <% end %>
       </div>
-      <p><%= f.submit "Create" %></p>
+      <p><%= f.submit %></p>
     <% end %>
   </div>
   <%# render :partial => 'crud_right' %>

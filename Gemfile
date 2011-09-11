@@ -16,7 +16,7 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'meta_search'
 gem 'kaminari'
 gem 'simple_form'
-gem 'paperclip'
+gem 'paperclip', '~> 2.3.16'
 
 # gem 'geo_ip', '~> 0.4.0'
 

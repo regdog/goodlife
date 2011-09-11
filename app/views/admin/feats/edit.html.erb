@@ -28,26 +28,25 @@
         <%= f.label "Points" %><br/>
         <%= f.text_field :bonus_point %>
       </p>
-      <div class="field">
-        <%= f.fields_for :images do |image_fields| %>
-	      <%= image_fields.file_field :upload %>
-        <% end %>
+      <div class="PaperclipFiles">
+          <% if @feat.image.nil? %>
+            <%= f.fields_for :image, @feat.build_image do |image_form| %>
+              <p>
+                <%= image_form.label "Add A Photo" %>
+                <%= image_form.file_field :upload %>
+              </p>
+            <% end %>
+          <% else %>
+            <p><%= image_tag @feat.image.url(:small) %></p>
+            <%= f.fields_for :image do |image_form| %>
+              <p>
+                <%= image_form.label "Change A Photo" %>
+                <%= image_form.file_field :upload %>
+              </p>
+            <% end %>
+          <% end %>
       </div>
-      <p><%= f.submit "Update" %></p>
-      <div style="float:right;">
-		<%= link_to 'Delete This Feat', admin_feat_path(:id=>@feat), :confirm => 'Are you sure?', :method => :delete %>
-	  </div>
+      <p><%= f.submit %></p>
     <% end %>
-  </div>
-  <div class="column grid_3">
-    <%= link_to "Create New Feat", new_admin_feat_path %>
-    <h3>Search Feat</h3>
-    <%= form_for @search,:url => admin_feats_path, :html => {:method=>'get'} do |f| %>
-	  <p>
-		<%= f.text_field :title_contains %>
-		<%= f.submit 'Go' %>
-	  </p>
-	<% end %>
-    <h3>View Feat By Category</h3>
   </div>
 </div>
