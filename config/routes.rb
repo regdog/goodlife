@@ -1,6 +1,4 @@
 GoodLife::Application.routes.draw do
-  get "images/show"
-
   get "checkins/index"
 
   get "content_nodes/index"
@@ -9,11 +7,6 @@ GoodLife::Application.routes.draw do
 
   get "content_nodes/create"
 
-  get "partners/index"
-
-  get "partners/new"
-
-  get "partners/create"
 
   get "rewards/index"
 
@@ -45,6 +38,7 @@ GoodLife::Application.routes.draw do
   namespace :admin do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
+    get 'partners/list'
     root :to => "dashboard#index"
     match 'admin/checkins' => 'checkins#index'
     resources :content_nodes

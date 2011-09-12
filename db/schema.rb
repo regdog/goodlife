@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110904120910) do
+ActiveRecord::Schema.define(:version => 20110911114723) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -87,6 +87,21 @@ ActiveRecord::Schema.define(:version => 20110904120910) do
     t.datetime "updated_at"
   end
 
+  create_table "partners", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "website"
+    t.string   "country"
+    t.string   "region"
+    t.string   "city"
+    t.string   "zip"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", :force => true do |t|
     t.integer  "requestor_id",                     :null => false
     t.string   "requestor_type",                   :null => false
@@ -135,17 +150,14 @@ ActiveRecord::Schema.define(:version => 20110904120910) do
 
   add_index "tags", ["name", "type"], :name => "index_tags_on_name_and_type", :unique => true
 
-  create_table "images", :force => true do |t|
-    t.string   "filename"
-    t.integer  "width",        :default => 0, :null => false
-    t.integer  "height",       :default => 0, :null => false
+  create_table "uploads", :force => true do |t|
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
     t.string   "type"
-    t.integer  "parent_id"
-    t.string   "content_type"
-    t.string   "thumbnail"
-    t.integer  "size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

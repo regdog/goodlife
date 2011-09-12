@@ -1,2 +1,34 @@
-<h1>Admin::Partners#new</h1>
-<p>Find me in app/views/admin/partners/new.html.erb</p>
+<div class="row">
+  <div class="column grid_10">
+    <h1>New Feat</h1>
+    <p><a href="/admin/partners">&laquo; Back to Feat List</a></p>
+    <%= form_for @partner, :url => {:action => "create"}, :html => { :multipart => true } do |f| %>
+      <p>
+        <%= f.label "Name" %><br/>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label "Description" %><br/>
+        <%= f.text_field :description %>
+      </p>
+      <p>
+        <%= f.label "website" %><br/>
+        <%= f.text_field :description %>
+      </p>
+      <p>
+        <%= f.label "Country" %><br/>
+        <%= raw f.country_select :country, :only => [:china], :update => "partner_state", :name => "partner[country]"  %>
+      </p>
+      <p>
+        <%= f.label "State" %><br/>
+        <%= raw f.state_select :region, :country => :china, :update => "partner_city", :name => "partner[region]"   %>
+      </p>
+      <p>
+        <%= f.label "City" %><br/>
+        <%= raw f.capital_select :city, :country => :china, :name => "partner[city]" %>
+      </p>
+      <p><%= f.submit %></p>
+    <% end %>
+  </div>
+  <%# render :partial => 'crud_right' %>
+</div>

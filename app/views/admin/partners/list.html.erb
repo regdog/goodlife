@@ -1,0 +1,35 @@
+<div class="row">
+  <%= render :partial => 'subnav' %>
+  <div class="column grid_10">
+      <table class="list">
+        <tr>
+          <th>Name</th>
+          <th>Region</th>
+          <th>City</th>
+          <th>Website</th>
+          <th>CreatedAt</th>
+        </tr>
+        <% for partner in @partners %>
+          <tr>
+            <td><%= link_to partner.name, edit_admin_partner_path(partner) %></td>
+            <td><%= partner.region %></td>
+            <td><%= partner.city %></td>
+            <td><%= partner.website %></td>
+            <td><%= partner.created_at.strftime('%b %d, %Y') %></td>
+          </tr>
+        <% end %>
+      </table>
+  </div>
+  <div class="column grid_3">
+    <% if @view_by %>
+      <%= link_to "Create New #{@view_by}", :action => 'new', :type => @view_by %>
+    <% end %>
+    <h3>Search Partner</h3>
+    <%= form_tag search_path, :method=>'get' do%>
+		<p>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag 'Go' %>
+		</p>
+	<% end %>
+  </div>
+</div>
