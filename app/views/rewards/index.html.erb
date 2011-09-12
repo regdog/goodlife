@@ -4,9 +4,8 @@
             :generate_css => 'true' do |reward| %>
 
      <h3><%= reward.name %></h3>
-     <p>
-       <%= raw truncate reward.description, :length => 60, :separator => ' ' %>
-     </p>
+     <p><%= image_tag reward.partner.image.url(:medium) if reward.partner.image %></p>
+     <p><%= raw truncate reward.description, :length => 30, :separator => ' ' %></p>
      <%= link_to 'show', :action => :index %>
 
 <% end %>

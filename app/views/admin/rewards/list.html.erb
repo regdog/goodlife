@@ -15,7 +15,7 @@
           <tr>
             <td><%= reward.id %></td>
             <td><%= link_to reward.name, edit_admin_reward_path(reward) %></td>
-            <td><%= truncate reward.description, :length => 60, :separator => ' ' %></td>
+            <td><%= raw truncate reward.description, :length => 30, :separator => ' ' %></td>
             <td><%= reward.redeem_point %></td>
             <td><%= reward.redeem_count %></td>
             <td><%= reward.save_money %></td>

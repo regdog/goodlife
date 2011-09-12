@@ -4,10 +4,9 @@
             :cols => 3,
             :generate_css => 'true' do |feat| %>
 
-     <h3><%= "!#{feat.title}" %></h3>
-     <p>
-       <%= raw truncate feat.description, :length => 60, :separator => ' ' %>
-     </p>
-      <%= link_to 'did it', :action => :checkin, :feat_id => feat.id if current_user %>
+    <h3><%= "!#{feat.title}" %></h3>
+    <p><%= image_tag feat.image.url(:medium) if feat.image %></p>
+    <p><%= raw truncate feat.description, :length => 30, :separator => ' ' %></p>
+    <%= link_to 'did it', :action => :checkin, :feat_id => feat.id if current_user %>
 
 <% end %>

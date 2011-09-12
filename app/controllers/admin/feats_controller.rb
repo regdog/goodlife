@@ -17,14 +17,10 @@ class Admin::FeatsController < Admin::BaseController
   def create
     @feat = Feat.new(params[:feat])
 
-    respond_to do |format|
-      if @feat.save
-        format.html { redirect_to(@feat, :notice => 'Feat was successfully created.') }
-        format.xml { render :xml => @feat, :status => :created, :location => @feat }
-      else
-        format.html { render :action => "new" }
-        format.xml { render :xml => @feat.errors, :status => :unprocessable_entity }
-      end
+    if @feat.save
+      redirect_to :action => "index"
+    else
+      redirect_to :action => "new"
     end
   end
 
@@ -36,14 +32,10 @@ class Admin::FeatsController < Admin::BaseController
   def update
     @feat = Feat.find(params[:id])
 
-    respond_to do |format|
-      if @feat.update_attributes(params[:feat])
-        format.html { redirect_to(@feat,:notice => 'Feat was successfully updated.') }
-        format.xml { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml { render :xml => @feat.errors,:status => :unprocessable_entity }
-      end
+    if @feat.update_attributes(params[:feat])
+      redirect_to :action => "index"
+    else
+      redirect_to :action => "edit"
     end
   end
 

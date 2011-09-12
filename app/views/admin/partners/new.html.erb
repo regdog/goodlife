@@ -27,7 +27,18 @@
         <%= f.label "City" %><br/>
         <%= raw f.capital_select :city, :country => :china, :name => "partner[city]" %>
       </p>
-      <p><%= f.submit %></p>
+      <p>
+        <%= f.text_field :type, :value => @partner.type, :type => "hidden" %>
+      </p>
+      <div class="newPaperclipFiles">
+        <%= f.fields_for :image do |builder| %>
+          <p>
+            <%= builder.label "Add A Photo" %>
+            <%= builder.file_field :upload %>
+          </p>
+        <% end %>
+      </div>
+      <p><%= f.submit "Create" %></p>
     <% end %>
   </div>
   <%# render :partial => 'crud_right' %>

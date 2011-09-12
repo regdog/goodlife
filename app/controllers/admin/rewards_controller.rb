@@ -17,14 +17,10 @@ class Admin::RewardsController < Admin::BaseController
   def create
     @reward = Reward.new(params[:reward])
 
-    respond_to do |format|
-      if @reward.save
-        format.html { redirect_to(@reward, :notice => 'Reward was successfully created.') }
-        format.xml { render :xml => @reward, :status => :created, :location => @reward }
-      else
-        format.html { render :action => "new" }
-        format.xml { render :xml => @reward.errors, :status => :unprocessable_entity }
-      end
+    if @reward.save
+      redirect_to :action => "index"
+    else
+      redirect_to :action => "new"
     end
   end
 
@@ -36,14 +32,11 @@ class Admin::RewardsController < Admin::BaseController
   def update
     @reward = Reward.find(params[:id])
     @search = Reward.search(params[:search])
-    respond_to do |format|
-      if @reward.update_attributes(params[:reward])
-        format.html { redirect_to(@reward,:notice => 'Reward was successfully updated.') }
-        format.xml { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml { render :xml => @reward.errors,:status => :unprocessable_entity }
-      end
+
+    if @reward.update_attributes(params[:reward])
+      redirect_to :action => "index"
+    else
+      redirect_to :action => "edit"
     end
   end
 

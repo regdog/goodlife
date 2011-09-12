@@ -3,7 +3,7 @@
     <h1>Edit Feat</h1>
     <p><%= link_to "View on this site", {:controller => "/feats", :action => :show, :id => @feat.id}, :target => "_blank"  %></p>
     <p><a href="/admin/feats">&laquo; Back to Feat List</a></p>
-    <%= form_for @feat, :url => { :action => "update" } do |f| %>
+    <%= form_for @feat, :url => { :action => "update" }, :html => { :multipart => true }  do |f| %>
       <p>
         <%= f.label "Category" %><br/>
         <%= collection_select :feat, :category_id, FeatCategory.all, :id, :name, :prompt => true %>
