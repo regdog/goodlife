@@ -15,19 +15,24 @@ render_navigation :main, :generate_css => true do
     add_item do |i|
       # i.html = {:id => 'logout_link'}
       i.named 'Checkins'
-      i.links_to :controller => :checkins
+      i.links_to checkins_myteam_path #:controller => :checkins
     end
 
     add_item do |i|
       # i.html = {:id => 'logout_link'}
       i.named 'Feats'
-      i.links_to :controller => :feats
+      i.links_to feats_path #:controller => :feats
     end
 
     add_item do |i|
       i.named 'Rewards'
       # i.titled 'contribute to the wiki!'
-      i.links_to :controller => :rewards
+      i.links_to rewards_path #:controller => :rewards
+    end
+    
+    add_item do |i|
+      i.named 'User Profile'
+      i.links_to profile_path
     end
     
     # you can pass add_item a block to just like the tabnav!
