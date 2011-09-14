@@ -1,0 +1,2 @@
+module Admin::FeatsHelper
+end

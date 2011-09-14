@@ -33,6 +33,7 @@ GEM
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cocaine (0.2.0)
     columnize (0.3.4)
     daemons (1.0.10)
     devise (1.4.2)
@@ -113,6 +114,11 @@ GEM
       oa-oauth (= 0.2.6)
       oa-openid (= 0.2.6)
     orm_adapter (0.0.5)
+    paperclip (2.3.16)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.2)
     pyu-ruby-sasl (0.0.3.2)
     rack (1.2.3)
@@ -155,6 +161,9 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyntlm (0.1.1)
+    simple_form (1.4.2)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     thor (0.14.6)
     treetop (1.4.10)
       polyglot
@@ -176,6 +185,8 @@ DEPENDENCIES
   mysql2
   nifty-generators
   omniauth
+  paperclip (~> 2.3.16)
   rails (= 3.0.9)
   rake (= 0.8.7)
   ruby-debug19
+  simple_form

@@ -1,2 +1,6 @@
-<h1>Feats#show</h1>
-<p>Find me in app/views/feats/show.html.erb</p>
+<h1>!<%= @feat.title %> </h1>
+<p><%= image_tag @feat.image.url(:small) if @feat.image %></p>
+<p><%= @feat.description %></p>
+<p><%= @feat.why.html_safe %></p>
+<p><%= @feat.how.html_safe %></p>
+<p><%= @feat.bonus_point %></p>

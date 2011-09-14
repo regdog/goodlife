@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110829100004) do
+ActiveRecord::Schema.define(:version => 20110912100912) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -63,14 +63,41 @@ ActiveRecord::Schema.define(:version => 20110829100004) do
     t.datetime "updated_at"
   end
 
+  create_table "content_nodes", :force => true do |t|
+    t.string   "name",       :limit => 100, :default => "", :null => false
+    t.string   "title",      :limit => 100, :default => "", :null => false
+    t.text     "content",                                   :null => false
+    t.datetime "display_on",                                :null => false
+    t.string   "type",       :limit => 50,                  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "content_nodes", ["id", "type"], :name => "index_on_content_nodes", :unique => true
+
   create_table "feats", :force => true do |t|
-    t.string   "title",          :limit => 20, :null => false
-    t.string   "description",    :limit => 60, :null => false
+    t.string   "title",          :limit => 20,                :null => false
+    t.string   "description",    :limit => 60,                :null => false
     t.text     "why"
     t.text     "how"
     t.integer  "bonus_point"
-    t.integer  "done_count"
+    t.integer  "done_count",                   :default => 0
     t.date     "date_available"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "partners", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "website"
+    t.string   "country"
+    t.string   "region"
+    t.string   "city"
+    t.string   "zip"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -93,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20110829100004) do
     t.decimal  "redeem_count", :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "partner_id"
   end
 
   create_table "sessions", :force => true do |t|
@@ -123,10 +151,20 @@ ActiveRecord::Schema.define(:version => 20110829100004) do
 
   add_index "tags", ["name", "type"], :name => "index_tags_on_name_and_type", :unique => true
 
+  create_table "uploads", :force => true do |t|
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.string   "type"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => ""
-    t.string   "name",                                                  :null => false
+    t.string   "name",                                  :default => ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

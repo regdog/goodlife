@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="column grid_10">
+    <h1>Edit Reward</h1>
+    <p><%= link_to "View on this site", {:controller => "/rewards", :action => :show, :id => @reward.id}, :target => "_blank"  %></p>
+    <p><a href="/admin/rewards">&laquo; Back to Reward List</a></p>
+    <%= form_for @reward, :url => { :action => "update" }, :html => { :multipart => true } do |f| %>
+      <p>
+        <%= f.label "Category" %><br/>
+        <%= collection_select :reward, :category_id, RewardCategory.all, :id, :name, :prompt => true %>
+      </p>
+      <p>
+        <%= f.label "Name" %><br/>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label "Description" %><br/>
+        <%= f.text_area :description, :size => "80x10" %>
+      </p>
+      <p>
+        <%= f.label "redeem point" %><br/>
+        <%= f.text_field :redeem_point %>
+      </p>
+      <p>
+        <%= f.label "save money" %><br/>
+        <%= f.text_field :save_money %>
+      </p>
+      <div class="Upload">
+          <% if @reward.image.nil? %>
+            <%= f.fields_for :image, @reward.build_image do |image_form| %>
+              <p>
+                <%= image_form.label "Add A Photo" %>
+                <%= image_form.file_field :upload %>
+              </p>
+            <% end %>
+          <% else %>
+            <p><%= image_tag @reward.image.url(:small) %></p>
+            <%= f.fields_for :image do |image_form| %>
+              <p>
+                <%= image_form.label "Change A Photo" %>
+                <%= image_form.file_field :upload %>
+              </p>
+            <% end %>
+      <% end %>
+      </div>
+      <p><%= f.submit %></p>
+    <% end %>
+  </div>
+  <div class="column grid_3">
+    <%= link_to "Create New Reward", new_admin_reward_path %>
+    <h3>Search Reward</h3>
+    <%= form_for @search,:url => admin_rewards_path, :html => {:method=>'get'} do |f| %>
+	  <p>
+        <%= f.label :name_or_description_contains %>
+		<%= f.text_field :name_or_description_contains %>
+		<%= f.submit 'Go' %>
+	  </p>
+	<% end %>
+    <h3>View Reward By Category</h3>
+  </div>
+</div>

@@ -14,6 +14,7 @@ class FeatsController < ApplicationController
   end
 
   def show
+    @feat = Feat.find(params[:id])
   end
 
   def checkin
@@ -29,5 +30,4 @@ class FeatsController < ApplicationController
     end
     redirect_to :back
   end
-
 end
