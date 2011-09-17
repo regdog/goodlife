@@ -1,4 +1,8 @@
 GoodLife::Application.routes.draw do
+  get 'kindeditor/images_list'
+
+  post 'kindeditor/upload'
+
   get "content_nodes/show"
 
   get "checkins/index"

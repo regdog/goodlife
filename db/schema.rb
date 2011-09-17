@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110914071257) do
+ActiveRecord::Schema.define(:version => 20110917050009) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
   end
 
   create_table "challenges", :force => true do |t|
-    t.string   "name",                       :null => false
-    t.text     "description",                :null => false
+    t.string   "name",        :null => false
+    t.text     "description", :null => false
     t.integer  "bonus_point"
-    t.integer  "done_count",  :default => 0
+    t.integer  "done_count"
     t.datetime "start_on"
     t.datetime "end_on"
     t.datetime "created_at"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
   end
 
   create_table "comments", :force => true do |t|
-    t.integer  "checkins_id"
+    t.integer  "checkin_id"
     t.integer  "user_id"
     t.text     "content"
     t.string   "user_ip"
@@ -64,16 +64,18 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
   end
 
   create_table "content_nodes", :force => true do |t|
-    t.string   "name",       :limit => 100, :default => "", :null => false
+    t.integer  "user_id"
+    t.string   "permalink",  :limit => 100, :default => "", :null => false
     t.string   "title",      :limit => 100, :default => "", :null => false
     t.text     "content",                                   :null => false
-    t.datetime "display_on",                                :null => false
+    t.datetime "display_on"
     t.string   "type",       :limit => 50,                  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "content_nodes", ["type", "id"], :name => "type"
+  add_index "content_nodes", ["id", "type"], :name => "index_on_content_nodes", :unique => true
+  add_index "content_nodes", ["permalink"], :name => "index_on_permalink", :unique => true
 
   create_table "feats", :force => true do |t|
     t.string   "title",          :limit => 20,                :null => false
@@ -87,6 +89,15 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
     t.datetime "updated_at"
   end
 
+  create_table "kindeditor_images", :force => true do |t|
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "partners", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -94,13 +105,13 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
     t.string   "country"
     t.string   "region"
     t.string   "city"
+    t.string   "street"
     t.string   "zip"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "street"
   end
 
   create_table "relationships", :force => true do |t|
@@ -114,11 +125,12 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
   end
 
   create_table "rewards", :force => true do |t|
-    t.string   "name",                                                      :null => false
+    t.string   "name",                      :null => false
     t.text     "description"
     t.integer  "redeem_point"
-    t.decimal  "save_money",   :precision => 8, :scale => 2
-    t.integer  "redeem_count",                               :default => 0
+    t.float    "save_money",   :limit => 8
+    t.integer  "redeem_count"
+    t.integer  "partner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -161,12 +173,10 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
     t.string   "type"
   end
 
-  add_index "uploads", ["attachable_id", "attachable_type"], :name => "index_uploads_on_attachable_id_and_attachable_type"
-
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => ""
-    t.string   "name"
+    t.string   "name",                                  :default => ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
