@@ -30,7 +30,10 @@ GoodLife::Application.routes.draw do
   match 'checkins/mychallenges' => 'checkins#show_my_challenges'
   match 'checkins/all' => 'checkins#all'
 
-  devise_for :users, :controllers => {:omniauth_callbacks=>'users/omniauth_callbacks'}
+  devise_for :user, :controllers => {:omniauth_callbacks=>'user/omniauth_callbacks'} do
+    get 'profile', :to => "devise/registrations#edit", :as=>'profile'
+  end
+  
   match '/user' => "feats#index", :as => :user_root
 
   match 'feats/checkins/:feat_id' => 'feats#checkin'
