@@ -1,0 +1,3 @@
+class LocalRetailer < Partner
+
+end

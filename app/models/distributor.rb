@@ -1,3 +1,0 @@
-class Distributor < Partner
-
-end

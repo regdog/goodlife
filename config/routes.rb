@@ -3,27 +3,10 @@ GoodLife::Application.routes.draw do
 
   post 'kindeditor/upload'
 
-  get "content_nodes/show"
-
-  get "checkins/index"
-
-  get "rewards/index"
-
-  get "rewards/new"
-
-  get "rewards/create"
-
-  get "feats/new"
-
-  get "feats/create"
-
-  get "feats/index"
-
-  get 'checkins/index'
   resources :feats
   resources :rewards
   resources :authentications
-
+  match '*permalink' => "content_nodes#show"
   get 'search/index', :as => :search
   match 'checkins/myteam' => 'checkins#show_my_team'
   match 'checkins/mychallenges' => 'checkins#show_my_challenges'
@@ -34,16 +17,14 @@ GoodLife::Application.routes.draw do
   end
   
   match '/user' => "feats#index", :as => :user_root
-
   match 'feats/checkins/:feat_id' => 'feats#checkin'
-  match 'corp/:permalink' => 'content_nodes#show', :as => 'corp'
 
   namespace :admin do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
+    root :to => "dashboard#index"
     get 'partners/list'
     get 'content_nodes/list'
-    root :to => "dashboard#index"
     match 'admin/checkins' => 'checkins#index'
     resources :content_nodes
     resources :feats

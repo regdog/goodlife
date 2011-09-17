@@ -1,0 +1,3 @@
+class NationalBrand < Partner
+
+end

@@ -1,7 +1,9 @@
 class KindeditorImage < ActiveRecord::Base
    before_create :randomize_file_name
     has_attached_file :data
-    
+
+    validates_attachment_content_type :data, :content_type => ['image/x-png', 'image/pjpeg']
+
     private
     def randomize_file_name
 

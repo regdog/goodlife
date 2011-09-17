@@ -5,5 +5,5 @@ class Partner < ActiveRecord::Base
 
   default_scope order('created_at')
 
-  TYPES = ['Merchant', 'Distributor', 'Sponsor']
+  TYPES = ['LocalRetailer', 'Nonprofit', 'AppProvider', "NationalBrand", "Community"]
 end
