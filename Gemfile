@@ -19,8 +19,6 @@ gem 'simple_form'
 gem 'paperclip', '~> 2.3.16'
 gem 'rails-permalink'
 
-# gem 'geo_ip', '~> 0.4.0'
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
