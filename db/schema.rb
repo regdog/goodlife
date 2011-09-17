@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110912100912) do
+ActiveRecord::Schema.define(:version => 20110914071257) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20110912100912) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "street"
   end
 
   create_table "relationships", :force => true do |t|
@@ -118,9 +119,9 @@ ActiveRecord::Schema.define(:version => 20110912100912) do
     t.integer  "redeem_point"
     t.float    "save_money"
     t.decimal  "redeem_count", :precision => 8, :scale => 2
+    t.integer  "partner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "partner_id"
   end
 
   create_table "sessions", :force => true do |t|

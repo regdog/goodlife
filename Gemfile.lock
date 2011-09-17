@@ -142,6 +142,8 @@ GEM
       activesupport (= 3.0.9)
       bundler (~> 1.0)
       railties (= 3.0.9)
+    rails-permalink (1.0.0)
+      rails (>= 3.0.0)
     railties (3.0.9)
       actionpack (= 3.0.9)
       activesupport (= 3.0.9)
@@ -192,6 +194,7 @@ DEPENDENCIES
   omniauth
   paperclip (~> 2.3.16)
   rails (= 3.0.9)
+  rails-permalink
   rake (= 0.8.7)
   ruby-debug19
   simple_form

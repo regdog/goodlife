@@ -1,7 +1,8 @@
 class CreateContents < ActiveRecord::Migration
   def self.up
     create_table :content_nodes do |t|
-      t.string :name, :limit => 100, :default => "", :null => false
+      t.references :user
+      t.string :permalink, :null => false
       t.string :title, :limit => 100, :default => "", :null => false
       t.text   :content, :null => false
       t.datetime :display_on, :null => false
@@ -10,6 +11,7 @@ class CreateContents < ActiveRecord::Migration
     end
 
     add_index :content_nodes, ['type', 'id'], :name => "type"
+    add_index :content_nodes, :permalink, :unique => true
   end
 
   def self.down

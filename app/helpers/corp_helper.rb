@@ -1,0 +1,2 @@
+module CorpHelper
+end

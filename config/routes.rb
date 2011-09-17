@@ -1,12 +1,7 @@
 GoodLife::Application.routes.draw do
+  get "content_nodes/show"
+
   get "checkins/index"
-
-  get "content_nodes/index"
-
-  get "content_nodes/new"
-
-  get "content_nodes/create"
-
 
   get "rewards/index"
 
@@ -34,11 +29,13 @@ GoodLife::Application.routes.draw do
   match '/user' => "feats#index", :as => :user_root
 
   match 'feats/checkins/:feat_id' => 'feats#checkin'
+  match 'corp/:permalink' => 'content_nodes#show', :as => 'corp'
 
   namespace :admin do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
     get 'partners/list'
+    get 'content_nodes/list'
     root :to => "dashboard#index"
     match 'admin/checkins' => 'checkins#index'
     resources :content_nodes
