@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
          
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :name, :password, :password_confirmation, :remember_me
+  validates_presence_of :name, :if => :name_required?
+  validates_uniqueness_of :name
   
   has_many :authentications, :dependent => :destroy
   has_many :checkins
@@ -47,6 +49,11 @@ class User < ActiveRecord::Base
   # password is not required if oauth already exists
   def password_required? 
      (authentications.empty? || !password.blank?) && super
+  end
+  
+  # name is not required when being invited
+  def name_required?
+    persisted?
   end
   
   # overwrite devise update_with_password

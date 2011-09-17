@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
   end
 
   create_table "challenges", :force => true do |t|
-    t.string   "name",        :null => false
-    t.text     "description", :null => false
+    t.string   "name",                       :null => false
+    t.text     "description",                :null => false
     t.integer  "bonus_point"
-    t.integer  "done_count"
+    t.integer  "done_count",  :default => 0
     t.datetime "start_on"
     t.datetime "end_on"
     t.datetime "created_at"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
   end
 
   create_table "comments", :force => true do |t|
-    t.integer  "checkin_id"
+    t.integer  "checkins_id"
     t.integer  "user_id"
     t.text     "content"
     t.string   "user_ip"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
     t.datetime "updated_at"
   end
 
-  add_index "content_nodes", ["id", "type"], :name => "index_on_content_nodes", :unique => true
+  add_index "content_nodes", ["type", "id"], :name => "type"
 
   create_table "feats", :force => true do |t|
     t.string   "title",          :limit => 20,                :null => false
@@ -114,12 +114,11 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
   end
 
   create_table "rewards", :force => true do |t|
-    t.string   "name",                                       :null => false
+    t.string   "name",                                                      :null => false
     t.text     "description"
     t.integer  "redeem_point"
-    t.float    "save_money"
-    t.decimal  "redeem_count", :precision => 8, :scale => 2
-    t.integer  "partner_id"
+    t.decimal  "save_money",   :precision => 8, :scale => 2
+    t.integer  "redeem_count",                               :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -162,10 +161,12 @@ ActiveRecord::Schema.define(:version => 20110914071257) do
     t.string   "type"
   end
 
+  add_index "uploads", ["attachable_id", "attachable_type"], :name => "index_uploads_on_attachable_id_and_attachable_type"
+
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => ""
-    t.string   "name",                                  :default => ""
+    t.string   "name"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
