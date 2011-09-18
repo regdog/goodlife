@@ -26,35 +26,7 @@
     <favorites_list name="GoodLife" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="tags_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/tags_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="23" selection-start="119" selection-end="119" vertical-scroll-proportion="0.18884121">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/tags/list.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="28" selection-start="362" selection-end="362" vertical-scroll-proportion="-7.806452">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rewards_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/rewards_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="4" selection-start="127" selection-end="167" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -69,7 +41,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/content_nodes_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/widgets/_feats_tabnav.html.erb" />
         <option value="C:/Ruby192/lib/ruby/gems/1.9.1/gems/activerecord-3.0.9/lib/active_record/base.rb" />
         <option value="$PROJECT_DIR$/app/views/widgets/_rewards_tabnav.html.erb" />
@@ -85,6 +56,7 @@
         <option value="$PROJECT_DIR$/app/views/admin/content_nodes/list.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/tags/list.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/tags_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/admin/checkins/index.html.erb" />
       </list>
     </option>
   </component>
@@ -136,6 +108,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="GoodLife" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GoodLife" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GoodLife" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -555,13 +541,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/rewards_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="82" selection-start="270" selection-end="270" vertical-scroll-proportion="0.31473532">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/widgets/_rewards_tabnav.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="58" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.5979971">
@@ -625,13 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/content_nodes/list.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="63" selection-start="112" selection-end="112" vertical-scroll-proportion="0.067175575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/partners/list.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="64" selection-start="70" selection-end="113" vertical-scroll-proportion="0.065868266">
@@ -646,23 +618,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/rewards_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/tags_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="4" selection-start="127" selection-end="167" vertical-scroll-proportion="0.0">
+        <state line="6" column="23" selection-start="119" selection-end="119" vertical-scroll-proportion="0.18884121">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/tags/list.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="28" selection-start="362" selection-end="362" vertical-scroll-proportion="-7.806452">
+        <state line="11" column="28" selection-start="362" selection-end="362" vertical-scroll-proportion="0.36227545">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/tags_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/rewards_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="23" selection-start="119" selection-end="119" vertical-scroll-proportion="0.18884121">
+        <state line="7" column="4" selection-start="127" selection-end="167" vertical-scroll-proportion="0.22031474">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/checkins/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="57" selection-start="608" selection-end="608" vertical-scroll-proportion="0.5928144">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/content_nodes/list.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="62" selection-start="473" selection-end="481" vertical-scroll-proportion="0.40305343">
           <folding />
         </state>
       </provider>
