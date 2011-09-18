@@ -1,5 +1,30 @@
-.full .feat {
-    border-bottom: 1px solid #E5E5E5;
-    margin-bottom: 20px;
-    padding-bottom: 18px;
+html, body {
+height: 100%;
+}
+#header {
+   background:#ff0;
+   padding:1em;
+}
+#wrapper {
+   min-height: 100%;
+   height: auto !important;
+   height: 100%;
+   margin: 0 auto -60px auto; /* exactly the height of footer */
+}
+#content {
+    background-color: white;
+    border: 8px solid #143463;
+    padding: 7px 7px;
+    margin: 1em auto;
+}
+#footer{
+   padding:1em;
+   height: 60px;
+   clear: both;
+   position: relative;
+   background: #6cf;
+}
+#clear{
+   height: 60px;
+   clear: both;
 }

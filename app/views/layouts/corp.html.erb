@@ -4,11 +4,12 @@
   <title>GoodLife</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta charset="utf-8">
   <%= csrf_meta_tag %>
 </head>
 <body>
-<div class="row">
+<div id="wrapper">
+<div class="row" id="header">
   <%= navigation :main %>
 
   <div class="column grid_14">
@@ -26,9 +27,8 @@
     <p class="alert"><%= alert %></p>
   </div>
 </div>
-<div class="row">
+<div class="row" id="content">
   <div class="column grid_11">
-    <h1>Good Life</h1>
     <%= yield %>
   </div>
   <div class="column grid_3">
@@ -82,7 +82,9 @@
   <% end %>
   </div>
 </div>
-<div class="row">
+<div id="clear"></div>
+</div>
+<div class="row" id="footer">
   <% unless Page.all.first.nil? %>
     <%= navigation :footer %>
   <% end %>

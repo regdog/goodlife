@@ -6,7 +6,7 @@ GoodLife::Application.routes.draw do
   resources :feats
   resources :rewards
   resources :authentications
-  match '*permalink' => "content_nodes#show"
+
   get 'search/index', :as => :search
   match 'checkins/myteam' => 'checkins#show_my_team'
   match 'checkins/mychallenges' => 'checkins#show_my_challenges'
@@ -38,7 +38,7 @@ GoodLife::Application.routes.draw do
     match 'rewards/list_by_category/:key' => 'rewards#list_by_category'
   end
 
-
+  match '*permalink' => "content_nodes#show"
   root :to => "welcome#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

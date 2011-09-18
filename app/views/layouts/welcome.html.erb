@@ -4,11 +4,12 @@
   <title>GoodLife</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta charset="utf-8">
   <%= csrf_meta_tag %>
 </head>
-<body id="visitor">
-<div class="row">
+<body>
+<div id="wrapper">
+<div class="row" id="header">
   <div class="column grid_14">
     <% if user_signed_in? %>
         <%= current_user.name %> is logged in. Not you? Click <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
@@ -19,13 +20,15 @@
     <p class="alert"><%= alert %></p>
   </div>
 </div>
-<div class="row">
+<div class="row" id="content">
   <div class="column grid_10">
      <%= yield %>
   </div>
-  <div class="column grid_4"></div>
+  <!--<div class="column grid_4"></div>-->
 </div>
-<div class="row">
+<div id="clear"></div>
+</div>
+<div class="row" id="footer">
   <% unless Page.all.first.nil? %>
     <%= navigation :footer %>
   <% end %>
