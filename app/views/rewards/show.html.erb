@@ -1,5 +1,11 @@
 <h1><%= @reward.name %> </h1>
-<p><%= image_tag @reward.partner.image.url(:small) if @reward.partner.image %></p>
+<p>
+  <% if @reward.partner %>
+    <%= image_tag @reward.partner.image.url(:small) if @reward.partner.image %>
+  <% else %>
+    <%= image_tag @reward.image.url(:small) if @reward.image %>
+  <% end %>
+</p>
 <p><%= @reward.description.html_safe %></p>
 <p><%= @reward.redeem_point %></p>
 <p>$ <%= @reward.save_money %></p>

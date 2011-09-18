@@ -3,9 +3,15 @@
             :header => 'Listing Rewards',
             :generate_css => 'true' do |reward| %>
 
-     <h3><%= reward.name %></h3>
-     <p><%= image_tag reward.partner.image.url(:medium) if reward.partner.image %></p>
-     <p><%= raw truncate reward.description, :length => 30, :separator => ' ' %></p>
-     <%= link_to 'show', :action => :index %>
+    <h3><%= link_to reward.name, :action => 'show', :id => reward.id %></h3>
+    <p>
+      <% if reward.partner %>
+        <%= image_tag reward.partner.image.url(:small) if reward.partner.image %>
+      <% else %>
+        <%= image_tag reward.image.url(:small) if reward.image %>
+      <% end %>
+    </p>
+    <p><%= raw truncate reward.description, :length => 30, :separator => ' ' %></p>
+    <%= link_to 'detail', :action => 'show', :id => reward.id %>
 
 <% end %>

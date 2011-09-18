@@ -51,4 +51,15 @@ class Admin::PartnersController < Admin::BaseController
        redirect_to :action => "edit"
     end
   end
+
+  def destroy
+    @partner = Partner.find(params[:id])
+    @partner.destroy
+    redirect_to :action => "index", :type => @partner.type
+    #respond_to do |format|
+    #  format.html { redirect_to :action => "index", :type => @partner.type }
+    #  format.xml { head :ok }
+    #end
+  end
+
 end

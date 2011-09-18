@@ -1,11 +1,11 @@
 <ul class="navigation primary">
-  <% Partner::TYPES.each do |type| %>
+  <% FeatCategory.all.each do |type| %>
     <li class="<%= active_li_css(@view_by, type) %>">
 			<%= 
 				link_to_unless(
 				  (@view_by == type),
-					type.pluralize,
-					:controller => 'admin/partners',
+					type.name,
+					:controller => 'admin/feats',
 					:action => 'index',
 					:type => type
 				)

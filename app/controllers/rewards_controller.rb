@@ -15,6 +15,7 @@ class RewardsController < ApplicationController
 
   def show
     @reward = Reward.find(params[:id])
+    render :layout => 'corp'
   end
 
 end

@@ -12,6 +12,8 @@
             <td><%= link_to content_node.title, edit_admin_content_node_path(content_node) %></td>
             <td><%= content_node.created_at.strftime('%m/%d/%y') %></td>
             <td><%= content_node.permalink %></td>
+            <td><%= link_to "View", {:controller=>"/content_nodes", :action=>"show", :permalink=>content_node.permalink}, :target =>"_blank"  %></td>
+            <td><%= link_to 'Delete', admin_content_node_path(content_node.id), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>
         <% end %>
       </table>

@@ -6,7 +6,14 @@ class Admin::FeatsController < Admin::BaseController
 
   def list
     @search = Feat.search(params[:search])
-    @feats = @search.all
+    if params[:type]
+      @category = FeatCategory.find(params[:type])
+      if @category
+        @feats = @category.feats
+      end
+    else
+      @feats = Feat.all
+    end
   end
 
   def new
@@ -43,21 +50,5 @@ class Admin::FeatsController < Admin::BaseController
     @feat = Feat.find(params[:id])
     @feat.destroy
     redirect_to admin_feats_path
-  end
-
-  def list_by_category
-    list
-
-    if params[:key]
-      @category_search = FeatCategory.search(:name_equals=>params[:key])
-      @category = @category_search.all
-      if @category.empty?
-        redirect_to :action => "index"
-        return
-      else
-        @feats = @category[0].feats
-        render :action => "list"
-      end
-    end
   end
 end

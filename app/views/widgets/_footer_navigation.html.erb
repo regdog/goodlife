@@ -10,7 +10,7 @@ render_navigation :footer, :generate_css => true do
     Page.all.each do |page|
       add_item do |i|
         i.named page.title
-        i.links_to "/#{page.permalink}"
+        i.links_to "/mma/#{page.permalink}"
         #i.links_to :controller=>"content_nodes", :action=>"show", :permalink=> page.permalink
       end
     end

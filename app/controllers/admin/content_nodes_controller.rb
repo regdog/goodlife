@@ -48,4 +48,11 @@ class Admin::ContentNodesController < Admin::BaseController
        redirect_to :action => "edit"
     end
   end
+
+  def destroy
+    @content_node = ContentNode.find(params[:id])
+    @content_node.destroy
+    flash[:notice] = "Content deleted!"
+    redirect_to :action => "index", :type => @content_node.type
+  end
 end

@@ -19,6 +19,8 @@
             <td><%= feat.done_count %></td>
             <td><%= feat.bonus_point %></td>
             <td><%= feat.created_at.strftime('%m/%d/%y') %></td>
+            <td><%= link_to "View", feat, :controller => "/feats", :action => :show, :target =>"_blank"  %></td>
+            <td><%= link_to 'Delete', admin_feat_path(feat), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>
         <% end %>
       </table>
@@ -52,10 +54,6 @@
       <p><%= f.submit 'Go' %></p>
 	<% end %>
     <h3>View By Category</h3>
-	<ul id="view_tags">
-      <% FeatCategory.all.each do |c| %>
-        <li><%= link_to c.name, :action=>"list_by_category", :key=>c.name %></li>
-      <% end %>
-	</ul>
+    <%= render :partial => 'subnav' %>
   </div>
 </div>

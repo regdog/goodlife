@@ -15,6 +15,7 @@ class FeatsController < ApplicationController
 
   def show
     @feat = Feat.find(params[:id])
+    render :layout => 'corp'
   end
 
   def checkin

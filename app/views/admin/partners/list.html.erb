@@ -4,18 +4,20 @@
       <table class="list">
         <tr>
           <th>Name</th>
-          <th>Region</th>
+          <th>State</th>
           <th>City</th>
-          <th>Website</th>
-          <th>CreatedAt</th>
+          <th>Type</th>
+          <th>Web Site</th>
+          <th></th>
         </tr>
         <% for partner in @partners %>
           <tr>
             <td><%= link_to partner.name, edit_admin_partner_path(partner) %></td>
             <td><%= partner.region %></td>
             <td><%= partner.city %></td>
-            <td><%= partner.website %></td>
-            <td><%= partner.created_at.strftime('%m/%d/%y') %></td>
+            <td><%= partner.type %></td>
+            <td><% safe_concat "<a href='http://#{partner.website}'> #{partner.website} </a>" if partner.website %></td>
+            <td><%= link_to 'Delete', admin_partner_path(partner), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>
         <% end %>
       </table>

@@ -6,7 +6,14 @@ class Admin::RewardsController < Admin::BaseController
 
   def list
     @search = Reward.search(params[:search])
-    @rewards = @search.all
+    if params[:type]
+      @category = RewardCategory.find(params[:type])
+      if @category
+        @rewards = @category.rewards
+      end
+    else
+      @rewards = Reward.all
+    end
   end
 
   def new
@@ -46,19 +53,4 @@ class Admin::RewardsController < Admin::BaseController
     redirect_to admin_rewards_path
   end
 
-  def list_by_category
-    list
-
-    if params[:key]
-      @category_search = RewardCategory.search(:name_equals=>params[:key])
-      @category = @category_search.all
-      if @category.empty?
-        redirect_to :action => "index"
-        return
-      else
-        @rewards = @category[0].rewards
-        render :action => "list"
-      end
-    end
-  end
 end

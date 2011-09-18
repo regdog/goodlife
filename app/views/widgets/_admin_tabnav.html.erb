@@ -55,6 +55,11 @@ render_tabnav :feats,
     t.links_to :controller => "admin/content_nodes"
    end
 
+   add_tab do |t|
+    t.named 'Tags'
+    t.links_to :controller => "admin/tags"
+   end
+
    #add_tab do |t|
    # t.named 'Users'
    # t.links_to :controller => "admin/dashboard"

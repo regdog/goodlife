@@ -1,12 +1,11 @@
 GoodLife::Application.routes.draw do
-  get 'kindeditor/images_list'
-
-  post 'kindeditor/upload'
-
   resources :feats
   resources :rewards
   resources :authentications
+  resources :content_nodes
 
+  get 'kindeditor/images_list'
+  post 'kindeditor/upload'
   get 'search/index', :as => :search
   match 'checkins/myteam' => 'checkins#show_my_team'
   match 'checkins/mychallenges' => 'checkins#show_my_challenges'
@@ -22,23 +21,22 @@ GoodLife::Application.routes.draw do
   namespace :admin do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
-    root :to => "dashboard#index"
-    get 'partners/list'
-    get 'content_nodes/list'
-    match 'admin/checkins' => 'checkins#index'
     resources :content_nodes
     resources :feats
-    resources :feat_categories
     resources :rewards
-    resources :reward_categories
     resources :challenges
     resources :partners
+    resources :tags
 
-    match 'feats/list_by_category/:key' => 'feats#list_by_category'
-    match 'rewards/list_by_category/:key' => 'rewards#list_by_category'
+    get 'partners/list'
+    get 'tags/list'
+    get 'content_nodes/list'
+    match 'admin/checkins' => 'checkins#index'
+
+    root :to => "dashboard#index"
   end
 
-  match '*permalink' => "content_nodes#show"
+  match 'mma/:permalink' => "content_nodes#show"
   root :to => "welcome#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
