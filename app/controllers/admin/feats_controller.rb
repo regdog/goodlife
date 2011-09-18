@@ -7,7 +7,8 @@ class Admin::FeatsController < Admin::BaseController
   def list
     @search = Feat.search(params[:search])
     if params[:type]
-      @category = FeatCategory.find(params[:type])
+      @view_by = params[:type]
+      @category = FeatCategory.find_by_name(params[:type])
       if @category
         @feats = @category.feats
       end

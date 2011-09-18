@@ -1,14 +1,15 @@
 <div class="row">
   <div class="column grid_10">
-    <h1>All Tag List</h1>
+    <h1>All Tags <%= @view_by ? "of #{@view_by}" : "List" %></h1>
       <table class="list">
         <tr>
           <th>Name</th>
-          <th></th>
+          <th>Type</th>
         </tr>
         <% for tag in @tags %>
           <tr>
             <td><%= link_to tag.name, edit_admin_tag_path(tag) %></td>
+            <td><%= tag.type %></td>
             <td><%= link_to 'Delete', admin_tag_path(tag), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>
         <% end %>

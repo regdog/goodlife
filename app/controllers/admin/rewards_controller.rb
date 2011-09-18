@@ -7,7 +7,8 @@ class Admin::RewardsController < Admin::BaseController
   def list
     @search = Reward.search(params[:search])
     if params[:type]
-      @category = RewardCategory.find(params[:type])
+      @view_by = params[:type]
+      @category = RewardCategory.find_by_name(params[:type])
       if @category
         @rewards = @category.rewards
       end

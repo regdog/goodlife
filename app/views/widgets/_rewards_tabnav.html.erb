@@ -35,7 +35,7 @@ render_tabnav :rewards,
      add_tab do |t|
        t.named c.name.camelize
        t.titled "Go to #{c.name.camelize}"
-       t.links_to :controller => :rewards, :tag_id => c.id
+       t.links_to :controller => :rewards, :type => c.name
      end
    end
 

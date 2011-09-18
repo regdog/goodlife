@@ -5,12 +5,12 @@ class Admin::TagsController < Admin::BaseController
   end
 
   def list
+    @search = Tag.search(params[:search])
     if params[:type] && Tag::TYPES.include?(params[:type])
       @view_by = params[:type]
       @tags = Tag.find_all_by_type(@view_by)
     else
-      @view_by = "FeatCategory"
-      @tags = FeatCategory.all
+      @tags = Tag.all
     end
   end
 

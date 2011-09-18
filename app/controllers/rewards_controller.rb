@@ -1,15 +1,13 @@
 class RewardsController < ApplicationController
 
   def index
-    @tag = RewardCategory.find(params[:tag_id]) if params[:tag_id]
-    if params[:search].blank?
-      @rewards = @tag ? @tag.rewards : Reward.all
+    if params[:type]
+      @category = RewardCategory.find_by_name(params[:type]) if params[:type]
+      if @category
+        @rewards = @category.rewards
+      end
     else
-    #  @episodes = Episode.search_published(params[:search], params[:tag_id])
-    end
-    respond_to do |format|
-      format.html
-      format.rss
+      @rewards = Reward.all
     end
   end
 

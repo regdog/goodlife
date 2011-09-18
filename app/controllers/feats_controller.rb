@@ -1,15 +1,13 @@
 class FeatsController < ApplicationController
 
   def index
-    @tag = FeatCategory.find(params[:tag_id]) if params[:tag_id]
-    if params[:search].blank?
-      @feats = @tag ? @tag.feats : Feat.all
+    if params[:type]
+      @category = FeatCategory.find_by_name(params[:type]) if params[:type]
+      if @category
+        @feats = @category.feats
+      end
     else
-    #  @episodes = Episode.search_published(params[:search], params[:tag_id])
-    end
-    respond_to do |format|
-      format.html
-      format.rss
+      @feats = Feat.all
     end
   end
 
