@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="column grid_10">
+    <h1>New <%= @category.category_type %> Category</h1>
+    <p><a href="/admin/categorys">&laquo; Back</a></p>
+    <%= form_for @category, :url => {:action => "create"} do |f| %>
+      <p>
+        <%= f.label "Name" %><br/>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.text_field :category_type, :value => @category.category_type, :type => "hidden" %>
+      </p>
+      <p><%= f.submit "Create" %></p>
+    <% end %>
+  </div>
+  <%# render :partial => 'crud_right' %>
+</div>

@@ -38,7 +38,7 @@ class TabTest < Test::Unit::TestCase
   end
   
   def test_initialize_with_highlights_array
-    tab = Tab.new :name=>'test', :highlights => [{:action=>'list'}, {:action => 'index'}]
+    tab = Tab.new :name=>'test', :highlights => [{:action=>'index'}, {:action => 'index'}]
     assert_kind_of Array, tab.highlights
     assert_equal 2, tab.highlights.size
     assert_kind_of Hash, tab.highlights[0]
@@ -46,7 +46,7 @@ class TabTest < Test::Unit::TestCase
   end
   
   def test_initialize_with_single_highlight
-    tab = Tab.new :name=>'test', :highlights => {:action=>'list'}
+    tab = Tab.new :name=>'test', :highlights => {:action=>'index'}
     assert_kind_of Array, tab.highlights
     assert_equal 1, tab.highlights.size
     assert_kind_of Hash, tab.highlights[0]

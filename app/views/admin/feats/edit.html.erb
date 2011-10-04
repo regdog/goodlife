@@ -6,7 +6,7 @@
     <%= form_for @feat, :url => { :action => "update" }, :html => { :multipart => true }  do |f| %>
       <p>
         <%= f.label "Category" %><br/>
-        <%= collection_select :feat, :category_id, FeatCategory.all, :id, :name, :prompt => true %>
+        <%= collection_select :feat, :category_id, Category.feats, :id, :name, :prompt => true %>
       </p>
       <p>
         <%= f.label "Title" %><br/>
@@ -26,7 +26,7 @@
       </p>
       <p>
         <%= f.label "Points" %><br/>
-        <%= f.text_field :bonus_point %>
+        <%= f.text_field :bonus_points %>
       </p>
       <div class="PaperclipFiles">
           <% if @feat.image.nil? %>

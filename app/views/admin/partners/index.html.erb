@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="column grid_10">
+    <h1>All Partners <%= @view_by ? "of #{@view_by}" : "List" %></h1>
+      <table class="list">
+        <tr>
+          <th>Name</th>
+          <th>State</th>
+          <th>City</th>
+          <th>Type</th>
+          <th>Web Site</th>
+          <th>Action</th>
+        </tr>
+        <% for partner in @partners %>
+          <tr>
+            <td><%= link_to partner.name, edit_admin_partner_path(partner) %></td>
+            <td><%= partner.region %></td>
+            <td><%= partner.city %></td>
+            <td><%= partner.category.name %></td>
+            <td><% safe_concat "<a href='http://#{partner.website}'> #{partner.website} </a>" if partner.website %></td>
+            <td><%= link_to 'Delete', admin_partner_path(partner), :confirm => 'Are you sure?', :method => :delete  %></td>
+          </tr>
+        <% end %>
+      </table>
+  </div>
+  <div class="column grid_3">
+    <%= link_to "Create New Partner", new_admin_partner_path %>
+    <h3>Search Partner</h3>
+    <!--<%#= form_tag @search, :url => {:controller => "admin/users", :action => 'index'}, :html => {:method=>'get'} do%>-->
+		<!--<p>-->
+          <!--<%#= f.label :name_or_city_contains %>-->
+	      <!--<%#= text_field_tag :name_or_city_contains  %>-->
+        <!--</p>-->
+		<!--<p><%#= submit_tag 'Go' %></p>-->
+	<!--<%# end %>-->
+    <h3>View By Category</h3>
+    <%= render :partial => 'subnav' %>
+  </div>
+</div>

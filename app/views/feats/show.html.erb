@@ -1,6 +1,6 @@
 <h1>!<%= @feat.title %> </h1>
 <p><%= image_tag @feat.image.url(:small) if @feat.image %></p>
-<p><%= @feat.description %></p>
-<p><%= @feat.why.html_safe %></p>
-<p><%= @feat.how.html_safe %></p>
-<p><%= @feat.bonus_point %></p>
+<p>Description<br/><%= @feat.description %></p>
+<p>Why<br/><%= @feat.why.html_safe %></p>
+<p>How<br/><%= @feat.how.html_safe %></p>
+<p>Points<br/><%= @feat.bonus_points %></p>

@@ -7,11 +7,10 @@
 #   :html => aHash #=> sets html options for the tabnav's div (es :html => {:class=> 'myCssClass', :id=>'myCssId'}) 
 #  
 render_navigation :footer, :generate_css => true do
-    Page.all.each do |page|
+    @pages.each do |page|
       add_item do |i|
         i.named page.title
-        i.links_to "/mma/#{page.permalink}"
-        #i.links_to :controller=>"content_nodes", :action=>"show", :permalink=> page.permalink
+        i.links_to "/corp/#{page.permalink}"
       end
     end
 

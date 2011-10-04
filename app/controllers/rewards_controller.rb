@@ -2,13 +2,18 @@ class RewardsController < ApplicationController
 
   def index
     if params[:type]
-      @category = RewardCategory.find_by_name(params[:type]) if params[:type]
+      @category = Category.rewards.find_by_name(params[:type]) if params[:type]
       if @category
         @rewards = @category.rewards
       end
     else
-      @rewards = Reward.all
+      redirect_to all_rewards_path
     end
+  end
+
+  def all
+    @rewards = Reward.all
+    render :index
   end
 
   def show

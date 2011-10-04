@@ -5,7 +5,7 @@
     <%= form_for @feat, :url => {:action => "create"}, :html => { :multipart => true } do |f| %>
       <p>
         <%= f.label "Category" %><br/>
-        <%= collection_select :feat, :category_id, FeatCategory.all, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
+        <%= collection_select :feat, :category_id, Category.feats, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
       </p>
       <p>
         <%= f.label "Title" %><br/>
@@ -25,7 +25,7 @@
       </p>
       <p>
         <%= f.label "Points" %><br/>
-        <%= f.text_field :bonus_point %>
+        <%= f.text_field :bonus_points %>
       </p>
       <div class="newPaperclipFiles">
         <%= f.fields_for :image do |builder| %>

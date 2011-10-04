@@ -1,3 +1,0 @@
-class Nonprofit < Partner
-
-end

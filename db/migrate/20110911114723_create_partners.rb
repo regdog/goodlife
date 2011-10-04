@@ -1,7 +1,8 @@
 class CreatePartners < ActiveRecord::Migration
   def self.up
     create_table :partners do |t|
-      t.string :name
+      t.references :category
+      t.string :name, :null => false
       t.text :description
       t.string :website
       t.string :country
@@ -10,7 +11,6 @@ class CreatePartners < ActiveRecord::Migration
       t.string :zip
       t.float :latitude
       t.float :longitude
-      t.string :type
       t.timestamps
     end
   end

@@ -1,8 +1,12 @@
 <div class="row">
   <div class="column grid_10">
-    <h1>Edit <%= @partner.type %></h1>
-    <p><a href=<%="/admin/partners/list?type=#{@partner.type}"%>>&laquo; Back to <%= @partner.type %> List</a></p>
+    <h1>Edit <%= @partner.name %></h1>
+    <p><a href=<%="/admin/partners"%>>&laquo; Back to Partner List</a></p>
     <%= form_for @partner, :url => {:action => "update"}, :html => { :multipart => true } do |f| %>
+      <p>
+        <%= f.label "Category" %><br/>
+        <%= collection_select :partner, :category_id, Category.partners, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
+      </p>
       <p>
         <%= f.label "Name" %><br/>
         <%= f.text_field :name %>
@@ -28,13 +32,14 @@
         <%= raw f.capital_select :city, :country => :china, :name => "partner[city]" %>
       </p>
       <p>
-        <%= f.text_field :type, :value => @partner.type, :type => "hidden" %>
+        <%= f.label "Street" %><br/>
+        <%= f.text_field :street %>
       </p>
       <div class="PaperclipFiles">
           <% if @partner.image.nil? %>
             <%= f.fields_for :image, @partner.build_image do |image_form| %>
               <p>
-                <%= image_form.label "Add A Photo" %>
+                <%= image_form.label "Add A Photo" %><br/>
                 <%= image_form.file_field :upload %>
               </p>
             <% end %>
@@ -42,7 +47,7 @@
             <p><%= image_tag @partner.image.url(:small) %></p>
             <%= f.fields_for :image do |image_form| %>
               <p>
-                <%= image_form.label "Change A Photo" %>
+                <%= image_form.label "Change A Photo" %><br/>
                 <%= image_form.file_field :upload %>
               </p>
             <% end %>

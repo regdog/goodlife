@@ -1,15 +1,11 @@
 class ApplicationController < ActionController::Base
   layout :layout_by_resource
   protect_from_forgery
-  before_filter :find_my_team
+  before_filter :find_my_team, :load_corp_pages
 
   def find_my_team
     if current_user
-      @my_team ||=[]
-      @my_team = current_user.friends
-      @my_team << current_user
-      @my_team = @my_team.sort_by {|m| [m.sign_in_count]}.reverse!
-      @my_team.flatten
+      @my_team = current_user.load_team_members
     end
   end
 
@@ -21,5 +17,10 @@ class ApplicationController < ActionController::Base
     else
       "application"
     end
+  end
+
+  def load_corp_pages
+    category = Category.find_by_name("Page")
+    @pages = category.contents
   end
 end

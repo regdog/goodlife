@@ -1,7 +1,7 @@
 class CreateComments < ActiveRecord::Migration
   def self.up
     create_table :comments do |t|
-      t.belongs_to :checkins
+      t.belongs_to :checkin
       t.belongs_to :user
       t.text       :content
       t.string     :user_ip

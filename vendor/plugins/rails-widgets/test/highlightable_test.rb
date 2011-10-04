@@ -52,8 +52,8 @@ class HighlightableTest < Test::Unit::TestCase
     
     #check that highlights on its own link
     assert @obj.highlighted?(:controller => 'pippo'), 'should highlight'
-    assert @obj.highlighted?(:controller => 'pippo', :action => 'list'), 'should highlight'
-    assert !@obj.highlighted?(:controller => 'pluto', :action => 'list'), 'should NOT highlight'
+    assert @obj.highlighted?(:controller => 'pippo', :action => 'index'), 'should highlight'
+    assert !@obj.highlighted?(:controller => 'pluto', :action => 'index'), 'should NOT highlight'
 
   end
   

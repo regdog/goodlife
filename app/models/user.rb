@@ -15,8 +15,12 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name
   
   has_many :authentications, :dependent => :destroy
+  has_many :todos
   has_many :checkins
-  has_and_belongs_to_many :challenges
+  has_many :wishes
+  has_many :redemptions
+  has_many :challenges, :class_name => "AcceptedChallenge"
+
 
   # all other people checkins with same feats of my challenges
   def others_checkins_with_same_feats_of_my_challenges
@@ -87,5 +91,13 @@ class User < ActiveRecord::Base
         user.valid?
       end
     end
+  end
+
+  #load team member
+  def load_team_members
+    members = self.friends
+    members << self
+    members = members.sort_by {|m| [m.sign_in_count]}.reverse!
+    members.flatten
   end
 end

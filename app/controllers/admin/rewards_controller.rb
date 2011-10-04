@@ -1,14 +1,9 @@
 class Admin::RewardsController < Admin::BaseController
   def index
-    list
-    render :action => 'list'
-  end
-
-  def list
     @search = Reward.search(params[:search])
     if params[:type]
       @view_by = params[:type]
-      @category = RewardCategory.find_by_name(params[:type])
+      @category = Category.rewards.find_by_name(params[:type])
       if @category
         @rewards = @category.rewards
       end
@@ -39,7 +34,6 @@ class Admin::RewardsController < Admin::BaseController
 
   def update
     @reward = Reward.find(params[:id])
-    @search = Reward.search(params[:search])
 
     if @reward.update_attributes(params[:reward])
       redirect_to :action => "index"

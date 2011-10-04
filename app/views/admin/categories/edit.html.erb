@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="column grid_10">
+    <h1>Edit <%= @category.category_type %> Category</h1>
+    <p><a href="/admin/categorys">&laquo; Back</a></p>
+    <%= form_for @category, :url => {:action => "update"} do |f| %>
+      <p>
+        <%= f.label "Name" %><br/>
+        <%= f.text_field :name %>
+      </p>
+      <p><%= f.submit "Update" %></p>
+    <% end %>
+  </div>
+  <%# render :partial => 'crud_right' %>
+</div>

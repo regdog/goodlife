@@ -1,14 +1,18 @@
 class FeatsController < ApplicationController
-
   def index
     if params[:type]
-      @category = FeatCategory.find_by_name(params[:type]) if params[:type]
+      @category = Category.feats.find_by_name(params[:type]) if params[:type]
       if @category
         @feats = @category.feats
       end
     else
-      @feats = Feat.all
+      redirect_to all_feats_path
     end
+  end
+
+  def all
+    @feats = Feat.all
+    render :index
   end
 
   def show

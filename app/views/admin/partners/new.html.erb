@@ -1,8 +1,12 @@
 <div class="row">
   <div class="column grid_10">
-    <h1>New Feat</h1>
-    <p><a href="/admin/partners">&laquo; Back to Feat List</a></p>
+    <h1>New Partner</h1>
+    <p><a href="/admin/partners">&laquo; Back to Partner List</a></p>
     <%= form_for @partner, :url => {:action => "create"}, :html => { :multipart => true } do |f| %>
+      <p>
+        <%= f.label "Category" %><br/>
+        <%= collection_select :partner, :category_id, Category.partners, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
+      </p>
       <p>
         <%= f.label "Name" %><br/>
         <%= f.text_field :name %>
@@ -28,12 +32,13 @@
         <%= raw f.capital_select :city, :country => :china, :name => "partner[city]" %>
       </p>
       <p>
-        <%= f.text_field :type, :value => @partner.type, :type => "hidden" %>
+        <%= f.label "Street" %><br/>
+        <%= f.text_field :street %>
       </p>
       <div class="newPaperclipFiles">
         <%= f.fields_for :image do |builder| %>
           <p>
-            <%= builder.label "Add A Photo" %>
+            <%= builder.label "Add A Photo" %><br/>
             <%= builder.file_field :upload %>
           </p>
         <% end %>

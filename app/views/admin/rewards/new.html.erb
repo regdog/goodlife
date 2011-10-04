@@ -5,7 +5,7 @@
     <%= form_for @reward, :url => {:action => "create"}, :html => { :multipart => true } do |f| %>
       <p>
         <%= f.label "Category" %><br/>
-        <%= collection_select :reward, :category_id, RewardCategory.all, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
+        <%= collection_select :reward, :category_id, Category.rewards, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
       </p>
       <p>
         <%= f.label "Name" %><br/>
@@ -17,7 +17,7 @@
       </p>
       <p>
         <%= f.label "redeem point" %><br/>
-        <%= f.text_field :redeem_point %>
+        <%= f.text_field :redeem_points %>
       </p>
       <p>
         <%= f.label "save money" %><br/>

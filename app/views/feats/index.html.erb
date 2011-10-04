@@ -1,12 +1,12 @@
 <% tableize @feats,
             :name => 'feats',
-            :header => 'Listing Feats',
-            :cols => 3,
+            #:header => 'Listing Feats',
+            :cols => 5,
             :generate_css => 'true' do |feat| %>
 
     <h3><%= link_to "!#{feat.title}", :action => 'show', :id => feat.id %></h3>
     <p><%= image_tag feat.image.url(:medium) if feat.image %></p>
     <p><%= raw truncate feat.description, :length => 30, :separator => ' ' %></p>
-    <%= link_to 'did it', :action => :checkin, :feat_id => feat.id if current_user %>
+    <%= link_to 'did it', checkin_feat_path(feat) if current_user %>
 
 <% end %>

@@ -1,6 +1,7 @@
 <% tableize @rewards,
             :name => 'rewards',
-            :header => 'Listing Rewards',
+            #:header => 'Listing Rewards',
+            :cols => 5,
             :generate_css => 'true' do |reward| %>
 
     <h3><%= link_to reward.name, :action => 'show', :id => reward.id %></h3>

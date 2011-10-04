@@ -28,10 +28,11 @@ render_tabnav :rewards,
   add_tab do |t|
     t.named 'All'
     t.titled 'All Rewards'
-    t.links_to :controller => :rewards
+    t.links_to all_rewards_path
+    t.highlights_on :controller => 'rewards', :action => 'all'
   end
 
-   RewardCategory.all.each do |c|
+   Category.rewards.all.each do |c|
      add_tab do |t|
        t.named c.name.camelize
        t.titled "Go to #{c.name.camelize}"

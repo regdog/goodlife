@@ -27,17 +27,20 @@ render_tabnav :checkins,
 
   add_tab do |t|
     t.named 'my team'
-    t.links_to :controller => :checkins, :action => :show_my_team
+    t.links_to checkins_path
+    t.highlights_on :controller => 'checkins', :action => 'index'
   end
 
    add_tab do |t|
     t.named 'my challenges'
-    t.links_to :controller => :checkins, :action => :show_my_challenges
+    t.links_to my_challenges_checkins_path
+    t.highlights_on :controller => 'checkins', :action => 'my_challenges'
    end
 
     add_tab do |t|
     t.named 'everybody'
-    t.links_to :controller => :checkins, :action => :all
+    t.links_to all_checkins_path
+    t.highlights_on :controller => 'checkins', :action => 'all'
    end
 
   #add_tab do |t|

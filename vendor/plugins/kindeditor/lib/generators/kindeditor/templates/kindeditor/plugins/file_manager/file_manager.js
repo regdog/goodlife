@@ -107,7 +107,7 @@ KE.event.ready(function() {
 		var result = KE.util.parseJson(responseText);
 		createCommon(result, createList);
 		var table = KE.$$('table', document);
-		table.className = 'file-list-table';
+		table.className = 'file-index-table';
 		table.cellPadding = 0;
 		table.cellSpacing = 2;
 		table.border = 0;

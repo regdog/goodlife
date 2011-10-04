@@ -31,11 +31,6 @@ render_tabnav :feats,
   end
 
   add_tab do |t|
-    t.named 'Checkins'
-    t.links_to :controller => "admin/checkins"
-  end
-
-  add_tab do |t|
     t.named 'Feats'
     t.links_to :controller => "admin/feats"
   end
@@ -52,19 +47,19 @@ render_tabnav :feats,
 
    add_tab do |t|
     t.named 'Content'
-    t.links_to :controller => "admin/content_nodes"
+    t.links_to :controller => "admin/contents"
    end
 
    add_tab do |t|
-    t.named 'Tags'
-    t.links_to :controller => "admin/tags"
+    t.named 'Categories'
+    t.links_to :controller => "admin/categories"
    end
 
-   #add_tab do |t|
-   # t.named 'Users'
-   # t.links_to :controller => "admin/dashboard"
-   #end
-   #
+   add_tab do |t|
+   t.named 'Users'
+   t.links_to :controller => "admin/users"
+   end
+
    #add_tab do |t|
    # t.named 'Settings'
    # t.links_to :controller => "admin/dashboard"

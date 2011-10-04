@@ -1,14 +1,9 @@
 class Admin::FeatsController < Admin::BaseController
   def index
-    list
-    render :action => 'list'
-  end
-
-  def list
     @search = Feat.search(params[:search])
     if params[:type]
       @view_by = params[:type]
-      @category = FeatCategory.find_by_name(params[:type])
+      @category = Category.feats.find_by_name(params[:type])
       if @category
         @feats = @category.feats
       end
