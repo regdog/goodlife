@@ -5,10 +5,10 @@ class Admin::RewardsController < Admin::BaseController
       @view_by = params[:type]
       @category = Category.rewards.find_by_name(params[:type])
       if @category
-        @rewards = @category.rewards
+        @rewards = @category.rewards.page(params[:page])
       end
     else
-      @rewards = Reward.all
+      @rewards = Reward.order(:name).page(params[:page])
     end
   end
 

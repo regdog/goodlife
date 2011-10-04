@@ -5,10 +5,10 @@ class Admin::FeatsController < Admin::BaseController
       @view_by = params[:type]
       @category = Category.feats.find_by_name(params[:type])
       if @category
-        @feats = @category.feats
+        @feats = @category.feats.page(params[:page]).per(8)
       end
     else
-      @feats = Feat.all
+      @feats = Feat.order(:title).page(params[:page]).per(8)
     end
   end
 
