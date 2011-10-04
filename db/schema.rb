@@ -10,12 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003131823) do
+ActiveRecord::Schema.define(:version => 20111004072737) do
 
   create_table "accepted_challenges", :force => true do |t|
     t.integer  "user_id"
     t.integer  "challenge_id"
-    t.datetime "created_at"
+    t.datetime "accepted_on"
+    t.datetime "completed_on"
   end
 
   add_index "accepted_challenges", ["user_id"], :name => "index_accepted_challenges_on_user_id"
@@ -36,6 +37,17 @@ ActiveRecord::Schema.define(:version => 20111003131823) do
   end
 
   add_index "categories", ["name", "category_type"], :name => "index_categories_on_name_and_category_type", :unique => true
+
+  create_table "challenge_todos", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "challenge_id"
+    t.integer  "feat_id"
+    t.datetime "start_on"
+    t.datetime "end_on"
+    t.datetime "created_at"
+  end
+
+  add_index "challenge_todos", ["user_id", "challenge_id"], :name => "index_challenge_todos_on_user_id_and_challenge_id"
 
   create_table "challenges", :force => true do |t|
     t.string   "name",                        :null => false
@@ -64,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20111003131823) do
     t.integer  "public"
     t.string   "user_ip"
     t.datetime "created_at"
+    t.integer  "challenge_id"
   end
 
   add_index "checkins", ["user_id"], :name => "index_checkins_on_user_id"
@@ -78,18 +91,18 @@ ActiveRecord::Schema.define(:version => 20111003131823) do
   end
 
   create_table "contents", :force => true do |t|
+    t.integer  "category_id"
     t.integer  "user_id"
-    t.string   "permalink",                                 :null => false
-    t.string   "title",      :limit => 100, :default => "", :null => false
-    t.text     "content",                                   :null => false
-    t.datetime "display_on",                                :null => false
-    t.string   "type",       :limit => 50,                  :null => false
+    t.string   "permalink",                                    :null => false
+    t.string   "title",       :limit => 100, :default => "",   :null => false
+    t.text     "content",                                      :null => false
+    t.boolean  "draft",                      :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "contents", ["id"], :name => "type"
   add_index "contents", ["permalink"], :name => "index_content_nodes_on_permalink", :unique => true
-  add_index "contents", ["type", "id"], :name => "type"
 
   create_table "feats", :force => true do |t|
     t.integer  "category_id"
@@ -113,19 +126,19 @@ ActiveRecord::Schema.define(:version => 20111003131823) do
   end
 
   create_table "partners", :force => true do |t|
+    t.integer  "category_id"
     t.string   "name",        :null => false
     t.text     "description"
     t.string   "website"
     t.string   "country"
     t.string   "region"
     t.string   "city"
+    t.string   "street"
     t.string   "zip"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "street"
   end
 
   create_table "redemptions", :force => true do |t|
