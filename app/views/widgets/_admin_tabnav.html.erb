@@ -36,6 +36,11 @@ render_tabnav :feats,
   end
 
   add_tab do |t|
+    t.named 'Challenges'
+    t.links_to :controller => "admin/challenges"
+  end
+
+  add_tab do |t|
     t.named 'Rewards'
     t.links_to :controller => "admin/rewards"
   end

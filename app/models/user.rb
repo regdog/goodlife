@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   has_many :checkins
   has_many :wishes
   has_many :redemptions
-  has_many :challenges, :class_name => "AcceptedChallenge"
+  has_many :challenges, :as => :creator
+  has_many :accepted_challenges
 
 
   # all other people checkins with same feats of my challenges

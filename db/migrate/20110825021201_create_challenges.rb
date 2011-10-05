@@ -1,6 +1,7 @@
 class CreateChallenges < ActiveRecord::Migration
   def self.up
     create_table :challenges do |t|
+      t.references  :creator, :polymorphic => true
       t.string      :name, :null => false
       t.text        :description, :null => false
       t.integer     :bonus_points

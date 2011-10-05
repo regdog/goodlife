@@ -7,6 +7,4 @@ class Feat < ActiveRecord::Base
   accepts_nested_attributes_for :image, :allow_destroy => true
 
   default_scope order('checkin_count DESC')
-
-
 end

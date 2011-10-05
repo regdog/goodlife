@@ -15,9 +15,9 @@ gem "nifty-generators", :group => :development
 gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'meta_search'
 gem 'kaminari'
-gem 'simple_form'
 gem 'paperclip', '~> 2.3.16'
 gem 'rails-permalink'
+gem 'formtastic'
 
 # Use unicorn as the web server
 # gem 'unicorn'
