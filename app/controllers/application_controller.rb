@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   layout :layout_by_resource
   protect_from_forgery
-  before_filter :find_my_team, :load_corp_pages
+  before_filter :find_my_team #, :load_corp_pages
 
   def find_my_team
     if current_user

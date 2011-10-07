@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
   add_index "challenge_todos", ["user_id", "challenge_id"], :name => "index_challenge_todos_on_user_id_and_challenge_id"
 
   create_table "challenges", :force => true do |t|
+    t.integer  "creator_id"
+    t.string   "creator_type"
     t.string   "name",                        :null => false
     t.text     "description",                 :null => false
     t.integer  "bonus_points"
@@ -101,12 +103,11 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
     t.datetime "updated_at"
   end
 
-  add_index "contents", ["id"], :name => "type"
-  add_index "contents", ["permalink"], :name => "index_content_nodes_on_permalink", :unique => true
+  add_index "contents", ["permalink"], :name => "index_contents_on_permalink", :unique => true
 
   create_table "feats", :force => true do |t|
     t.integer  "category_id"
-    t.string   "title",         :limit => 20,                :null => false
+    t.string   "name",          :limit => 20,                :null => false
     t.string   "description",   :limit => 60,                :null => false
     t.text     "why"
     t.text     "how"
@@ -133,12 +134,12 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
     t.string   "country"
     t.string   "region"
     t.string   "city"
-    t.string   "street"
     t.string   "zip"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "street"
   end
 
   create_table "redemptions", :force => true do |t|

@@ -32,7 +32,10 @@ GoodLife::Application.routes.draw do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
     root :to => "dashboard#index"
-    resources :feats, :rewards, :challenges, :partners, :categories, :contents
+    resources :feats do
+      get 'feat_tokens', :on => :collection
+    end
+    resources :rewards, :challenges, :partners, :categories, :contents
     resources :users, :only => [:index, :show, :destroy]
   end
 

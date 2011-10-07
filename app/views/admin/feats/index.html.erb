@@ -14,7 +14,7 @@
         </tr>
         <% for feat in @feats %>
           <tr>
-            <td><%= link_to feat.title, edit_admin_feat_path(feat) %></td>
+            <td><%= link_to feat.name, edit_admin_feat_path(feat) %></td>
             <td><%= feat.description %></td>
             <td><%= feat.checkin_count %></td>
             <td><%= feat.bonus_points %></td>
@@ -31,7 +31,7 @@
             <div class="screenshot"><%= link_to image_tag("/assets/episodes/stills/dd.png", :size => "200x125"), feat %></div>
             <div class="title">
               #<%= feat.id %>
-              <%= link_to feat.title, feats_path %>
+              <%= link_to feat.name, feats_path %>
             </div>
           </div>
         <% end %>
@@ -44,8 +44,8 @@
     <h3>Search Feat</h3>
     <%= form_for @search,:url => admin_feats_path, :html => {:method=>'get'} do |f| %>
 	  <p>
-        <%= f.label :title_or_description_contains %>
-		<%= f.text_field :title_or_description_contains %>
+        <%= f.label :name_or_description_contains %>
+		<%= f.text_field :name_or_description_contains %>
       </p>
 	  <p>
         <%= f.label :category_name_contains %>

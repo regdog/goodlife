@@ -1,52 +1,19 @@
 <div class="row">
   <div class="column grid_10">
-    <h1>Edit Feat</h1>
-    <p><%= link_to "View on this site", {:controller => "/feats", :action => :show, :id => @feat.id}, :target => "_blank"  %></p>
-    <p><a href="/admin/feats">&laquo; Back to Feat List</a></p>
-    <%= form_for @feat, :url => { :action => "update" }, :html => { :multipart => true }  do |f| %>
-      <p>
-        <%= f.label "Category" %><br/>
-        <%= collection_select :feat, :category_id, Category.feats, :id, :name, :prompt => true %>
-      </p>
-      <p>
-        <%= f.label "Title" %><br/>
-        <%= f.text_field :title %>
-      </p>
-      <p>
-        <%= f.label "Description" %><br/>
-        <%= f.text_field :description %>
-      </p>
-      <p>
-        <%= f.label "Why" %><br/>
-        <%= f.text_area :why, :size => "80x10", :id => "kindeditor" %>
-      </p>
-      <p>
-        <%= f.label "How" %><br/>
-        <%= f.text_area :how, :size => "80x10", :id => "kindeditor1" %>
-      </p>
-      <p>
-        <%= f.label "Points" %><br/>
-        <%= f.text_field :bonus_points %>
-      </p>
-      <div class="PaperclipFiles">
-          <% if @feat.image.nil? %>
-            <%= f.fields_for :image, @feat.build_image do |image_form| %>
-              <p>
-                <%= image_form.label "Add A Photo" %>
-                <%= image_form.file_field :upload %>
-              </p>
-            <% end %>
-          <% else %>
-            <p><%= image_tag @feat.image.url(:small) %></p>
-            <%= f.fields_for :image do |image_form| %>
-              <p>
-                <%= image_form.label "Change A Photo" %>
-                <%= image_form.file_field :upload %>
-              </p>
-            <% end %>
-          <% end %>
-      </div>
-      <p><%= f.submit %></p>
+    <h1>Edit Challenge</h1>
+    <p><a href="/admin/challenges">&laquo; Back to Challenge List</a></p>
+    <%= semantic_form_for @challenge, :url => {:action => "update"}, :html => { :multipart => true } do |f| %>
+      <%= f.inputs do %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%#= f.input :feat_tokens, "data-pre" => @challenge.feats.map(&:attributes).to_json %>
+        <%= f.label "Feats" %>
+        <%= f.text_field :feat_tokens, "data-pre" => @challenge.feats.map(&:attributes).to_json %>
+        <%= f.input :start_on %>
+        <%= f.input :end_on %>
+        <%= f.input :bonus_points %>
+      <% end %>
+      <%= f.buttons :commit %>
     <% end %>
   </div>
 </div>
