@@ -11,7 +11,7 @@ class Admin::CategoriesController < Admin::BaseController
       @categories = Category.find_all_by_category_type(@view_by)
     else
       @view_by = "Feat"
-      @categories = Category.feats
+      @categories = Category.feat_category
     end
   end
 

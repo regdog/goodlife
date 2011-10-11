@@ -3,7 +3,8 @@ class CreateAcceptedChallenges < ActiveRecord::Migration
     create_table :accepted_challenges do |t|
       t.references :user
       t.references :challenge
-      t.datetime :created_at
+      t.datetime :accepted_on
+      t.datetime :complete_on
     end
 
     add_index :accepted_challenges, :user_id

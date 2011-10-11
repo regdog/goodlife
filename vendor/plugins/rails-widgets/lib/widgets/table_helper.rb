@@ -13,8 +13,8 @@ module Widgets
     # +:html+ table html attributes (+:class+, +:id+)
     # +:name+ name of table (dafault +:main+)
     #
-    #   <% tableize @users, :name => 'credential', :html => {:class => 'people'}, :cols => 2 do |user| -%>
-    #     login: <%= user.name %>
+    #   <% tableize @users, :name => 'credential', :html => {:class => 'people'}, :cols => 2 do |users| -%>
+    #     login: <%= users.name %>
     #   <% end -%>
     #
     #    # => <table id="credential_table" class="people"><tbody><tr>

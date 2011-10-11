@@ -3,7 +3,7 @@ class Admin::PartnersController < Admin::BaseController
     @search = Partner.search(params[:search])
     if params[:type]
       @view_by = params[:type]
-      @category = Category.partners.find_by_name(params[:type])
+      @category = Category.partner_category.find_by_name(params[:type])
       @partners = @category.partners if @category
     else
       @partners = Partner.all

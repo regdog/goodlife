@@ -2,7 +2,7 @@ class Admin::ContentsController < Admin::BaseController
   def index
     if params[:type] && Category.contents.include?(params[:type])
       @view_by = params[:type]
-      @category = Category.contents.find_by_name(params[:type])
+      @category = Category.content_category.find_by_name(params[:type])
     else
       @contents = Content.all
     end

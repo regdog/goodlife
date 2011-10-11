@@ -10,16 +10,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111004072737) do
+ActiveRecord::Schema.define(:version => 20111005072737) do
 
   create_table "accepted_challenges", :force => true do |t|
     t.integer  "user_id"
     t.integer  "challenge_id"
     t.datetime "accepted_on"
-    t.datetime "completed_on"
+    t.datetime "complete_on"
   end
 
   add_index "accepted_challenges", ["user_id"], :name => "index_accepted_challenges_on_user_id"
+
+  create_table "admin_users", :force => true do |t|
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
+  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -38,16 +56,12 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
 
   add_index "categories", ["name", "category_type"], :name => "index_categories_on_name_and_category_type", :unique => true
 
-  create_table "challenge_todos", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "challenge_id"
-    t.integer  "feat_id"
-    t.datetime "start_on"
-    t.datetime "end_on"
-    t.datetime "created_at"
+  create_table "challenge_checkin", :id => false, :force => true do |t|
+    t.integer "challenge_id"
+    t.integer "checkin_id"
   end
 
-  add_index "challenge_todos", ["user_id", "challenge_id"], :name => "index_challenge_todos_on_user_id_and_challenge_id"
+  add_index "challenge_checkin", ["challenge_id", "checkin_id"], :name => "index_challenge_checkin_on_challenge_id_and_checkin_id", :unique => true
 
   create_table "challenges", :force => true do |t|
     t.integer  "creator_id"
@@ -65,27 +79,26 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
   add_index "challenges", ["name"], :name => "index_challenges_on_name", :unique => true
 
   create_table "challenges_feats", :id => false, :force => true do |t|
-    t.integer  "feat_id"
-    t.integer  "challenge_id"
-    t.boolean  "completed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "feat_id"
+    t.integer "challenge_id"
   end
 
+  add_index "challenges_feats", ["challenge_id", "feat_id"], :name => "index_challenges_feats_on_challenge_id_and_feat_id", :unique => true
+
   create_table "checkins", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "feat_id"
+    t.integer  "user_id",    :null => false
+    t.integer  "feat_id",    :null => false
+    t.text     "memo"
     t.integer  "public"
     t.string   "user_ip"
-    t.datetime "created_at"
-    t.integer  "challenge_id"
+    t.datetime "checkin_at"
   end
 
   add_index "checkins", ["user_id"], :name => "index_checkins_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "checkin_id"
-    t.integer  "user_id"
+    t.integer  "users_id"
     t.text     "content"
     t.string   "user_ip"
     t.datetime "created_at"
@@ -134,13 +147,22 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
     t.string   "country"
     t.string   "region"
     t.string   "city"
-    t.string   "zip"
+    t.string   "street"
+    t.string   "zip_code"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "street"
   end
+
+  create_table "planned_todos", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "feat_id"
+    t.string   "frequency"
+    t.datetime "created_at"
+  end
+
+  add_index "planned_todos", ["user_id", "feat_id"], :name => "index_planned_todos_on_user_id_and_feat_id", :unique => true
 
   create_table "redemptions", :force => true do |t|
     t.integer  "user_id"
@@ -162,6 +184,7 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
 
   create_table "rewards", :force => true do |t|
     t.integer  "category_id"
+    t.integer  "partner_id"
     t.string   "name",                                                       :null => false
     t.text     "description",                                                :null => false
     t.integer  "redeem_points"
@@ -169,7 +192,6 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
     t.integer  "redeem_count",                                :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "partner_id"
   end
 
   create_table "sessions", :force => true do |t|
@@ -182,15 +204,6 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
-  create_table "todos", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "feat_id"
-    t.integer  "frequency"
-    t.datetime "created_at"
-  end
-
-  add_index "todos", ["user_id"], :name => "index_todos_on_user_id"
-
   create_table "uploads", :force => true do |t|
     t.integer  "attachable_id"
     t.string   "attachable_type"
@@ -202,6 +215,13 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
   end
 
   add_index "uploads", ["attachable_id", "attachable_type"], :name => "index_uploads_on_attachable_id_and_attachable_type"
+
+  create_table "user_wishes", :force => true do |t|
+    t.integer "user_id"
+    t.integer "reward_id"
+  end
+
+  add_index "user_wishes", ["user_id", "reward_id"], :name => "index_user_wishes_on_user_id_and_reward_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -237,13 +257,5 @@ ActiveRecord::Schema.define(:version => 20111004072737) do
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
-
-  create_table "wishes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "reward_id"
-    t.datetime "created_at"
-  end
-
-  add_index "wishes", ["user_id"], :name => "index_wishes_on_user_id"
 
 end

@@ -1,11 +1,24 @@
 GoodLife::Application.routes.draw do
+  get "challenges/new"
+
+  get "challenges/create"
+
+  get "challenges/index"
+
+  get "challenges/accept"
+
+  get "challenges/leave"
+
   root :to => "welcome#index"
 
-  devise_for :user, :controllers => {:omniauth_callbacks=>'user/omniauth_callbacks'} do
+  devise_for :users, :controllers => {:omniauth_callbacks=>'users/omniauth_callbacks'} do
     get 'profile', :to => "devise/registrations#edit", :as=>'profile'
   end
-  match '/user' => "feats#index", :as => :user_root
+  match '/users' => "feats#index", :as => :user_root
+
   resources :authentications
+
+  devise_for :admin_users
 
   resources :feats, :only => [:index, :show] do
     get 'checkin', :on => :member

@@ -3,7 +3,7 @@ class Admin::RewardsController < Admin::BaseController
     @search = Reward.search(params[:search])
     if params[:type]
       @view_by = params[:type]
-      @category = Category.rewards.find_by_name(params[:type])
+      @category = Category.reward_category.find_by_name(params[:type])
       if @category
         @rewards = @category.rewards.page(params[:page])
       end

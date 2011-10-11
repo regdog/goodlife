@@ -9,12 +9,50 @@
   <%= kindeditor_javacript_include_tag %>
   <meta charset="utf-8">
   <%= csrf_meta_tag %>
+  <style type="text/css">
+    .admin_navigation {
+        margin: 0px 5px 0px auto;
+        float:right;
+    }
+    .admin_navigation ul {
+        padding: 0;
+        margin: 0;
+        text-align: right;
+    }
+    .admin_navigation li {
+        display:inline;
+        padding: 0;
+        margin: 0;
+    }
+    .admin_navigation li span.disabled {
+        color: #888888;
+    }
+    .admin_navigation a, .admin_navigation a:visited, .admin_navigation a:hover {
+        border: none;
+        padding:0;
+        margin:0;
+        font-weight: normal;
+    color: #000000;
+    }
+    .admin_navigation a:hover {
+        font-weight: normal;
+        color: #CB4415;
+    }
+    .admin_navigation a.active {
+        font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 <div id="wrapper">
   <div class="row" id="header">
     <div class="column grid_14">
-      <%= navigation :admin %>
+      <div id="admin_navigation" class="admin_navigation">
+        <ul>
+          <li><%= link_to "Public Site", root_path %></li>
+          <li><%= link_to "Sign Out", destroy_admin_user_session_path, :method => :delete %></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="row" id="content">

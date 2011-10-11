@@ -19,6 +19,7 @@ gem 'paperclip', '~> 2.3.16'
 gem 'rails-permalink'
 gem 'formtastic'
 gem 'jquery-rails'
+gem 'cancan'
 
 # Use unicorn as the web server
 # gem 'unicorn'

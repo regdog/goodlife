@@ -9,7 +9,7 @@ class Admin::ChallengesController < Admin::BaseController
   end
 
   def create
-    @challenge = Challenge.new(params[:challenge])
+    @challenge = Challenge.new(params[:challenges])
 
     if @challenge.save
       redirect_to :action => "index"
@@ -26,7 +26,7 @@ class Admin::ChallengesController < Admin::BaseController
   def update
     @challenge = Challenge.find(params[:id])
 
-    if @challenge.update_attributes(params[:challenge])
+    if @challenge.update_attributes(params[:challenges])
       redirect_to :action => "index"
     else
       redirect_to :action => "edit"

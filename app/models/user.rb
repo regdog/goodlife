@@ -13,37 +13,107 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :remember_me
   validates_presence_of :name, :if => :name_required?
   validates_uniqueness_of :name
-  
+
+  # my authentications
   has_many :authentications, :dependent => :destroy
-  has_many :todos
-  has_many :checkins
-  has_many :wishes
-  has_many :redemptions
-  has_many :challenges, :as => :creator
+  # my planned feats
+  has_many :planned_todos
+  has_many :planned_feats, :through => :planned_todos, :source => :feat
+  # my challenges
   has_many :accepted_challenges
+  has_many :challenges, :through => :accepted_challenges
+  # my checkins
+  has_many :checkins
+  # my reward wishlist
+  has_many :user_wishes
+  has_many :wishes, :through => :user_wishes, :source => :reward
+  # my redemptions
+  has_many :redemptions
 
 
-  # all other people checkins with same feats of my challenges
-  def others_checkins_with_same_feats_of_my_challenges
-    challenge_ids = self.challenges.map{|x|x.id}.flatten
-    Checkin.all_for_challenges(challenge_ids).uniq.delete_if{|x| x.user_id == self.id}
+  ## all other people checkins with same feats of my challenges
+  #def others_checkins_with_same_feats_of_my_challenges
+  #  challenge_ids = self.challenges.map{|x|x.id}.flatten
+  #  Checkin.all_for_challenges(challenge_ids).uniq.delete_if{|x| x.user_id == self.id}
+  #end
+  #
+  ## all my challenges contains the feat
+  #def challenges_by_feat(feat)
+  #  self.challenges.delete_if{|x| not feat.challenges.include?(x)}
+  #end
+
+  # checkin a feat
+  def checkin(feat)
+    checkin = Checkin.new(:user_id => self.id, :feat_id => feat.id)
+    if checkin.save
+      self.checkins << checkin
+      self.save
+      self.challenges.each do |challenge|
+        if challenge.feats.include?(feat)
+          challenge_checkin = ChallengeCheckin.new
+          challenge_checkin.challenge_id = challenge.id
+          challenge_checkin.checkin_id = checkin.id
+          challenge_checkin.save
+        end
+      end
+    end
   end
 
-  # all my challenges contains the feat
-  def challenges_by_feat(feat)
-    self.challenges.delete_if{|x| not feat.challenges.include?(x)}
-  end
-
-  # accept a challenge
+  # accept a challenges
   def accept_challenge(challenge)
     self.challenges << challenge
     self.save
   end
 
-  # leave a challenge
+  # leave a challenges
   def leave_challenge(challenge)
     self.challenges.delete(challenge)
     self.save
+  end
+
+  # invite a member
+  def request_membership(member)
+    self.request_friendship(member)
+    self.save
+  end
+
+  # accept a membership
+  def accept_membership(member)
+    self.accept_friendship(member)
+    self.save
+  end
+
+  # remove a membership
+  def remove_membership(member)
+    self.deny_friendship(member)
+    self.save
+  end
+
+  # members
+  def members
+    members = self.friends
+    members << self
+    members = members.sort_by {|m| [m.sign_in_count]}.reverse!
+    members.flatten
+  end
+
+  # add a reward to wishlist
+  def add_wish(reward)
+    wish = UserWish.new
+    wish.user_id = self.id
+    wish.reward_id = reward.id
+    wish.save
+  end
+
+  # remove a reward from wishlist
+  def remove_wish(reward)
+    wish = UserWish.find_by_reward_id(reward.id)
+    wish.destroy
+  end
+
+  # redeem a reward
+  def redeem_reward(reward)
+
   end
   
   # build omniauth
@@ -83,7 +153,7 @@ class User < ActiveRecord::Base
     result
   end
   
-  # insert data from omniauth into user registration build
+  # insert data from omniauth into users registration build
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session['devise.omniauth'] && session['devise.omniauth']['user_info']
@@ -94,11 +164,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  #load team member
-  def load_team_members
-    members = self.friends
-    members << self
-    members = members.sort_by {|m| [m.sign_in_count]}.reverse!
-    members.flatten
-  end
 end

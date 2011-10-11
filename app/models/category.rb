@@ -5,8 +5,8 @@ class Category < ActiveRecord::Base
   has_many :contents
 
   TYPES = ['Feat', 'Reward', 'Partner', 'Content']
-  scope :feats, where("category_type = 'Feat' ")
-  scope :rewards, where("category_type = 'Reward' ")
-  scope :partners, where("category_type = 'Partner' ")
-  scope :contents, where("category_type = 'Content' ")
+  scope :feat_category, where("category_type = 'Feat' ")
+  scope :reward_category, where("category_type = 'Reward' ")
+  scope :partner_category, where("category_type = 'Partner' ")
+  scope :content_category, where("category_type = 'Content' ")
 end

@@ -52,7 +52,7 @@
         <div>
         <% Feat.limit(3).each do |f| %>
           <p>
-          <span><%="!#{f.title}" %></span>
+          <span><%="!#{f.name}" %></span>
           <span><%="#{f.bonus_points} points" %></span>
           </p>
         <% end %>
@@ -75,7 +75,7 @@
     <div class="row">
        <div class="column grid_3">
          <h3>my team ranking</h3>
-         <% @my_team.each do |m| %>
+         <% current_user.members.each do |m| %>
           <p>
           <span><%= "#{m.name} #{m.sign_in_count}" %></span>
           </p>

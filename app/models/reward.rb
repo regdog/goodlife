@@ -1,24 +1,16 @@
 class Reward < ActiveRecord::Base
   belongs_to :category
   belongs_to :partner
-  has_many :wishes
+  has_many :user_wishes
+  has_many :wanted_users, :through => :user_wishes, :source => :user
 
   has_one :image, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :image, :allow_destroy => true
 
-  default_scope order('redeem_count DESC')
+  #scope :locals, where()
+  #scope :premium, where()
 
-  #def category_id
-  #  unless self.categories.empty?
-  #    category = self.categories[0]
-  #    category.id
-  #  else
-  #    0
-  #  end
-  #end
-  #
-  #def category_id=(id)
-  #  self.taggings.clear if !self.categories.empty?
-  #  self.categories << RewardCategory.find(id) if !id.nil?
+  #def partner_tokens=(ids)
+  #  self.partner_id = ids.split(",")
   #end
 end

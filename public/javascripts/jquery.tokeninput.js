@@ -200,7 +200,8 @@ $.TokenList = function (input, url_or_data, settings) {
             $(this).val("");
         })
         .bind("keyup keydown blur update", resize_input)
-        .keydown(function (event) {
+    //    .keydown(function (event) {      // hack for solving chinese issue
+        .bind("keyup text", function (event) {
             var previous_token;
             var next_token;
 
@@ -485,7 +486,7 @@ $.TokenList = function (input, url_or_data, settings) {
         return this_token;
     }
 
-    // Add a token to the token list based on user input
+    // Add a token to the token list based on users input
     function add_token (item) {
         var callback = settings.onAdd;
 

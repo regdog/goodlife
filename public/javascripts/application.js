@@ -5,6 +5,7 @@
 $(function () {
   $('#challenge_feat_tokens').tokenInput('/admin/feats/feat_tokens.json', {
       crossDomain: false,
+      preventDuplicates: true,
       prePopulate: $('#challenge_feat_tokens').data('pre')
 //      theme: 'facebook'
   });

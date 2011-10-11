@@ -8,7 +8,8 @@ class CreatePartners < ActiveRecord::Migration
       t.string :country
       t.string :region
       t.string :city
-      t.string :zip
+      t.string :street
+      t.string :zip_code
       t.float :latitude
       t.float :longitude
       t.timestamps

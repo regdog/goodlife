@@ -11,14 +11,14 @@ class CreateChallenges < ActiveRecord::Migration
       t.timestamps
     end
 
+    add_index :challenges, :name, :unique => true
+
     create_table :challenges_feats, :id => false do |t|
       t.references  :feat
       t.references  :challenge
-      t.boolean :completed
-      t.timestamps
     end
 
-    add_index :challenges, :name, :unique => true
+    add_index :challenges_feats, [:challenge_id, :feat_id], :unique => true
   end
 
   def self.down

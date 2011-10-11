@@ -5,7 +5,7 @@ class Admin::FeatsController < Admin::BaseController
     @search = Feat.search(params[:search])
     if params[:type]
       @view_by = params[:type]
-      @category = Category.feats.find_by_name(params[:type])
+      @category = Category.feat_category.find_by_name(params[:type])
       if @category
         @feats = @category.feats.page(params[:page]).per(8)
       end
@@ -51,7 +51,12 @@ class Admin::FeatsController < Admin::BaseController
   end
 
   def feat_tokens
-    @feats = Feat.where("name like ?", "%#{params[:q]}%").order(:name)
+    if !params[:q]
+      @feats = Feat.all
+    else
+      @feats = Feat.where("name like ?", "%#{params[:q]}%").order(:name)
+    end
+
     ActiveRecord::Base.include_root_in_json = false
     respond_with(@feats.to_json(:only=>[:id, :name]))
   end

@@ -6,7 +6,11 @@
     <%= form_for @reward, :url => { :action => "update" }, :html => { :multipart => true } do |f| %>
       <p>
         <%= f.label "Category" %><br/>
-        <%= collection_select :reward, :category_id, RewardCategory.all, :id, :name, :prompt => true %>
+        <%= collection_select :reward, :category_id, Category.reward_category, :id, :name, :prompt => true %>
+      </p>
+      <p>
+        <%= f.label "Partner" %><br/>
+        <%= collection_select :reward, :partner_id, Partner.all, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
       </p>
       <p>
         <%= f.label "Name" %><br/>
@@ -17,8 +21,8 @@
         <%= f.text_area :description, :size => "80x20", :id => "kindeditor" %>
       </p>
       <p>
-        <%= f.label "redeem point" %><br/>
-        <%= f.text_field :redeem_point %>
+        <%= f.label "redeem points" %><br/>
+        <%= f.text_field :redeem_points %>
       </p>
       <p>
         <%= f.label "save money" %><br/>

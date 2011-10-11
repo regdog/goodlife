@@ -5,7 +5,7 @@
     <%= form_for @content, :url => {:action => "update"}, :html => { :multipart => true } do |f| %>
       <p>
         <%= f.label "Category" %><br/>
-        <%= collection_select :content, :category_id, Category.contents, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
+        <%= collection_select :content, :category_id, Category.content_category, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
       </p>
       <p>
         <%= f.label "Title" %><br/>

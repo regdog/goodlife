@@ -1,6 +1,7 @@
 class Admin::BaseController < ApplicationController
   layout 'admin'
-  #before_filter :authenticate_administrator!
+
+  before_filter :authenticate_admin_user!
   #before_filter :ssl_required
   #
   ## Check permissions for everything on the admin side.

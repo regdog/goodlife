@@ -15,7 +15,7 @@ render_navigation :admin, :generate_css => true do
     add_item do |i|
       i.named 'Logout'
       # i.titled 'contribute to the wiki!'
-      i.links_to root_path
+      i.links_to :controller => "devise/sessions", :action => "destroy", :method => "destroy"
     end
     
     # you can pass add_item a block to just like the tabnav!
