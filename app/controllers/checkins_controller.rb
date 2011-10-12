@@ -1,12 +1,11 @@
 class CheckinsController < ApplicationController
 
   def index
-    @checkins = Checkin.all
     redirect_to latest_checkins_path
   end
 
   def latest
-    @checkins = Checkin.all
+    @checkins = Checkin.order("created_at DESC").all
     render :index
   end
 
