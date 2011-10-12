@@ -6,7 +6,7 @@ class CreateCheckins < ActiveRecord::Migration
       t.text :memo
       t.integer :public
       t.string :user_ip
-      t.datetime :checkin_at
+      t.datetime :created_at
     end
 
     add_index :checkins, :user_id

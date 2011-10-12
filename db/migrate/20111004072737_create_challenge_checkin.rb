@@ -1,14 +1,14 @@
 class CreateChallengeCheckin < ActiveRecord::Migration
   def self.up
-    create_table :challenge_checkin, :id => false do |t|
+    create_table :challenges_checkins, :id => false do |t|
       t.references :challenge
       t.references :checkin
     end
 
-    add_index :challenge_checkin, [:challenge_id, :checkin_id], :unique => true
+    add_index :challenges_checkins, [:challenge_id, :checkin_id], :unique => true
   end
 
   def self.down
-    drop_table :challenge_checkin
+    drop_table :challenges_checkins
   end
 end

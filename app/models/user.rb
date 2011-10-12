@@ -48,14 +48,13 @@ class User < ActiveRecord::Base
     if checkin.save
       self.checkins << checkin
       self.save
-      self.challenges.each do |challenge|
-        if challenge.feats.include?(feat)
-          challenge_checkin = ChallengeCheckin.new
-          challenge_checkin.challenge_id = challenge.id
-          challenge_checkin.checkin_id = checkin.id
-          challenge_checkin.save
+      challenge_ids = checkin.challenge_ids
+      self.uncompleted_challenges.each do |challenge|
+        if challenge.uncompleted_feat?(feat)
+          challenge_ids << challenge.id
         end
       end
+      checkin.update_attributes(:challenge_ids => challenge_ids)
     end
   end
 
@@ -89,6 +88,16 @@ class User < ActiveRecord::Base
   def leave_challenge(challenge)
     self.challenges.delete(challenge)
     self.save
+  end
+
+  # uncompleted challenges
+  def uncompleted_challenges
+    uncompleted ||= []
+    self.challenges.each do |challenge|
+      unless challenge.completed?
+        uncompleted << challenge
+      end
+    end
   end
 
   # invite a member

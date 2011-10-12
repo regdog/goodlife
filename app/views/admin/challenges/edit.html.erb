@@ -2,18 +2,40 @@
   <div class="column grid_10">
     <h1>Edit Challenge</h1>
     <p><a href="/admin/challenges">&laquo; Back to Challenge List</a></p>
-    <%= semantic_form_for @challenge, :url => {:action => "update"}, :html => { :multipart => true } do |f| %>
-      <%= f.inputs do %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%#= f.input :feat_tokens, "data-pre" => @challenges.feats.map(&:attributes).to_json %>
-        <%= f.label "Feats" %>
+    <%= form_for @challenge, :url => {:action => "update"}, :html => { :multipart => true } do |f| %>
+      <p>
+        <%= f.label "Name" %><br/>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label "Description" %><br/>
+        <%= f.text_field :description %>
+      </p>
+      <p>
+        <%= f.label "Select Feats" %><br/>
         <%= f.text_field :feat_tokens, "data-pre" => @challenge.feats.map(&:attributes).to_json %>
-        <%= f.input :start_on %>
-        <%= f.input :end_on %>
-        <%= f.input :bonus_points %>
-      <% end %>
-      <%= f.buttons :commit %>
+      </p>
+      <p>
+        <%#= f.label "Start On" %><br/>
+        <%#= f.datetime_select :start_on %>
+      </p>
+      <p>
+        <%#= f.label "End On" %><br/>
+        <%#= f.datetime_select :end_on %>
+      </p>
+      <p>
+        <%= f.label "Extra Points" %><br/>
+        <%= f.text_field :bonus_points %>
+      </p>
+      <div class="newPaperclipFiles">
+        <%= f.fields_for :image do |builder| %>
+          <p>
+            <%= builder.label "Add A Photo" %>
+            <%= builder.file_field :upload %>
+          </p>
+        <% end %>
+      </div>
+      <p><%= f.submit %></p>
     <% end %>
   </div>
 </div>

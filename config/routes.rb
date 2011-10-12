@@ -1,14 +1,4 @@
 GoodLife::Application.routes.draw do
-  get "challenges/new"
-
-  get "challenges/create"
-
-  get "challenges/index"
-
-  get "challenges/accept"
-
-  get "challenges/leave"
-
   root :to => "welcome#index"
 
   devise_for :users, :controllers => {:omniauth_callbacks=>'users/omniauth_callbacks'} do
@@ -31,8 +21,8 @@ GoodLife::Application.routes.draw do
 
   resources :checkins, :only => [:index] do
     collection do
-      get 'my_challenges'
-      get 'all'
+      get 'latest'
+      get 'epic'
     end
   end
 

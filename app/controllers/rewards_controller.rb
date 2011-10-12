@@ -2,7 +2,7 @@ class RewardsController < ApplicationController
 
   def index
     if params[:type]
-      @category = Category.rewards.find_by_name(params[:type]) if params[:type]
+      @category = Category.reward_category.find_by_name(params[:type]) if params[:type]
       if @category
         @rewards = @category.rewards
       end

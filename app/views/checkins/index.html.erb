@@ -3,7 +3,7 @@
             :header => 'Listing Checkins',
             :generate_css => 'true' do |checkin| %>
 
-     <h3><%= "#{checkin.user.name} did !#{checkin.feat.title}" %></h3>
+     <h3><%= "#{checkin.user.name} did !#{checkin.feat.name}" %></h3>
      <p>
        <%= checkin.feat.description %>
      </p>
