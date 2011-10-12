@@ -59,6 +59,26 @@ class User < ActiveRecord::Base
     end
   end
 
+  # team checkins
+  def team_checkins
+    checkins ||= []
+    member_ids ||= []
+    self.members.each do |member|
+      member_ids << member.id
+    end
+    checkins = Checkin.where("user_id in ?", member_ids)
+  end
+
+  # user's latest checkins
+  def latest_checkins
+    self.checkins
+  end
+
+  # user's epic checkins
+  def epic_checkins
+    self.checkins.epic
+  end
+
   # accept a challenges
   def accept_challenge(challenge)
     self.challenges << challenge
@@ -89,6 +109,11 @@ class User < ActiveRecord::Base
     self.save
   end
 
+  # pending requests?
+  def pending_requests
+    self.pending?
+  end
+
   # members
   def members
     members = self.friends
@@ -113,7 +138,10 @@ class User < ActiveRecord::Base
 
   # redeem a reward
   def redeem_reward(reward)
-
+    redemption = Redemption.new
+    redemption.user_id = self.id
+    redemption.reward_id = reward.id
+    redemption.save
   end
   
   # build omniauth

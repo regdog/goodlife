@@ -4,8 +4,10 @@ class Checkin < ActiveRecord::Base
   has_many :challenge_checkins
   has_many :challenges, :through => :challenge_checkins
 
-  scope :latest, order("created_at DESC")
-  scope :epic, where("char_length(memo) > 5").order("created_at DESC")
+  default_scope  order("created_at DESC")
+  scope :epic, where("char_length(memo) > 5")
+  #scope :latest, order("created_at DESC")
+  #scope :epic, where("char_length(memo) > 5").order("created_at DESC")
 
 
 ## c = Checkin.joins(:feat => :challenges).where(:challenges => {:id => 1})

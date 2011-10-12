@@ -7,8 +7,12 @@ class Feat < ActiveRecord::Base
 
   default_scope order('checkin_count DESC')
 
+  # scope latest checkins for a specific feat
+  # scope epic checkins for a specific feat
 
-  def conv_name
-    self.name.force_encoding('UTF-8')
-  end
+  # sort by most popular, newest, points, name
+
+  # planned feats: daily, weekly, weekend, feats I've done
+
+  #
 end

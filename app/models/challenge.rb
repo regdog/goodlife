@@ -10,7 +10,9 @@ class Challenge < ActiveRecord::Base
   #accepts_nested_attributes_for :feats, :reject_if => lambda { |a| a[:content].blank? }
   attr_reader :feat_tokens
 
-  default_scope order('name DESC')
+  # sort by date, popularity, points
+  default_scope order('created_at DESC')
+
 
   def feat_tokens=(ids)
     self.feat_ids = ids.split(",")
