@@ -6,7 +6,7 @@ class CreateFeats < ActiveRecord::Migration
       t.string        :description, :limit => 200
       t.text          :why
       t.text          :how
-      t.integer       :bonus_points, :default => 0
+      t.integer       :bonus_points, :limit => 3, :default => 0
       t.integer       :checkin_count, :default => 0
       t.timestamps
     end

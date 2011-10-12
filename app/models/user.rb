@@ -31,31 +31,19 @@ class User < ActiveRecord::Base
   has_many :redemptions
 
 
-  ## all other people checkins with same feats of my challenges
-  #def others_checkins_with_same_feats_of_my_challenges
-  #  challenge_ids = self.challenges.map{|x|x.id}.flatten
-  #  Checkin.all_for_challenges(challenge_ids).uniq.delete_if{|x| x.user_id == self.id}
-  #end
-  #
-  ## all my challenges contains the feat
-  #def challenges_by_feat(feat)
-  #  self.challenges.delete_if{|x| not feat.challenges.include?(x)}
-  #end
-
   # checkin a feat
   def checkin(feat)
     checkin = Checkin.new(:user_id => self.id, :feat_id => feat.id)
-    if checkin.save
-      self.checkins << checkin
-      self.save
-      challenge_ids = checkin.challenge_ids
-      self.uncompleted_challenges.each do |challenge|
-        if challenge.uncompleted_feat?(feat)
-          challenge_ids << challenge.id
-        end
+    challenge_ids ||= []
+    self.uncompleted_challenges.each do |challenge|
+      if challenge.uncompleted_feats(self).include?(feat)
+        challenge_ids << challenge.id
       end
-      checkin.update_attributes(:challenge_ids => challenge_ids)
     end
+    checkin.challenge_ids = challenge_ids
+    checkin.save
+    self.checkins << checkin
+    self.save
   end
 
   # team checkins
@@ -70,7 +58,7 @@ class User < ActiveRecord::Base
 
   # user's latest checkins
   def latest_checkins
-    self.checkins
+    self.checkins.order("created_at DESC")
   end
 
   # user's epic checkins
@@ -90,14 +78,27 @@ class User < ActiveRecord::Base
     self.save
   end
 
-  # uncompleted challenges
+  # user participated challenge completed or not
+  def challenge_completed?(challenge)
+    all_feats = challenge.feats
+    uncompleted_feats ||= []
+    completed_feats ||=[]
+    self.checkins.with_challenge(challenge).each do |checkin|
+      completed_feats << checkin.feat
+    end
+    uncompleted_feats = all_feats - completed_feats
+    uncompleted_feats.empty?
+  end
+
+  # uncompleted participated challenges
   def uncompleted_challenges
     uncompleted ||= []
     self.challenges.each do |challenge|
-      unless challenge.completed?
+      unless self.challenge_completed?(challenge)
         uncompleted << challenge
       end
     end
+    return uncompleted
   end
 
   # invite a member

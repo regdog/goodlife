@@ -3,6 +3,8 @@ class Challenge < ActiveRecord::Base
   belongs_to :creator, :polymorphic => true
   has_and_belongs_to_many :checkins
   has_and_belongs_to_many :feats
+  has_many :accepted_challenges
+  has_many :participates, :through => :accepted_challenges, :source => :user
 
   has_one :image, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :image, :allow_destroy => true
@@ -16,35 +18,16 @@ class Challenge < ActiveRecord::Base
     self.feat_ids = ids.split(",")
   end
 
-  # challenge completed or not
-  def completed?
-    all_feats = self.feats
-    completed_feats ||= []
-    self.checkins.each do |checkin|
-      completed_feats << checkin.feat
-    end
-    uncompleted_feats = all_feats - completed_feats
-    uncompleted_feats.empty?
-  end
-
-  # completed feats with challenge
-  def completed_feats
+  # completed challenge feats with user
+  def completed_feats(user)
     feats ||= []
-    self.checkins.each do |checkin|
+    user.checkins.with_challenge(self).each do |checkin|
       feats << checkin.feat
     end
   end
 
-  def uncompleted_feat?(feat)
-    if self.feats.include?(feat)
-      if !self.completed_feats.include?(feat)
-        true
-      else
-        false
-      end
-    else
-      return nil
-    end
+  # uncompleted challenge feats with user
+  def uncompleted_feats(user)
+    self.feats - self.completed_feats(user)
   end
-
 end

@@ -26,26 +26,7 @@
     <favorites_list name="GoodLife" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="47" selection-start="2107" selection-end="2107" vertical-scroll-proportion="0.2832618">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="challenge.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/challenge.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="17" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -58,13 +39,32 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20111003131408_create_checkins.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/widgets/_checkins_tabnav.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/checkins_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/challenges_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/challenges/new.html.erb" />
@@ -74,10 +74,13 @@
         <option value="$PROJECT_DIR$/config/locales/en.yml" />
         <option value="$PROJECT_DIR$/app/models/feat.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20111004072737_create_challenge_checkin.rb" />
-        <option value="$PROJECT_DIR$/app/models/checkin.rb" />
         <option value="$PROJECT_DIR$/app/models/challenges_checkin.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20111003131408_create_checkins.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20110820043044_devise_create_users.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20110817123935_create_feats.rb" />
         <option value="$PROJECT_DIR$/app/models/challenge.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/models/checkin.rb" />
       </list>
     </option>
   </component>
@@ -114,7 +117,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Favorites" />
       <pane id="RailsProjectView" />
       <pane id="ProjectPane">
@@ -135,59 +137,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
+    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="options.searchVisible" value="true" />
+    <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Workspaces\GoodLife\db" />
       <recent name="C:\Workspaces\GoodLife\app\models" />
       <recent name="C:\Workspaces\GoodLife\config\locales" />
       <recent name="C:\Workspaces\GoodLife\db\migrate" />
       <recent name="C:\Workspaces\GoodLife\app\views" />
-      <recent name="C:\Workspaces\GoodLife\app\admin" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: GoodLife">
@@ -520,16 +491,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="860" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.233483" sideWeight="0.61263734" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18383312" sideWeight="0.5082418" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23402868" sideWeight="0.36675823" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18383312" sideWeight="0.728022" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5480769" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6332418" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27197802" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -584,26 +555,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/admin/challenges/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="56" selection-start="207" selection-end="207" vertical-scroll-proportion="0.17425743" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/challenges/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="19" selection-start="150" selection-end="1144" vertical-scroll-proportion="0.6138614" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/challenges_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="53" selection-start="692" selection-end="692" vertical-scroll-proportion="0.45149255" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="33" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="226" column="41" selection-start="5229" selection-end="5229" vertical-scroll-proportion="0.8969555" />
@@ -634,29 +585,72 @@
         <state line="3" column="20" selection-start="113" selection-end="113" vertical-scroll-proportion="0.12966602" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20110911114723_create_partners.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="24" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20110825021201_create_challenges.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.14473684">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20111004072737_create_challenge_checkin.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="26" selection-start="326" selection-end="326" vertical-scroll-proportion="0.5052192" />
+        <state line="11" column="26" selection-start="326" selection-end="326" vertical-scroll-proportion="0.53070176">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/checkin.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111003131408_create_checkins.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.43672457" />
+        <state line="10" column="0" selection-start="281" selection-end="281" vertical-scroll-proportion="0.48245615">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/challenges_checkin.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20110820043044_devise_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="0.05459057" />
+        <state line="5" column="38" selection-start="219" selection-end="219" vertical-scroll-proportion="0.13725491">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20110817123935_create_feats.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="33" selection-start="380" selection-end="380" vertical-scroll-proportion="0.2832618">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/checkin.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="30" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/challenge.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="17" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.0" />
+        <state line="21" column="6" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/checkin.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="25" selection-start="428" selection-end="428" vertical-scroll-proportion="0.37768242">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="47" selection-start="2107" selection-end="2107" vertical-scroll-proportion="0.2832618">
+        <state line="42" column="42" selection-start="1524" selection-end="1524" vertical-scroll-proportion="-1.2274678">
           <folding />
         </state>
       </provider>
