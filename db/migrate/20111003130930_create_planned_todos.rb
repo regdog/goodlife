@@ -3,7 +3,7 @@ class CreatePlannedTodos < ActiveRecord::Migration
     create_table :planned_todos do |t|
       t.references :user
       t.references :feat
-      t.string :frequency
+      t.string :plan_type
       t.datetime :created_at
     end
 

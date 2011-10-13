@@ -9,7 +9,7 @@ class CreateCheckins < ActiveRecord::Migration
       t.datetime :created_at
     end
 
-    add_index :checkins, :user_id
+    add_index :checkins, [:user_id, :feat_id]
   end
 
   def self.down

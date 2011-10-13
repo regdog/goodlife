@@ -1,4 +1,14 @@
 GoodLife::Application.routes.draw do
+  get "plans/index"
+
+  get "plans/all"
+
+  get "plans/daily"
+
+  get "plans/weekly"
+
+  get "plans/weekend"
+
   root :to => "welcome#index"
 
   devise_for :users, :controllers => {:omniauth_callbacks=>'users/omniauth_callbacks'} do
@@ -28,6 +38,7 @@ GoodLife::Application.routes.draw do
 
   match 'corp/:permalink' => 'contents#show'
   get 'search/index', :as => :search
+
   get 'kindeditor/images_list'
   post 'kindeditor/upload'
 

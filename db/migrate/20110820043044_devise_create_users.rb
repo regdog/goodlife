@@ -3,7 +3,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       t.database_authenticatable :null => false
       t.string :name, :null => false
-      t.integer :points, :default => 0
+      t.integer :earned_points, :limit => 6, :default => 0
+#      t.integer :balance_points, :limit => 6, :default => 0
       t.decimal :life_score, :precision => 2, :scale => 1, :default => 0
       t.recoverable
       t.rememberable

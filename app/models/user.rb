@@ -30,20 +30,34 @@ class User < ActiveRecord::Base
   # my redemptions
   has_many :redemptions
 
+  # feats I'v done
+  def feats_done
+    feats ||= []
+    checkins = Checkin.find(:all,
+                :conditions => ["checkins.user_id = #{self.id}"],
+                :group => 'checkins.user_id, checkins.feat_id')
+    checkins.each do |checkin|
+      feats << checkin.feat
+    end
+    return feats
+  end
 
   # checkin a feat
   def checkin(feat)
-    checkin = Checkin.new(:user_id => self.id, :feat_id => feat.id)
-    challenge_ids ||= []
-    self.uncompleted_challenges.each do |challenge|
-      if challenge.uncompleted_feats(self).include?(feat)
-        challenge_ids << challenge.id
+    User.transaction do
+      checkin = Checkin.new(:user_id => self.id, :feat_id => feat.id)
+      challenge_ids ||= []
+      self.uncompleted_challenges.each do |challenge|
+        if challenge.uncompleted_feats(self).include?(feat)
+          challenge_ids << challenge.id
+        end
       end
+      checkin.challenge_ids = challenge_ids
+      checkin.save
+      self.checkins << checkin
+      self.save
+      feat.add_counts
     end
-    checkin.challenge_ids = challenge_ids
-    checkin.save
-    self.checkins << checkin
-    self.save
   end
 
   # team checkins
@@ -58,7 +72,7 @@ class User < ActiveRecord::Base
 
   # user's latest checkins
   def latest_checkins
-    self.checkins.order("created_at DESC")
+    self.checkins.latest
   end
 
   # user's epic checkins
@@ -66,16 +80,55 @@ class User < ActiveRecord::Base
     self.checkins.epic
   end
 
+  # planned feats: daily, weekly, weekend
+  def daily_feats
+    feats ||= []
+    PlannedTodo.daily(self).each do |plan|
+      feats << plan.feat
+    end
+    return feats
+  end
+
+  def weekly_feats
+    feats ||= []
+    PlannedTodo.weekly(self).each do |plan|
+      feats << plan.feat
+    end
+  end
+
+  def weekend_feats
+    feats ||= []
+    PlannedTodo.weekend(self).each do |plan|
+      feats << plan.feat
+    end
+  end
+
   # accept a challenges
   def accept_challenge(challenge)
-    self.challenges << challenge
-    self.save
+    User.transaction do
+      if self.challenges.include?(challenge)
+        return nil
+      elsif challenge.participable?
+        self.challenges << challenge
+        self.save
+        challenge.add_counts
+      else
+        return nil
+      end
+    end
   end
 
   # leave a challenges
   def leave_challenge(challenge)
-    self.challenges.delete(challenge)
-    self.save
+    User.transaction do
+      if self.challenges.include?(challenge)
+        self.challenges.delete(challenge)
+        self.save
+        challenge.reduce_counts
+      else
+        return nil
+      end
+    end
   end
 
   # user participated challenge completed or not
@@ -104,31 +157,28 @@ class User < ActiveRecord::Base
   # invite a member
   def request_membership(member)
     self.request_friendship(member)
-    self.save
   end
 
   # accept a membership
   def accept_membership(member)
     self.accept_friendship(member)
-    self.save
   end
 
   # remove a membership
   def remove_membership(member)
     self.deny_friendship(member)
-    self.save
   end
 
   # pending requests?
-  def pending_requests
-    self.pending?
+  def pending_requests(member)
+    self.pending?(member)
   end
 
   # members
   def members
     members = self.friends
     members << self
-    members = members.sort_by {|m| [m.sign_in_count]}.reverse!
+    members = members.sort_by {|m| [m.earned_points]}.reverse!
     members.flatten
   end
 

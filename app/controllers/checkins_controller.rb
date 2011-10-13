@@ -5,7 +5,7 @@ class CheckinsController < ApplicationController
   end
 
   def latest
-    @checkins = Checkin.order("created_at DESC").all
+    @checkins = Checkin.latest
     render :index
   end
 

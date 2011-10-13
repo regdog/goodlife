@@ -6,14 +6,24 @@ class Feat < ActiveRecord::Base
   has_one :image, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :image, :allow_destroy => true
 
-  default_scope order('checkin_count DESC')
-
-  # scope latest checkins for a specific feat
-  # scope epic checkins for a specific feat
-
   # sort by most popular, newest, points, name
+  scope :sort_by_popular, order('checkin_count DESC')
+  scope :sort_by_newest, order('created_at DESC')
+  scope :sort_by_points, order('bonus_points DESC')
+  scope :sort_by_name, order('name DESC')
 
-  # planned feats: daily, weekly, weekend, feats I've done
+  # latest checkins
+  def latest_checkins
+     self.checkins.latest
+  end
 
-  #
+  # epic checkins
+  def epic_checkins
+    self.checkins.epic
+  end
+
+  def add_counts
+    self.checkin_count = self.checkin_count + 1
+    self.save
+  end
 end

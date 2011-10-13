@@ -4,7 +4,7 @@ class Challenge < ActiveRecord::Base
   has_and_belongs_to_many :checkins
   has_and_belongs_to_many :feats
   has_many :accepted_challenges
-  has_many :participates, :through => :accepted_challenges, :source => :user
+  has_many :participants, :through => :accepted_challenges, :source => :user
 
   has_one :image, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :image, :allow_destroy => true
@@ -12,7 +12,10 @@ class Challenge < ActiveRecord::Base
   attr_reader :feat_tokens
 
   # sort by date, popularity, points
-  default_scope order('created_at DESC')
+  default_scope order('start_on DESC')
+  scope :sort_by_points, order('bonus_points DESC')
+  scope :sort_by_popularity, order('participants_count DESC')
+
 
   def feat_tokens=(ids)
     self.feat_ids = ids.split(",")
@@ -29,5 +32,23 @@ class Challenge < ActiveRecord::Base
   # uncompleted challenge feats with user
   def uncompleted_feats(user)
     self.feats - self.completed_feats(user)
+  end
+
+  def participable?
+    if self.end_on > Time.now
+      return true
+    else
+      return false
+    end
+  end
+
+  def add_counts
+    self.participants_count = self.participants_count + 1
+    self.save
+  end
+
+  def reduce_counts
+    self.participants_count = self.participants_count - 1
+    self.save
   end
 end

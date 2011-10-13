@@ -37,7 +37,7 @@
       <div class="column grid_3">
         <h3>most populate feats</h3>
         <div>
-        <% Feat.limit(3).each do |f| %>
+        <% Feat.sort_by_popular.limit(3).each do |f| %>
           <p>
           <span><%="!#{f.name}" %></span>
           <span><%="#{f.bonus_points} points" %></span>

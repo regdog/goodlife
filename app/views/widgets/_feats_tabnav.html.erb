@@ -26,19 +26,33 @@ render_tabnav :feats,
   #end
 
   add_tab do |t|
-    t.named 'All'
-    t.titled 'All Feats'
+    t.named 'All feats'
+    t.titled 'All feats'
     t.links_to all_feats_path
     t.highlights_on :controller => 'feats', :action => 'all'
   end
 
-   Category.feat_category.each do |c|
-     add_tab do |t|
-       t.named c.name.camelize
-       t.titled "Go to #{c.name.camelize}"
-       t.links_to :controller => :feats, :type => c.name
-     end
-   end
+  add_tab do |t|
+    t.named 'Planned feats'
+    t.titled 'Planned feats'
+    t.links_to all_feats_path
+    t.highlights_on :controller => 'feats', :action => 'all'
+  end
+
+  add_tab do |t|
+    t.named 'Challenges'
+    t.titled 'Challenges'
+    t.links_to all_feats_path
+    t.highlights_on :controller => 'feats', :action => 'all'
+  end
+
+   #Category.feat_category.each do |c|
+   #  add_tab do |t|
+   #    t.named c.name.camelize
+   #    t.titled "Go to #{c.name.camelize}"
+   #    t.links_to :controller => :feats, :type => c.name
+   #  end
+   #end
 
 
 
