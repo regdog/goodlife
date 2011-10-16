@@ -8,7 +8,7 @@
                 :cols => 3,
                 :generate_css => 'true' do |challenge| %>
 
-      <h3><%= link_to "!#{challenge.name}", :action => 'show', :id => challenge.id %></h3>
+      <h3><%= link_to "!#{challenge.name}", challenge_path(challenge) %></h3>
       <p><%#= image_tag feat.image.url(:medium) if feat.image %></p>
       <p><%= raw truncate challenge.description, :length => 30, :separator => ' ' %></p>
       <p>Points you can win<br/><%= "#{challenge.bonus_points}pts" %></p>

@@ -12,9 +12,9 @@ class Challenge < ActiveRecord::Base
   #accepts_nested_attributes_for :feats, :reject_if => lambda { |a| a[:content].blank? }
 
   # sort by date, popularity, points
-  default_scope order('start_on DESC')
-  scope :sort_by_points, order('bonus_points DESC')
-  scope :sort_by_popularity, order('participants_count DESC')
+  scope :sort_by_date, order('start_on DESC')
+  scope :sort_by_points, order('bonus_points DESC').order('start_on DESC')
+  scope :sort_by_popularity, order('participants_count DESC').order('start_on DESC')
   SORT_TYPES = ['My Challenges', 'By Date', 'By Popularity', 'By Points']
 
 

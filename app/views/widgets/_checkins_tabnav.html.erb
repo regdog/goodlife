@@ -28,7 +28,7 @@ render_tabnav :checkins,
   add_tab do |t|
     t.named 'Latest'
     t.links_to latest_checkins_path
-    t.highlights_on :controller => 'checkins', :action => 'latest'
+    t.highlights_on :controller => 'checkins', :action => 'index'
   end
 
    add_tab do |t|

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="column grid_8">
+    <h1><%= @challenge.name %></h1>
+  <p>
+    Description<br/>
+    <%= @challenge.description %>
+  </p>
+  <p>
+    Feats<br/>
+    <%= @challenge.feat_tokens %>
+  </p>
+  <p>
+    Start On<br/>
+    <%= @challenge.start_on_string %>
+  </p>
+  <p>
+    End On<br/>
+    <%= @challenge.end_on_string %>
+  </p>
+  <p>
+    Extra Points<br/>
+    <%= @challenge.bonus_points %>
+  </p>
+  </div>
+  <%# render :partial => 'crud_right' %>
+</div>

@@ -1,5 +1,6 @@
 class Admin::FeatsController < Admin::BaseController
   respond_to :json, :only => :feat_tokens
+  skip_before_filter :authenticate_admin_user!, :only => [:feats_token]
 
   def index
     @search = Feat.search(params[:search])

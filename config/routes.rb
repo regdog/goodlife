@@ -18,18 +18,33 @@ GoodLife::Application.routes.draw do
       end
     end
     resources :feats, :only => [:index, :show] do
-      get 'catalog', :on => :collection
-      get 'plans', :on => :collection
-      get 'challenges', :on => :collection
       get 'checkin', :on => :member
     end
-    resources :challenges, :except => :destroy
+
+    get 'plans' => "plans#index"
+    get 'plans/daily' => "plans#daily", :as => "daily_plans"
+    get 'plans/weekly' => "plans#weekly", :as => "weekly_plans"
+    get 'plans/weekend' => "plans#weekend", :as => "weekend_plans"
+
+    resources :challenges, :except => :destroy do
+      get 'mine', :on => :collection
+      get 'by_date', :on => :collection
+      get 'by_popularity', :on => :collection
+      get 'by_points', :on => :collection
+    end
+
     resources :rewards, :only => [:index, :show] do
       get 'all', :on => :collection
       get 'local', :on => :collection
       get 'premium', :on => :collection
     end
   end
+
+  get 'team/members' => "team#members", :as => :team_members
+  get 'team/checkins' => "team#checkins", :as => :team_checkins
+  get 'team/requests' => "team#requests", :as => :team_requests
+
+  get 'member/:nameid' => "member#show"
 
   match 'corp/:permalink' => 'contents#show'
   get 'search/index', :as => :search

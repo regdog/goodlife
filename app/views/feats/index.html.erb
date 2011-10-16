@@ -1,7 +1,7 @@
-<%#= tabnav :catalog %>
+<% tabnav :feats do %>
 <div class="row">
 <div class="column grid_2">
-  <%= render :partial => 'plans_subnav' %>
+  <%= render :partial => 'subnav' %>
 </div>
 <div class="column grid_8">
     <% tableize @feats,
@@ -18,3 +18,4 @@
     <% end %>
 </div>
 </div>
+<% end %>
