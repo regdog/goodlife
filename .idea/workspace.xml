@@ -42,30 +42,26 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/admin/rewards/_subnav.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin/feats/_subnav.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin/feats/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/admin/tags_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/widgets/_admin_tabnav.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin/feats/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin/feats/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin/rewards/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/rewards/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/models/admin_user.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20111005072737_devise_create_admin_users.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20110817123935_create_feats.rb" />
         <option value="$PROJECT_DIR$/app/models/feat.rb" />
-        <option value="$PROJECT_DIR$/app/models/challenge.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/challenges_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/feats_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20111017123453_create_taggings.rb" />
+        <option value="$PROJECT_DIR$/db/schema.rb" />
+        <option value="$PROJECT_DIR$/app/models/challenge.rb" />
+        <option value="$PROJECT_DIR$/public/javascripts/localization/jquery-ui-timepicker-cn.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/jquery-ui-timepicker-cn.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/jquery.ui.datepicker-zh-CN.js" />
+        <option value="$PROJECT_DIR$/app/views/admin/challenges/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin/challenges/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin/challenges/index.html.erb" />
       </list>
     </option>
   </component>
@@ -102,6 +98,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -123,27 +121,25 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="RailsProjectView" />
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
+    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="options.searchVisible" value="true" />
+    <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Workspaces\GoodLife\public\javascripts" />
+      <recent name="C:\Workspaces\GoodLife\public\javascripts\localization" />
+      <recent name="C:\Workspaces\GoodLife\public\stylesheets" />
       <recent name="C:\Workspaces\GoodLife\app\views\admin" />
       <recent name="C:\Workspaces\GoodLife\app\controllers\admin" />
-      <recent name="C:\Workspaces\GoodLife\config\extra" />
-      <recent name="C:\Workspaces\GoodLife\app\models" />
-      <recent name="C:\Workspaces\GoodLife\db\migrate" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: GoodLife">
@@ -484,9 +480,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21642764" sideWeight="0.5769231" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17535853" sideWeight="0.41208792" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2659713" sideWeight="0.5934066" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5480769" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29945055" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4065934" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -540,114 +536,79 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/tag.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="110" selection-start="431" selection-end="431" vertical-scroll-proportion="0.31473532">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/widgets/_admin_navigation.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/admin/rewards/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/feats/new.html.erb">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/jquery-ui-timepicker-addon.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="30" selection-start="466" selection-end="466" vertical-scroll-proportion="0.46107784">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/feats/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="30" selection-start="600" selection-end="600" vertical-scroll-proportion="0.49401197">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/rewards/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="32" selection-start="564" selection-end="564" vertical-scroll-proportion="-9.935484">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/rewards/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="23" selection-start="692" selection-end="692" vertical-scroll-proportion="0.49401197">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/widgets/_admin_tabnav.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="18" selection-start="1886" selection-end="1886" vertical-scroll-proportion="0.6080114">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/admin_user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="21" selection-start="58" selection-end="58" vertical-scroll-proportion="0.031473532">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20110817123935_create_feats.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="22" selection-start="111" selection-end="111" vertical-scroll-proportion="0.094420604">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20110825021201_create_challenges.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="90" selection-start="62" selection-end="62" vertical-scroll-proportion="0.031473532">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20111005072737_devise_create_admin_users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="27" selection-start="134" selection-end="134" vertical-scroll-proportion="0.094420604">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/tags_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="77" selection-start="391" selection-end="391" vertical-scroll-proportion="0.40915594">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/feat.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="43" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
+        <state line="7" column="43" selection-start="205" selection-end="205" vertical-scroll-proportion="0.2244898">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/challenge.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="19" selection-start="128" selection-end="128" vertical-scroll-proportion="0.12589413">
+        <state line="56" column="53" selection-start="1521" selection-end="1521" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/feats_controller.rb">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/jquery.ui.datepicker-zh-CN.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="76" selection-start="630" selection-end="630" vertical-scroll-proportion="0.72389126">
+        <state line="16" column="27" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/challenges_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/admin/challenges/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="81" selection-start="386" selection-end="386" vertical-scroll-proportion="0.37768242">
+        <state line="113" column="19" selection-start="3374" selection-end="3374" vertical-scroll-proportion="0.93413174">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/challenges/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/challenges/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="53" selection-start="627" selection-end="627" vertical-scroll-proportion="0.55988026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/challenges/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="19" selection-start="3365" selection-end="3365" vertical-scroll-proportion="0.93413174">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/jquery-ui-timepicker-addon.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/test.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/server.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

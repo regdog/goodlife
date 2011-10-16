@@ -52,4 +52,20 @@ class Challenge < ActiveRecord::Base
     self.participants_count = self.participants_count - 1
     self.save
   end
+
+  def start_on_string
+    start_on.strftime("%Y/%m/%d %H:%M") if start_on
+  end
+
+  def start_on_string=(datetime_str)
+    self.start_on = Time.parse(datetime_str) rescue nil
+  end
+
+  def end_on_string
+    end_on.strftime("%Y/%m/%d %H:%M") if end_on
+  end
+
+  def end_on_string=(datetime_str)
+    self.end_on = Time.parse(datetime_str) rescue nil
+  end
 end

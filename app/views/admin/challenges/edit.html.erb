@@ -16,12 +16,12 @@
         <%= f.text_field :feat_tokens, "data-pre" => @challenge.feats.map(&:attributes).to_json %>
       </p>
       <p>
-        <%#= f.label "Start On" %><br/>
-        <%#= f.datetime_select :start_on %>
+        <%= f.label "Start On" %><br/>
+        <%= f.text_field :start_on_string %>
       </p>
       <p>
-        <%#= f.label "End On" %><br/>
-        <%#= f.datetime_select :end_on %>
+        <%= f.label "End On" %><br/>
+        <%= f.text_field :end_on_string %>
       </p>
       <p>
         <%= f.label "Extra Points" %><br/>
@@ -39,3 +39,78 @@
     <% end %>
   </div>
 </div>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+<%= javascript_include_tag "jquery-ui-timepicker-addon" %>
+<script>
+  $(document).ready(function() {
+    $('#challenge_start_on_string').datetimepicker({
+        // datepicker
+		closeText: '关闭',
+//		prevText: '&#x3c;上月',
+//		nextText: '下月&#x3e;',
+		currentText: '今天',
+		monthNames: ['一月','二月','三月','四月','五月','六月',
+		'七月','八月','九月','十月','十一月','十二月'],
+		monthNamesShort: ['一','二','三','四','五','六',
+		'七','八','九','十','十一','十二'],
+		dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+		dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],
+		dayNamesMin: ['日','一','二','三','四','五','六'],
+		weekHeader: '周',
+		dateFormat: 'yy-mm-dd',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: true,
+		yearSuffix: '年',
+        // timepicker
+		timeOnlyTitle: '时间选择',
+		timeText: '时间',
+		hourText: '时',
+		minuteText: '分',
+		secondText: '秒',
+		millisecText: '毫秒',
+		timezoneText: '时区',
+		currentText: '现在',
+		closeText: '关闭',
+		timeFormat: 'hh:mm tt',
+		amNames: ['上午', 'AM', 'A'],
+		pmNames: ['下午', 'PM', 'P'],
+		ampm: false
+    });
+    $('#challenge_end_on_string').datetimepicker({
+        // datepicker
+		closeText: '关闭',
+//		prevText: '&#x3c;上月',
+//		nextText: '下月&#x3e;',
+		currentText: '今天',
+		monthNames: ['一月','二月','三月','四月','五月','六月',
+		'七月','八月','九月','十月','十一月','十二月'],
+		monthNamesShort: ['一','二','三','四','五','六',
+		'七','八','九','十','十一','十二'],
+		dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+		dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],
+		dayNamesMin: ['日','一','二','三','四','五','六'],
+		weekHeader: '周',
+		dateFormat: 'yy-mm-dd',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: true,
+		yearSuffix: '年',
+        // timepicker
+		timeOnlyTitle: '时间选择',
+		timeText: '时间',
+		hourText: '时',
+		minuteText: '分',
+		secondText: '秒',
+		millisecText: '毫秒',
+		timezoneText: '时区',
+		currentText: '现在',
+		closeText: '关闭',
+		timeFormat: 'hh:mm tt',
+		amNames: ['上午', 'AM', 'A'],
+		pmNames: ['下午', 'PM', 'P'],
+		ampm: false
+    });
+  });
+</script>

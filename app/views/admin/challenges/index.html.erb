@@ -14,8 +14,8 @@
         <% for challenge in @challenges %>
           <tr>
             <td><%= link_to challenge.name, edit_admin_challenge_path(challenge) %></td>
-            <td><%= challenge.start_on %></td>
-            <td><%= challenge.end_on %></td>
+            <td><%= challenge.start_on.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= challenge.end_on.strftime("%Y-%m-%d %H:%M") %></td>
             <td><%= challenge.name %></td>
             <td><%#= link_to "View", challenge_path(challenges), :target =>"_blank"  %></td>
             <td><%= link_to 'Delete', admin_challenge_path(challenge), :confirm => 'Are you sure?', :method => :delete  %></td>
