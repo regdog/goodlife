@@ -5,16 +5,16 @@
     <p><a href="/admin/rewards">&laquo; Back to Reward List</a></p>
     <%= form_for @reward, :url => { :action => "update" }, :html => { :multipart => true } do |f| %>
       <p>
-        <%= f.label "Category" %><br/>
-        <%= collection_select :reward, :category_id, Category.reward_category, :id, :name, :prompt => true %>
-      </p>
-      <p>
         <%= f.label "Partner" %><br/>
         <%= collection_select :reward, :partner_id, Partner.all, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
       </p>
       <p>
         <%= f.label "Name" %><br/>
         <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label "Reward Tags" %><br/>
+        <%= f.text_field :tag_tokens, "data-pre" => @reward.tags.map(&:attributes).to_json %>
       </p>
       <p>
         <%= f.label "Description" %><br/>

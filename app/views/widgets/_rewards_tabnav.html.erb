@@ -32,7 +32,7 @@ render_tabnav :rewards,
     t.highlights_on :controller => 'rewards', :action => 'all'
   end
 
-   Category.reward_category.all.each do |c|
+   Tag.of_kind("Reward").each do |c|
      add_tab do |t|
        t.named c.name.camelize
        t.titled "Go to #{c.name.camelize}"

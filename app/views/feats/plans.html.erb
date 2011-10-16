@@ -1,0 +1,20 @@
+<%#= tabnav :catalog %>
+<div class="row">
+<div class="column grid_2">
+  <%= render :partial => 'plans_subnav' %>
+</div>
+<div class="column grid_8">
+    <% tableize @feats,
+                :name => 'feats',
+                #:header => 'Listing Feats',
+                :cols => 4,
+                :generate_css => 'true' do |feat| %>
+
+      <h3><%= link_to "!#{feat.name}", :action => 'show', :id => feat.id %></h3>
+      <p><%= image_tag feat.image.url(:medium) if feat.image %></p>
+      <p><%= raw truncate feat.description, :length => 30, :separator => ' ' %></p>
+      <p><%= "#{feat.bonus_points}pts" %></p>
+      <%= link_to 'did it', checkin_feat_path(feat) if current_user %>
+    <% end %>
+</div>
+</div>

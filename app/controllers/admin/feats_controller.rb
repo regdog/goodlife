@@ -21,6 +21,7 @@ class Admin::FeatsController < Admin::BaseController
 
   def create
     @feat = Feat.new(params[:feat])
+    @feat.creator = current_admin_user.partner if current_admin_user.partner
 
     if @feat.save
       redirect_to :action => "index"

@@ -28,22 +28,22 @@ render_tabnav :feats,
   add_tab do |t|
     t.named 'All feats'
     t.titled 'All feats'
-    t.links_to all_feats_path
-    t.highlights_on :controller => 'feats', :action => 'all'
+    t.links_to catalog_feats_path
+    t.highlights_on :controller => 'feats', :action => 'catalog'
   end
 
   add_tab do |t|
     t.named 'Planned feats'
     t.titled 'Planned feats'
-    t.links_to all_feats_path
-    t.highlights_on :controller => 'feats', :action => 'all'
+    t.links_to plans_feats_path
+    t.highlights_on :controller => 'feats', :action => 'plans'
   end
 
   add_tab do |t|
     t.named 'Challenges'
     t.titled 'Challenges'
-    t.links_to all_feats_path
-    t.highlights_on :controller => 'feats', :action => 'all'
+    t.links_to challenges_feats_path
+    t.highlights_on :controller => 'feats', :action => 'challenges'
   end
 
    #Category.feat_category.each do |c|

@@ -1,5 +1,6 @@
 class Challenge < ActiveRecord::Base
-  attr_accessible :name, :description, :start_on, :end_on, :feat_tokens, :bonus_points
+  attr_reader :feat_tokens
+
   belongs_to :creator, :polymorphic => true
   has_and_belongs_to_many :checkins
   has_and_belongs_to_many :feats
@@ -9,12 +10,12 @@ class Challenge < ActiveRecord::Base
   has_one :image, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :image, :allow_destroy => true
   #accepts_nested_attributes_for :feats, :reject_if => lambda { |a| a[:content].blank? }
-  attr_reader :feat_tokens
 
   # sort by date, popularity, points
   default_scope order('start_on DESC')
   scope :sort_by_points, order('bonus_points DESC')
   scope :sort_by_popularity, order('participants_count DESC')
+  SORT_TYPES = ['My Challenges', 'By Date', 'By Popularity', 'By Points']
 
 
   def feat_tokens=(ids)

@@ -1,7 +1,6 @@
 class CreateRewards < ActiveRecord::Migration
   def self.up
     create_table :rewards do |t|
-      t.references  :category
       t.references  :partner
       t.string      :name, :null => false
       t.text        :description, :null => false

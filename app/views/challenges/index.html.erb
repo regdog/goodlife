@@ -1,2 +1,17 @@
-<h1>Challenge#index</h1>
-<p>Find me in app/views/challenge/index.html.erb</p>
+<div class="row">
+<div class="column grid_2">
+  <%= render :partial => 'subnav' %>
+</div>
+<div class="column grid_8">
+    <% tableize @challenges,
+                :name => 'challenges',
+                :cols => 3,
+                :generate_css => 'true' do |challenge| %>
+
+      <h3><%= link_to "!#{challenge.name}", :action => 'show', :id => challenge.id %></h3>
+      <p><%#= image_tag feat.image.url(:medium) if feat.image %></p>
+      <p><%= raw truncate challenge.description, :length => 30, :separator => ' ' %></p>
+      <p>Points you can win<br/><%= "#{challenge.bonus_points}pts" %></p>
+    <% end %>
+</div>
+</div>

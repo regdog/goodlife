@@ -9,7 +9,6 @@
           <th>Description</th>
           <th>DoneCount</th>
           <th>Points</th>
-          <th>Type</th>
           <th colspan="2">Action</th>
         </tr>
         <% for feat in @feats %>
@@ -18,7 +17,6 @@
             <td><%= feat.description %></td>
             <td><%= feat.checkin_count %></td>
             <td><%= feat.bonus_points %></td>
-            <td><%= feat.category.name %></td>
             <td><%= link_to "View", feat_path(feat), :target =>"_blank"  %></td>
             <td><%= link_to 'Delete', admin_feat_path(feat), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>
@@ -46,10 +44,6 @@
 	  <p>
         <%= f.label :name_or_description_contains %>
 		<%= f.text_field :name_or_description_contains %>
-      </p>
-	  <p>
-        <%= f.label :category_name_contains %>
-		<%= f.text_field :category_name_contains %>
       </p>
       <p><%= f.submit 'Go' %></p>
 	<% end %>

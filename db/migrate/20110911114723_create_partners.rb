@@ -1,7 +1,7 @@
 class CreatePartners < ActiveRecord::Migration
   def self.up
     create_table :partners do |t|
-      t.references :category
+      t.references :tag
       t.string :name, :null => false
       t.text :description
       t.string :website

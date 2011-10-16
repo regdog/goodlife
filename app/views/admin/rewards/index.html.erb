@@ -20,7 +20,7 @@
             <td><%= reward.redeem_points %></td>
             <td><%= reward.save_money %></td>
             <td><%= reward.redeem_count %></td>
-            <td><%= reward.category.name %></td>
+            <td><%= reward.name %></td>
             <td><%= link_to "View", reward_path(reward), :target =>"_blank"  %></td>
             <td><%= link_to 'Delete', admin_reward_path(reward), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>

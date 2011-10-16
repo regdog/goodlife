@@ -1,7 +1,11 @@
 class Feat < ActiveRecord::Base
-  belongs_to :category
+  attr_reader :tag_tokens
+  belongs_to :creator, :polymorphic => true
   has_and_belongs_to_many :challenges
   has_many :checkins
+  has_many :taggings, :as => :taggable, :dependent => :destroy
+  has_many :tags, :through => :taggings
+
 
   has_one :image, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :image, :allow_destroy => true
@@ -25,5 +29,9 @@ class Feat < ActiveRecord::Base
   def add_counts
     self.checkin_count = self.checkin_count + 1
     self.save
+  end
+
+  def tag_tokens=(ids)
+    self.tag_ids = ids.split(",")
   end
 end

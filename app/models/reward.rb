@@ -1,16 +1,26 @@
 class Reward < ActiveRecord::Base
-  belongs_to :category
+  attr_reader :tag_tokens
+
   belongs_to :partner
   has_many :user_wishes
   has_many :wanted_users, :through => :user_wishes, :source => :user
+  has_many :taggings, :as => :taggable, :dependent => :destroy
+  has_many :tags, :through => :taggings
 
   has_one :image, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :image, :allow_destroy => true
 
-  #scope :locals, where()
-  #scope :premium, where()
+  # local rewards
+  def self.local
+    Reward.search :partner_category_id_equals => Category.local.id
+  end
 
-  #def partner_tokens=(ids)
-  #  self.partner_id = ids.split(",")
-  #end
+  #premium rewards
+  def self.premium
+    Reward.search :partner_category_id_equals => Category.local.id
+  end
+
+  def tag_tokens=(ids)
+    self.tag_ids = ids.split(",")
+  end
 end

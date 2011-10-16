@@ -1,5 +1,5 @@
 class Partner < ActiveRecord::Base
-  belongs_to :category
+  belongs_to :tag
   has_many :challenges, :as => :creator
   has_many :rewards
   has_one :image, :as => :attachable, :dependent => :destroy

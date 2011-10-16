@@ -15,7 +15,7 @@
             <td><%= link_to partner.name, edit_admin_partner_path(partner) %></td>
             <td><%= partner.region %></td>
             <td><%= partner.city %></td>
-            <td><%= partner.category.name %></td>
+            <td><%= partner.tag.name %></td>
             <td><% safe_concat "<a href='http://#{partner.website}'> #{partner.website} </a>" if partner.website %></td>
             <td><%= link_to 'Delete', admin_partner_path(partner), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>

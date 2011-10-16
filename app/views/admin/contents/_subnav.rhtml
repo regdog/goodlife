@@ -1,5 +1,5 @@
 <ul class="navigation primary">
-  <% Category.content_category.each do |type| %>
+  <% Tag.of_kind("Content").each do |type| %>
     <li class="<%= active_li_css(@view_by, type.name) %>">
 			<%= 
 				link_to_unless(

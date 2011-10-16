@@ -36,29 +36,36 @@
   <component name="GeneratorOptions">
     <option name="VCS_SHOW_CONFIRMATION" value="true" />
   </component>
+  <component name="Git.Settings">
+    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
+    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Rails console: GoodLife" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20111003131408_create_checkins.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20110825021201_create_challenges.rb" />
-        <option value="$PROJECT_DIR$/app/models/accepted_challenge.rb" />
-        <option value="$PROJECT_DIR$/app/models/challenge.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20110820043044_devise_create_users.rb" />
-        <option value="/Rails console: GoodLife" />
-        <option value="$PROJECT_DIR$/app/models/checkin.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/corp.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/widgets/_feats_tabnav.html.erb" />
-        <option value="$PROJECT_DIR$/db/migrate/20111003130930_create_planned_todos.rb" />
+        <option value="$PROJECT_DIR$/app/views/admin/rewards/_subnav.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin/feats/_subnav.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin/feats/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/tags_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/widgets/_admin_tabnav.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin/feats/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin/feats/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin/rewards/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin/rewards/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/admin_user.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20111005072737_devise_create_admin_users.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20110817123935_create_feats.rb" />
         <option value="$PROJECT_DIR$/app/models/feat.rb" />
-        <option value="$PROJECT_DIR$/app/models/planned_todo.rb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/plans_controller.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/models/challenge.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/challenges_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/feats_controller.rb" />
       </list>
     </option>
   </component>
@@ -95,9 +102,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -116,72 +120,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="RailsProjectView" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,11 +139,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Workspaces\GoodLife\db" />
+      <recent name="C:\Workspaces\GoodLife\app\views\admin" />
+      <recent name="C:\Workspaces\GoodLife\app\controllers\admin" />
+      <recent name="C:\Workspaces\GoodLife\config\extra" />
       <recent name="C:\Workspaces\GoodLife\app\models" />
-      <recent name="C:\Workspaces\GoodLife\config\locales" />
       <recent name="C:\Workspaces\GoodLife\db\migrate" />
-      <recent name="C:\Workspaces\GoodLife\app\views" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: GoodLife">
@@ -532,18 +475,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1600" height="860" extended-state="0" />
+    <frame x="0" y="0" width="1600" height="860" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24315515" sideWeight="0.6401099" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21642764" sideWeight="0.5769231" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22294654" sideWeight="0.74038464" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17535853" sideWeight="0.41208792" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5480769" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2596154" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29945055" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -597,100 +540,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20110820043044_devise_create_users.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/tag.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="1" selection-start="241" selection-end="241" vertical-scroll-proportion="0.18884121" />
+        <state line="10" column="110" selection-start="431" selection-end="431" vertical-scroll-proportion="0.31473532">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/party_boy.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="68" selection-start="6716" selection-end="6716" vertical-scroll-proportion="0.53505534" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/welcome.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.31736526" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="57" selection-start="1397" selection-end="1397" vertical-scroll-proportion="0.1242515" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/corp.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="53" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.39520958" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/challenge.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="45" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.2360515" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/feats_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/widgets/_admin_navigation.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20111003130930_create_planned_todos.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/admin/feats/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="21" selection-start="175" selection-end="175" vertical-scroll-proportion="0.23060797">
+        <state line="14" column="30" selection-start="466" selection-end="466" vertical-scroll-proportion="0.46107784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/feats/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="30" selection-start="600" selection-end="600" vertical-scroll-proportion="0.49401197">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/rewards/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="32" selection-start="564" selection-end="564" vertical-scroll-proportion="-9.935484">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/rewards/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="23" selection-start="692" selection-end="692" vertical-scroll-proportion="0.49401197">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/widgets/_admin_tabnav.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="18" selection-start="1886" selection-end="1886" vertical-scroll-proportion="0.6080114">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/admin_user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="21" selection-start="58" selection-end="58" vertical-scroll-proportion="0.031473532">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20110817123935_create_feats.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="22" selection-start="111" selection-end="111" vertical-scroll-proportion="0.094420604">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20110825021201_create_challenges.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="90" selection-start="62" selection-end="62" vertical-scroll-proportion="0.031473532">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111005072737_devise_create_admin_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="27" selection-start="134" selection-end="134" vertical-scroll-proportion="0.094420604">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/tags_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="77" selection-start="391" selection-end="391" vertical-scroll-proportion="0.40915594">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/feat.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="66" selection-start="578" selection-end="578" vertical-scroll-proportion="0.7337526">
+        <state line="2" column="43" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/checkin.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/challenge.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="67" selection-start="409" selection-end="409" vertical-scroll-proportion="0.46121594">
+        <state line="4" column="19" selection-start="128" selection-end="128" vertical-scroll-proportion="0.12589413">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/plans_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/feats_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="205" selection-end="205" vertical-scroll-proportion="0.5176471">
+        <state line="23" column="76" selection-start="630" selection-end="630" vertical-scroll-proportion="0.72389126">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/planned_todo.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/challenges_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="90" selection-start="386" selection-end="386" vertical-scroll-proportion="0.34509805">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="35" selection-start="2663" selection-end="2663" vertical-scroll-proportion="0.672549">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="860" selection-end="860" vertical-scroll-proportion="0.7">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/widgets/_feats_tabnav.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="22" selection-start="1002" selection-end="1002" vertical-scroll-proportion="0.23921569">
+        <state line="12" column="81" selection-start="386" selection-end="386" vertical-scroll-proportion="0.37768242">
           <folding />
         </state>
       </provider>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111005072737) do
+ActiveRecord::Schema.define(:version => 20111017123453) do
 
   create_table "accepted_challenges", :force => true do |t|
     t.integer  "user_id"
@@ -56,20 +56,13 @@ ActiveRecord::Schema.define(:version => 20111005072737) do
 
   add_index "categories", ["name", "category_type"], :name => "index_categories_on_name_and_category_type", :unique => true
 
-  create_table "challenge_checkin", :id => false, :force => true do |t|
-    t.integer "challenge_id"
-    t.integer "checkin_id"
-  end
-
-  add_index "challenge_checkin", ["challenge_id", "checkin_id"], :name => "index_challenge_checkin_on_challenge_id_and_checkin_id", :unique => true
-
   create_table "challenges", :force => true do |t|
     t.integer  "creator_id"
     t.string   "creator_type"
-    t.string   "name",                        :null => false
-    t.text     "description",                 :null => false
+    t.string   "name",                              :null => false
+    t.text     "description",                       :null => false
     t.integer  "bonus_points"
-    t.integer  "done_count",   :default => 0
+    t.integer  "participants_count", :default => 0
     t.datetime "start_on"
     t.datetime "end_on"
     t.datetime "created_at"
@@ -77,6 +70,13 @@ ActiveRecord::Schema.define(:version => 20111005072737) do
   end
 
   add_index "challenges", ["name"], :name => "index_challenges_on_name", :unique => true
+
+  create_table "challenges_checkins", :id => false, :force => true do |t|
+    t.integer "challenge_id"
+    t.integer "checkin_id"
+  end
+
+  add_index "challenges_checkins", ["challenge_id", "checkin_id"], :name => "index_challenge_checkin_on_challenge_id_and_checkin_id", :unique => true
 
   create_table "challenges_feats", :id => false, :force => true do |t|
     t.integer "feat_id"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20111005072737) do
     t.text     "memo"
     t.integer  "public"
     t.string   "user_ip"
-    t.datetime "checkin_at"
+    t.datetime "created_at"
   end
 
   add_index "checkins", ["user_id"], :name => "index_checkins_on_user_id"
@@ -120,12 +120,13 @@ ActiveRecord::Schema.define(:version => 20111005072737) do
 
   create_table "feats", :force => true do |t|
     t.integer  "category_id"
-    t.string   "name",          :limit => 20,                :null => false
-    t.string   "description",   :limit => 60,                :null => false
+    t.string   "name",          :limit => 30,  :default => "", :null => false
+    t.string   "description",   :limit => 200
     t.text     "why"
     t.text     "how"
-    t.integer  "bonus_points",                :default => 0
-    t.integer  "checkin_count",               :default => 0
+    t.integer  "bonus_points",                 :default => 0
+    t.integer  "checkin_count",                :default => 0
+    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -158,7 +159,7 @@ ActiveRecord::Schema.define(:version => 20111005072737) do
   create_table "planned_todos", :force => true do |t|
     t.integer  "user_id"
     t.integer  "feat_id"
-    t.string   "frequency"
+    t.string   "plan_type"
     t.datetime "created_at"
   end
 
@@ -204,6 +205,22 @@ ActiveRecord::Schema.define(:version => 20111005072737) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "taggings", :force => true do |t|
+    t.integer "tag_id"
+    t.integer "taggable_id"
+    t.string  "taggable_type"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type", :unique => true
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+    t.string "kind"
+  end
+
+  add_index "tags", ["name", "kind"], :name => "index_tags_on_name_and_kind", :unique => true
+
   create_table "uploads", :force => true do |t|
     t.integer  "attachable_id"
     t.string   "attachable_type"
@@ -224,13 +241,15 @@ ActiveRecord::Schema.define(:version => 20111005072737) do
   add_index "user_wishes", ["user_id", "reward_id"], :name => "index_user_wishes_on_user_id_and_reward_id", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => ""
+    t.string   "email",                                                               :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128,                               :default => ""
     t.string   "name"
+    t.integer  "earned_points"
+    t.decimal  "life_score",                            :precision => 2, :scale => 1
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",                                                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -238,7 +257,7 @@ ActiveRecord::Schema.define(:version => 20111005072737) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.integer  "failed_attempts",                       :default => 0
+    t.integer  "failed_attempts",                                                     :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "created_at"

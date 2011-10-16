@@ -1,4 +1,4 @@
-require "party_boy"
+ require "party_boy"
 
 class User < ActiveRecord::Base
   include Party::Boy
@@ -94,6 +94,7 @@ class User < ActiveRecord::Base
     PlannedTodo.weekly(self).each do |plan|
       feats << plan.feat
     end
+    return feats
   end
 
   def weekend_feats
@@ -101,6 +102,7 @@ class User < ActiveRecord::Base
     PlannedTodo.weekend(self).each do |plan|
       feats << plan.feat
     end
+    return feats
   end
 
   # accept a challenges

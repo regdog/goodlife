@@ -13,7 +13,7 @@
             <td><%= link_to content.title, edit_admin_content_path(content) %></td>
             <!--<td><%#= content.created_at.strftime('%m/%d/%y') %></td>-->
             <td><%= content.permalink %></td>
-            <td><%= content.category.name %></td>
+            <td><%= content.tag.name %></td>
             <td><%#= link_to "View", {:controller=>"contents", :action=>"show", :permalink=>content.permalink}, :target =>"_blank"  %></td>
             <td><%= link_to 'Delete', admin_content_path(content.id), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>

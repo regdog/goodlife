@@ -1,14 +1,4 @@
 GoodLife::Application.routes.draw do
-  get "plans/index"
-
-  get "plans/all"
-
-  get "plans/daily"
-
-  get "plans/weekly"
-
-  get "plans/weekend"
-
   root :to => "welcome#index"
 
   devise_for :users, :controllers => {:omniauth_callbacks=>'users/omniauth_callbacks'} do
@@ -18,21 +8,26 @@ GoodLife::Application.routes.draw do
 
   resources :authentications
 
-  devise_for :admin_users
+  devise_for :admin_users, :path => "/admin/user"
 
-  resources :feats, :only => [:index, :show] do
-    get 'checkin', :on => :member
-    get 'all', :on => :collection
-  end
-
-  resources :rewards, :only => [:index, :show] do
-    get 'all', :on => :collection
-  end
-
-  resources :checkins, :only => [:index] do
-    collection do
-      get 'latest'
-      get 'epic'
+  scope "/view" do
+    resources :checkins, :only => [:index] do
+      collection do
+        get 'latest'
+        get 'epic'
+      end
+    end
+    resources :feats, :only => [:index, :show] do
+      get 'catalog', :on => :collection
+      get 'plans', :on => :collection
+      get 'challenges', :on => :collection
+      get 'checkin', :on => :member
+    end
+    resources :challenges, :except => :destroy
+    resources :rewards, :only => [:index, :show] do
+      get 'all', :on => :collection
+      get 'local', :on => :collection
+      get 'premium', :on => :collection
     end
   end
 
@@ -48,6 +43,10 @@ GoodLife::Application.routes.draw do
     root :to => "dashboard#index"
     resources :feats do
       get 'feat_tokens', :on => :collection
+    end
+    resources :tags do
+      get 'feat_tag_tokens', :on => :collection
+      get 'reward_tag_tokens', :on => :collection
     end
     resources :rewards, :challenges, :partners, :categories, :contents
     resources :users, :only => [:index, :show, :destroy]

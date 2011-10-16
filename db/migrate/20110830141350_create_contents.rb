@@ -1,8 +1,8 @@
 class CreateContents < ActiveRecord::Migration
   def self.up
     create_table :contents do |t|
-      t.references :category
-      t.references :user
+      t.references :tag
+      t.references :admin_user
       t.string :permalink, :null => false
       t.string :title, :limit => 100, :default => "", :null => false
       t.text   :content, :null => false

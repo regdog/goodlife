@@ -1,17 +1,21 @@
 class ChallengesController < ApplicationController
+  def index
+
+  end
+
+  def show
+
+  end
+
   def new
   end
 
   def create
   end
 
-  def index
+  def edit
   end
 
-  def accept
+  def update
   end
-
-  def leave
-  end
-
 end

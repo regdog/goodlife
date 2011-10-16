@@ -1,5 +1,5 @@
 class Content < ActiveRecord::Base
-  belongs_to :category
+  belongs_to :tag
   belongs_to :user
   permalink :title
 

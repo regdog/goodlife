@@ -1,6 +1,7 @@
 class DeviseCreateAdminUsers < ActiveRecord::Migration
   def self.up
     create_table(:admin_users) do |t|
+      t.references :partner
       t.database_authenticatable :null => false
       t.recoverable
       t.rememberable

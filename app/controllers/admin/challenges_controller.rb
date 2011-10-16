@@ -10,7 +10,7 @@ class Admin::ChallengesController < Admin::BaseController
 
   def create
     @challenge = Challenge.new(params[:challenge])
-    @challenge.creator = current_admin_user
+    @challenge.creator = current_admin_user.partner if current_admin_user.partner
 
     if @challenge.save
       redirect_to :action => "index"
