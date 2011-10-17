@@ -23,7 +23,7 @@
           </div>
         <% end %>
       <% else %>
-        <%= link_to "Accept it", accept_challenge_path(challenge) %>
+        <%= link_to "Accept it", accept_challenge_path(challenge) if user_signed_in? %>
       <% end %>
     <% end %>
 </div>

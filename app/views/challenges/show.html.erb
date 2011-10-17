@@ -1,7 +1,7 @@
 <div class="row">
   <div class="column grid_8">
     <h1><%= @challenge.name %></h1>
-    <p><%= link_to "Leave challenge", leave_challenge_path(@challenge) %></p>
+    <p><%= link_to "Leave challenge", leave_challenge_path(@challenge) if user_signed_in? %></p>
   <p>
     Description<br/>
     <%= @challenge.description %>

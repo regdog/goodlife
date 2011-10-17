@@ -30,7 +30,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/challenges/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="147" selection-start="1015" selection-end="1015" vertical-scroll-proportion="-12.612904">
+            <state line="25" column="84" selection-start="1310" selection-end="1310" vertical-scroll-proportion="-16.161291">
               <folding />
             </state>
           </provider>
@@ -48,7 +48,7 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/challenges/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="105" selection-start="572" selection-end="572" vertical-scroll-proportion="0.8233533">
+            <state line="3" column="90" selection-start="174" selection-end="174" vertical-scroll-proportion="0.098802395">
               <folding />
             </state>
           </provider>
@@ -100,8 +100,8 @@
         <option value="$PROJECT_DIR$/public/stylesheets/layout.css" />
         <option value="$PROJECT_DIR$/app/views/widgets/_checkins_tabnav.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/challenges/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/challenges_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/challenges/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/challenges/show.html.erb" />
       </list>
     </option>
@@ -754,13 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/challenges/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="147" selection-start="1015" selection-end="1015" vertical-scroll-proportion="-12.612904">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/challenges_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="36" selection-start="931" selection-end="931" vertical-scroll-proportion="0.0">
@@ -768,9 +761,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/challenges/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="84" selection-start="1310" selection-end="1310" vertical-scroll-proportion="-16.161291">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/challenges/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="105" selection-start="572" selection-end="572" vertical-scroll-proportion="0.8233533">
+        <state line="3" column="90" selection-start="174" selection-end="174" vertical-scroll-proportion="0.098802395">
           <folding />
         </state>
       </provider>
