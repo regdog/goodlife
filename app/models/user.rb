@@ -63,11 +63,15 @@ class User < ActiveRecord::Base
   # team checkins
   def team_checkins
     checkins ||= []
-    member_ids ||= []
-    self.members.each do |member|
-      member_ids << member.id
+    friend_ids ||= []
+    self.friends.each do |friend|
+      friend_ids << friend.id
     end
-    checkins = Checkin.where("user_id in ?", member_ids)
+    if friend_ids.empty?
+      return nil
+    else
+      checkins = Checkin.where("user_id in ?", friend_ids).order("created_at DESC")
+    end
   end
 
   # user's latest checkins

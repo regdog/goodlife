@@ -26,19 +26,30 @@ render_tabnav :rewards,
   #end
 
   add_tab do |t|
-    t.named 'All'
-    t.titled 'All Rewards'
-    t.links_to all_rewards_path
-    t.highlights_on :controller => 'rewards', :action => 'all'
+    t.named 'Local Savings'
+    t.links_to local_rewards_path
+    t.highlights_on :controller => 'rewards', :action => 'local'
   end
 
-   Tag.of_kind("Reward").each do |c|
-     add_tab do |t|
-       t.named c.name.camelize
-       t.titled "Go to #{c.name.camelize}"
-       t.links_to :controller => :rewards, :type => c.name
-     end
-   end
+  add_tab do |t|
+    t.named 'Premium Rewards'
+    t.links_to premium_rewards_path
+    t.highlights_on :controller => 'rewards', :action => 'premium'
+  end
+
+  add_tab do |t|
+    t.named 'Wishlist'
+    t.links_to wishlist_rewards_path
+    t.highlights_on :controller => 'rewards', :action => 'wishlist'
+  end if user_signed_in?
+
+   #Tag.of_kind("Reward").each do |c|
+   #  add_tab do |t|
+   #    t.named c.name.camelize
+   #    t.titled "Go to #{c.name.camelize}"
+   #    t.links_to :controller => :rewards, :type => c.name
+   #  end
+   #end
 
   #add_tab do |t|
   #  t.named 'Home'

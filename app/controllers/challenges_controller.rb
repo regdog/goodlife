@@ -1,6 +1,10 @@
 class ChallengesController < ApplicationController
   def index
-    redirect_to mine_challenges_path
+    if current_user
+      redirect_to mine_challenges_path
+    else
+      @challenges = Challenge.all
+    end
   end
 
   def mine
@@ -9,22 +13,34 @@ class ChallengesController < ApplicationController
     render :index
   end
 
-  def by_date
+  def date
     @challenges = Challenge.sort_by_date
-    @view_by = "by_date"
+    @view_by = "date"
     render :index
   end
 
-  def by_popularity
+  def popularity
     @challenges = Challenge.sort_by_popularity
-    @view_by = "by_popularity"
+    @view_by = "popularity"
     render :index
   end
 
-  def by_points
+  def points
     @challenges = Challenge.sort_by_points
-    @view_by = "by_date"
+    @view_by = "points"
     render :index
+  end
+
+  def accept
+    @challenge = Challenge.find(params[:id])
+    current_user.accept_challenge(@challenge) if user_signed_in?
+    redirect_to challenge_path(@challenge)
+  end
+
+  def leave
+    @challenge = Challenge.find(params[:id])
+    current_user.leave_challenge(@challenge) if user_signed_in?
+    redirect_to mine_challenges_path
   end
 
   def show

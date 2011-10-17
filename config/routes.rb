@@ -18,6 +18,7 @@ GoodLife::Application.routes.draw do
       end
     end
     resources :feats, :only => [:index, :show] do
+      get 'catalog', :on => :collection
       get 'checkin', :on => :member
     end
 
@@ -28,21 +29,24 @@ GoodLife::Application.routes.draw do
 
     resources :challenges, :except => :destroy do
       get 'mine', :on => :collection
-      get 'by_date', :on => :collection
-      get 'by_popularity', :on => :collection
-      get 'by_points', :on => :collection
+      get 'date', :on => :collection
+      get 'popularity', :on => :collection
+      get 'points', :on => :collection
+      get 'accept', :on => :member
+      get 'leave', :on => :member
     end
 
     resources :rewards, :only => [:index, :show] do
-      get 'all', :on => :collection
       get 'local', :on => :collection
       get 'premium', :on => :collection
+      get 'wishlist', :on => :collection
     end
   end
 
-  get 'team/members' => "team#members", :as => :team_members
-  get 'team/checkins' => "team#checkins", :as => :team_checkins
-  get 'team/requests' => "team#requests", :as => :team_requests
+  get 'team/members' => "team#members", :as => :members_team
+  get 'team/checkins' => "team#checkins", :as => :checkins_team
+  get 'team/requests' => "team#requests", :as => :requests_team
+  get 'team/invite' => "team#invite", :as => :invite_team
 
   get 'member/:nameid' => "member#show"
 

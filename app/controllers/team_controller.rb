@@ -1,6 +1,6 @@
 class TeamController < ApplicationController
   def checkins
-    @checkins = current_user.checkins
+    @checkins = current_user.team_checkins
   end
 
   def requests
@@ -8,6 +8,6 @@ class TeamController < ApplicationController
   end
 
   def members
-    @members = current_user.friends
+    @friends = current_user.friends
   end
 end

@@ -1,18 +1,25 @@
 class RewardsController < ApplicationController
-
   def index
+    redirect_to local_rewards_path
+  end
+
+  def local
     if params[:type]
       @category = Tag.of_kind("Reward").find_by_name(params[:type]) if params[:type]
       if @category
         @rewards = @category.rewards
       end
     else
-      redirect_to all_rewards_path
+      @rewards = Reward.all
     end
+    render :index
   end
 
-  def all
-    @rewards = Reward.all
+  def premium
+    render :index
+  end
+
+  def wishlist
     render :index
   end
 

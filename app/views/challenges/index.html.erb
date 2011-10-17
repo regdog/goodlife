@@ -1,3 +1,4 @@
+<% tabnav :feats do %>
 <div class="row">
 <div class="column grid_2">
   <%= render :partial => 'subnav' %>
@@ -12,6 +13,19 @@
       <p><%#= image_tag feat.image.url(:medium) if feat.image %></p>
       <p><%= raw truncate challenge.description, :length => 30, :separator => ' ' %></p>
       <p>Points you can win<br/><%= "#{challenge.bonus_points}pts" %></p>
+      <% if challenge.participants.include?(current_user) %>
+        <% if challenge.completed_feats(current_user).size == challenge.feats.size %>
+          <div class="progress_done">100% done</div>
+        <% else %>
+          <div class="progress_container">
+            <div class="progress" <%= "style='width: #{(100*(challenge.completed_feats(current_user).size.to_f/challenge.feats.size.to_f)).to_i}%;'" %>></div>
+            <div class="progress_text"><%= (100*(challenge.completed_feats(current_user).size.to_f/challenge.feats.size.to_f)).to_i %>% done</div>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to "Accept it", accept_challenge_path(challenge) %>
+      <% end %>
     <% end %>
 </div>
 </div>
+<% end %>

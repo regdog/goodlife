@@ -25,9 +25,17 @@ render_navigation :main, :generate_css => true do
       i.links_to rewards_path
     end
 
-    add_item :name => 'Team', :link => team_members_path if current_user
+    add_item do |i|
+      i.named 'Team'
+      # i.titled 'contribute to the wiki!'
+      i.links_to members_team_path
+    end if user_signed_in?
 
-    add_item :name => 'Profile', :link => profile_path if current_user
+    add_item do |i|
+      i.named 'Profile'
+      # i.titled 'contribute to the wiki!'
+      i.links_to profile_path
+    end if user_signed_in?
 
 
     #add_item do |i|
