@@ -63,14 +63,14 @@ class User < ActiveRecord::Base
   # team checkins
   def team_checkins
     checkins ||= []
-    friend_ids ||= []
-    self.friends.each do |friend|
-      friend_ids << friend.id
+    member_ids ||= []
+    self.members.each do |member|
+      member_ids << member.id
     end
-    if friend_ids.empty?
+    if member_ids.empty?
       return nil
     else
-      checkins = Checkin.where("user_id in ?", friend_ids).order("created_at DESC")
+      checkins = Checkin.where(:user_id => member_ids).order("created_at DESC")
     end
   end
 
@@ -82,6 +82,30 @@ class User < ActiveRecord::Base
   # user's epic checkins
   def epic_checkins
     self.checkins.epic
+  end
+
+  # plan feat
+  def plan(feat, type)
+    plan = PlannedTodo.find_by_user_id_and_feat_id(self.id, feat.id)
+    unless plan.nil?
+      plan.plan_type = type
+    else
+      plan = PlannedTodo.new
+      plan.user_id = self.id
+      plan.feat_id = feat.id
+      plan.plan_type = type
+    end
+    plan.save
+  end
+
+  # feat planed type
+  def plan_type(feat)
+    plan = PlannedTodo.find_by_user_id_and_feat_id(self.id, feat.id)
+    unless plan.nil?
+      return plan.plan_type
+    else
+      return nil
+    end
   end
 
   # planned feats: daily, weekly, weekend
@@ -186,6 +210,16 @@ class User < ActiveRecord::Base
     members << self
     members = members.sort_by {|m| [m.earned_points]}.reverse!
     members.flatten
+  end
+
+  # outgoing membership requests
+  def outgoing_member_requests
+    self.outgoing_friend_requests
+  end
+
+  # incoming membership requests
+  def incoming_member_requests
+    self.incoming_friend_requests
   end
 
   # add a reward to wishlist

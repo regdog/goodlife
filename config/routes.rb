@@ -12,6 +12,7 @@ GoodLife::Application.routes.draw do
 
   scope "/view" do
     resources :checkins, :only => [:index] do
+      resources :comments
       collection do
         get 'latest'
         get 'epic'
@@ -21,6 +22,7 @@ GoodLife::Application.routes.draw do
       get 'catalog', :on => :collection
       get 'checkin', :on => :member
     end
+    match 'feats/:id/plan/:type' => 'feats#plan', :as => 'plan_feats'
 
     get 'plans' => "plans#index"
     get 'plans/daily' => "plans#daily", :as => "daily_plans"
@@ -43,10 +45,10 @@ GoodLife::Application.routes.draw do
     end
   end
 
-  get 'team/members' => "team#members", :as => :members_team
-  get 'team/checkins' => "team#checkins", :as => :checkins_team
-  get 'team/requests' => "team#requests", :as => :requests_team
-  get 'team/invite' => "team#invite", :as => :invite_team
+  get 'team' => "team#index", :as => :teammates
+  get 'team/checkins' => "team#checkins", :as => :team_checkins
+  get 'team/requests' => "team#requests", :as => :my_requests
+  get 'team/invite' => "team#invite", :as => :invite_member
 
   get 'member/:nameid' => "member#show"
 

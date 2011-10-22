@@ -21,5 +21,4 @@ class PlansController < ApplicationController
     @view_by = "weekend"
     render :index
   end
-
 end

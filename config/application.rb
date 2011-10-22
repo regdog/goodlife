@@ -42,5 +42,7 @@ module GoodLife
     config.to_prepare do
       Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "welcome" }       
     end
+
+    # config.action_view.javascript_expansions[:defaults] = %w(jquery rails application)
   end
 end

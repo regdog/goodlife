@@ -17,7 +17,7 @@ gem 'meta_search'
 gem 'kaminari'
 gem 'paperclip', '~> 2.3.16'
 gem 'rails-permalink'
-gem 'formtastic'
+#gem 'formtastic'
 gem 'jquery-rails'
 gem 'cancan'
 

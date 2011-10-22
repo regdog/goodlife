@@ -19,6 +19,19 @@ class FeatsController < ApplicationController
     render :layout => 'corp'
   end
 
+  def plan
+    @feat = Feat.find(params[:id])
+    @plan_type = params[:type]
+    if @plan_type == 'unplan'
+      PlannedTodo.find_by_user_id_and_feat_id(current_user.id, @feat.id).destroy
+    else
+      current_user.plan(@feat, @plan_type)
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def checkin
     feat = Feat.find(params[:id])
     if current_user

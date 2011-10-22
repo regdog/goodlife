@@ -1,0 +1,40 @@
+$("#feat_<%= @feat.id %>_planoptions").hide();
+$("#feat_<%= @feat.id %>_plannote").html("<a href='#' class='planLink'><%= current_user.plan_type(@feat).nil? ? 'Plan it' : "Planed #{current_user.plan_type(@feat).downcase}" %></a>")
+$("#feat_<%= @feat.id %>_plannote").show();
+
+<% case @plan_type %>
+    <% when 'daily' %>
+      $('#feat_<%= @feat.id %>_plandaily a').html('<b><i>Daily</i></b>');
+      $('#feat_<%= @feat.id %>_planweekly a').text('Weekly');
+      $('#feat_<%= @feat.id %>_planweekend a').text('Weekend');
+      $("#feat_<%= @feat.id %>_unplan").show();
+    <% when 'weekly' %>
+      $('#feat_<%= @feat.id %>_plandaily a').text('Daily');
+      $('#feat_<%= @feat.id %>_planweekly a').html('<b><i>Weekly</i></b>');
+      $('#feat_<%= @feat.id %>_planweekend a').text('Weekend');
+      $("#feat_<%= @feat.id %>_unplan").show();
+    <% when 'weekend' %>
+      $('#feat_<%= @feat.id %>_plandaily a').text('Daily');
+      $('#feat_<%= @feat.id %>_planweekly a').text('Weekly');
+      $('#feat_<%= @feat.id %>_planweekend a').html('<b><i>Weekend</i></b>');
+      $("#feat_<%= @feat.id %>_unplan").show();
+    <% else %>
+      $('#feat_<%= @feat.id %>_plandaily a').text('Daily');
+      $('#feat_<%= @feat.id %>_planweekly a').text('Weekly');
+      $('#feat_<%= @feat.id %>_planweekend a').text('Weekend');
+      $("#feat_<%= @feat.id %>_unplan").hide();
+<% end %>
+
+  // shows the plan options on clicking the noted link
+  $('a.planLink').click(function() {
+    $(this).parent().hide();
+    $(this).parent().next('.planoptions').show('slow');
+    return false;
+  });
+  // close the plan options on clicking the noted link
+  $('a.closeLink').click(function() {
+    $(this).parent().hide('slow')
+    $(this).parent().prev('.plannote').show('slow');
+  return false;
+  });
+//});

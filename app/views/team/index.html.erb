@@ -1,0 +1,38 @@
+<% tabnav :team do %>
+<div class="row">
+<div class="column grid_2">
+  <%= render :partial => 'subnav' %>
+</div>
+<div class="column grid_8">
+    <% tableize @teammates,
+                :name => 'members',
+                #:header => 'Listing Feats',
+                :cols => 4,
+                :generate_css => 'true' do |teammate| %>
+
+      <h3><%= teammate.name %></h3>
+      <p><%#= image_tag feat.image.url(:medium) if feat.image %></p>
+      <p>Points<%= teammate.earned_points %></p>
+      <%#= link_to 'did it', checkin_feat_path(feat) if current_user %>
+    <% end %>
+  <hr/>
+  <div id="invite_teammember">
+    <fieldset>
+      <legend>Invite Teammates</legend>
+      <%= form_tag 'team/invite',:method => 'get' do %>
+        <%= label_tag "Invite a Member:"%>
+        <%= text_field_tag :id%>
+        <%= submit_tag 'SEND INVITES' %>
+      <% end %>
+      <hr/>
+      <%= form_for @user,:url=> user_invitation_path do |f| %>
+        <%= f.label "Invite via E-mail:"%>
+        <%= f.email_field :email %>
+        <%= f.submit 'SEND INVITES' %>
+      <% end %>
+    </fieldset>
+
+  </div>
+</div>
+</div>
+<% end %>

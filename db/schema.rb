@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20111017123453) do
 
   add_index "checkins", ["user_id", "feat_id"], :name => "index_checkins_on_user_id_and_feat_id"
 
-  create_table "comments", :force => true do |t|
+  create_table "add_comments", :force => true do |t|
     t.integer  "checkin_id"
     t.integer  "users_id"
     t.text     "content"

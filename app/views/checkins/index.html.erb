@@ -1,15 +1,21 @@
 <% tabnav :checkins do %>
-<% tableize @checkins,
+  <% @checkins.each do |checkin| %>
+    <%= render :partial => "item", :locals => {:checkin => checkin } %>
+  <% end %>
+  <div style="clear:both;"></div>
+<%# tableize @checkins,
             :name => 'checkins',
             :cols => 4,
             :generate_css => 'true' do |checkin| %>
 
-     <h3><%= "#{checkin.user.name} did !#{checkin.feat.name}" %></h3>
-     <% checkin.challenges.each do |challenge| %>
-       <p><small><%= checkin.user.name %> was working on <%= challenge.name  %></small></p>
-     <% end %>
-     <small><%= "#{time_ago_in_words checkin.created_at} ago"  %></small>
 
-<% end %>
+
+     <!--<h3><%#= "#{checkin.user.name} did !#{checkin.feat.name}" %></h3>-->
+     <!--<%# checkin.challenges.each do |challenge| %>-->
+       <!--<p><small><%#= checkin.user.name %> was working on <%#= challenge.name  %></small></p>-->
+     <!--<%# end %>-->
+     <!--<small><%#= "#{time_ago_in_words checkin.created_at} ago"  %></small>-->
+
+<%# end %>
 
 <% end %>

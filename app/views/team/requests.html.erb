@@ -1,5 +1,12 @@
 <% tabnav :team do %>
-<h1>!Requests</h1>
-<p>This shows my requests.</p>
+<h3>Outgoing Requests</h3>
+<% @outgoing_requests.each do |request| %>
+<p><%= request.name %></p>
+<% end %>
+<hr />
+<h3>Incoming Requests</h3>
+<% @incoming_requests.each do |request| %>
+<p><%= request.name %></p>
+<% end %>
 
 <% end %>
