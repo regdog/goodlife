@@ -3,6 +3,12 @@ class CreateRedemptions < ActiveRecord::Migration
     create_table :redemptions do |t|
       t.references :user
       t.references :reward
+      t.string :name
+      t.string :address
+      t.string :city
+      t.string :region
+      t.string :country
+      t.string :phone
       t.datetime :created_at
     end
 

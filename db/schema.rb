@@ -88,10 +88,10 @@ ActiveRecord::Schema.define(:version => 20111017123453) do
 
   add_index "checkins", ["user_id", "feat_id"], :name => "index_checkins_on_user_id_and_feat_id"
 
-  create_table "add_comments", :force => true do |t|
+  create_table "comments", :force => true do |t|
     t.integer  "checkin_id"
-    t.integer  "users_id"
-    t.text     "content"
+    t.integer  "user_id"
+    t.string   "content"
     t.string   "user_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -204,7 +204,7 @@ ActiveRecord::Schema.define(:version => 20111017123453) do
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type", :unique => true
+  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type"
 
   create_table "tags", :force => true do |t|
     t.string  "name"

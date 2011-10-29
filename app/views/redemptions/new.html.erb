@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="column grid_11">
+    <h1>Redeem your reward</h1>
+    <strong><%= @reward.name %></strong><br/>
+    <i>for <%= @reward.redeem_points %> points</i>
+    <p><%= raw @reward.description %></p>
+    <%= form_for @redemption, :url => {:action => "create"} do |f| %>
+      <%= f.hidden_field :reward_id, {:value => @reward.id} %>
+      <p>
+        <%= f.label "Your name" %><br/>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label "Your address" %><br/>
+        <%= f.text_field :address %>
+      </p>
+      <p>
+        <%= f.label "Your city" %><br/>
+        <%= f.text_field :city %>
+      </p>
+      <p>
+        <%= f.label "Your state" %><br/>
+        <%= f.text_field :region %>
+      </p>
+      <p>
+        <%= f.label "Your zipcode" %><br/>
+        <%= f.text_field :zip %>
+      </p>
+      <p>
+        <%= f.label "Your phone number" %><br/>
+        <%= f.text_field :phone %>
+      </p>
+      <p><%= f.submit %></p>
+    <% end %>
+  </div>
+  <%# render :partial => 'crud_right' %>
+</div>

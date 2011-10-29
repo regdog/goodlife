@@ -243,7 +243,7 @@ class User < ActiveRecord::Base
     redemption.reward_id = reward.id
     redemption.save
   end
-  
+
   # build omniauth
   def apply_omniauth(omniauth)
      authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])

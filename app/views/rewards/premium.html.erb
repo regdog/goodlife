@@ -1,0 +1,14 @@
+<% tabnav :rewards do %>
+<div class="row">
+  <div class="column grid_11">
+    <% tableize @rewards,
+                :name => 'rewards',
+                #:header => 'Listing Rewards',
+                :cols => 5,
+                :generate_css => 'true' do |reward| %>
+
+      <%= render :partial => "reward_grid", :locals => {:reward => reward} %>
+    <% end if @rewards %>
+  </div>
+</div>
+<% end %>

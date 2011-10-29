@@ -1,0 +1,1 @@
+<%= link_to current_user.wishes.include?(reward) ? 'Remove from wishlist' : 'Add to wishlist', current_user.wishes.include?(reward) ? remove_wish_reward_path(reward) : add_wish_reward_path(reward), :remote => true %>

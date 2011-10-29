@@ -4,7 +4,7 @@ GoodLife::Application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks=>'users/omniauth_callbacks'} do
     get 'profile', :to => "devise/registrations#edit", :as=>'profile'
   end
-  match '/users' => "feats#index", :as => :user_root
+  #match '/users' => "feats#index", :as => :user_root
 
   resources :authentications
 
@@ -42,8 +42,14 @@ GoodLife::Application.routes.draw do
       get 'local', :on => :collection
       get 'premium', :on => :collection
       get 'wishlist', :on => :collection
+      get 'add_wish', :on => :member
+      get 'remove_wish', :on => :member
     end
   end
+
+  resources :redemptions, :only => [:create]
+  get '/rewards/redeem/:reward_id' => 'redemptions#new', :as => :new_redemption
+
 
   get 'team' => "team#index", :as => :teammates
   get 'team/checkins' => "team#checkins", :as => :team_checkins

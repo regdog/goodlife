@@ -1,0 +1,25 @@
+<% tabnav :rewards do %>
+  <h2>查找Reward</h2>
+  <%= form_for @search, :url => {:action => "local"} do |f| %>
+    <p>
+      <%= f.label "输入城市、街道名称或邮编号码:" %><br/>
+      <%= f.hidden_field :partner_tag_name_starts_with, {:value => 'Local'} %>
+      <%= f.text_field :partner_city_or_partner_street_or_partner_zip_code_contains %>
+      <%= f.submit "Search" %>
+    </p>
+  <% end %>
+
+<div class="row">
+  <div class="column grid_11">
+    <% tableize @rewards,
+                :name => 'rewards',
+                #:header => 'Listing Rewards',
+                :cols => 5,
+                :generate_css => 'true' do |reward| %>
+
+      <%= render :partial => "reward_grid", :locals => {:reward => reward} %>
+    <% end if @rewards %>
+  </div>
+</div>
+
+<% end %>

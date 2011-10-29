@@ -1,0 +1,5 @@
+<% if request.url == '/view/rewards/wishlist' %>
+$("#reward_<%= @reward.id %>_grid").hide('slow');
+<% else %>
+$("#reward_<%= @reward.id %>_wishlink").html('<%= escape_javascript(render(:partial => "wishlink", :locals => { :reward => @reward }))%>').show('slow');
+<% end %>

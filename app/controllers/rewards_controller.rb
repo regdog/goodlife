@@ -1,26 +1,18 @@
 class RewardsController < ApplicationController
   def index
-    redirect_to local_rewards_path
   end
 
   def local
-    if params[:type]
-      @category = Tag.of_kind("Reward").find_by_name(params[:type]) if params[:type]
-      if @category
-        @rewards = @category.rewards
-      end
-    else
-      @rewards = Reward.all
-    end
-    render :index
+    @search = Reward.search(params[:search])
+    @rewards = @search.all if params[:search]
   end
 
   def premium
-    render :index
+    @rewards = Reward.premium
   end
 
   def wishlist
-    render :index
+    @rewards = current_user.wishes
   end
 
   def show
@@ -28,4 +20,21 @@ class RewardsController < ApplicationController
     render :layout => 'corp'
   end
 
+  def add_wish
+    @reward = Reward.find(params[:id])
+    current_user.add_wish(@reward)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def remove_wish
+    @reward = Reward.find(params[:id])
+    current_user.remove_wish(@reward)
+
+    respond_to do |format|
+      format.js
+    end
+  end
 end

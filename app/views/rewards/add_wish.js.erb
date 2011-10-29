@@ -1,0 +1,1 @@
+$("#reward_<%= @reward.id %>_wishlink").html('<%= escape_javascript(render(:partial => "wishlink", :locals => { :reward => @reward }))%>').show('slow');
