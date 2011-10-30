@@ -12,7 +12,7 @@
 <div class="row" id="header">
   <head>
   <%= navigation :main %>
-
+  <%#= render :partial => "shared/navigation" %>
   <div class="column grid_14">
     <% if user_signed_in? %>
         <%= current_user.name %> is logged in. Not you? Click <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>

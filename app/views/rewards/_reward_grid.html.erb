@@ -9,14 +9,13 @@
   </p>
   <% if user_signed_in? %>
     <div id=<%= "reward_#{reward.id}_wishlink" %>><%= link_to current_user.wishes.include?(reward) ? 'Remove from wishlist' : 'Add to wishlist', current_user.wishes.include?(reward) ? remove_wish_reward_path(reward) : add_wish_reward_path(reward), :remote => true %></div>
-  <% end %>
 
-  <% if current_user.earned_points > reward.redeem_points %>
-    <%= link_to 'Get it', new_redemption_path(reward.id) if user_signed_in? %><br/>
-  <% else %>
-    more points <br/>
+    <% if current_user.earned_points > reward.redeem_points %>
+      <%= link_to 'Get it', new_redemption_path(reward.id) if user_signed_in? %><br/>
+    <% else %>
+      more points <br/>
+    <% end %>
   <% end %>
-
   <p><%= raw truncate reward.description, :length => 30, :separator => ' ' %></p>
   <p>For <%= reward.redeem_points %> points</p>
 </div>

@@ -1,0 +1,46 @@
+<div class="navcontainer">
+  <ul class="menu">
+	<li>
+		<%= link_to "Checkins", checkins_path %>
+        <div class="bottombar"></div>
+	</li>
+	<li>
+		<%= link_to "Feats", feats_path %>
+        <div class="bottombar"></div>
+		<span id="subnav_feats" class="submenu">
+          <%= link_to "All feats", feats_path %>
+          <%= link_to "Plan feats", plans_path if user_signed_in? %>
+          <%= link_to "Challenge", challenges_path %>
+        </span>
+	</li>
+	<li>
+		<%= link_to "Rewards", rewards_path %>
+        <div class="bottombar"></div>
+		<span id="subnav_rewards" class="submenu">
+          <%= link_to "Local savings", local_rewards_path %>
+          <%= link_to "Premium rewards", premium_rewards_path %>
+          <%= link_to "Wishlist", wishlist_rewards_path if user_signed_in? %>
+        </span>
+	</li>
+    <% if user_signed_in? %>
+	<li>
+		<%= link_to "Team", teammates_path %>
+        <div class="bottombar"></div>
+		<span id="subnav_team" class="submenu">
+          <%= link_to "My team", teammates_path %>
+          <%= link_to "Our feats", team_checkins_path %>
+          <%= link_to "Requests", my_requests_path %>
+        </span>
+	</li>
+	<li>
+		<%= link_to "Profile", profile_path %>
+        <div class="bottombar"></div>
+		<span id="subnav_profile" class="submenu">
+          <%= link_to "My feats", teammates_path %>
+          <%= link_to "Edit account", team_checkins_path %>
+          <%= link_to "Logout", my_requests_path %>
+        </span>
+	</li>
+    <% end %>
+  </ul>
+</div>

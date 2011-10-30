@@ -28,6 +28,71 @@ height: 100%;
    height: 60px;
    clear: both;
 }
+
+/* site nav menu */
+/*.navcontainer {*/
+    /*float: right;*/
+    /*margin: 0 0 0 auto;*/
+/*}*/
+/*.menu {*/
+	/*padding: 0;*/
+	/*list-style: none;*/
+/*}*/
+/*.menu li {*/
+	/*padding: 0;*/
+	/*margin: 0 10px;*/
+	/*float: left;*/
+	/*position: relative;*/
+	/*text-align: left;*/
+/*}*/
+/*.menu a {*/
+    /*padding-bottom: 8px;*/
+	/*display: block;*/
+	/*color: #000000;*/
+	/*width: 115px;*/
+	/*text-decoration: none;*/
+/*}*/
+/*.menu a:hover {*/
+    /*color: #CB4415;*/
+/*}*/
+/*.bottombar {*/
+    /*border-top: 1px solid #828584;*/
+    /*width: 110px*/
+/*}*/
+/*.submenu {*/
+	/*width: 600px;*/
+	/*height: 45px;*/
+	/*position: absolute;*/
+	/*top: 20px;*/
+	/*left: -200px;*/
+	/*text-align: center;*/
+	/*padding: 20px 12px 10px;*/
+	/*font-style: normal;*/
+	/*z-index: 2;*/
+	/*display: none;*/
+
+/*}*/
+/*span#subnav_feats {*/
+	/*left: -200px;*/
+/*}*/
+/*span#subnav_rewards {*/
+    /*left: -260px;*/
+/*}*/
+/*span#subnav_team {*/
+    /*left: -300px;*/
+/*}*/
+/*span#subnav_profile {*/
+    /*left: -340px;*/
+/*}*/
+/*.submenu a {*/
+	/*padding: 10px 5px;*/
+	/*display: inline;*/
+	/*color: #000000;*/
+	/*text-decoration: none;*/
+	/*font-weight: normal;*/
+/*}*/
+/* end of nav menu */
+
 /* progress bar */
 .progress_container {
     background: #DDD;

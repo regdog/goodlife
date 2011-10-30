@@ -4,7 +4,7 @@ GoodLife::Application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks=>'users/omniauth_callbacks'} do
     get 'profile', :to => "devise/registrations#edit", :as=>'profile'
   end
-  #match '/users' => "feats#index", :as => :user_root
+  match '/users' => "feats#index", :as => :user_root
 
   resources :authentications
 
