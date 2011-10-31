@@ -3,12 +3,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   #before_filter :load_corp_pages
 
-  #def find_my_team
-  #  if current_user
-  #    @my_team = current_user.load_team_members
-  #  end
-  #end
-
   protected
 
   def layout_by_resource

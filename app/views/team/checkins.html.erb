@@ -1,4 +1,4 @@
-<% tabnav :team do %>
+<%# tabnav :team do %>
 <% tableize @checkins,
             :name => 'checkins',
             :cols => 4,
@@ -11,4 +11,4 @@
      <small><%= "#{time_ago_in_words checkin.created_at} ago"  %></small>
 
 <% end if @checkins %>
-<% end %>
+<%# end %>

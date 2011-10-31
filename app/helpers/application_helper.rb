@@ -14,4 +14,8 @@ module ApplicationHelper
     words = text.split()
     words[0..(length-1)].join(' ') + (words.length > length ? end_string : '')
   end
+
+  def is_active?(url)
+    return "subnavActive" if request.path == url.to_s
+  end
 end

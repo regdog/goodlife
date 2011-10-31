@@ -22,7 +22,7 @@ class Challenge < ActiveRecord::Base
     self.feat_ids = ids.split(",")
   end
 
-  # completed challenge feats with user
+  # completed challenge feats with users
   def completed_feats(user)
     feats ||= []
     user.checkins.with_challenge(self).each do |checkin|
@@ -30,7 +30,7 @@ class Challenge < ActiveRecord::Base
     end
   end
 
-  # uncompleted challenge feats with user
+  # uncompleted challenge feats with users
   def uncompleted_feats(user)
     self.feats - self.completed_feats(user)
   end

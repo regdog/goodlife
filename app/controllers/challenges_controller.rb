@@ -1,7 +1,8 @@
 class ChallengesController < ApplicationController
   def index
     if current_user
-      redirect_to mine_challenges_path
+      @challenges = current_user.challenges
+      @view_by = "mine"
     else
       @challenges = Challenge.all
     end

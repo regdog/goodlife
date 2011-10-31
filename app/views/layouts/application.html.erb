@@ -11,14 +11,15 @@
 <div id="wrapper">
 <div class="row" id="header">
   <head>
-  <%= navigation :main %>
-  <%#= render :partial => "shared/navigation" %>
+  <%= render :partial => "shared/navigation" %>
+  </head>
+</div>
   <div class="column grid_14">
-    <% if user_signed_in? %>
-        <%= current_user.name %> is logged in. Not you? Click <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
-    <% else %>
-        <%= link_to "Register", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %>
-    <% end %>
+    <%# if user_signed_in? %>
+        <!--<%#= current_user.name %> is logged in. Not you? Click <%#= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>-->
+    <%# else %>
+        <!--<%#= link_to "Register", new_user_registration_path %> or <%#= link_to "Sign In", new_user_session_path %>-->
+    <%# end %>
     <!--<div class="search_form" style="float: right">-->
       <!--<%#= form_tag search_path, :method=>'get' do%>-->
 		<!--<p>-->
@@ -27,16 +28,14 @@
 		<!--</p>-->
 	  <!--<%# end %>-->
     <!--</div>-->
-    <p class="notice">
-      <%= notice %>
-      <% if user_signed_in? %>
-        <%= link_to "Invite friends now!", new_user_invitation_path %>
-      <% end %>
-    </p>
-    <p class="alert"><%= alert %></p>
+    <!--<p class="notice">-->
+      <!--<%#= notice %>-->
+      <!--<%# if user_signed_in? %>-->
+        <!--<%#= link_to "Invite friends now!", new_user_invitation_path %>-->
+      <!--<%# end %>-->
+    <!--</p>-->
+    <!--<p class="alert"><%#= alert %></p>-->
   </div>
-  </head>
-</div>
 <div class="row" id="content">
   <div class="column grid_11">
     <%= yield %>
@@ -101,6 +100,15 @@
            <small><%= wish.name %>   <%= wish.redeem_points %> pts</small><br/>
          <% end %>
        </div>
+    </div>
+    <div class="row">
+      <div class="column grid_3">
+        <p>
+        <% if user_signed_in? %>
+          <%= link_to "Invite friends now!", new_user_invitation_path %>
+        <% end %>
+        </p>
+      </div>
     </div>
   <% end %>
   </aside>

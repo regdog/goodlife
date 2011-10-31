@@ -74,12 +74,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  # user's latest checkins
+  # users's latest checkins
   def latest_checkins
     self.checkins.latest
   end
 
-  # user's epic checkins
+  # users's epic checkins
   def epic_checkins
     self.checkins.epic
   end
@@ -161,7 +161,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  # user participated challenge completed or not
+  # users participated challenge completed or not
   def challenge_completed?(challenge)
     all_feats = challenge.feats
     uncompleted_feats ||= []

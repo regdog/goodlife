@@ -1,7 +1,7 @@
 class CreateUserWishes < ActiveRecord::Migration
   def self.up
     create_table :user_wishes do |t|
-      t.references :user
+      t.references :users
       t.references :reward
     end
 

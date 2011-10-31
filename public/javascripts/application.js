@@ -2,13 +2,27 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(document).ready(function() {
-//  $(".menu li").hover(function() {
-//    $(this).find("span").show();
-//    $(this).find("div").css({"border-color":"#CB4415"});
-//  }, function() {
-//  $(this).find("span").hide();
-//  $(this).find("div").css({"border-color":"#828584"});
-//  });
+
+  // initialize active subnav menu
+   $(".menu li span").find("#subnavActive").parent().show();
+
+  // menu hover effect
+  $(".menu li").hover(function() {
+    $(this).parent().parent().find("#subnavActive").parent().hide();
+    $(this).find("span").show();
+    $(this).find("div").css({"border-color":"#CB4415"});
+  }, function() {
+    $(this).find("span").hide();
+    $(this).find("div").css({"border-color":"#828584"});
+  });
+
+  // restoring the active subnav menu
+  $(".menu").hover(function() {
+    //
+  }, function() {
+    $(this).find("#subnavActive").parent().show();
+  });
+
 
 // Plan feats
   if ($('.plan_feat').length > 0 ) {
