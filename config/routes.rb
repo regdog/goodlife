@@ -56,7 +56,7 @@ GoodLife::Application.routes.draw do
   get 'team/requests' => "team#requests", :as => :my_requests
   get 'team/invite' => "team#invite", :as => :invite_member
 
-  get 'member/:nameid' => "member#show"
+  get 'member/:nameid' => "member#show", :as => :member
 
   match 'corp/:permalink' => 'contents#show'
   get 'search/index', :as => :search

@@ -1,6 +1,6 @@
 class MemberController < ApplicationController
   def show
-    params[:nameid]
-    @member = User.find()
+    id = params[:nameid]
+    @member = User.find(id)
   end
 end
