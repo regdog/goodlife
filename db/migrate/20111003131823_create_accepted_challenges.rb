@@ -1,7 +1,7 @@
 class CreateAcceptedChallenges < ActiveRecord::Migration
   def self.up
     create_table :accepted_challenges do |t|
-      t.references :users
+      t.references :user
       t.references :challenge
       t.datetime :accepted_on
       t.datetime :complete_on

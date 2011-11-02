@@ -6,7 +6,6 @@
       <table class="list">
         <tr>
           <th>Title</th>
-          <th>Description</th>
           <th>DoneCount</th>
           <th>Points</th>
           <th colspan="2">Action</th>
@@ -14,7 +13,6 @@
         <% for feat in @feats %>
           <tr>
             <td><%= link_to feat.name, edit_admin_feat_path(feat) %></td>
-            <td><%= feat.description %></td>
             <td><%= feat.checkin_count %></td>
             <td><%= feat.bonus_points %></td>
             <td><%= link_to "View", feat_path(feat), :target =>"_blank"  %></td>
@@ -42,8 +40,8 @@
     <h3>Search Feat</h3>
     <%= form_for @search,:url => admin_feats_path, :html => {:method=>'get'} do |f| %>
 	  <p>
-        <%= f.label :name_or_description_contains %>
-		<%= f.text_field :name_or_description_contains %>
+        <%= f.label :name_contains %>
+		<%= f.text_field :name_contains %>
       </p>
       <p><%= f.submit 'Go' %></p>
 	<% end %>

@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(:version => 20111017123453) do
 
   create_table "comments", :force => true do |t|
     t.integer  "checkin_id"
-    t.integer  "user_id"
+    t.integer  "users_id"
     t.string   "content"
     t.string   "user_ip"
     t.datetime "created_at"
@@ -113,13 +113,12 @@ ActiveRecord::Schema.define(:version => 20111017123453) do
   create_table "feats", :force => true do |t|
     t.integer  "creator_id"
     t.string   "creator_type"
-    t.string   "name",          :limit => 30,                     :null => false
-    t.string   "description",   :limit => 200
+    t.string   "name",          :limit => 60,                    :null => false
     t.text     "why"
     t.text     "how"
-    t.integer  "bonus_points",  :limit => 3,   :default => 0
-    t.integer  "checkin_count",                :default => 0
-    t.boolean  "published",                    :default => false
+    t.integer  "bonus_points",  :limit => 3,  :default => 0
+    t.integer  "checkin_count",               :default => 0
+    t.boolean  "published",                   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -161,6 +160,12 @@ ActiveRecord::Schema.define(:version => 20111017123453) do
   create_table "redemptions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "reward_id"
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "region"
+    t.string   "country"
+    t.string   "phone"
     t.datetime "created_at"
   end
 

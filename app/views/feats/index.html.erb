@@ -12,7 +12,6 @@
 
       <h3><%= link_to "!#{feat.name}", :action => 'show', :id => feat.id %></h3>
       <p><%= image_tag feat.image.url(:medium) if feat.image %></p>
-      <p><%= raw truncate feat.description, :length => 30, :separator => ' ' %></p>
       <p><%= "#{feat.bonus_points}pts" %></p>
       <%= link_to 'did it', checkin_feat_path(feat) if current_user %>
       <% if current_user %>

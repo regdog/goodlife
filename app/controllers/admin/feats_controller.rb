@@ -6,7 +6,7 @@ class Admin::FeatsController < Admin::BaseController
     @search = Feat.search(params[:search])
     if params[:type]
       @view_by = params[:type]
-      @category = Category.feat_category.find_by_name(params[:type])
+      @category = Tag.find_by_name(params[:type])
       if @category
         @feats = @category.feats.page(params[:page]).per(8)
       end

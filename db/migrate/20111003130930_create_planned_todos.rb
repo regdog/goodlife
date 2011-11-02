@@ -1,7 +1,7 @@
 class CreatePlannedTodos < ActiveRecord::Migration
   def self.up
     create_table :planned_todos do |t|
-      t.references :users
+      t.references :user
       t.references :feat
       t.string :plan_type
       t.datetime :created_at

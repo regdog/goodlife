@@ -1,0 +1,22 @@
+id,name,kind,position
+1,Health,Feat,0
+2,Eating,Feat,0
+3,Money,Feat,0
+4,Productivity,Feat,0
+5,Learning,Feat,0
+6,Balance,Feat,0
+7,Family,Feat,0
+8,Community,Feat,0
+9,Be Active,Reward,0
+10,Eat Well,Reward,0
+11,Explore and Learn,Reward,0
+12,Have Family Fun,Reward,0
+13,Get Outside,Reward,0
+14,Household,Reward,0
+15,Travel,Reward,0
+16,Give Gifts,Reward,0
+17,Local Retailer,Partner,0
+18,National Brand,Partner,0
+19,Nonprofit,Partner,0
+20,Page,Content,0
+21,Snippet,Content,0

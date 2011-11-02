@@ -20,6 +20,8 @@ gem 'rails-permalink'
 #gem 'formtastic'
 gem 'jquery-rails'
 gem 'cancan'
+gem 'seed-fu', '~> 2.0.0'
+gem 'fastercsv'
 
 # Use unicorn as the web server
 # gem 'unicorn'
