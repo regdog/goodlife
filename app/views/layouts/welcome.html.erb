@@ -9,17 +9,7 @@
 </head>
 <body>
 <div id="wrapper">
-<div class="row" id="header">
-  <div class="column grid_14">
-    <% if user_signed_in? %>
-        <%= current_user.name %> is logged in. Not you? Click <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
-    <% else %>
-        <%= link_to "Register", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %>
-    <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-</div>
+
 <div class="row" id="content">
   <div class="column grid_10">
      <%= yield %>

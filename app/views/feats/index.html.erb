@@ -4,6 +4,7 @@
   <%= render :partial => 'subnav' %>
 </div>
 <div class="column grid_8">
+  <p><%= paginate @feats %></p>
     <% tableize @feats,
                 :name => 'feats',
                 #:header => 'Listing Feats',

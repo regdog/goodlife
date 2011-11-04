@@ -23,6 +23,53 @@ $(document).ready(function() {
     $(this).find("#subnavActive").parent().show();
   });
 
+  // sign up modal dialog
+  $('#sign_up').click(function(e) {
+    var url = $(this).attr('href');
+    var dialog_form = $('<div id="dialog-form">Loading form...</div>').dialog({
+      autoOpen: false,
+      width: 520,
+      modal: true,
+      open: function() {
+        return $(this).load(url + ' #sign_up_content');
+      }
+    });
+    dialog_form.dialog('open');
+    e.preventDefault();
+
+    // Hide the close button
+    //jQuery('.ui-dialog-titlebar-close').hide();
+
+    // Modal Dialog Close on Overlay Click
+    $(".ui-widget-overlay").live('click', function () {
+      dialog_form.dialog( "close" );
+	});
+
+  });
+
+  // sign in modal dialog
+  $('#sign_in').click(function(e) {
+    var url = $(this).attr('href');
+    var dialog_form = $('<div id="dialog-form">Loading form...</div>').dialog({
+      autoOpen: false,
+      width: 520,
+      modal: true,
+      open: function() {
+        return $(this).load(url + ' #sign_in_content');
+      }
+    });
+    dialog_form.dialog('open');
+    e.preventDefault();
+
+    // Hide the close button
+    //jQuery('.ui-dialog-titlebar-close').hide();
+
+    // Modal Dialog Close on Overlay Click
+    $(".ui-widget-overlay").live('click', function () {
+      dialog_form.dialog( "close" );
+	});
+
+  });
 
 // Plan feats
   if ($('.plan_feat').length > 0 ) {

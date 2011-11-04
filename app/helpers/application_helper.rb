@@ -18,4 +18,12 @@ module ApplicationHelper
   def is_active?(url)
     return "subnavActive" if request.path == url.to_s
   end
+
+  def active?(controller_name, *action_name)
+    unless action_name.empty?
+      return "subnavActive" if controller.controller_name == controller_name && controller.action_name == action_name[0]
+    else
+      return "subnavActive" if controller.controller_name == controller_name
+    end
+  end
 end

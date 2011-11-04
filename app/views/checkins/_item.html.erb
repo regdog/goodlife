@@ -18,7 +18,7 @@
     </div>
     <% end %>
     <div class="props">
-      <%= form_for Comment.new, :url => checkin_comments_path(checkin), :remote => true do |f| %>
+      <%= form_for Comment.new, :url=>checkin_comments_path(checkin), :method=> :post, :remote => true do |f| %>
         <ul class="proptypeslist"></ul>
         <%= f.text_area :content, :size => "40x1" %>
         <div class="giveprops">
