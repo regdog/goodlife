@@ -24,7 +24,7 @@ $(document).ready(function() {
   });
 
   // sign up modal dialog
-  $('#sign_up').click(function(e) {
+  $('.sign_up').click(function(e) {
     var url = $(this).attr('href');
     var dialog_form = $('<div id="dialog-form">Loading form...</div>').dialog({
       autoOpen: false,

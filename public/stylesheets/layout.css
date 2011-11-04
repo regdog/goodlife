@@ -1,10 +1,112 @@
+/* ----- reset ----- */
+
+body div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, select, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0;
+	font-family: 'Droid Sans', sans-serif;
+	outline: none;
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+ol, ul {
+	list-style:none;
+}
+
+img {
+	border: 0px;
+	outline: 0px;
+}
+
+a {
+	color: #828584;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #F58220;
+}
+a.button {
+    font: bold;
+    width:200px;
+    height:40px;
+    background:gray;
+    cursor:pointer;
+    color: white;
+    padding: 10px 20px 10px 20px;
+}
+/* ----- end of reset ----- */
+
+
+/* ------ Home Screen ------ */
+
+.home_body {
+	margin: 0px;
+	background-color: #fff;
+}
+
+.home_content {
+	width: 100%;
+	background-color: #f58322;
+	height: 325px;
+	margin-top: 10px;
+	padding-top: 20px; padding-bottom: 20px;
+}
+
+	.home_center {
+		background-color: #fff;
+		height: 325px;
+		border: 1px solid #fff;
+		margin-right: 10px;
+	}
+
+		.home_center .textarea {
+			float: left;
+			height: 100%;
+			width: 400px;
+			padding: 20px;
+		}
+
+			.home_center .textarea .bigtext {
+				font-size: 25pt;
+				color: #f58322;
+				font-weight: 700;
+				margin-bottom: 30px;
+				line-height: 35px;
+			}
+
+			.home_center .textarea .subtext {
+				color: #828584;
+				font-size: 13pt;
+				line-height: 23px;
+				margin-bottom: 25px;
+			}
+
+			.home_center .textarea .action {
+				color: #828584;
+				font-size: 12pt;
+			}
+
+		.home_center .image {
+			width: 500px;
+			padding-top: 9px;
+			float: right;
+			padding-right: 20px;
+			text-align: right;
+		}
+
+/* ------ end of Home Screen ------ */
+
 html, body {
 height: 100%;
 }
 #header {
-   background:#ff0;
-   padding:0 1em 1em 0;
-   height: 60px;
+   /*background:#ff0;*/
+   /*padding:0 1em 1em 0;*/
+   /*height: 60px;*/
 }
 #wrapper {
    min-height: 100%;
@@ -305,3 +407,43 @@ span#subnav_profile {
   opacity: 0.6;
 }
 /* end of modal form */
+
+/* header */
+#header {
+    clear: both;
+    height: 80px;
+    overflow: hidden;
+}
+#header .logo {
+    float: left;
+    height: 80%;
+    position: relative;
+    width: 230px;
+}
+#header .logo img {
+    margin-top: -22px;
+    position: absolute;
+    top: 50%;
+}
+#header .navigation {
+    float: right;
+    height: 100%;
+    overflow: hidden;
+}
+.navcontainer {
+    height: 60px;
+    overflow: hidden;
+}
+.navitem {
+    color: #828584;
+    cursor: pointer;
+    float: left;
+    font-size: 16px;
+    font-weight: 400;
+    height: 38px;
+    line-height: 38px;
+    padding-right: 15px;
+    padding-top: 5px;
+    width: 130px;
+}
+/* end of header */

@@ -1,3 +1,16 @@
-<h1>Good Life</h1>
-<p>We are working on an excited new idea, but we can't say more.</p>
-<%= link_to 'Try It Now.', checkins_path %>
+<div class="home_center">
+  <div class="textarea">
+    <div class="bigtext">Small change adds up.</div>
+    <div class="subtext">
+	  <%= link_to "Be better. It's easier than you think.", catalog_feats_path %><br>
+	  <br>
+	  Doing small, positive actions,<br>
+	  every day, adds up to big change.<br>
+	  We're here to help you get there.<br>
+	</div>
+    <div class="action">
+      <%= link_to "GET STARTED NOW",  new_user_registration_path, :id => 'sign_up', :class => 'sign_up button'%>
+    </div>
+  </div>
+  <div class="image"><%= image_tag "im_homestamps.png" %></div>
+</div>

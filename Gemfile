@@ -18,7 +18,8 @@ gem 'rails-permalink'
 #gem 'formtastic'
 gem 'jquery-rails'
 gem 'cancan'
-#gem "flash-message-conductor", "~> 1.0.2"
+gem "flash-message-conductor", "~> 1.0.2"
+gem 'cms-lite', :require => 'cms_lite'
 
 # Use unicorn as the web server
 # gem 'unicorn'
