@@ -30,6 +30,7 @@ $(document).ready(function() {
       autoOpen: false,
       width: 520,
       modal: true,
+      position: ['center', 120],
       open: function() {
         return $(this).load(url + ' #sign_up_content');
       }
@@ -37,8 +38,12 @@ $(document).ready(function() {
     dialog_form.dialog('open');
     e.preventDefault();
 
-    // Hide the close button
-    //jQuery('.ui-dialog-titlebar-close').hide();
+    $(window).resize(function(){
+      dialog_form.dialog( 'option', 'position', 'center' );
+    });
+
+    // Hide the title bar
+    //$('.ui-dialog-titlebar-close').hide();
 
     // Modal Dialog Close on Overlay Click
     $(".ui-widget-overlay").live('click', function () {
@@ -54,6 +59,7 @@ $(document).ready(function() {
       autoOpen: false,
       width: 520,
       modal: true,
+      position: ['center', 120],
       open: function() {
         return $(this).load(url + ' #sign_in_content');
       }
@@ -61,6 +67,9 @@ $(document).ready(function() {
     dialog_form.dialog('open');
     e.preventDefault();
 
+    $(window).resize(function(){
+      dialog_form.dialog( 'option', 'position', 'center' );
+    });
     // Hide the close button
     //jQuery('.ui-dialog-titlebar-close').hide();
 

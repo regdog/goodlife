@@ -1,39 +1,40 @@
 <%# tabnav :feats do %>
-<div class="row">
+<div class="pagetitle"><h1>What feats did you accomplish today?</h1></div>
 <div class="column grid_2">
-  <%= render :partial => 'subnav' %>
+  <%= render :partial => 'leftnav' %>
 </div>
 <div class="column grid_8">
   <p><%= paginate @feats %></p>
-    <% tableize @feats,
+  <% tableize @feats,
                 :name => 'feats',
                 #:header => 'Listing Feats',
                 :cols => 4,
                 :generate_css => 'true' do |feat| %>
 
-      <h3><%= link_to "!#{feat.name}", :action => 'show', :id => feat.id %></h3>
-      <p><%= image_tag feat.image.url(:medium) if feat.image %></p>
-      <p><%= "#{feat.bonus_points}pts" %></p>
-      <%= link_to 'did it', checkin_feat_path(feat) if current_user %>
-      <% if current_user %>
-        <div class="plan_feat">
-          <div class="plannote" id=<%= "feat_#{feat.id}_plannote" %>><a href="javascript:void(0)" class="planLink"><%= current_user.plan_type(feat).nil? ? 'Plan it' : "Planed #{current_user.plan_type(feat).downcase}" %></a></div>
-          <div class="planoptions" <%="id='feat_#{feat.id}_planoptions'" %> style="font-size: 10px;">
-            <div>Do it..</div>
-            <div id=<%= "feat_#{feat.id}_plandaily" %>><%= link_to current_user.plan_type(feat)!="daily" ? "Daily" : "<b><i>Daily</i></b>".html_safe, plan_feats_path(feat.id, 'daily'), :remote => true %><br/></div>
-            <div id=<%= "feat_#{feat.id}_planweekly" %>><%= link_to current_user.plan_type(feat)!="weekly" ? "Weekly" : "<b><i>Weekly</i></b>".html_safe, plan_feats_path(feat.id, 'weekly'), :remote => true %><br/></div>
-            <div id=<%= "feat_#{feat.id}_planweekend" %>><%= link_to current_user.plan_type(feat)!="weekend" ? "Weekend" : "<b><i>Weekend</i></b>".html_safe, plan_feats_path(feat.id, 'weekend'), :remote => true %><br/></div>
-            <% if current_user.plan_type(feat).nil? %>
-              <div style="display: none;" id=<%= "feat_#{feat.id}_unplan" %>><%= link_to "Unplan", plan_feats_path(feat.id, 'unplan'), :remote => true %><br/></div>
-            <% else %>
-              <div style="display: block;" id=<%= "feat_#{feat.id}_unplan" %>><%= link_to "Unplan", plan_feats_path(feat.id, 'unplan'), :remote => true %><br/></div>
-            <% end %>
-            <a href="javascript:void(0)" class="closeLink">Close</a>
+    <p><%= image_tag feat.image.url(:medium) if feat.image %></p>
+    <h3><%= link_to "!#{feat.name}", :action => 'show', :id => feat.id %></h3>
+    <p><%= "#{feat.bonus_points}pts" %></p>
+    <%= link_to 'did it', checkin_feat_path(feat) if current_user %>
+    <% if current_user %>
+      <div class="plan_feat">
+        <div class="plannote" id=<%= "feat_#{feat.id}_plannote" %>><a href="javascript:void(0)" class="planLink"><%= current_user.plan_type(feat).nil? ? 'Plan it' : "Planed #{current_user.plan_type(feat).downcase}" %></a></div>
+        <div class="planoptions" <%="id='feat_#{feat.id}_planoptions'" %> style="font-size: 10px;">
+          <div>Do it..</div>
+          <div id=<%= "feat_#{feat.id}_plandaily" %>><%= link_to current_user.plan_type(feat)!="daily" ? "Daily" : "<b><i>Daily</i></b>".html_safe, plan_feats_path(feat.id, 'daily'), :remote => true %><br/></div>
+          <div id=<%= "feat_#{feat.id}_planweekly" %>><%= link_to current_user.plan_type(feat)!="weekly" ? "Weekly" : "<b><i>Weekly</i></b>".html_safe, plan_feats_path(feat.id, 'weekly'), :remote => true %><br/></div>
+          <div id=<%= "feat_#{feat.id}_planweekend" %>><%= link_to current_user.plan_type(feat)!="weekend" ? "Weekend" : "<b><i>Weekend</i></b>".html_safe, plan_feats_path(feat.id, 'weekend'), :remote => true %><br/></div>
+          <% if current_user.plan_type(feat).nil? %>
+            <div style="display: none;" id=<%= "feat_#{feat.id}_unplan" %>><%= link_to "Unplan", plan_feats_path(feat.id, 'unplan'), :remote => true %><br/></div>
+          <% else %>
+            <div style="display: block;" id=<%= "feat_#{feat.id}_unplan" %>><%= link_to "Unplan", plan_feats_path(feat.id, 'unplan'), :remote => true %><br/></div>
+          <% end %>
+          <a href="javascript:void(0)" class="closeLink">Close</a>
         </div>
-        </div>
-
-      <% end %>
+      </div>
     <% end %>
+  <% end %>
 </div>
+<div class="column grid_4">
+  <%= render :partial => "rightbar" %>
 </div>
 <%# end %>

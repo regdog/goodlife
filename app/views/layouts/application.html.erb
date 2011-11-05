@@ -9,92 +9,17 @@
 </head>
 <body>
 <div id="wrapper">
-<div class="row" id="header">
-  <head>
-    <div class="logo"><%= link_to image_tag("/images/im_logo_full.png"), root_path %></div>
-  <%= render :partial => "shared/navigation" %>
-  </head>
-</div>
-<div class="row" id="content">
-  <div class="column grid_11">
-    <%= yield %>
+  <div class="row" id="header">
+    <head>
+      <div class="logo"><%= link_to image_tag("/images/im_logo_full.png"), root_path %></div>
+      <%= render :partial => "shared/navigation" %>
+    </head>
   </div>
-  <div class="column grid_3">
-    <aside>
-  <% unless user_signed_in? %>
-    <div class="row">
-      <div class="column grid_3">
-        <h3>most populate feats</h3>
-        <div>
-        <% Feat.sort_by_popular.limit(3).each do |f| %>
-          <p>
-          <span><%="!#{f.name}" %></span>
-          <span><%="#{f.bonus_points} points" %></span>
-          </p>
-        <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column grid_3">
-        <h3>most populate rewards</h3>
-        <div>
-        <% Reward.limit(3).each do |r| %>
-          <p>
-          <span><%="$#{r.save_money} #{r.name}" %></span>
-          </p>
-        <% end %>
-        </div>
-      </div>
-    </div>
-  <% else %>
-    <div class="row">
-       <div class="column grid_3">
-         <h3>my team ranking</h3>
-         <% current_user.members.each do |m| %>
-          <p>
-          <small><%= "#{m.name} #{m.earned_points}" %></small>
-          </p>
-         <% end %>
-       </div>
-    </div>
-    <div class="row">
-       <div class="column grid_3">
-         <h3>my challenges</h3>
-         <% current_user.challenges.each do |c| %>
-          <p>
-          <% if current_user.challenge_completed?(c) %>
-            <small><%= "#{c.name} 完成" %></small>
-          <% else %>
-            <small><%= "#{c.name} #{c.completed_feats(current_user).size}/#{c.feats.size}" %></small>
-          <% end %>
-          </p>
-         <% end %>
-       </div>
-    </div>
-    <div class="row">
-       <div class="column grid_3">
-         <h3>my wishlist</h3>
-         <% current_user.wishes.each do |wish| %>
-           <small><%= wish.name %>   <%= wish.redeem_points %> pts</small><br/>
-         <% end %>
-       </div>
-    </div>
-    <div class="row">
-      <div class="column grid_3">
-        <p>
-        <% if user_signed_in? %>
-          <%= link_to "Invite friends now!", new_user_invitation_path %>
-        <% end %>
-        </p>
-      </div>
-    </div>
-  <% end %>
-  </aside>
+  <div class="row" id="content">
+    <%= yield %>
   </div>
 </div>
 <div id="clear"></div>
-</div>
 <div class="row" id="footer">
   <% unless Content.all.nil? %>
     <%= navigation :footer %>

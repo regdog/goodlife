@@ -1,22 +1,29 @@
 <div id="sign_in_content">
-<h2>Sign in</h2>
-
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
-
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
-  <% end -%>
-  
+<div class="close" onclick="javascript:$('#dialog-form').remove();">x</div>
+<div style="color: #F58220;border-bottom: 1px solid #828584;height: 35px;margin-bottom: 20px;font-size: 11pt;font-weight: 700;">
+  Sign in with one click:
   <%= link_to image_tag('douban.png', :alt=>'douban'), user_omniauth_authorize_path(:douban)%>
   <%= link_to image_tag('tsina.png', :alt=>'sina weibo'), user_omniauth_authorize_path(:tsina)%>
+</div>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div class="title"> Or enter your Goodlife account information here: </div>
+  <div class="formrow">
+    <div class="formlabel"><%= f.label "Email:*" %></div>
+    <div class="forminput"><%= f.email_field :email %></div>
+  </div>
+  <div class="formrow">
+    <div class="formlabel"><%= f.label "Password:*" %></div>
+    <div class="forminput"><%= f.password_field :password %></div>
+  </div>
+  <% if devise_mapping.rememberable? -%>
+  <div class="formrow">
+    <%= f.check_box :remember_me %><div class="formlabel"><%= f.label :remember_me %></div>
+  </div>
+  <% end -%>
 
   <p><%= f.submit "Sign in" %></p>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => "users/shared/links" %>
 </div>

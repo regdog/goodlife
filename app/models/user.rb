@@ -30,6 +30,31 @@ class User < ActiveRecord::Base
   # my redemptions
   has_many :redemptions
 
+  # user types
+  MOM           = 1
+  DAD           = 2
+  STUDENT       = 3
+  RECENT_GRAD   = 4
+  WORKING_ADULT = 5
+  GRANDPARENT   = 6
+  RETIRED       = 7
+  NONE          = 8
+
+  CATEGORIES = {
+    MOM           => 'I am a mom',
+    DAD           => 'I am a dad',
+    STUDENT       => 'I am a student',
+    RECENT_GRAD   => 'I am recent grad',
+    WORKING_ADULT => 'I am a working adult',
+    GRANDPARENT   => 'I am a grandparent',
+    RETIRED       => 'I am retired',
+    NONE          => 'None of the above fit'
+  }
+
+  def category_name
+    CATEGORIES[category]
+  end
+
   # feats I'v done
   def feats_done
     feats ||= []
