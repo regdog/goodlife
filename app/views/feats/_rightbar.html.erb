@@ -1,39 +1,58 @@
 <aside>
   <% unless user_signed_in? %>
     <div class="row">
-      <div class="column grid_3">
-        <h3>most populate feats</h3>
+      <div class="column grid_4 rightbarsection">
+        <div class="title">most populate feats</div>
         <div>
-        <% Feat.sort_by_popular.limit(3).each do |f| %>
-          <p>
-          <span><%="!#{f.name}" %></span>
-          <span><%="#{f.bonus_points} points" %></span>
-          </p>
-        <% end %>
+          <table>
+            <tbody>
+            <% Feat.sort_by_popular.limit(5).each do |f| %>
+              <tr height="35">
+                <td width="30"><%= link_to image_tag(f.image.url(:small)), feat_path(f) if f.image %></td>
+                <td class="smalltext"><%= link_to "!#{f.name}", feat_path(f) %></td>
+                <td class="smalltext" align="right" width="80">for <%="#{f.bonus_points} pts" %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="column grid_3">
-        <h3>most populate rewards</h3>
+      <div class="column grid_4 rightbarsection">
+        <div class="title">most populate rewards</div>
         <div>
-        <% Reward.limit(3).each do |r| %>
-          <p>
-          <span><%="$#{r.save_money} #{r.name}" %></span>
-          </p>
-        <% end %>
+          <table>
+            <tbody>
+            <% Reward.limit(5).each do |r| %>
+              <tr height="35">
+                <td width="30"></td>
+                <td class="smalltext"><%= link_to "!#{r.name}", reward_path(r) %></td>
+                <td class="smalltext" align="right" width="80"><%="#{r.redeem_points} points" %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   <% else %>
     <div class="row">
-       <div class="column grid_3">
-         <h3>my team ranking</h3>
-         <% current_user.members.each do |m| %>
-          <p>
-          <small><%= "#{m.name} #{m.earned_points}" %></small>
-          </p>
-         <% end %>
+       <div class="column grid_4 rightbarsection">
+         <div class="title">my team ranking</div>
+         <div>
+           <table>
+             <tbody>
+             <% current_user.members.each do |m| %>
+               <tr>
+                 <td width="30"></td>
+                 <td class="smalltext"><%= link_to "!#{m.name}", member_path(m) %></td>
+                 <td class="smalltext" align="right" width="80"><%="#{m.earned_points} points" %></td>
+               </tr>
+             <% end %>
+             </tbody>
+           </table>
+         </div>
        </div>
     </div>
     <div class="row">

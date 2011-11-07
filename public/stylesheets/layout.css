@@ -29,15 +29,15 @@ a {
 a:hover {
 	color: #F58220;
 }
-a.button {
-    font: bold;
-    width:200px;
-    height:40px;
-    background:gray;
-    cursor:pointer;
-    color: white;
-    padding: 10px 20px 10px 20px;
-}
+/*a.button {*/
+    /*font: bold;*/
+    /*width:200px;*/
+    /*height:40px;*/
+    /*background:gray;*/
+    /*cursor:pointer;*/
+    /*color: white;*/
+    /*padding: 10px 20px 10px 20px;*/
+/*}*/
 /* ----- end of reset ----- */
 
 /* ------ Navigation Text ------ */
@@ -539,4 +539,145 @@ li.active {
 .forminput input {
     height: 20px;
     width: 100%;
+}
+.tablet {
+    height: 100%;
+    padding-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.tablet .top {
+    background-color: #F8FAF8;
+    border: 1px solid #EAEBEB;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 5px 5px 5px #C1C1C1;
+    width: 117px;
+}
+.tablet .top .stamp {
+    background-color: #F8FAF8;
+    border-left: 1px solid #D3D5D6;
+    border-right: 1px solid #D3D5D6;
+    border-top: 1px solid #D3D5D6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 118px;
+}
+.tablet .top .stamp img {
+    height: 106px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 6px;
+    width: 106px;
+}
+.tablet .sponsor {
+    background-color: #F68120;
+    border-left: 1px solid #D4D5D6;
+    border-right: 1px solid #D4D5D6;
+    border-top: 1px solid #F0F0F1;
+    color: #FFFFFF;
+    font-size: 8pt;
+    line-height: 13px;
+    min-height: 15px;
+    padding: 2px 5px 2px 4px;
+    position: relative;
+    width: 107px;
+}
+.button {
+    cursor: pointer;
+    text-decoration: none;
+}
+.button div {
+    background: -moz-linear-gradient(center top , #D1D3D4 0%, #949699 100%) repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+.tablet .main {
+    color: #828584;
+    font-size: 10pt;
+    padding-top: 10px;
+    text-align: left;
+}
+.tablet .main .points {
+    font-style: italic;
+    font-weight: 400;
+    height: 22px;
+}
+.tablet .main .title {
+    font-weight: 700;
+    height: 40px;
+    line-height: 12pt;
+    overflow: hidden;
+}
+.tablet .plannote {
+    color: #F58220;
+    font-size: 9pt;
+    text-align: left;
+}
+.tablet .planoptions {
+    color: #828584;
+    font-size: 9pt;
+    text-align: left;
+}
+.feats_table td {
+    border-bottom: 1px solid #F1F1F1;
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 0;
+    width: 120px;
+}
+.rightbarsection {
+    border-top: 1px solid #828584;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.rightbarsection .title {
+    color: #828584;
+    font-size: 12pt;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.rightbarsection img {
+    width: 25px;
+}
+.smalltext {
+    color: #828584;
+    font-size: 10pt;
+}
+.feat {
+    margin-top: 30px;
+}
+.feat .main .stampside {
+    float: left;
+    font-size: 13px;
+    width: 120px;
+}
+.feat .main .stampside .stampcontainer {
+    height: 295px;
+}
+.feat .main .details {
+    color: #828584;
+    float: left;
+    font-size: 13px;
+    padding-left: 40px;
+    padding-top: 15px;
+    width: 500px;
+}
+h1 {
+    color: #F58220;
+    font-size: 34px;
+    font-weight: 400;
 }

@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     MOM           => 'I am a mom',
     DAD           => 'I am a dad',
     STUDENT       => 'I am a student',
-    RECENT_GRAD   => 'I am recent grad',
+    RECENT_GRAD   => 'I am a recent grad',
     WORKING_ADULT => 'I am a working adult',
     GRANDPARENT   => 'I am a grandparent',
     RETIRED       => 'I am retired',

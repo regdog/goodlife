@@ -1,5 +1,40 @@
-<h1>!<%= @feat.name %> </h1>
-<p><%= image_tag @feat.image.url(:small) if @feat.image %></p>
-<p>Why<br/><%= @feat.why.html_safe %></p>
-<p>How<br/><%= @feat.how.html_safe %></p>
-<p>Points<br/><%= @feat.bonus_points %></p>
+<div class="pagetitle"><h1><%= @feat.name %></h1></div>
+<div class="column grid_10">
+  <div class="feat">
+    <div class="sponsorrow"></div>
+    <div class="main">
+      <div class="stampside">
+        <div class="stampcontainer">
+          <div class="tablet">
+            <div class="top">
+              <div class="stamp"><%= link_to image_tag(@feat.image.url(:medium)), feat_path(@feat) if @feat.image %></div>
+              <div class="sponsor"></div>
+              <% if current_user %>
+                <a class="button" href=<%= checkin_feat_path(@feat) %>><div>did it</div></a>
+              <% end %>
+            </div>
+            <div class="main">
+              <div><%= "#{@feat.bonus_points} pts" %></div>
+              <div class="title"><%= @feat.name %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="details">
+        <span class="title">Why?</span>
+        <br/>
+        <%= @feat.why.html_safe %>
+        <br/>
+        <br/>
+        <span class="title">How?</span>
+        <br/>
+        <%= @feat.how.html_safe %>
+      </div>
+    </div>
+    <div class="thirdnav"></div>
+    <div class="checkins"></div>
+  </div>
+</div>
+<div class="column grid_4">
+  <%= render :partial => "rightbar" %>
+</div>
