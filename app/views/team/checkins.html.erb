@@ -1,4 +1,8 @@
-<%# tabnav :team do %>
+<div class="pagetitle"><h1><%= @page_title %></h1></div>
+<div class="column grid_2">
+  <%= render :partial => 'subnav' %>
+</div>
+<div class="column grid_8">
 <% tableize @checkins,
             :name => 'checkins',
             :cols => 4,
@@ -11,4 +15,8 @@
      <small><%= "#{time_ago_in_words checkin.created_at} ago"  %></small>
 
 <% end if @checkins %>
-<%# end %>
+</div>
+<div class="column grid_4">
+  <%= render :partial => "feats/rightbar" %>
+</div>
+

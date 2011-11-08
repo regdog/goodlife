@@ -1,7 +1,7 @@
 <%# tabnav :feats do %>
-<div class="row">
+<div class="pagetitle"><h1>Your challenges</h1></div>
 <div class="column grid_2">
-  <%= render :partial => 'subnav' %>
+  <%= render :partial => 'leftnav' %>
 </div>
 <div class="column grid_8">
     <% tableize @challenges,
@@ -27,5 +27,7 @@
       <% end %>
     <% end %>
 </div>
+<div class="column grid_4">
+  <%= render :partial => "feats/rightbar" %>
 </div>
 <%# end %>

@@ -2,10 +2,12 @@ class TeamController < ApplicationController
   def index
     @teammates = current_user.friends
     @user = User.new
+    @page_title = "Your team"
   end
 
   def checkins
     @checkins = current_user.team_checkins
+    @page_title = "Your team's check-ins"
   end
 
   def requests
@@ -17,6 +19,7 @@ class TeamController < ApplicationController
     current_user.incoming_member_requests.each do |request|
       @incoming_requests << User.find(request.requestor_id)
     end
+    @page_title = "Your requests"
   end
 
   def invite

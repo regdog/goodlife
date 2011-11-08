@@ -657,6 +657,13 @@ li.active {
 .rightbarsection img {
     width: 25px;
 }
+.rightbar_left {
+    display: table-cell;
+    width: 250px;
+}
+.rightbar_right {
+    display: table-cell;
+}
 .smalltext {
     color: #828584;
     font-size: 10pt;

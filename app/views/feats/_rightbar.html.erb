@@ -39,20 +39,33 @@
   <% else %>
     <div class="row">
        <div class="column grid_4 rightbarsection">
-         <div class="title">my team ranking</div>
+         <div class="title">Quick check-in</div>
          <div>
-           <table>
-             <tbody>
-             <% current_user.members.each do |m| %>
-               <tr>
-                 <td width="30"></td>
-                 <td class="smalltext"><%= link_to "!#{m.name}", member_path(m) %></td>
-                 <td class="smalltext" align="right" width="80"><%="#{m.earned_points} points" %></td>
-               </tr>
-             <% end %>
-             </tbody>
-           </table>
          </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="column grid_4 rightbarsection">
+         <div class="title">Search</div>
+         <div>
+         </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="column grid_4 rightbarsection">
+         <div class="title">My team</div>
+         <div class="rightbarrow">
+         <% current_user.members.each do |m| %>
+           <div class="rightbar_left">
+             <div width="30" style="float: left;"><%= image_tag "/images/im_facebookprofile.png" %></div>
+             <div class="smalltext" ><%= link_to "!#{m.name}", member_path(m) %></div>
+           </div>
+           <div class="rightbar_right">
+             <div class="smalltext" align="right" width="80"><%="#{m.earned_points} pts" %></div>
+           </div>
+         <% end %>
+         </div>
+         <div class="rightbarrow"><%= link_to "Invite friends now!", new_user_invitation_path %></div>
        </div>
     </div>
     <div class="row">
@@ -84,13 +97,6 @@
          <% end %>
        </div>
     </div>
-    <% if user_signed_in? %>
-    <div class="row">
-      <div class="column grid_4 rightbarsection">
-        <%= link_to "Invite friends now!", new_user_invitation_path %>
-      </div>
-    </div>
-    <% end %>
   <% end %>
 </aside>
 <div id="clear"></div>

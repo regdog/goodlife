@@ -1,5 +1,4 @@
-<%# tabnav :team do %>
-<div class="row">
+<div class="pagetitle"><h1><%= @page_title %></h1></div>
 <div class="column grid_2">
   <%= render :partial => 'subnav' %>
 </div>
@@ -34,5 +33,6 @@
 
   </div>
 </div>
+<div class="column grid_4">
+  <%= render :partial => "feats/rightbar" %>
 </div>
-<%# end %>

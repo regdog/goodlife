@@ -1,6 +1,6 @@
 <ul class="navigation primary">
-  <li class="<%= active_li_css(@view_by, params[:action]) %>"><small><%= link_to "Teammates", teammates_path %></small></li>
-  <li class="<%= active_li_css(@view_by, params[:action]) %>"><small><%= link_to "Our Checkins", team_checkins_path %></small></li>
-  <li class="<%= active_li_css(@view_by, params[:action]) %>"><small><%= link_to "Requests", my_requests_path %></small></li>
+  <li class="leftnavitem <%= active_li_css(@view_by, params[:action]) %>"><%= link_to "Teammates", teammates_path %></li>
+  <li class="leftnavitem <%= active_li_css(@view_by, params[:action]) %>"><%= link_to "Our Checkins", team_checkins_path %></li>
+  <li class="leftnavitem <%= active_li_css(@view_by, params[:action]) %>"><%= link_to "Requests", my_requests_path %></li>
 </ul>
 <div class="clear"></div>
