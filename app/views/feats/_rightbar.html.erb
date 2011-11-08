@@ -56,36 +56,41 @@
        </div>
     </div>
     <div class="row">
-       <div class="column grid_3">
-         <h3>my challenges</h3>
+       <div class="column grid_4 rightbarsection">
+         <div class="title">my challenges</div>
          <% current_user.challenges.each do |c| %>
-          <p>
-          <% if current_user.challenge_completed?(c) %>
-            <small><%= "#{c.name} 完成" %></small>
-          <% else %>
-            <small><%= "#{c.name} #{c.completed_feats(current_user).size}/#{c.feats.size}" %></small>
-          <% end %>
-          </p>
+           <% if current_user.challenge_completed?(c) %>
+             <div class="rightbarrow">
+               <div class="rightbar_left"><%= c.name %></div>
+               <div class="rightbar_right">done</div>
+             </div>
+           <% else %>
+             <div class="rightbarrow">
+               <div class="rightbar_left"><%= c.name %></div>
+               <div class="rightbar_right"><%= "#{c.completed_feats(current_user).size}/#{c.feats.size}" %></div>
+             </div>
+           <% end %>
          <% end %>
        </div>
     </div>
     <div class="row">
-       <div class="column grid_3">
-         <h3>my wishlist</h3>
+       <div class="column grid_4 rightbarsection">
+         <div class="title">my wishlist</div>
          <% current_user.wishes.each do |wish| %>
-           <small><%= wish.name %>   <%= wish.redeem_points %> pts</small><br/>
+           <div class="rightbarrow">
+             <div class="rightbar_left"><%= wish.name %></div>
+             <div class="rightbar_right"><%= wish.redeem_points %> pts</div>
+           </div>
          <% end %>
        </div>
     </div>
+    <% if user_signed_in? %>
     <div class="row">
-      <div class="column grid_3">
-        <p>
-        <% if user_signed_in? %>
-          <%= link_to "Invite friends now!", new_user_invitation_path %>
-        <% end %>
-        </p>
+      <div class="column grid_4 rightbarsection">
+        <%= link_to "Invite friends now!", new_user_invitation_path %>
       </div>
     </div>
+    <% end %>
   <% end %>
 </aside>
 <div id="clear"></div>

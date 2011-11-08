@@ -1,0 +1,19 @@
+<div class="tabs">
+  <!-- tabs -->
+  <ul class="tabnav">
+    <li style="float: left"><a href="#latest">Latest</a></li>
+    <li style="float: left">|</li>
+    <li style="float: left"><a href="#epic">Epic</a></li>
+  </ul>
+  <!-- tab containers -->
+  <div id="latest" style="clear:both;">
+    <% @feat.checkins.latest.each do |checkin| %>
+      <%= render :partial => "checkins/item", :locals => {:checkin => checkin } %>
+    <% end %>
+  </div>
+  <div id="epic" style="clear:both;">
+    <% @feat.checkins.epic.each do |checkin| %>
+      <%= render :partial => "chckins/item", :locals => {:checkin => checkin } %>
+    <% end %>
+  </div>
+</div>

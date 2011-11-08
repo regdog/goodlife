@@ -123,8 +123,8 @@ height: 100%;
 #content {
     background-color: white;
     /*border: 8px solid #143463;*/
-    padding: 7px 7px;
-    margin: 1em auto;
+    /*padding: 7px 7px;*/
+    /*margin: 1em auto;*/
 }
 #footer{
    padding:1em;
@@ -456,7 +456,11 @@ span#subnav_profile {
 /* end of header */
 
 .pagetitle {
-    padding-bottom: 50px;
+    height: 25px;
+    margin-bottom: 50px;
+}
+.pagetitle h1 {
+    font-weight: 700;
 }
 li.leftnavitem {
     color: #828584;
@@ -660,8 +664,11 @@ li.active {
 .feat {
     margin-top: 30px;
 }
+.feat .main {
+    display: table-row;
+}
 .feat .main .stampside {
-    float: left;
+    display: table-cell;
     font-size: 13px;
     width: 120px;
 }
@@ -670,14 +677,40 @@ li.active {
 }
 .feat .main .details {
     color: #828584;
-    float: left;
+    display: table-cell;
     font-size: 13px;
     padding-left: 40px;
     padding-top: 15px;
-    width: 500px;
+    /*width: 100%;*/
+}
+.feat .main .details .title {
+    color: #828584;
+    font-weight: bold;
 }
 h1 {
     color: #F58220;
     font-size: 34px;
     font-weight: 400;
+}
+.outer {
+    display: table;
+}
+.homeleft, .homemiddle, .homeright {
+    display: table-cell;
+    padding: 1em;
+    text-align: left;
+}
+.homecontent {
+    border-top: 2px solid #828584;
+    padding-top: 1em;
+}
+.tabs {
+    width: 100%;
+    margin-top: 50px;
+}
+.tabs #latest {
+    margin-top: 20px;
+}
+.tabs ul li {
+    margin-right: 5px;
 }
