@@ -1,6 +1,7 @@
 $("#feat_<%= @feat.id %>_planoptions").hide();
 $("#feat_<%= @feat.id %>_plannote").html("<a href='#' class='planLink'><%= current_user.plan_type(@feat).nil? ? 'Plan it' : "Planed #{current_user.plan_type(@feat).downcase}" %></a>")
 $("#feat_<%= @feat.id %>_plannote").show();
+$("#feat_<%= @feat.id %>_plannote").parent().prev('.middle').show();
 
 <% case @plan_type %>
     <% when 'daily' %>
@@ -28,13 +29,15 @@ $("#feat_<%= @feat.id %>_plannote").show();
   // shows the plan options on clicking the noted link
   $('a.planLink').click(function() {
     $(this).parent().hide();
+    $(this).parent().parent().prev('.middle').hide();
     $(this).parent().next('.planoptions').show('slow');
     return false;
   });
   // close the plan options on clicking the noted link
   $('a.closeLink').click(function() {
-    $(this).parent().hide('slow')
+    $(this).parent().hide();
+    $(this).parent().parent().prev('.middle').show('slow');
     $(this).parent().prev('.plannote').show('slow');
-  return false;
+    return false;
   });
 //});

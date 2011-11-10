@@ -11,7 +11,7 @@
 <div class="column grid_10">
 <% tabnav :checkins do %>
   <% @checkins.each do |checkin| %>
-    <%= render :partial => "item", :locals => {:checkin => checkin } %>
+    <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
   <% end %>
   <div style="clear:both;"></div>
 

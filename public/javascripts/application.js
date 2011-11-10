@@ -80,18 +80,50 @@ $(document).ready(function() {
 
   });
 
+  // check in modal dialog
+  $('.featcheckin').click(function(e) {
+    var url = $(this).attr('href');
+    var dialog_form = $('<div id="dialog-form">Loading form...</div>').dialog({
+      autoOpen: false,
+      width: 520,
+      modal: true,
+      position: ['center', 120],
+      open: function() {
+        return $(this).load(url + ' #checkin');
+      }
+    });
+    dialog_form.dialog('open');
+    e.preventDefault();
+
+    $(window).resize(function(){
+      dialog_form.dialog( 'option', 'position', 'center' );
+    });
+    // Hide the close button
+    //jQuery('.ui-dialog-titlebar-close').hide();
+
+    // Modal Dialog Close on Overlay Click
+    $(".ui-widget-overlay").live('click', function () {
+      dialog_form.dialog( "close" );
+	});
+
+  });
+
 // Plan feats
-  if ($('.plan_feat').length > 0 ) {
-// hides the slickbox as soon as the DOM is ready
+  if ($('.featplan').length > 0 ) {
+    // hides the slickbox as soon as the DOM is ready
     $('.planoptions').hide();
-// shows the slickbox on clicking the noted link
+
+    // shows the slickbox on clicking the noted link
     $('a.planLink').click(function() {
       $(this).parent().hide();
+      $(this).parent().parent().prev('.middle').hide();
       $(this).parent().next('.planoptions').show('slow');
       return false;
     });
+    // restore feat grid when closing the planoptions
     $('a.closeLink').click(function() {
-      $(this).parent().hide('slow')
+      $(this).parent().hide();
+      $(this).parent().parent().prev('.middle').show('slow');
       $(this).parent().prev('.plannote').show('slow');
       return false;
     });
@@ -138,5 +170,17 @@ $(document).ready(function() {
     });
 
 
+  // auto expand textarea
+  $('textarea').focus( function () {
+    $(this).animate({ height: "40px" });
+    $(this).next('.giveprop').show();
+    return false;
+  });
+//  $('textarea').focus( function () {
+//    $(this).animate({ height: "40px" });
+//    return false;
+//  }).blur(function (){
+//    $(this).animate({ height: "20px" });
+//  });
 });
 

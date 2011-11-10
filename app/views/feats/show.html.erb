@@ -5,19 +5,7 @@
     <div class="main">
       <div class="stampside">
         <div class="stampcontainer">
-          <div class="tablet">
-            <div class="top">
-              <div class="stamp"><%= link_to image_tag(@feat.image.url(:medium)), feat_path(@feat) if @feat.image %></div>
-              <div class="sponsor"></div>
-              <% if current_user %>
-                <a class="button" href=<%= checkin_feat_path(@feat) %>><div>did it</div></a>
-              <% end %>
-            </div>
-            <div class="main">
-              <div><%= "#{@feat.bonus_points} pts" %></div>
-              <div class="title"><%= @feat.name %></div>
-            </div>
-          </div>
+          <%= render :partial => "shared/featgrid", :locals => {:feat => @feat} %>
         </div>
       </div>
       <div class="details">

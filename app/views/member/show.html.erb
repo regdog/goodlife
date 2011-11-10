@@ -1,2 +1,7 @@
-<h1><%= @member.name %></h1>
-<p>This is <%= @member.name %>'s basic data and checkins.</p>
+<div class="pagetitle"><h1>This is <%= @member.name %></h1></div>
+<div class="column grid_10">
+  <p>This is <%= @member.name %>'s basic data and checkins.</p>
+</div>
+<div class="column grid_4">
+  <%= render :partial => "feats/rightbar" %>
+</div>

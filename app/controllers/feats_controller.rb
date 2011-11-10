@@ -10,6 +10,7 @@ class FeatsController < ApplicationController
       @view_by = params[:type]
     else
       @feats = Feat.order(:name).page(params[:page]).per(20)
+      @view_by = "all"
     end
     render :index
   end
@@ -33,10 +34,6 @@ class FeatsController < ApplicationController
   end
 
   def checkin
-    feat = Feat.find(params[:id])
-    if current_user
-      current_user.checkin(feat)
-    end
-    redirect_to :back
+    @feat = Feat.find(params[:id])
   end
 end

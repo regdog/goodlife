@@ -1,0 +1,17 @@
+<div id="checkin" class="checkin">
+  <div class="close" onclick="javascript:$('#dialog-form').remove();">x</div>
+  <div class="title">Check in !<%= @feat.name %> </div>
+  <div class="options">Regular | Epic</div>
+  <%= form_for Checkin.new, :html => { :multipart => true } do |f| %>
+  <div class="prompt">
+    <div class="textblock">What did you do?</div>
+    <div class="message"><%= f.text_area :memo %></div>
+  </div>
+  <%= f.hidden_field :feat_id, :value => @feat.id %>
+  <div class="options">
+    <div class="action"><%= f.submit "CHECK IN"%></div>
+    <div class="privacy"></div>
+  </div>
+  <div class="location"></div>
+  <% end %>
+</div>

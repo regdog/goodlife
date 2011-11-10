@@ -8,6 +8,14 @@ class CheckinsController < ApplicationController
     render :index
   end
 
+  def create
+    @checkin = Checkin.new(params[:checkin])
+    @checkin.user = current_user
+    if @checkin.save
+      redirect_to feats_path
+    end
+  end
+
   def comment
     @checkin = Checkin.find(params[:id])
     @comment = Comment.new(params[:comment])

@@ -235,165 +235,6 @@ span#subnav_profile {
 }
 /* end of progress bar */
 
-/* checkin content */
-.feed {
-    background: -moz-linear-gradient(center top , #FFFFFF 0%, #F2F2F2 100%) repeat scroll 0 0 transparent;
-    padding-left: 10px;
-    padding-top: 10px;
-}
-.feeditem {
-    border-bottom: 1px solid #F1F1F1;
-    margin-bottom: 10px;
-    overflow: hidden;
-    padding-bottom: 20px;
-    padding-top: 15px;
-    position: relative;
-    width: 637px;
-}
-.feeditem .left {
-    float: left;
-    width: 65px;
-}
-
-.feeditem .left .stamp {
-    height: 75px;
-    margin-top: 5px;
-    text-align: left;
-    width: 55px;
-}
-.feeditem .left .stamp img {
-    height: 55px;
-    width: 55px;
-}
-.feeditem .left .stamp .epictab {
-    background-color: #F68200;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top: 1px solid #F1F1F1;
-    color: #FFFFFF;
-    font-size: 10pt;
-    font-weight: 700;
-    height: 18px;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 128px;
-    width: 55px;
-}
-.feeditem .right {
-    float: left;
-}
-.feeditem .right .title {
-    color: #828584;
-    font-size: 15px;
-    position: relative;
-}
-.feeditem .right .message {
-    color: #000000;
-    font-size: 13px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    width: 450px;
-}
-.feeditem .right .message .evidence {
-    float: left;
-    margin: 5px;
-    width: 80px;
-}
-.feeditem .right .message .evidence img {
-    max-height: 75px;
-    max-width: 75px;
-}
-.feeditem .right .timelocation {
-    color: #828584;
-    font-size: 12px;
-    font-style: italic;
-}
-.feeditem .right .block {
-    margin-bottom: 5px;
-    margin-top: 5px;
-    overflow: hidden;
-    padding-right: 20px;
-    padding-top: 10px;
-}
-.feeditem .right .block .image {
-    float: left;
-    height: 25px;
-    width: 35px;
-}
-.feeditem .right .block .image img {
-    height: 25px;
-    width: 25px;
-}
-.feeditem .right .block .text {
-    color: #828584;
-    display: table-cell;
-    float: left;
-    font-size: 10pt;
-    overflow: hidden;
-    padding-top: 3px;
-    vertical-align: middle;
-    width: 380px;
-}
-.feeditem .right .props {
-    border-top: 1px solid #F1F1F1;
-    margin-top: 20px;
-}
-.feeditem .right .props .proptypeslist {
-    height: 25px;
-    padding-left: 18px;
-    padding-top: 10px;
-}
-.feeditem .right .props textarea {
-    font-size: 9pt;
-    height: 20px;
-    margin-left: 20px;
-    padding-left: 5px;
-    padding-top: 2px;
-    resize: none;
-    width: 450px;
-}
-.feeditem .right .giveprop {
-    display: none;
-    font-size: 9pt;
-    height: 25px;
-    margin-top: 5px;
-    text-align: right;
-    width: 470px;
-}
-.feeditem .right .giveprop a {
-    color: #F58220;
-    text-decoration: none;
-}
-.feeditem .right .props .userprop {
-    color: #828584;
-    font-size: 9pt;
-    margin-bottom: 5px;
-    margin-left: 21px;
-    margin-top: 10px;
-    min-height: 30px;
-    overflow: hidden;
-    width: 470px;
-}
-.feeditem .right .props .userprop .profilepic {
-    float: left;
-    height: 25px;
-    width: 35px;
-}
-.feeditem .right .props .userprop .text {
-    float: left;
-    font-size: 9pt;
-    width: 300px;
-}
-.feeditem .right .props .userprop .text a {
-    color: #F58220;
-    text-decoration: none;
-}
-.feeditem .right .props .userprop .timestamp {
-    color: #828584;
-    float: right;
-    width: 100px;
-}
 
 /* modal form */
 #dialog-form {
@@ -544,50 +385,6 @@ li.active {
     height: 20px;
     width: 100%;
 }
-.tablet {
-    height: 100%;
-    padding-top: 20px;
-    text-align: center;
-    width: 100%;
-}
-
-.tablet .top {
-    background-color: #F8FAF8;
-    border: 1px solid #EAEBEB;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    box-shadow: 5px 5px 5px #C1C1C1;
-    width: 117px;
-}
-.tablet .top .stamp {
-    background-color: #F8FAF8;
-    border-left: 1px solid #D3D5D6;
-    border-right: 1px solid #D3D5D6;
-    border-top: 1px solid #D3D5D6;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    height: 118px;
-}
-.tablet .top .stamp img {
-    height: 106px;
-    margin-left: 3px;
-    margin-right: 3px;
-    margin-top: 6px;
-    width: 106px;
-}
-.tablet .sponsor {
-    background-color: #F68120;
-    border-left: 1px solid #D4D5D6;
-    border-right: 1px solid #D4D5D6;
-    border-top: 1px solid #F0F0F1;
-    color: #FFFFFF;
-    font-size: 8pt;
-    line-height: 13px;
-    min-height: 15px;
-    padding: 2px 5px 2px 4px;
-    position: relative;
-    width: 107px;
-}
 .button {
     cursor: pointer;
     text-decoration: none;
@@ -603,42 +400,6 @@ li.active {
     text-align: center;
     text-transform: uppercase;
     width: 100%;
-}
-.tablet .main {
-    color: #828584;
-    font-size: 10pt;
-    padding-top: 10px;
-    text-align: left;
-}
-.tablet .main .points {
-    font-style: italic;
-    font-weight: 400;
-    height: 22px;
-}
-.tablet .main .title {
-    font-weight: 700;
-    height: 40px;
-    line-height: 12pt;
-    overflow: hidden;
-}
-.tablet .plannote {
-    color: #F58220;
-    font-size: 9pt;
-    text-align: left;
-}
-.tablet .planoptions {
-    color: #828584;
-    font-size: 9pt;
-    text-align: left;
-}
-.feats_table td {
-    border-bottom: 1px solid #F1F1F1;
-    float: left;
-    margin-left: 10px;
-    margin-right: 20px;
-    padding-bottom: 10px;
-    padding-top: 0;
-    width: 120px;
 }
 .rightbarsection {
     border-top: 1px solid #828584;
@@ -720,4 +481,386 @@ h1 {
 }
 .tabs ul li {
     margin-right: 5px;
+}
+
+/* feat grid */
+.feats_table td {
+    border-bottom: 1px solid #F1F1F1;
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 0;
+    width: 120px;
+    height: 300px;
+}
+.featgrid {
+    height: 100%;
+    padding-top: 20px;
+    text-align: center;
+    width: 100%
+}
+.featgrid .top {
+    /*display: table-row;*/
+    background-color: #F8FAF8;
+    border: 1px solid #EAEBEB;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 5px 5px 5px #C1C1C1;
+    width: 117px;
+}
+.featgrid .top .stamp {
+    /*display: table-row;*/
+    background-color: #F8FAF8;
+    border-left: 1px solid #D3D5D6;
+    border-right: 1px solid #D3D5D6;
+    border-top: 1px solid #D3D5D6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 118px;
+}
+.featgrid .top .stamp img {
+    height: 106px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 6px;
+    width: 106px;
+}
+.featgrid .top .sponsor {
+    background-color: #F68120;
+    border-left: 1px solid #D4D5D6;
+    border-right: 1px solid #D4D5D6;
+    border-top: 1px solid #F0F0F1;
+    color: #FFFFFF;
+    font-size: 8pt;
+    line-height: 13px;
+    min-height: 15px;
+    padding: 2px 5px 2px 4px;
+    position: relative;
+    width: 107px;
+}
+.featgrid .sponsor a {
+    color: #FFFFFF;
+}
+.button {
+    cursor: pointer;
+    text-decoration: none;
+}
+.button div {
+    background: -moz-linear-gradient(center top , #D1D3D4 0%, #949699 100%) repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+.featgrid .middle {
+    display: table-row;
+    color: #828584;
+    font-size: 10pt;
+    padding-top: 10px;
+    text-align: left;
+}
+.featgrid .middle .points {
+    font-style: italic;
+    font-weight: 400;
+    height: 22px;
+}
+.featgrid .middle .title {
+    font-weight: 700;
+    height: 40px;
+    line-height: 12pt;
+    overflow: hidden;
+}
+.featgrid .plannote {
+    color: #F58220;
+    font-size: 9pt;
+    text-align: left;
+}
+.featgrid .plannote a {
+    color: #F58220;
+    text-decoration: underline;
+}
+.featgrid .planoptions {
+    color: #828584;
+    font-size: 9pt;
+    text-align: left;
+}
+.featgrid .planoptions .title {
+    font-size: 10pt;
+    font-weight: 700;
+    height: 20px;
+    line-height: 12pt;
+    padding-top: 5px;
+    padding-bottom: 0;
+}
+
+/* checkin feed */
+.feedcontainer {
+    display: table-row;
+    background: -moz-linear-gradient(center top , #FFFFFF 0%, #F2F2F2 100%) repeat scroll 0 0 transparent;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.feeditem {
+    border-bottom: 1px solid #F1F1F1;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    padding-top: 15px;
+    position: relative;
+    width: 637px;
+}
+.feeditem .left {
+    display: table-cell;
+    width: 65px;
+}
+.feeditem .left .profilepic {
+    height: 55px;
+    width: 55px;
+}
+.feeditem .left .stamp {
+    height: 75px;
+    margin-top: 5px;
+    text-align: left;
+    width: 55px;
+}
+.feeditem .left .stamp img {
+    height: 55px;
+    width: 55px;
+}
+.feeditem .left .stamp .epictab {
+    background-color: #F68200;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 1px solid #F1F1F1;
+    color: #FFFFFF;
+    font-size: 10pt;
+    font-weight: 700;
+    height: 18px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 128px;
+    width: 55px;
+}
+.feeditem .right {
+    display: table-cell;
+}
+.feeditem .right .title {
+    color: #828584;
+    font-size: 15px;
+    position: relative;
+}
+.feeditem .right .title a {
+    color: #F58220;
+}
+.feeditem .right .title .refresh {
+    display: none;
+    height: 25px;
+    position: absolute;
+    right: -50px;
+    top: 0;
+    width: 16px;
+}
+.feeditem .right .title .permlink {
+    display: none;
+    height: 25px;
+    position: absolute;
+    right: -25px;
+    top: -2px;
+    width: 20px;
+}
+.feeditem .right .title .didittoo {
+    color: #828584;
+    display: none;
+    font-size: 8pt;
+    padding-top: 2px;
+    position: absolute;
+    right: -5px;
+    text-decoration: none;
+    top: -1px;
+    width: 60px;
+}
+.feeditem .right .message {
+    color: #000000;
+    font-size: 13px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 450px;
+}
+.feeditem .right .message .evidence {
+    float: left;
+    margin: 5px;
+    width: 80px;
+}
+.feeditem .right .message .evidence img {
+    max-height: 75px;
+    max-width: 75px;
+}
+.feeditem .right .timelocation {
+    color: #828584;
+    font-size: 12px;
+    font-style: italic;
+}
+.feeditem .right .timelocation .mobile {
+    background: url("/mccoy/img/im_checkin_sprites.png") no-repeat scroll 0 -18px transparent;
+    float: right;
+    height: 18px;
+    width: 16px;
+}
+.feeditem .right .block {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+.feeditem .right .block .image {
+    float: left;
+    height: 25px;
+    width: 35px;
+}
+.feeditem .right .block .image img {
+    height: 25px;
+    width: 25px;
+}
+.feeditem .right .block .text {
+    color: #828584;
+    display: table-cell;
+    float: left;
+    font-size: 10pt;
+    overflow: hidden;
+    padding-top: 3px;
+    vertical-align: middle;
+    width: 380px;
+}
+.feeditem .right .block .text a {
+    text-decoration: underline;
+}
+.feeditem .right .props {
+    border-top: 1px solid #F1F1F1;
+    margin-top: 20px;
+}
+.feeditem .right .props .proptypeslist {
+    height: 25px;
+    padding-left: 18px;
+    padding-top: 10px;
+}
+.feeditem .right .proptypeslist li {
+    border-right: 1px solid #F1F1F1;
+    float: left;
+    font-size: 9pt;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+.feeditem .right .props textarea {
+    font-size: 9pt;
+    height: 20px;
+    margin-left: 20px;
+    padding-left: 5px;
+    padding-top: 2px;
+    resize: none;
+    width: 450px;
+}
+.feeditem .right .giveprop {
+    display: none;
+    font-size: 9pt;
+    height: 25px;
+    margin-top: 5px;
+    text-align: right;
+    width: 470px;
+}
+.feeditem .right .giveprop a {
+    color: #F58220;
+    text-decoration: none;
+}
+.feeditem .right .props .userprop {
+    color: #828584;
+    font-size: 9pt;
+    margin-bottom: 5px;
+    margin-left: 21px;
+    margin-top: 10px;
+    min-height: 30px;
+    overflow: hidden;
+    width: 470px;
+}
+.feeditem .right .props .userprop .profilepic {
+    float: left;
+    height: 25px;
+    width: 35px;
+}
+.feeditem .right .props .userprop .profilepic img {
+    height: 25px;
+    width: 25px;
+}
+.feeditem .right .props .userprop .text {
+    float: left;
+    font-size: 9pt;
+    width: 300px;
+}
+.feeditem .right .props .userprop .text a {
+    color: #F58220;
+    text-decoration: none;
+}
+.feeditem .right .props .userprop .timestamp {
+    color: #828584;
+    float: right;
+    width: 85px;
+}
+
+/* feat checkin dialog */
+.checkin .title {
+    color: #828584;
+    font-size: 16px;
+    font-weight: 700;
+}
+.checkin .options {
+    color: #828584;
+    font-size: 16px;
+    height: 35px;
+    margin-top: 10px;
+}
+.checkin .options .locked {
+    color: #F58220;
+}
+.checkin .prompt .message {
+    background-color: #FFFFFF;
+    border: 1px solid #666666;
+    padding: 5px;
+}
+.checkin .prompt .message textarea {
+    border: 0 none;
+    font-size: 9pt;
+    height: 45px;
+    resize: none;
+    width: 100%;
+}
+.checkin .options .action {
+    float: left;
+    width: 100px;
+}
+.checkin .options .privacy {
+    color: #828584;
+    float: right;
+    font-size: 13px;
+    margin-top: 10px;
+}
+.checkin .location {
+    color: #828584;
+    font-size: 9pt;
+    height: 10px;
+    margin-top: 20px;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+.checkin .location .closebutton {
+    color: #828584;
+    font-size: xx-small;
+    vertical-align: top;
 }

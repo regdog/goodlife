@@ -11,7 +11,7 @@ GoodLife::Application.routes.draw do
   devise_for :admin_users, :path => "/admin/users"
 
   scope "/view" do
-    resources :checkins, :only => [:index] do
+    resources :checkins, :only => [:index, :create] do
       resources :comments
       collection do
         get 'latest'
