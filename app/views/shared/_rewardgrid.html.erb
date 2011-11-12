@@ -1,0 +1,14 @@
+<div class="coupontablet" coupon_id=<%= reward.id %>>
+  <div class="overlay" style="display: none;"></div>
+  <div class="top">
+    <div class="logo">image here</div>
+    <% if current_user %>
+      <a class="button featcheckin"><div>get it</div></a>
+    <% end %>
+  </div>
+  <div class="main">
+    <div class="title">Save $5</div>
+    <div class="description"><b>Pita Downtown Crossing</b></div>
+    <div class="points">For <%= reward.redeem_points %> points</div>
+  </div>
+</div>

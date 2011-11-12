@@ -9,7 +9,12 @@ class CommentsController < ApplicationController
 
   def create
     @checkin = Checkin.find(params[:checkin_id])
-    @comment = Comment.new(params[:comment])
+    if params[:content]
+      @comment = Comment.create
+      @comment.content = params[:content]
+    else
+      @comment = Comment.new(params[:comment])
+    end
     @comment.user_id = current_user.id
     @checkin.comments << @comment
 

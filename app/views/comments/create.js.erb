@@ -1,2 +1,1 @@
-//alert("hello");
-$('#checkin_<%= @checkin.id %>_comments').html('<%= escape_javascript(render(:partial => "checkins/comments", :locals => { :checkin => @checkin }))%>').hide().fadeIn('slow');
+$('#checkin_<%= @checkin.id %>_props').html('<%= escape_javascript(render(:partial => "shared/comments", :locals => { :checkin => @checkin }))%>').hide().fadeIn('slow');

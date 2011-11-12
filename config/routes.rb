@@ -17,6 +17,7 @@ GoodLife::Application.routes.draw do
         get 'latest'
         get 'epic'
       end
+      post 'comments/:content'=> 'comments#create', :as => 'quick_comment'
     end
     resources :feats, :only => [:index, :show] do
       get 'catalog', :on => :collection
@@ -49,7 +50,6 @@ GoodLife::Application.routes.draw do
 
   resources :redemptions, :only => [:create]
   get '/rewards/redeem/:reward_id' => 'redemptions#new', :as => :new_redemption
-
 
   get 'team' => "team#index", :as => :teammates
   get 'team/checkins' => "team#checkins", :as => :team_checkins

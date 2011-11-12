@@ -90,7 +90,9 @@ h1 {
 				line-height: 23px;
 				margin-bottom: 25px;
 			}
-
+			.home_center .textarea .subtext a {
+				color: #f58322;
+			}
 			.home_center .textarea .action {
 				color: #828584;
 				font-size: 12pt;
@@ -131,12 +133,56 @@ height: 100%;
    height: 60px;
    clear: both;
    position: relative;
-   background: #6cf;
+   /*background: #6cf;*/
+}
+.footer {
+    border-top: 1px solid #828584;
+    height: 35px;
+    padding-top: 10px;
+}
+.footer .item {
+    color: #828584;
+    float: left;
+    font-size: 9pt;
+    margin-right: 40px;
+}
+.footer ul {
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+.footer li {
+    color: #828584;
+    display:inline;
+    float: left;
+    font-size: 9pt;
+    margin-right: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+.footer li span.disabled {
+    color: #888888;
+}
+.subfooter {
+    color: #828584;
+    font-size: 8pt;
+    text-align: center;
+}
+.footer a, .team_navigation a:visited, .team_navigation a:hover {
+    border: none;
+    padding:0;
+    margin:0;
+    font-weight: normal;
+}
+.footer a:hover {
+    font-weight: normal;
+    color: #F58220;
 }
 #clear{
    height: 60px;
    clear: both;
 }
+
 
 /* site nav menu */
 .navcontainer {
@@ -157,11 +203,10 @@ height: 100%;
 .menu a {
     padding-bottom: 8px;
 	display: inline;
-	color: #000000;
 	text-decoration: none;
 }
 .menu a:hover {
-    color: #CB4415;
+    color: #F58220;
 }
 .bottombar {
     margin-top: 8px;
@@ -198,12 +243,11 @@ span#subnav_profile {
 .submenu a {
 	padding: 10px 5px;
 	display: inline;
-	color: #000000;
 	text-decoration: none;
 	font-weight: normal;
 }
 .submenu a#subnavActive {
-    color: #CB4415;
+    color: #F58220;
 }
 /* end of nav menu */
 
@@ -309,7 +353,7 @@ li.leftnavitem {
     font-weight: 400;
     height: 25px;
 }
-li.active {
+li.active a {
     color: #F58220;
     font: bold;
 }
@@ -358,13 +402,13 @@ li.active {
     margin-bottom: 20px;
     margin-top: 10px;
 }
-.title {
-    color: #A4A6A9;
-    font-size: 10pt;
-    line-height: 20px;
-    padding-bottom: 25px;
-    width: 100%;
-}
+/*.title {*/
+    /*color: #A4A6A9;*/
+    /*font-size: 10pt;*/
+    /*line-height: 20px;*/
+    /*padding-bottom: 25px;*/
+    /*width: 100%;*/
+/*}*/
 .formrow {
     height: 35px;
     margin-bottom: 10px;
@@ -418,6 +462,38 @@ li.active {
 .rightbarsection img {
     width: 25px;
 }
+.lifescoreblock .profilepic {
+    background-image: url("/images/im_facebookprofile.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-size: 100% auto;
+    float: left;
+    height: 105px;
+    width: 105px;
+}
+.lifescoreblock .lifescore {
+    display: table-row;
+    height: 105px;
+    width: 160px;
+    height: 25px;
+    padding-left: 12px;
+}
+.lifescoreblock .lifescore .score {
+    color: #828584;
+    display: table-cell;
+    font-size: 12pt;
+    width: 65px;
+    padding-left: 12px;
+}
+.lifescoreblock .lifescore .name {
+    color: #828584;
+    display: table-cell;
+    font-size: 9pt;
+    line-height: 14px;
+}
+.rightbarrow {
+    display: table-row;
+}
 .rightbar_left {
     display: table-cell;
     width: 250px;
@@ -428,6 +504,28 @@ li.active {
 .smalltext {
     color: #828584;
     font-size: 10pt;
+}
+.smalltext a {
+    color: #F58220;
+}
+.rightbarsection .subfooter {
+    background-color: #979BC9;
+    color: #828584;
+    font-size: 10pt;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+}
+.rightbarsection .subfooter a {
+    color: #FFFFFF;
+}
+.rightbarsection .subtext {
+    color: #828584;
+    font-size: 8pt;
+    line-height: 20px;
+    overflow: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 .feat {
     margin-top: 30px;
@@ -863,4 +961,191 @@ h1 {
     color: #828584;
     font-size: xx-small;
     vertical-align: top;
+}
+
+
+.thirdnav {
+    color: #828584;
+    font-size: 16px;
+    height: 25px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+.thirdnav ul {
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+.thirdnav li {
+    display:inline;
+    border-right: 1px solid #828584;
+    float: left;
+    margin-right: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+.thirdnav li span.disabled {
+    color: #888888;
+}
+.thirdnav a, .team_navigation a:visited, .team_navigation a:hover {
+    border: none;
+    padding:0;
+    margin:0;
+    font-weight: normal;
+}
+.thirdnav a:hover {
+    font-weight: normal;
+    color: #F58220;
+}
+.thirdnav a.active {
+    font-weight: bold;
+}
+
+/* rewards home page */
+.homerighttext {
+    color: #F58220;
+    height: 25px;
+    position: relative;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+.homeblock {
+    background-color: #F58322;
+    height: 300px;
+    position: relative;
+    width: 100%;
+}
+.homeblock .textarea {
+    float: left;
+    padding: 20px;
+    width: 600px;
+}
+.homeblock .textarea .bigtext {
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: 700;
+    width: 100%;
+}
+.homeblock .textarea .subtext {
+    color: #FFFFFF;
+    font-size: 15px;
+    width: 100%;
+}
+.homeblock .image {
+    float: left;
+    width: 350px;
+}
+.homeblock .image img {
+    height: 300px;
+}
+.homeblockcolumns {
+    height: 180px;
+    margin-top: 40px;
+    width: 100%;
+}
+.homeblockcolumns .column1 {
+    border-top: 2px solid #828584;
+    color: #828584;
+    float: left;
+    height: 100%;
+    margin-right: 33px;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 390px;
+}
+.homeblockcolumns .column1 ul li {
+    float: left;
+    height: 30px;
+    line-height: 20px;
+    width: 130px;
+    font-size: 9pt;
+}
+.homeblockcolumns .column2 {
+    border-top: 2px solid #828584;
+    color: #828584;
+    float: left;
+    height: 100%;
+    margin-right: 33px;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 310px;
+}
+.homeblockcolumns .column3 {
+    border-top: 2px solid #828584;
+    color: #828584;
+    float: left;
+    height: 100%;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 310px;
+}
+
+/* coupon tablet */
+.coupontablet {
+    height: 100%;
+    padding-top: 20px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.coupontablet .overlay {
+    background-color: #000000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #FFFFFF;
+    display: none;
+    font-size: 9pt;
+    height: 25px;
+    left: 0;
+    line-height: 25px;
+    opacity: 0.5;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 999;
+}
+.coupontablet .overlay a {
+    color: #FFFFFF;
+}
+.coupontablet .top {
+    background-color: #D1D3D4;
+    border: 2px solid #D1D3D4;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 5px 5px 5px #C1C1C1;
+}
+.coupontablet .top .logo {
+    background-color: #FFFFFF;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: table-cell;
+    height: 106px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 115px;
+}
+.coupontablet .top .logo img {
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 6px;
+    max-height: 80px;
+    max-width: 106px;
+}
+.coupontablet .main {
+    color: #828584;
+    font-size: 10pt;
+    padding-top: 10px;
+    text-align: left;
+}
+.coupontablet .main .title {
+    font-weight: 700;
+    height: 20px;
+    line-height: 12pt;
+}
+.coupontablet .main .points {
+    font-style: italic;
+    font-weight: 400;
+    padding-top: 10px;
 }

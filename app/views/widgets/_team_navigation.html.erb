@@ -6,15 +6,16 @@
 #   :generate_css => true|false #=> generates a default inline css for the tabnav, defaults to false
 #   :html => aHash #=> sets html options for the tabnav's div (es :html => {:class=> 'myCssClass', :id=>'myCssId'}) 
 #  
-render_navigation :footer, :generate_css => true do
-    if @pages
-      @pages.each do |page|
-        add_item do |i|
-          i.named page.title
-          i.links_to "/corp/#{page.permalink}"
-        end
-      end
-    end
+render_navigation :team, :generate_css => false do
+    #add_item do |i|
+    #  i.named 'Teammates'
+    #  i.links_to root_path
+    #end
+
+    add_item :name=>"Teammates", :link => teammates_path
+    add_item :name=>"Our Feats", :link => team_checkins_path
+    add_item :name=>"Requests", :link => my_requests_path
+    add_item :name=>"Invite Teammates", :link => team_checkins_path
 
     # you can pass add_item a block to just like the tabnav!
     #  

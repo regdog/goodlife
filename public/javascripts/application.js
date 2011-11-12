@@ -10,7 +10,7 @@ $(document).ready(function() {
   $(".menu li").hover(function() {
     $(this).parent().parent().find("#subnavActive").parent().hide();
     $(this).find("span").show();
-    $(this).find("div").css({"border-color":"#CB4415"});
+    $(this).find("div").css({"border-color":"#F58220"});
   }, function() {
     $(this).find("span").hide();
     $(this).find("div").css({"border-color":"#828584"});
@@ -182,5 +182,7 @@ $(document).ready(function() {
 //  }).blur(function (){
 //    $(this).animate({ height: "20px" });
 //  });
+
+
 });
 

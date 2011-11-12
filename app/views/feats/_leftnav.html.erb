@@ -1,15 +1,8 @@
 <ul class="navigation primary">
-  <li class="leftnavitem <%= active_li_css(@view_by, "all") %>"><%= link_to_unless (@view_by == 'all'), "All", feats_path %></li>
+  <li class="leftnavitem <%= active_li_css(@view_by, "all") %>"><%= link_to "All", feats_path %></li>
   <% Tag.of_kind("Feat").each do |type| %>
     <li class="leftnavitem <%= active_li_css(@view_by, type.name) %>">
-	  <%=
-		link_to_unless(
-			(@view_by == type.name),
-			type.name,
-			:controller => 'feats',
-			:action => 'catalog',
-			:type => type.name )
-	  %>
+	  <%= link_to type.name, :controller => 'feats', :action => 'catalog', :type => type.name %>
 	</li>
   <% end %>
 </ul>

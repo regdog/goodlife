@@ -53,19 +53,39 @@
     </div>
     <div class="row">
        <div class="column grid_4 rightbarsection">
+         <div class="title">My life score</div>
+         <div class="lifescoreblock">
+           <div class="profilepic"></div>
+           <div class="lifescore">
+             <div class="score"><%= current_user.life_score %></div>
+             <div class="name">life score</div>
+           </div>
+           <div class="lifescore">
+             <div class="score"><%= current_user.feats_done.size %></div>
+             <div class="name">feats done</div>
+           </div>
+           <div class="lifescore">
+             <div class="score"><%= current_user.earned_points %></div>
+             <div class="name">points earned</div>
+           </div>
+         </div>
+       </div>
+    </div>
+    <div class="row">
+       <div class="column grid_4 rightbarsection">
          <div class="title">My team</div>
-         <div class="rightbarrow">
          <% current_user.members.each do |m| %>
+         <div class="rightbarrow">
            <div class="rightbar_left">
-             <div width="30" style="float: left;"><%= image_tag "/images/im_facebookprofile.png" %></div>
-             <div class="smalltext" ><%= link_to "!#{m.name}", member_path(m) %></div>
+             <div width="30" style="float: left;margin-right: 5px;"><%= image_tag "/images/im_facebookprofile.png" %></div>
+             <div class="smalltext"><%= link_to m.name, member_path(m) %></div>
            </div>
            <div class="rightbar_right">
              <div class="smalltext" align="right" width="80"><%="#{m.earned_points} pts" %></div>
            </div>
-         <% end %>
          </div>
-         <div class="rightbarrow"><%= link_to "Invite friends now!", new_user_invitation_path %></div>
+         <% end %>
+         <div class="subfooter"><%= link_to "Invite friends now!", new_user_invitation_path %></div>
        </div>
     </div>
     <div class="row">

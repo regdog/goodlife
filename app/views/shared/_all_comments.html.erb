@@ -1,0 +1,7 @@
+<% checkin.comments.each do |comment| %>
+<div class="userprop" userpropid=<%= comment.id %>>
+  <div class="profilepic"><%#= link_to image_tag(comment.user.image.url(:thumb)), member_path(comment.user) %></div>
+  <div class="text"><%= link_to comment.user.name, member_path(comment.user) %> <%= comment.content %></div>
+  <div class="timestamp"><%= time_ago_in_words comment.created_at %> ago</div>
+</div>
+<% end %>

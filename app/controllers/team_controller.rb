@@ -3,11 +3,13 @@ class TeamController < ApplicationController
     @teammates = current_user.friends
     @user = User.new
     @page_title = "Your team"
+    @view_by = "Teammates"
   end
 
   def checkins
     @checkins = current_user.team_checkins
     @page_title = "Your team's check-ins"
+    @view_by = "Our Feats"
   end
 
   def requests
@@ -20,11 +22,13 @@ class TeamController < ApplicationController
       @incoming_requests << User.find(request.requestor_id)
     end
     @page_title = "Your requests"
+    @view_by = "Requests"
   end
 
   def invite
     user = User.find(params[:id])
     current_user.request_membership(user)
     redirect_to :action => 'requests'
+    @view_by = "Invite"
   end
 end

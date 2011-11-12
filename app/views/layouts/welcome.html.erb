@@ -47,10 +47,11 @@
       </div>
     </div>
   </div>
-  <div class="row" id="footer">
-    <% unless Content.all.first.nil? %>
-      <%= navigation :footer %>
-    <% end %>
-  </div>
+    <div class="row" id="footer">
+      <div class="footer">
+        <%= render :partial => "shared/footer" %>
+      </div>
+      <div class="subfooter"> Copyright (c) Goodlife 2011 </div>
+    </div>
 </body>
 </html>

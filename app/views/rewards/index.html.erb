@@ -1,4 +1,94 @@
-<%# tabnav :rewards do %>
-<h1>Reward yourself and others!</h1>
-<%# end %>
+<div class="pagetitle"><h1>Reward yourself and others!</h1></div>
+<div class="homerighttext">Reward points: <b><%= 10 %></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Savings: <b>$<%= 1.0 %></b></div>
+<div id="rewards_home_highlights" class="homeblock">
+  <div id="rewards_home_highlights_1" highlightbanner="true" style="display: block;">
+    <div class="textarea" style="width: 460px;">
+      <div class="bigtext">Do good with donations.</div><br/>
+      <div class="subtext">	Put your points toward partner donations to 501(c)3 nonprofits. Then check in !donation.</div>
+    </div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_donations.png" %></div>
+  </div>
+  <div id="rewards_home_highlights_2" highlightbanner="true" style="display: none;">
+    <div class="textarea" style="width: 460px;">
+      <div class="bigtext">Rock out with a $10 iTunes Gift Card</div><br/>
+      <div class="subtext">	Get what you need to !sing, !dance, and !findnewmusic, for 5,000 points.</div>
+    </div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_itunes.png" %></div>
+  </div>
+  <div id="rewards_home_highlights_3" highlightbanner="true" style="display: none;">
+    <div class="textarea" style="width: 460px;">
+      <div class="bigtext">Get centered with a $10 Gaiam Gift Card</div><br/>
+      <div class="subtext">	Find !yoga supplies or !chooseorganic for your home, at 5,000 points.</div>
+    </div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_gaiam.png" %></div>
+  </div>
+  <div id="rewards_home_highlights_4" highlightbanner="true" style="display: none;">
+    <div class="textarea" style="width: 460px;">
+      <div class="bigtext">Surprise the family with a $10 Toys R Us Gift Card</div><br/>
+      <div class="subtext">	Discover a new way to !playwithyourkid, for 5000 points.</div>
+    </div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_toysrus.png" %></div>
+  </div>
+  <div id="rewards_home_highlights_5" highlightbanner="true" style="display: none;">
+    <div class="textarea" style="width: 460px;">
+      <div class="bigtext">Buy it Now with a $5 or $10 eBay Gift Cerficiate</div><br/>
+      <div class="subtext">	Explore everything from fashion to gadgets, starting at just 1,800 points.</div>
+    </div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_ebay.png" %></div>
+  </div>
+  <div id="rewards_home_highlights_6" highlightbanner="true" style="display: none;">
+    <div class="textarea" style="width: 460px;">
+      <div class="bigtext">Take a break with a $10 Starbucks Gift Card</div><br/>
+      <div class="subtext">	Claim the moment of peace you deserve, for 5,000 points. </div>
+    </div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_starbucks.png" %></div>
+  </div>
+</div>
+<div class="homeblockcolumns">
+  <div class="column1">
+    Use my points to...
+    <br/>
+    <br/>
+    <ul>
+      <% Tag.of_kind("Reward").each do |type| %>
+        <li><%= type.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="column2">
+    <div class="rightbarsection"  style="margin: 0px; border: 0px; padding-top: 0px">
+      <div class="title">Find rewards near you</div>
+      <div class="subtext">Tell us your city, state, address or zip code to start finding rewards near you!</div>
+      <br/>
+      <br/>
+      <div class="inputsubmit"></div>
+    </div>
+  </div>
+  <div class="column3">
+    <div class="rightbarsection"  style="margin: 0px; border: 0px; padding-top: 0px">
+      <div class="title">Search for a reward</div>
+      <div class="subtext">Looking for something? Enter an activity or a brand.</div>
+      <br/>
+      <br/>
+      <div class="inputsubmit"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  iBannerIndex = 2;
+  iBannderMax = 6;
+  function rotateBanner(number) {
+    $(".[highlightbanner|=true]").hide();
+    $("#rewards_home_highlights_" + iBannerIndex).fadeIn("slow");
+    iBannerIndex = iBannerIndex + 1;
+    if (iBannerIndex > iBannderMax) {
+        iBannerIndex = 1;
+    }
+    setTimeout("rotateBanner(iBannerIndex)", 6000);
+  }
+  $(document.body).ready(function(){
+    setTimeout("rotateBanner(iBannerIndex)", 6000);
+  });
+</script>
 

@@ -1,0 +1,14 @@
+<div class="featgrid">
+  <div class="top">
+    <div class="stamp"><%= link_to image_tag('/images/im_facebookprofile.png'), member_path(member) %></div>
+    <% if current_user %>
+      <a class="button featcheckin" href=<%= member_path(member) %>><div>View</div></a>
+    <% end %>
+  </div>
+  <div class="middle">
+    <div class="title"><%= member.name %></div>
+    <div class="points">
+      Points: <%= member.earned_points %><br/>
+    </div>
+  </div>
+</div>

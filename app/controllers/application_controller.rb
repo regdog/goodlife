@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   layout :layout_by_resource
   protect_from_forgery
-  #before_filter :load_corp_pages
+  before_filter :load_corp_pages
 
   protected
 
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_corp_pages
-    category = Category.find_by_name("Page")
-    @pages = category.contents
+    tag = Tag.find_by_name("Page")
+    @pages = tag.contents
   end
 end

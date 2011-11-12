@@ -22,9 +22,10 @@
 </div>
 <div id="clear"></div>
 <div class="row" id="footer">
-  <% unless Content.all.nil? %>
-    <%= navigation :footer %>
-  <% end %>
+  <div class="footer">
+    <%= render :partial => "shared/footer" %>
+  </div>
+  <div class="subfooter"> Copyright (c) Goodlife 2011 </div>
 </div>
 </body>
 </html>
