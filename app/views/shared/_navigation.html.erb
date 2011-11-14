@@ -43,7 +43,7 @@
 	</li>
     <% else %>
 	<li>
-	  <%= link_to "Sign In", new_user_session_path, :id => 'sign_in' %> / <%= link_to "Sign Up", new_user_registration_path, :id => 'sign_up' %>
+	  <%= link_to "Sign In", new_user_session_path, :class => 'sign_in' %> / <%= link_to "Sign Up", new_user_registration_path, :class => 'sign_up' %>
       <div class="bottombar"></div>
 	</li>
     <% end %>

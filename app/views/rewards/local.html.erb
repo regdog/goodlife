@@ -1,25 +1,22 @@
-<%# tabnav :rewards do %>
-  <h2>查找Reward</h2>
-  <%= form_for @search, :url => {:action => "local"} do |f| %>
-    <p>
-      <%= f.label "输入城市、街道名称或邮编号码:" %><br/>
-      <%= f.hidden_field :partner_tag_name_starts_with, {:value => 'Local'} %>
-      <%= f.text_field :partner_city_or_partner_street_or_partner_zip_code_contains %>
-      <%= f.submit "Search" %>
-    </p>
-  <% end %>
-
-<div class="row">
-  <div class="column grid_11">
+<div class="pagetitle"><h1>Reward yourself and others!</h1></div>
+<div class="column grid_2">
+  <%= render :partial => 'leftnav' %>
+</div>
+<div class="column grid_8">
+  <% unless @rewards.empty? %>
+    <p><%= paginate @rewards %></p>
     <% tableize @rewards,
                 :name => 'rewards',
-                #:header => 'Listing Rewards',
-                :cols => 5,
-                :generate_css => 'true' do |reward| %>
+                :cols => 4,
+                :generate_css => false do |reward| %>
 
-      <%= render :partial => "reward_grid", :locals => {:reward => reward} %>
-    <% end if @rewards %>
-  </div>
+      <%= render :partial => "shared/rewardgrid", :locals => {:reward => reward} %>
+    <% end %>
+  <% else %>
+    <div>No search results</div>
+  <% end %>
+</div>
+<div class="column grid_4">
+  <%= render :partial => "shared/rewardsrightbar" %>
 </div>
 
-<%# end %>

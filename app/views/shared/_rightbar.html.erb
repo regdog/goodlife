@@ -26,7 +26,7 @@
             <tbody>
             <% Reward.limit(5).each do |r| %>
               <tr height="35">
-                <td width="30"></td>
+                <td width="30"><%= link_to image_tag(r.image.url(:small)), reward_path(r) if r.image %></td>
                 <td class="smalltext"><%= link_to "!#{r.name}", reward_path(r) %></td>
                 <td class="smalltext" align="right" width="80"><%="#{r.redeem_points} points" %></td>
               </tr>

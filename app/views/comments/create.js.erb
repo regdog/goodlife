@@ -1,1 +1,7 @@
-$('#checkin_<%= @checkin.id %>_props').html('<%= escape_javascript(render(:partial => "shared/comments", :locals => { :checkin => @checkin }))%>').hide().fadeIn('slow');
+$('#checkin_<%= @checkin.id %>_props').html('<%= escape_javascript(render(:partial => "shared/comment", :locals => { :checkin => @checkin }))%>').hide().fadeIn('slow');
+  // auto expand textarea
+  $('textarea').focus( function () {
+    $(this).animate({ height: "40px" });
+    $(this).next('.giveprop').show();
+    return false;
+  });

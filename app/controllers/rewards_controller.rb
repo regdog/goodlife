@@ -3,12 +3,25 @@ class RewardsController < ApplicationController
   end
 
   def local
-    @search = Reward.search(params[:search])
-    @rewards = @search.all if params[:search]
+    parameters = {:partner_tag_name_starts_with => 'Local'}
+    if params[:address] && params[:address] != ''
+      parameters[:partner_city_or_partner_street_or_partner_zip_code_contains] = params[:address]
+    #else
+    #  parameters[:partner_city_or_partner_street_or_partner_zip_code_contains] = 'chengdu'
+    end
+    if params[:keyword]
+      parameters[:name_contains] = params[:keyword]
+    end
+    if params[:type] && params[:type]!= 'all'
+      parameters[:tags_name_equals] = params[:type]
+    end
+
+    @rewards = Reward.search(parameters).page(params[:page]).per(20)
   end
 
   def premium
     @rewards = Reward.premium
+    @page_title
   end
 
   def wishlist

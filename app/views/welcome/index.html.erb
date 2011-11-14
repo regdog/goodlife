@@ -9,7 +9,7 @@
 	  We're here to help you get there.<br>
 	</div>
     <div class="action">
-      <%= link_to "GET STARTED NOW", 'javascript:void(0)', :id => 'sign_up', :class => 'sign_up button', :onclick => "javascript:alertdialog('hello ajax');" %>
+      <a class="button sign_up" href=<%= new_user_registration_path %>><div style="width: 250px;" >GET STARTED NOW</div></a>
     </div>
   </div>
   <div class="image"><%= image_tag "im_homestamps.png" %></div>

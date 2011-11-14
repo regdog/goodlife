@@ -53,7 +53,7 @@ $(document).ready(function() {
   });
 
   // sign in modal dialog
-  $('#sign_in').click(function(e) {
+  $('.sign_in').click(function(e) {
     var url = $(this).attr('href');
     var dialog_form = $('<div id="dialog-form">Loading form...</div>').dialog({
       autoOpen: false,

@@ -1,0 +1,22 @@
+<aside>
+<% if user_signed_in? %>
+  <div class="column grid_4 rightbarsection">
+    <div><span>Rewards points:</span><%= current_user.earned_points %></div>
+  </div>
+<% end %>
+  <div class="column grid_4 rightbarsection">
+    <div class="title">Search for a reward</div>
+    <div class="subtext">Tell us your city, address or zip code to start finding rewards near you!</div>
+    <% form_tag '/view/rewards/local', :method => 'get' do %>
+      <%= text_field_tag :address, params[:address] %>
+    <div class="subtext">Have an activity you want to use your reward points for? Enter it here and we'll find it!</div>
+      <%= text_field_tag :keyword, params[:keyword] %><br/><br/>
+      <%= submit_tag 'Search' %>
+    <% end %>
+  </div>
+  <div class="column grid_4 rightbarsection">
+    <div class="title">Restrictions</div>
+    <div class="subtext">* You may only redeem one starred premium reward every 30 days.</div>
+  </div>
+</aside>
+<div id="clear"></div>

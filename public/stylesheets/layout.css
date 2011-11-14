@@ -1114,6 +1114,7 @@ h1 {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 5px 5px 5px #C1C1C1;
+    width: 115px;
 }
 .coupontablet .top .logo {
     background-color: #FFFFFF;
@@ -1149,3 +1150,62 @@ h1 {
     font-weight: 400;
     padding-top: 10px;
 }
+#invite_teammember {
+    padding-top: 30px;
+}
+/* form */
+.form .header {
+    border-bottom: 1px solid #828584;
+    color: #F58220;
+    font-size: 11pt;
+    font-weight: 700;
+    height: 35px;
+    line-height: 25px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.form .formrow {
+    height: 35px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.form .formlabel_wide {
+    color: #A4A6A9;
+    float: left;
+    font-size: 10pt;
+    line-height: 25px;
+    width: 205px;
+}
+.form .forminput {
+    float: left;
+    width: 250px;
+}
+.form .forminput input {
+    height: 20px;
+    width: 100%;
+}
+
+.thirdnav {
+    color: #828584;
+    font-size: 16px;
+    height: 25px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+.thirdnav .item {
+    border-right: 1px solid #828584;
+    float: left;
+    margin-right: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+.thirdnav .last {
+    float: left;
+    margin-right: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+.thirdnav .active {
+    color: #F58220;
+}
+

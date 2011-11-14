@@ -8,14 +8,22 @@
       <li class="<%= active_li_css(@view_by, "Invite") %>"><%= link_to 'Invite Teammates', invitation_path %></li>
     </ul>
   </div>
-  <% @outgoing_requests.each do |request| %>
-    <p><%= request.name %></p>
-  <% end %>
-  <hr />
-  <h3>Incoming Requests</h3>
-  <% @incoming_requests.each do |request| %>
-  <p><%= request.name %></p>
-  <% end %>
+  <div class="column grid_8">
+  <div id="invite_teammember" class="form">
+    <div class="header">Invite via e-mail</div>
+    <%= form_tag '/team/invite',:method => 'get' do %>
+    <div class="formrow">
+      <div class="formlabel_wide"><%= label_tag "Your friend's name':"%></div>
+      <div class="forminput"><%= text_field_tag :name %></div>
+    </div>
+    <div class="formrow">
+      <div class="formlabel_wide"><%= label_tag "Your friend's e-mail':"%></div>
+      <div class="forminput"><%= email_field_tag :email %></div>
+    </div>
+    <%= submit_tag 'SEND INVITES' %>
+    <% end %>
+  </div>
+  </div>
 </div>
 <div class="column grid_4">
   <%= render :partial => "shared/rightbar" %>

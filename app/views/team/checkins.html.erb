@@ -5,7 +5,7 @@
       <li class="<%= active_li_css(@view_by, "Teammates") %>"><%= link_to 'Teammates', teammates_path %></li>
       <li class="<%= active_li_css(@view_by, "Our Feats") %>"><%= link_to 'Our Feats', team_checkins_path %></li>
       <li class="<%= active_li_css(@view_by, "Requests") %>"><%= link_to 'Requests', my_requests_path %></li>
-      <li class="<%= active_li_css(@view_by, "Invite") %>"><%= link_to 'Invite Teammates', teammates_path %></li>
+      <li class="<%= active_li_css(@view_by, "Invite") %>"><%= link_to 'Invite Teammates', invitation_path %></li>
     </ul>
   </div>
   <% @checkins.each do |checkin| %>

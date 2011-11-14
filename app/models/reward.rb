@@ -9,6 +9,7 @@ class Reward < ActiveRecord::Base
 
   has_one :image, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :image, :allow_destroy => true
+  scope :of_kind, lambda { |kind| { :conditions => {:kind => kind} } }
 
   # local rewards
   def self.local

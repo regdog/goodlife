@@ -9,13 +9,13 @@
   </h1>
 </div>
 <div class="column grid_10">
-<% tabnav :checkins do %>
+  <div class="thirdnav">
+    <div class="item"><%= link_to 'Latest', checkins_path, :class=>"#{params[:action]=='index' ? 'active' : ''}" %></div>
+    <div class="last"><%= link_to 'Epic', epic_checkins_path, :class=>"#{params[:action]=='epic' ? 'active' : ''}" %></div>
+  </div>
   <% @checkins.each do |checkin| %>
     <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
   <% end %>
-  <div style="clear:both;"></div>
-
-<% end %>
 </div>
 <div class="column grid_4">
   <%= render :partial => "shared/rightbar" %>

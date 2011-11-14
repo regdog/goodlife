@@ -25,10 +25,18 @@ class TeamController < ApplicationController
     @view_by = "Requests"
   end
 
-  def invite
-    user = User.find(params[:id])
-    current_user.request_membership(user)
-    redirect_to :action => 'requests'
+  def invitation
+    @page_title = "Invite your friends to your team"
     @view_by = "Invite"
+  end
+
+  def invite
+    user = User.find_by_email(params[:email])
+    if user
+      current_user.request_membership(user)
+    else
+      User.invite!(:email => params[:email], :name => params[:name])
+    end
+    redirect_to :action => 'requests'
   end
 end
