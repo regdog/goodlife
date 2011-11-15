@@ -5,19 +5,19 @@
     <%= form_for @reward, :url => {:action => "create"}, :html => { :multipart => true } do |f| %>
       <p>
         <%= f.label "Partner" %><br/>
-        <%= collection_select :reward, :partner_id, Partner.all, :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
+        <%= collection_select :reward, :partner_id, Partner.all, :id, :business_name, {:include_blank => 'Please Select'}, :prompt => true %>
       </p>
       <p>
         <%= f.label "Name" %><br/>
         <%= f.text_field :name %>
       </p>
       <p>
-        <%= f.label "Reward Tags" %><br/>
-        <%= f.text_field :tag_tokens %>
+        <%= f.label "Information" %><br/>
+        <%= f.text_area :information, :id => "kindeditor", :size => "80x20" %>
       </p>
       <p>
-        <%= f.label "Description" %><br/>
-        <%= f.text_area :description, :id => "kindeditor", :size => "80x20" %>
+        <%= f.label "Reward Tags" %><br/>
+        <%= f.text_field :tag_tokens %>
       </p>
       <p>
         <%= f.label "redeem point" %><br/>
@@ -26,6 +26,34 @@
       <p>
         <%= f.label "save money" %><br/>
         <%= f.text_field :save_money %>
+      </p>
+      <p>
+        <%= f.label "Valid Term" %><br/>
+        <%= f.text_area :valid_term %>
+      </p>
+      <p>
+        <%= f.label "Disclaimer" %><br/>
+        <%= f.text_area :disclaimer %>
+      </p>
+      <p>
+        <%= f.label "Country" %><br/>
+        <%= raw f.country_select :country, :only => [:china], :update => "reward_state", :name => "reward[country]"  %>
+      </p>
+      <p>
+        <%= f.label "State" %><br/>
+        <%= raw f.state_select :state, :country => :china, :update => "reward_city", :name => "reward[state]"   %>
+      </p>
+      <p>
+        <%= f.label "City" %><br/>
+        <%= raw f.capital_select :city, :country => :china, :name => "reward[city]" %>
+      </p>
+      <p>
+        <%= f.label "Street" %><br/>
+        <%= f.text_field :street %>
+      </p>
+      <p>
+        <%= f.label "zip code" %><br/>
+        <%= f.text_field :zipcode %>
       </p>
       <div class="Upload">
         <%= f.fields_for :image do |image_form| %>

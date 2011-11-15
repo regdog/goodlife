@@ -5,12 +5,12 @@ class RewardsController < ApplicationController
   def local
     parameters = {:partner_tag_name_starts_with => 'Local'}
     if params[:address] && params[:address] != ''
-      parameters[:partner_city_or_partner_street_or_partner_zip_code_contains] = params[:address]
+      parameters[:city_or_street_or_zipcode_contains] = params[:address]
     #else
     #  parameters[:partner_city_or_partner_street_or_partner_zip_code_contains] = 'chengdu'
     end
     if params[:keyword]
-      parameters[:name_contains] = params[:keyword]
+      parameters[:partner_business_name_contains] = params[:keyword]
     end
     if params[:type] && params[:type]!= 'all'
       parameters[:tags_name_equals] = params[:type]

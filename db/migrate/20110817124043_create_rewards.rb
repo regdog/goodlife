@@ -3,7 +3,9 @@ class CreateRewards < ActiveRecord::Migration
     create_table :rewards do |t|
       t.references  :partner
       t.string      :name, :null => false
-      t.text        :description, :null => false
+      t.text        :information, :null => false
+      t.string      :valid_term, :null => false
+      t.string      :disclaimer, :null => false
       t.integer     :redeem_points
       t.decimal     :save_money, :precision => 8, :scale => 2
       t.integer     :redeem_count, :default => 0

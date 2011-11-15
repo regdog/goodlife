@@ -3,7 +3,7 @@
     <h1>All Partners <%= @view_by ? "of #{@view_by}" : "List" %></h1>
       <table class="list">
         <tr>
-          <th>Name</th>
+          <th>Business Name</th>
           <th>State</th>
           <th>City</th>
           <th>Type</th>
@@ -12,8 +12,8 @@
         </tr>
         <% for partner in @partners %>
           <tr>
-            <td><%= link_to partner.name, edit_admin_partner_path(partner) %></td>
-            <td><%= partner.region %></td>
+            <td><%= link_to partner.business_name, edit_admin_partner_path(partner) %></td>
+            <td><%= partner.state %></td>
             <td><%= partner.city %></td>
             <td><%= partner.tag.name %></td>
             <td><% safe_concat "<a href='http://#{partner.website}'> #{partner.website} </a>" if partner.website %></td>

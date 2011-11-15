@@ -8,7 +8,7 @@
   </div>
   <div class="main">
     <div class="title">Save $<%= reward.save_money %></div>
-    <div class="description"><b><%= reward.name %></b></div>
+    <div class="description"><b><%= reward.partner.business_name %></b><br/><%= "#{reward.street}, #{reward.city}" %></div>
     <div class="points">For <%= reward.redeem_points %> points</div>
   </div>
 </div>

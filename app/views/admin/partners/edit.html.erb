@@ -1,6 +1,6 @@
 <div class="row">
   <div class="column grid_10">
-    <h1>Edit <%= @partner.name %></h1>
+    <h1>Edit <%= @partner.business_name %></h1>
     <p><a href=<%="/admin/partners"%>>&laquo; Back to Partner List</a></p>
     <%= form_for @partner, :url => {:action => "update"}, :html => { :multipart => true } do |f| %>
       <p>
@@ -8,8 +8,8 @@
         <%= collection_select :partner, :tag_id, Tag.of_kind("Partner"), :id, :name, {:include_blank => 'Please Select'}, :prompt => true %>
       </p>
       <p>
-        <%= f.label "Name" %><br/>
-        <%= f.text_field :name %>
+        <%= f.label "Business Name" %><br/>
+        <%= f.text_field :business_name %>
       </p>
       <p>
         <%= f.label "Description" %><br/>
@@ -17,7 +17,7 @@
       </p>
       <p>
         <%= f.label "website" %><br/>
-        <%= f.text_field :description %>
+        <%= f.text_field :website %>
       </p>
       <p>
         <%= f.label "Country" %><br/>
@@ -25,7 +25,7 @@
       </p>
       <p>
         <%= f.label "State" %><br/>
-        <%= raw f.state_select :region, :country => :china, :update => "partner_city", :name => "partner[region]"   %>
+        <%= raw f.state_select :state, :country => :china, :update => "partner_city", :name => "partner[state]"   %>
       </p>
       <p>
         <%= f.label "City" %><br/>
@@ -34,6 +34,26 @@
       <p>
         <%= f.label "Street" %><br/>
         <%= f.text_field :street %>
+      </p>
+      <p>
+        <%= f.label "zip code" %><br/>
+        <%= f.text_field :zipcode %>
+      </p>
+      <p>
+        <%= f.label "contact" %><br/>
+        <%= f.text_field :contact %>
+      </p>
+      <p>
+        <%= f.label "title" %><br/>
+        <%= f.text_field :title %>
+      </p>
+      <p>
+        <%= f.label "phone" %><br/>
+        <%= f.text_field :phone %>
+      </p>
+      <p>
+        <%= f.label "email" %><br/>
+        <%= f.text_field :email %>
       </p>
       <div class="PaperclipFiles">
           <% if @partner.image.nil? %>

@@ -6,7 +6,6 @@
       <table class="list">
         <tr>
           <th>Name</th>
-          <th>Description</th>
           <th>RedeemPoints</th>
           <th>SaveMoney</th>
           <th>RedeemCount</th>
@@ -15,12 +14,11 @@
         </tr>
         <% for reward in @rewards %>
           <tr>
-            <td><%= link_to reward.name, edit_admin_reward_path(reward) %></td>
-            <td><%= raw truncate reward.description, :length => 30, :separator => ' ' %></td>
+            <td><%= link_to reward.name.html_safe, edit_admin_reward_path(reward) %></td>
             <td><%= reward.redeem_points %></td>
             <td><%= reward.save_money %></td>
             <td><%= reward.redeem_count %></td>
-            <td><%= reward.name %></td>
+            <td><%= reward.name.html_safe %></td>
             <td><%= link_to "View", reward_path(reward), :target =>"_blank"  %></td>
             <td><%= link_to 'Delete', admin_reward_path(reward), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>
@@ -46,8 +44,8 @@
     <h3>Search Reward</h3>
     <%= form_for @search,:url => admin_rewards_path, :html => {:method=>'get'} do |f| %>
 	  <p>
-        <%= f.label :name_or_description_contains %>
-		<%= f.text_field :name_or_description_contains %>
+        <%= f.label :name_contains %>
+		<%= f.text_field :name_contains %>
       </p>
       <p><%= f.submit 'Go' %></p>
 	<% end %>
