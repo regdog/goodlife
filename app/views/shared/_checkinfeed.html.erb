@@ -2,7 +2,7 @@
 <div class="feeditem">
   <div class="left">
     <div class="profilepic"></div>
-    <div class="stamp"><%= image_tag checkin.feat.image.url(:thumb) %></div>
+    <div class="stamp"><%= link_to image_tag(checkin.feat.image.url(:thumb)), feat_path(checkin.feat) %></div>
   </div>
   <div class="right">
     <div class="title"><%= link_to checkin.user.name, member_path(checkin.user) %> did <%= link_to checkin.feat.name, feat_path(checkin.feat) %></div>
@@ -10,11 +10,11 @@
       <div class="evidence">evidence pic here</div>
       <%= checkin.memo %>
     </div>
-    <div class="timelocation"><%= time_ago_in_words checkin.created_at %> ago</div>
+    <div class="timelocation"><%= time_ago_in_words checkin.created_at %> ago, <%= checkin.location %></div>
     <% checkin.challenges.each do |challenge| %>
     <div class="block">
-      <div class="image"><%= link_to image_tag(challenge.image.url(:thumb)), challenge_path(challenge) %></div>
-      <div class="text"><%= checkin.user.name %> was working on <%= challenge.name  %></div>
+      <div class="image"><%= link_to image_tag(challenge.image.nil? ? '/images/icon_defaultchallenge.png' : challenge.image.url(:thumb)), challenge_path(challenge) %></div>
+      <div class="text"><%= checkin.user.name %> was working on <%= link_to challenge.name, challenge_path(challenge)  %></div>
     </div>
     <% end %>
     <div class="props" id="checkin_<%= checkin.id %>_props">

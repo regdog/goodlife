@@ -3,6 +3,8 @@
 class User < ActiveRecord::Base
   include Party::Boy
   acts_as_friend
+
+  permalink :name
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,7 +12,8 @@ class User < ActiveRecord::Base
          :lockable, :invitable, :invite_for => 2.weeks
          
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :name, :password, :password_confirmation, :remember_me, :category, :location, :phone_number, :self_description,
+                  :prop_notification, :checkin_notification, :challenge_notification, :checkin_privacy
   validates_presence_of :name, :if => :name_required?
   validates_uniqueness_of :name
 
@@ -30,25 +33,23 @@ class User < ActiveRecord::Base
   # my redemptions
   has_many :redemptions
 
-  # user types
-  MOM           = 1
-  DAD           = 2
-  STUDENT       = 3
-  RECENT_GRAD   = 4
-  WORKING_ADULT = 5
-  GRANDPARENT   = 6
-  RETIRED       = 7
-  NONE          = 8
-
+  # user categories
   CATEGORIES = {
-    MOM           => 'I am a mom',
-    DAD           => 'I am a dad',
-    STUDENT       => 'I am a student',
-    RECENT_GRAD   => 'I am a recent grad',
-    WORKING_ADULT => 'I am a working adult',
-    GRANDPARENT   => 'I am a grandparent',
-    RETIRED       => 'I am retired',
-    NONE          => 'None of the above fit'
+    1 => 'I am a mom',
+    2 => 'I am a dad',
+    3 => 'I am a student',
+    4 => 'I am a recent grad',
+    5 => 'I am a working adult',
+    6 => 'I am a grandparent',
+    7 => 'I am retired',
+    -1 => 'None of the above fit'
+  }
+
+  # checkin privacy
+  PRIVACY = {
+     1 => "Don't share with anybody",
+     2 => "Share with just my team",
+     3 => "Share with everybody"
   }
 
   def category_name
@@ -237,14 +238,22 @@ class User < ActiveRecord::Base
     members.flatten
   end
 
-  # outgoing membership requests
-  def outgoing_member_requests
-    self.outgoing_friend_requests
+  # invited teammates
+  def invited_teammates
+    teammates ||= []
+    self.outgoing_friend_requests.each do |r|
+      teammates << User.find(r.requestee_id)
+    end
+    return teammates
   end
 
-  # incoming membership requests
-  def incoming_member_requests
-    self.incoming_friend_requests
+  # invited by teammates
+  def invited_by_teammates
+    teammates ||= []
+    self.incoming_friend_requests.each do |r|
+      teammates << User.find(r.requestor_id)
+    end
+    return teammates
   end
 
   # add a reward to wishlist

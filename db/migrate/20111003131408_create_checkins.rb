@@ -4,8 +4,8 @@ class CreateCheckins < ActiveRecord::Migration
       t.references :user, :null => false
       t.references :feat, :null => false
       t.text :memo
-      t.integer :public
-      t.string :user_ip
+      t.integer :privacy
+      t.string :location
       t.datetime :created_at
     end
 

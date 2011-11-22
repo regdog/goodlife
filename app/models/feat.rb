@@ -1,4 +1,5 @@
 class Feat < ActiveRecord::Base
+  permalink :name
   attr_reader :tag_tokens
   belongs_to :creator, :polymorphic => true
   has_and_belongs_to_many :challenges

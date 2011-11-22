@@ -1,8 +1,12 @@
 <div class="featgrid">
   <div class="top">
     <div class="stamp"><%= link_to image_tag('/images/im_facebookprofile.png'), member_path(member) %></div>
-    <% if current_user %>
-      <a class="button featcheckin" href=<%= member_path(member) %>><div>View</div></a>
+    <% if current_user.members.include?(member) %>
+      <a class="button featcheckin" href=<%= member_path(member) %>><div>VIEW</div></a>
+    <% elsif current_user.invited_teammates.include?(member) %>
+      <a class="button featcheckin" href="javascript:void(0);"><div>INVITED</div></a>
+    <% elsif current_user.invited_by_teammates.include?(member) %>
+      <a class="button " href=<%= join_team_path(member) %>><div>JOIN TEAM</div></a>
     <% end %>
   </div>
   <div class="middle">

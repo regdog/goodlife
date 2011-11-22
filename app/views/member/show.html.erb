@@ -1,6 +1,23 @@
 <div class="pagetitle"><h1>This is <%= @member.name %></h1></div>
 <div class="column grid_10">
-  <p>This is <%= @member.name %>'s basic data and checkins.</p>
+  <div class="memberdetails">
+    <div class="profilepic"><%= image_tag('/images/im_facebookprofile.png') %></div>
+    <div class="scores">
+      <div style="display: table-row;"><div style="font-size:14px; display: table-cell; padding: 0 15px 5px 0;"><%= @member.life_score  %></div><div style="display: table-cell;">life score</div></div>
+      <div style="display: table-row;"><div style="font-size:14px; display: table-cell; padding: 0 5px 5px 0;"><%= @member.feats_done.size  %></div><div style="display: table-cell;">feat done</div></div>
+      <div style="display: table-row;"><div style="font-size:14px; display: table-cell; padding: 0 5px 5px 0;"><%= @member.earned_points  %></div><div style="display: table-cell;">points earned</div></div>
+    </div>
+    <div class="profile">
+      <div style="display: table-row;"><div style="display: table-cell; padding: 0 15px 5px 0;"><b>Location:</b><br/><%= @member.location %></div></div>
+      <div style="display: table-row;"><div style="display: table-cell; padding: 0 15px 5px 0;"><b>A member Since:</b><br/><%= @member.confirmed_at.strftime "%m/%d/%Y" %></div></div>
+      <div style="display: table-row;"><div style="display: table-cell; padding: 0 15px 5px 0;"><b>What inspires me to do good:</b><br/><%= @member.self_description %></div></div>
+    </div>
+  </div>
+  <div class="tab_checkins">
+    <% @member.checkins.each do |checkin| %>
+      <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
+    <% end %>
+  </div>
 </div>
 <div class="column grid_4">
   <%= render :partial => "shared/rightbar" %>

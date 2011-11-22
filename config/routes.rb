@@ -45,18 +45,21 @@ GoodLife::Application.routes.draw do
       get 'wishlist', :on => :collection
       get 'add_wish', :on => :member
       get 'remove_wish', :on => :member
+      get 'print', :on => :member
+      resources :redemptions, :only => [:new, :create]
     end
     match 'rewards/local/:type(/:address)' => 'rewards#local', :as => :search_local_rewards
   end
 
-  resources :redemptions, :only => [:create]
-  get '/rewards/redeem/:reward_id' => 'redemptions#new', :as => :new_redemption
+  #resources :redemptions, :only => [:new, :create]
+  #get '/rewards/redeem/:reward_id' => 'redemptions#new', :as => :new_redemption
 
   get 'team' => "team#index", :as => :teammates
   get 'team/checkins' => "team#checkins", :as => :team_checkins
   get 'team/requests' => "team#requests", :as => :my_requests
   get 'team/invitation' => "team#invitation", :as => :invitation
   get 'team/invite' => 'team#invite'
+  match 'team/join/:member' => 'team#join', :as =>:join_team
 
   get 'member/:nameid' => "member#show", :as => :member
 

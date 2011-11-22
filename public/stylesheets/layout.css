@@ -547,7 +547,7 @@ li.active a {
     font-size: 13px;
     padding-left: 40px;
     padding-top: 15px;
-    /*width: 100%;*/
+    vertical-align: top;
 }
 .feat .main .details .title {
     color: #828584;
@@ -699,10 +699,10 @@ h1 {
 
 /* checkin feed */
 .feedcontainer {
-    display: table-row;
-    background: -moz-linear-gradient(center top , #FFFFFF 0%, #F2F2F2 100%) repeat scroll 0 0 transparent;
-    padding-left: 10px;
-    padding-top: 10px;
+    /*display: table-row;*/
+    /*background: -moz-linear-gradient(center top , #FFFFFF 0%, #F2F2F2 100%) repeat scroll 0 0 transparent;*/
+    /*padding-left: 10px;*/
+    /*padding-top: 10px;*/
 }
 .feeditem {
     border-bottom: 1px solid #F1F1F1;
@@ -715,9 +715,13 @@ h1 {
 }
 .feeditem .left {
     display: table-cell;
+    vertical-align: top;
     width: 65px;
 }
 .feeditem .left .profilepic {
+    background-image: url("/images/im_facebookprofile.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
     height: 55px;
     width: 55px;
 }
@@ -748,6 +752,7 @@ h1 {
 }
 .feeditem .right {
     display: table-cell;
+    vertical-align: top;
 }
 .feeditem .right .title {
     color: #828584;
@@ -830,7 +835,7 @@ h1 {
 .feeditem .right .block .text {
     color: #828584;
     display: table-cell;
-    float: left;
+    /*float: left;*/
     font-size: 10pt;
     overflow: hidden;
     padding-top: 3px;
@@ -1082,6 +1087,16 @@ h1 {
 }
 
 /* coupon tablet */
+.rewards_table td {
+    border-bottom: 1px solid #F1F1F1;
+    float: left;
+    height: 300px;
+    margin-left: 10px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 0;
+    width: 120px;
+}
 .coupontablet {
     height: 100%;
     padding-top: 20px;
@@ -1089,15 +1104,19 @@ h1 {
     text-align: center;
     width: 100%;
 }
-.coupontablet .overlay {
+.overlay {
+    display: none;
+    height: 0px;
+}
+.coupontablet:hover .overlay {
     background-color: #000000;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: #FFFFFF;
-    display: none;
+    display: block;
     font-size: 9pt;
     height: 25px;
-    left: 0;
+    left: 0px;
     line-height: 25px;
     opacity: 0.5;
     position: absolute;
@@ -1133,6 +1152,8 @@ h1 {
     margin-top: 6px;
     max-height: 80px;
     max-width: 106px;
+    min-height: 75px;
+    min-width: 100px;
 }
 .coupontablet .main {
     color: #828584;
@@ -1184,7 +1205,28 @@ h1 {
     height: 20px;
     width: 100%;
 }
-
+.form .formlabel {
+    color: #A4A6A9;
+    float: left;
+    font-size: 10pt;
+    line-height: 25px;
+    width: 105px;
+}
+.form .forminput select {
+    background-color: #FFFFFF;
+    color: #000000;
+    height: 25px;
+    width: 100%;
+}
+.form .forminput textarea {
+    font-size: 9pt;
+    height: 75px;
+    padding: 5px;
+    width: 100%;
+}
+.form .buttoncontainer {
+   font-size: 12px;
+}
 .thirdnav {
     color: #828584;
     font-size: 16px;
@@ -1209,3 +1251,50 @@ h1 {
     color: #F58220;
 }
 
+.members_table td {
+    float: left;
+    height: 300px;
+    margin-left: 10px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 0;
+    width: 120px;
+}
+.form .subtext {
+    color: #A4A6A9;
+    font-size: 12px;
+}
+
+.memberdetails{
+    display: table;
+    border-collapse: collapse;
+    clear: both;
+    border-spacing: 4px;
+    font-size: 12px;
+    color: #828584;
+    line-height: 20px;
+}
+.memberdetails .profilepic {
+    display: table-cell;
+    padding: 10px;
+    clear: both;
+}
+.memberdetails .profilepic img {
+    height: 130px;
+    width: 130px;;
+}
+.memberdetails .scores {
+    display: table-cell;
+    padding: 10px;
+    width: 140px;
+    clear: both;
+    vertical-align: top;
+}
+.memberdetails .profile {
+    display: table-cell;
+    width: 380px;
+    padding: 10px;;
+    text-align: right;
+    clear: both;
+    vertical-align: top;
+}

@@ -11,6 +11,7 @@ class CheckinsController < ApplicationController
   def create
     @checkin = Checkin.new(params[:checkin])
     @checkin.user = current_user
+    @checkin.location = request.location
     if @checkin.save
       redirect_to feats_path
     end

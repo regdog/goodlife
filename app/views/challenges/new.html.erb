@@ -1,43 +1,51 @@
-<div class="row">
-  <div class="column grid_2">
-    <%= render :partial => 'leftnav' %>
-  </div>
-  <div class="column grid_8">
-    <h1>New Challenge</h1>
+<div class="pagetitle"><h1>Create a new challenge</h1></div>
+<div class="column grid_10">
+  <div class="form">
     <%= form_for @challenge, :url => {:action => "create"}, :html => { :multipart => true } do |f| %>
-      <p>
-        <%= f.label "Name" %><br/>
-        <%= f.text_field :name %>
-      </p>
-      <p>
-        <%= f.label "Description" %><br/>
-        <%= f.text_field :description %>
-      </p>
-      <p>
-        <%= f.label "Select Feats" %><br/>
-        <%= f.text_field :feat_tokens %>
-      </p>
-      <p>
-        <%= f.label "Start On" %><br/>
-        <%= f.text_field :start_on_string %>
-      </p>
-      <p>
-        <%= f.label "End On" %><br/>
-        <%= f.text_field :end_on_string %>
-      </p>
-      <p>
-        <%= f.label "Extra Points" %><br/>
-        <%= f.text_field :bonus_points %>
-      </p>
-      <div class="newPaperclipFiles">
+      <div class="header">About your challenge</div>
+      <div class="formrow">
+        <div class="formlabel_wide">Challenge name:*</div>
+        <div class="forminput" style="width: 450px"><%= f.text_field :name %></div>
+      </div>
+      <div class="formrow">
+        <div class="formlabel_wide">Challenge description:*</div>
+        <div class="forminput" style="width: 450px"><%= f.text_field :description %></div>
+      </div>
+      <div class="formrow">
         <%= f.fields_for :image do |builder| %>
           <p>
-            <%= builder.label "Add A Photo" %>
-            <%= builder.file_field :upload %>
+            <div class="formlabel_wide">Upload a picture:</div>
+            <div class="forminput" style="width: 450px"><%= builder.file_field :upload %></div>
           </p>
         <% end %>
       </div>
-      <p><%= f.submit %> <%= link_to "Cancel", mine_challenges_path %></p>
+      <br/>
+      <br/>
+      <div class="header">Feats</div>
+      <div class="formrow">
+        <div class="formlabel_wide">Add feats:*</div>
+        <div class="forminput" style="width: 450px"><%= f.text_field :feat_tokens %></div>
+      </div>
+      <br/>
+      <br/>
+      <div class="header">Challenge Details</div>
+      <div class="formrow">
+        <div class="formlabel_wide">Start on:*</div>
+        <div class="forminput" style="width: 450px"><%= f.text_field :start_on_string %></div>
+      </div>
+      <div class="formrow">
+        <div class="formlabel_wide">End on:*</div>
+        <div class="forminput" style="width: 450px"><%= f.text_field :end_on_string %></div>
+      </div>
+      <div class="formrow">
+        <div class="formlabel_wide">Bonus points for wining:*</div>
+        <div class="forminput" style="width: 150px"><%= f.select :bonus_points, [['no extra points', 0], ['10 points', 10], ['25 points', 25], ['50 points',50], ['75 points', 75]], :selected => 0 %></div>
+      </div>
+      <br/>
+      <br/>
+      <div class="buttoncontainer">
+        <%= f.submit %> <%= link_to "Cancel", mine_challenges_path %>
+      </div>
     <% end %>
   </div>
 </div>

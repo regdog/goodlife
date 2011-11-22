@@ -1,7 +1,8 @@
 <aside>
 <% if user_signed_in? %>
   <div class="column grid_4 rightbarsection">
-    <div><span>Rewards points:</span><%= current_user.earned_points %></div>
+    <div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;"><b>Rewards points:</b></div><div style="display: table-cell;"><b><%= current_user.earned_points %></b></div></div>
+    <div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;"><b>Savings:</b></div><div style="display: table-cell;"><b><%= number_to_currency(current_user.earned_points.to_f*0.1) %></b></div></div>
   </div>
 <% end %>
   <div class="column grid_4 rightbarsection">

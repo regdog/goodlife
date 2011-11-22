@@ -6,7 +6,7 @@
       <table class="list">
         <tr>
           <th>Name</th>
-          <th>RedeemPoints</th>
+          <th>Address</th>
           <th>SaveMoney</th>
           <th>RedeemCount</th>
           <th>Type</th>
@@ -15,10 +15,10 @@
         <% for reward in @rewards %>
           <tr>
             <td><%= link_to reward.name.html_safe, edit_admin_reward_path(reward) %></td>
-            <td><%= reward.redeem_points %></td>
+            <td><%= reward.address %></td>
             <td><%= reward.save_money %></td>
             <td><%= reward.redeem_count %></td>
-            <td><%= reward.name.html_safe %></td>
+            <td><%= reward.tags.map {|t| t.name}.join(',') %></td>
             <td><%= link_to "View", reward_path(reward), :target =>"_blank"  %></td>
             <td><%= link_to 'Delete', admin_reward_path(reward), :confirm => 'Are you sure?', :method => :delete  %></td>
           </tr>

@@ -6,6 +6,10 @@ class AddColumnsToRewards < ActiveRecord::Migration
       t.string :city
       t.string :street
       t.string :zipcode
+      t.float :latitude
+      t.float :longitude
+      t.string :uuid, :limit => 36, :null => true
+      t.string :phone
     end
   end
 

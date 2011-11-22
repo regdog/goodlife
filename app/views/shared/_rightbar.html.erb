@@ -85,37 +85,26 @@
            </div>
          </div>
          <% end %>
-         <div class="subfooter"><%= link_to "Invite friends now!", new_user_invitation_path %></div>
+         <div class="subfooter"><%= link_to "Invite new teammate now!", invitation_path %></div>
        </div>
     </div>
     <div class="row">
-       <div class="column grid_4 rightbarsection">
-         <div class="title">my challenges</div>
-         <% current_user.challenges.each do |c| %>
-           <% if current_user.challenge_completed?(c) %>
-             <div class="rightbarrow">
-               <div class="rightbar_left"><%= c.name %></div>
-               <div class="rightbar_right">done</div>
-             </div>
-           <% else %>
-             <div class="rightbarrow">
-               <div class="rightbar_left"><%= c.name %></div>
-               <div class="rightbar_right"><%= "#{c.completed_feats(current_user).size}/#{c.feats.size}" %></div>
-             </div>
-           <% end %>
-         <% end %>
-       </div>
-    </div>
-    <div class="row">
-       <div class="column grid_4 rightbarsection">
-         <div class="title">my wishlist</div>
-         <% current_user.wishes.each do |wish| %>
-           <div class="rightbarrow">
-             <div class="rightbar_left"><%= wish.name %></div>
-             <div class="rightbar_right"><%= wish.redeem_points %> pts</div>
-           </div>
-         <% end %>
-       </div>
+      <div class="column grid_4 rightbarsection">
+        <div class="title">My wishlist</div>
+        <div>
+          <table>
+            <tbody>
+            <% current_user.wishes.each do |wish| %>
+              <tr height="35">
+                <td width="30"><%= link_to image_tag(wish.image.url(:small)), reward_path(wish) if wish.image %></td>
+                <td class="smalltext"><%= link_to "#{wish.name}", reward_path(wish) %></td>
+                <td class="smalltext" align="right" width="80"><%="#{wish.redeem_points} points" %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   <% end %>
 </aside>

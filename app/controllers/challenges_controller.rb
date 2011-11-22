@@ -5,6 +5,7 @@ class ChallengesController < ApplicationController
       @view_by = "mine"
     else
       @challenges = Challenge.all
+      @view_by = "all"
     end
   end
 
@@ -34,14 +35,16 @@ class ChallengesController < ApplicationController
 
   def accept
     @challenge = Challenge.find(params[:id])
-    current_user.accept_challenge(@challenge) if user_signed_in?
-    redirect_to challenge_path(@challenge)
+    if current_user.accept_challenge(@challenge)
+      redirect_to challenge_path(@challenge)
+    end
   end
 
   def leave
     @challenge = Challenge.find(params[:id])
-    current_user.leave_challenge(@challenge) if user_signed_in?
-    redirect_to mine_challenges_path
+    if current_user.leave_challenge(@challenge)
+      redirect_to mine_challenges_path
+    end
   end
 
   def show

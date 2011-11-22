@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111115144647) do
+ActiveRecord::Schema.define(:version => 20111121032246) do
 
   create_table "accepted_challenges", :force => true do |t|
     t.integer  "user_id"
@@ -186,14 +186,15 @@ ActiveRecord::Schema.define(:version => 20111115144647) do
   end
 
   create_table "rewards", :force => true do |t|
+    t.string   "uuid",          :limit => 36
     t.integer  "partner_id"
-    t.string   "information",                                 :default => "", :null => false
-    t.text     "description",                                                 :null => false
+    t.string   "name",                                                      :default => "", :null => false
+    t.text     "information",                                                               :null => false
     t.string   "valid_term"
     t.string   "disclaimer"
     t.integer  "redeem_points"
-    t.decimal  "save_money",    :precision => 8, :scale => 2
-    t.integer  "redeem_count",                                :default => 0
+    t.decimal  "save_money",                  :precision => 8, :scale => 2
+    t.integer  "redeem_count",                                              :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "country"
@@ -201,6 +202,9 @@ ActiveRecord::Schema.define(:version => 20111115144647) do
     t.string   "city"
     t.string   "street"
     t.string   "zipcode"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "phone"
   end
 
   create_table "sessions", :force => true do |t|
@@ -250,7 +254,7 @@ ActiveRecord::Schema.define(:version => 20111115144647) do
   add_index "user_wishes", ["user_id", "reward_id"], :name => "index_user_wishes_on_user_id_and_reward_id", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                                               :default => "",  :null => false
+    t.string   "email",                                                               :default => "",    :null => false
     t.string   "encrypted_password",     :limit => 128,                               :default => ""
     t.string   "name"
     t.integer  "category"
@@ -277,6 +281,11 @@ ActiveRecord::Schema.define(:version => 20111115144647) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.text     "self_description"
+    t.boolean  "prop_notification",                                                   :default => false
+    t.boolean  "checkin_notification",                                                :default => false
+    t.boolean  "challenge_notification",                                              :default => false
+    t.integer  "checkin_privacy",        :limit => 1,                                 :default => 0
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

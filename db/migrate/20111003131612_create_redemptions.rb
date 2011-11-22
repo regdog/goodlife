@@ -6,8 +6,9 @@ class CreateRedemptions < ActiveRecord::Migration
       t.string :name
       t.string :address
       t.string :city
-      t.string :region
+      t.string :state
       t.string :country
+      t.string :zipcode
       t.string :phone
       t.datetime :created_at
     end

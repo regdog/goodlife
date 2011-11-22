@@ -14,12 +14,15 @@ gem 'omniauth'
 gem 'meta_search'
 gem 'kaminari'
 gem 'paperclip', '~> 2.3.16'
-gem 'rails-permalink'
-#gem 'formtastic'
+gem 'permalink'
+#gem 'rails-permalink'
+#gem 'geo_ip', '~> 0.3.0'
+gem 'geocoder'
 gem 'jquery-rails'
 gem 'cancan'
 gem "flash-message-conductor", "~> 1.0.2"
-gem 'cms-lite', :require => 'cms_lite'
+gem 'uuidtools'
+#gem 'cms-lite', :require => 'cms_lite'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -1,0 +1,47 @@
+<div class="challengecontainer" style="padding-bottom:20px; margin-bottom:20px; border-bottom: 1px solid #f1f1f1 ">
+  <div style="display: table-cell;padding-right: 20px;">
+    <div style="display: table-row; "><%= link_to image_tag('/images/icon_defaultchallenge.png'), challenge_path(challenge)  %></div>
+    <div style="display: table-row; ">
+    <% if user_signed_in? %>
+      <% if challenge.participants.include?(current_user) %>
+        <% if challenge.completed_feats(current_user).size == challenge.feats.size %>
+          <div class="progress_done">100% done</div>
+        <% else %>
+          <div class="progress_container">
+            <div class="progress" <%= "style='width: #{(100*(challenge.completed_feats(current_user).size.to_f/challenge.feats.size.to_f)).to_i}%;'" %>></div>
+            <div class="progress_text"><%= (100*(challenge.completed_feats(current_user).size.to_f/challenge.feats.size.to_f)).to_i %>% done</div>
+          </div>
+        <% end %>
+        <br/>
+        <a class="button" href=<%= leave_challenge_path(challenge) %>><div>Leave it</div></a>
+      <% else %>
+        <a class="button" href=<%= accept_challenge_path(challenge) %>><div>Accept it</div></a>
+      <% end %>
+    <% else %>
+      <a class="button" href=<%= challenge_path(challenge) %>><div>View it</div></a>
+    <% end %>
+    </div>
+    <div style="display: table-row; color:#828584;font-size: 12px;"><br/><br/><%= challenge.participants.size %> participants</div>
+  </div>
+  <div style="display: table-cell;vertical-align:top;color:#828584;font-size: 12px;">
+    <span style="font-size: 18px;"><b><%= link_to "#{challenge.name}", challenge_path(challenge) %></b></span>
+    <br/>
+    <i>by <%= challenge.creator.name %></i>
+    <br/>
+    <br/>
+    <span style="font-size: 14px;"><b>Description</b></span><br/>
+    <%= challenge.description %>
+    <br/>
+    <br/>
+    <span style="font-size: 14px;"><b>Length of challenge</b></span><br/>
+    Starts on <%= challenge.start_on.strftime("%m/%d/%Y") %> , and ends on <%= challenge.end_on.strftime("%m/%d/%Y")  %>
+    <br/>
+    <br/>
+    <span style="font-size: 14px;"><b>How</b></span><br/>
+    <%= challenge.feats.size %> different feats in days
+    <br/>
+    <br/>
+    <span style="font-size: 14px;"><b>Points you can win</b></span><br/>
+    <%= challenge.bonus_points %>
+  </div>
+</div>

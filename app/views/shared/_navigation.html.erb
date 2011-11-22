@@ -28,7 +28,7 @@
       <div class="bottombar"></div>
 	  <span id="subnav_team" class="submenu">
         <%= link_to "My team", teammates_path, :id => active?("team", "index") %>
-        <%= link_to "Our feats", team_checkins_path, :id => active?("team", "checkins") %>
+        <%= link_to "Our checkins", team_checkins_path, :id => active?("team", "checkins") %>
         <%= link_to "Requests", my_requests_path, :id => active?("team", "requests") %>
       </span>
 	</li>
@@ -36,8 +36,8 @@
 	  <%= link_to "My Profile", profile_path %>
       <div class="bottombar"></div>
 	  <span id="subnav_profile" class="submenu">
-        <%= link_to "My feats", member_path(current_user.id), :id => active?("member", "show") %>
-        <%= link_to "Edit account", profile_path, :id => active?("registrations", "edit") %>
+        <%= link_to "My checkins", member_path(current_user), :id => active?("member", "show") %>
+        <%= link_to "My account", profile_path, :id => active?("registrations", "edit") %>
         <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
       </span>
 	</li>

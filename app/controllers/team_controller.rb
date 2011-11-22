@@ -13,15 +13,15 @@ class TeamController < ApplicationController
   end
 
   def requests
-    @outgoing_requests ||= []
-    current_user.outgoing_member_requests.each do |request|
-      @outgoing_requests << User.find(request.requestee_id)
+    @requests ||= []
+    current_user.invited_by_teammates.each do |m|
+      @requests << m
     end
-    @incoming_requests ||= []
-    current_user.incoming_member_requests.each do |request|
-      @incoming_requests << User.find(request.requestor_id)
+    current_user.invited_teammates.each do |m|
+      @requests << m
     end
-    @page_title = "Your requests"
+
+    @page_title = "Requests to join teams"
     @view_by = "Requests"
   end
 
@@ -36,7 +36,16 @@ class TeamController < ApplicationController
       current_user.request_membership(user)
     else
       User.invite!(:email => params[:email], :name => params[:name])
+      invited_user = User.find_by_email_and_name(params[:email], params[:name])
+      current_user.request_membership(invited_user)
     end
     redirect_to :action => 'requests'
+  end
+
+  def join
+    user = User.find(params[:member])
+    if current_user.accept_membership(user)
+      redirect_to :action => 'index'
+    end
   end
 end

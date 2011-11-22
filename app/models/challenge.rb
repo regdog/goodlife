@@ -28,6 +28,7 @@ class Challenge < ActiveRecord::Base
     user.checkins.with_challenge(self).each do |checkin|
       feats << checkin.feat
     end
+    return feats
   end
 
   # uncompleted challenge feats with users

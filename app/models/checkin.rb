@@ -9,6 +9,21 @@ class Checkin < ActiveRecord::Base
   scope :with_challenge, lambda { |challenge| includes(:challenges).where("challenges.id = ?", challenge.id) }
 
   after_create :earn_points
+  before_save :against_challenges
+
+  def against_challenges
+    ActiveRecord::Base.transaction do
+      user = self.user
+      challenge_ids ||= []
+      user.uncompleted_challenges.each do |challenge|
+        if challenge.uncompleted_feats(user).include?(self.feat)
+          challenge_ids << challenge.id
+        end
+      end
+      self.challenge_ids = challenge_ids
+      self.feat.add_counts
+    end
+  end
 
   def earn_points
     ActiveRecord::Base.transaction do
@@ -23,6 +38,6 @@ class Checkin < ActiveRecord::Base
       feat = self.feat
       feat.checkin_count = feat.checkin_count + 1
       feat.save
-      end
     end
+  end
 end

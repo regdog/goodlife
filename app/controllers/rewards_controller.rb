@@ -50,4 +50,9 @@ class RewardsController < ApplicationController
       format.js
     end
   end
+
+  def print
+    @reward = Reward.find(params[:id])
+    render :layout => 'print'
+  end
 end

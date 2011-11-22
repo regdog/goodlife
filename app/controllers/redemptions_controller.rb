@@ -6,12 +6,11 @@ class RedemptionsController < ApplicationController
 
   def create
     @redemption = Redemption.new(params[:redemption])
+    @redemption.user_id = current_user.id
+    @redemption.reward_id = params[:reward_id]
     if @redemption.save
-      redirect_to :action => :print
+      @reward = Reward.find(params[:reward_id])
+      redirect_to print_reward_path(@reward)
     end
-  end
-
-  def print
-
   end
 end

@@ -1,14 +1,20 @@
 <div class="coupontablet" coupon_id=<%= reward.id %>>
-  <div class="overlay" style="display: none;"></div>
+  <% if user_signed_in? %>
+  <div class="overlay">
+    <%= render :partial => "rewards/wishlink", :locals => {:reward => reward} %>
+  </div>
+  <% end %>
   <div class="top">
-    <div class="logo"><%= image_tag reward.image.url(:small) %></div>
-    <%# if current_user %>
-      <a class="button featcheckin"><div>get it</div></a>
-    <%# end %>
+    <div class="logo"><%= image_tag reward.image.url(:small) if reward.image %></div>
+    <% if user_signed_in? %>
+      <a class="button " href="<%= new_reward_redemption_path(reward) %>"><div>get it</div></a>
+    <% else %>
+      <a class="button featcheckin"><div>more points</div></a>
+    <% end %>
   </div>
   <div class="main">
-    <div class="title">Save $<%= reward.save_money %></div>
-    <div class="description"><b><%= reward.partner.business_name %></b><br/><%= "#{reward.street}, #{reward.city}" %></div>
+    <div class="title">Save ￥<%= reward.save_money %></div>
+    <div class="description"><b><%= reward.partner.business_name %></b><br/><%= link_to "#{reward.street}, #{reward.city}, #{reward.state}","http://ditu.google.com/maps?q=#{reward.street}, #{reward.city}, #{reward.state}", :target => "_blank" %></div>
     <div class="points">For <%= reward.redeem_points %> points</div>
   </div>
 </div>

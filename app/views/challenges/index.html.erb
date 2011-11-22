@@ -1,33 +1,17 @@
-<%# tabnav :feats do %>
-<div class="pagetitle"><h1>Your challenges</h1></div>
+<div class="pagetitle"><h1>Challenge yourself today</h1></div>
 <div class="column grid_2">
   <%= render :partial => 'leftnav' %>
 </div>
 <div class="column grid_8">
     <% tableize @challenges,
                 :name => 'challenges',
-                :cols => 3,
-                :generate_css => 'true' do |challenge| %>
+                :cols => 2,
+                :generate_css => false do |challenge| %>
 
-      <h3><%= link_to "!#{challenge.name}", challenge_path(challenge) %></h3>
-      <p><%#= image_tag feat.image.url(:medium) if feat.image %></p>
-      <p><%= raw truncate challenge.description, :length => 30, :separator => ' ' %></p>
-      <p>Points you can win<br/><%= "#{challenge.bonus_points}pts" %></p>
-      <% if challenge.participants.include?(current_user) %>
-        <% if challenge.completed_feats(current_user).size == challenge.feats.size %>
-          <div class="progress_done">100% done</div>
-        <% else %>
-          <div class="progress_container">
-            <div class="progress" <%= "style='width: #{(100*(challenge.completed_feats(current_user).size.to_f/challenge.feats.size.to_f)).to_i}%;'" %>></div>
-            <div class="progress_text"><%= (100*(challenge.completed_feats(current_user).size.to_f/challenge.feats.size.to_f)).to_i %>% done</div>
-          </div>
-        <% end %>
-      <% else %>
-        <%= link_to "Accept it", accept_challenge_path(challenge) if user_signed_in? %>
-      <% end %>
+      <%= render :partial => "shared/challenge", :locals => {:challenge => challenge} %>
+
     <% end %>
 </div>
 <div class="column grid_4">
   <%= render :partial => "shared/rightbar" %>
 </div>
-<%# end %>
