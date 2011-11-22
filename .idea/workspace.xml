@@ -26,26 +26,7 @@
     <favorites_list name="GoodLife" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="25" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="feat.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/feat.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="34" selection-start="49" selection-end="49" vertical-scroll-proportion="0.03076923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -62,10 +43,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/challenges/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/challenges/show.html.erb" />
-        <option value="$PROJECT_DIR$/public/stylesheets/layout.css" />
-        <option value="$PROJECT_DIR$/app/models/challenge.rb" />
         <option value="$PROJECT_DIR$/app/views/shared/_rewardsrightbar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/shared/_challenge.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/challenges_controller.rb" />
@@ -78,6 +55,10 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/feat.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20111121032246_add_columns_to_user.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20111115144647_add_columns_to_rewards.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20111115143732_add_columns_to_partners.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20110817123935_create_feats.rb" />
       </list>
     </option>
   </component>
@@ -114,8 +95,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
@@ -135,52 +114,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GoodLife" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="last_opened_file_path" value="C:/13_Dev/Tutorial/test" />
-    <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="options.searchVisible" value="true" />
+    <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -522,7 +471,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18258065" sideWeight="0.5752688" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22129032" sideWeight="0.70564514" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33483872" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5480769" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29435483" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -579,26 +528,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/challenges/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="33" selection-start="241" selection-end="241" vertical-scroll-proportion="0.12865497" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/challenge.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="36" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.30769232" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_rewardsrightbar.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="101" selection-start="402" selection-end="402" vertical-scroll-proportion="0.13114753" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_challenge.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="33" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.64327484" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/layout.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="837" column="4" selection-start="15438" selection-end="15450" vertical-scroll-proportion="0.42517483" />
@@ -616,63 +545,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20111003131408_create_checkins.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="24" selection-start="245" selection-end="245" vertical-scroll-proportion="0.24596775">
-          <folding />
-        </state>
+        <state line="7" column="24" selection-start="245" selection-end="245" vertical-scroll-proportion="0.24596775" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/geo_ip.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="1" selection-start="1" selection-end="1" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="1" selection-start="1" selection-end="1" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/checkins_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="276" selection-end="276" vertical-scroll-proportion="0.5766129">
-          <folding />
-        </state>
+        <state line="13" column="21" selection-start="276" selection-end="276" vertical-scroll-proportion="0.5766129" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/checkin.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="445" selection-end="445" vertical-scroll-proportion="0.28830644">
-          <folding />
-        </state>
+        <state line="13" column="0" selection-start="445" selection-end="445" vertical-scroll-proportion="0.28830644" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/shared/_checkinfeed.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="111" selection-start="623" selection-end="623" vertical-scroll-proportion="0.48672566">
-          <folding />
-        </state>
+        <state line="12" column="111" selection-start="623" selection-end="623" vertical-scroll-proportion="0.48672566" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/shared/_navigation.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="59" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.4502924">
-          <folding />
-        </state>
+        <state line="38" column="59" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.4502924" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="39" selection-start="869" selection-end="869" vertical-scroll-proportion="0.5538462">
-          <folding />
-        </state>
+        <state line="18" column="39" selection-start="869" selection-end="869" vertical-scroll-proportion="0.5538462" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="25" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="25" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/feat.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="34" selection-start="49" selection-end="49" vertical-scroll-proportion="0.03076923">
+        <state line="1" column="34" selection-start="49" selection-end="49" vertical-scroll-proportion="0.03076923" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111121032246_add_columns_to_user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="25" selection-start="119" selection-end="119" vertical-scroll-proportion="0.092307694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111115144647_add_columns_to_rewards.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="25" selection-start="124" selection-end="124" vertical-scroll-proportion="0.092307694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111115143732_add_columns_to_partners.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="25" selection-start="126" selection-end="126" vertical-scroll-proportion="0.092307694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20110817123935_create_feats.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="32" selection-start="121" selection-end="121" vertical-scroll-proportion="0.092307694">
           <folding />
         </state>
       </provider>

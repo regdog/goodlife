@@ -1,6 +1,7 @@
 class AddColumnsToUser < ActiveRecord::Migration
   def self.up
     change_table :users do |t|
+      t.string :permalink
       t.string :location
       t.string :phone_number
       t.text :self_description

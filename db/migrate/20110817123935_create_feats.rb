@@ -1,6 +1,7 @@
 class CreateFeats < ActiveRecord::Migration
   def self.up
     create_table :feats do |t|
+      t.string        :permalink
       t.references    :creator, :polymorphic => true
       t.string        :name, :limit => 100, :null => false
       t.text          :why

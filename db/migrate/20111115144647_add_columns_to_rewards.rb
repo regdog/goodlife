@@ -1,6 +1,7 @@
 class AddColumnsToRewards < ActiveRecord::Migration
   def self.up
     change_table :rewards do |t|
+      t.string :permalink
       t.string :country
       t.string :state
       t.string :city

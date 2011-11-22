@@ -1,6 +1,7 @@
 class AddColumnsToPartners < ActiveRecord::Migration
   def self.up
     change_table :partners do |t|
+      t.string :permalink
       t.rename :name, :business_name
       t.rename :region, :state
       t.rename :zip_code, :zipcode
