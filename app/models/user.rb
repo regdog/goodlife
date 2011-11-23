@@ -35,21 +35,21 @@ class User < ActiveRecord::Base
 
   # user categories
   CATEGORIES = {
-    1 => 'I am a mom',
-    2 => 'I am a dad',
-    3 => 'I am a student',
-    4 => 'I am a recent grad',
-    5 => 'I am a working adult',
-    6 => 'I am a grandparent',
-    7 => 'I am retired',
-    -1 => 'None of the above fit'
+    'I am a mom' => 1,
+    'I am a dad' => 2,
+    'I am a student' => 3,
+    'I am a recent grad' => 4,
+    'I am a working adult' => 5,
+    'I am a grandparent' => 6,
+    'I am retired' => 7,
+    'None of the above fit' => -1
   }
 
   # checkin privacy
   PRIVACY = {
-     1 => "Don't share with anybody",
-     2 => "Share with just my team",
-     3 => "Share with everybody"
+     "Don't share with anybody" => 1,
+     "Share with just my team" => 2,
+     "Share with everybody" => 3
   }
 
   def category_name

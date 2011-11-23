@@ -14,7 +14,7 @@
   </div>
   <div class="main">
     <div class="title">Save ￥<%= reward.save_money %></div>
-    <div class="description"><b><%= reward.partner.business_name %></b><br/><%= link_to "#{reward.street}, #{reward.city}, #{reward.state}","http://ditu.google.com/maps?q=#{reward.street}, #{reward.city}, #{reward.state}", :target => "_blank" %></div>
+    <div class="description"><b><%= reward.partner.business_name %></b><br/><%= link_to "#{[reward.street,t(reward.city, :scope => :cities),t(reward.state, :scope => :states)].join('/')}","http://ditu.google.com/maps?q=#{[reward.street,t(reward.city, :scope => :cities),t(reward.state, :scope => :states)].join(',')}", :target => "_blank" %></div>
     <div class="points">For <%= reward.redeem_points %> points</div>
   </div>
 </div>

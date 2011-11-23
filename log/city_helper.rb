@@ -219,7 +219,7 @@ module CityHelper
       STATES[country].map {|c| [t(c, :scope => 'states'), c]}
     end
     
-    def script_for_state(countries, update, current_state, current_city)
+    def script_for_state(countries, update)
       script = 'var city_options = {};'
       CITIES.each do |c, states|
         next unless countries.include?(c)
@@ -232,7 +232,7 @@ module CityHelper
 
       %(<script type='text/javascript'>
         #{script}
-        function state_updated(state, current_state, current_city) {
+        function state_updated(state) {
           city_select = document.getElementById('#{update}');
           city_select.options.length = 0;
           if(typeof(city_options[state]) == 'undefined') {
@@ -240,9 +240,6 @@ module CityHelper
           } else {
             for(var i=0; i < city_options[state].length; i++) { 
               city_select.options[i] = new Option(city_options[state][i][0], city_options[state][i][1]);
-              if(state == current_state && city_options[state][i][1] == current_city){
-                city_select.options[i].selected = true;
-              }
             }
           }
         }
@@ -250,32 +247,30 @@ module CityHelper
     end
     
     def state_select(object, id, options = {}, html_options = {})
-      self.state_select_tag object, id, options.merge(html_options)
+      self.state_select_tag "#{object}_#{id}", options.merge(html_options)
     end
     
-    def state_select_tag(object, id, options = {})
+    def state_select_tag(id, options = {})
       country = options.delete(:country)
       countries = options.delete(:countries)
       countries = [:china] if countries.blank?
       update = options.delete(:update)
-      current_state = options.delete(:current_state)
-      current_city = options.delete(:current_city)
       
       html = ''
       
       
       if !update.blank?
-        html += script_for_state(countries, update, current_state, current_city)
-        options[:onchange] = "state_updated(this.value, '#{current_state.to_s}', '#{current_city.to_s}');"
+        html += script_for_state(countries, update) 
+        options[:onchange] = 'state_updated(this.value);'
       end
       
-      html += self.select object, id, state_options(country), {:include=>"Please select a state"}, options
-      #html += %| <script type='text/javascript'>
-      #$(document).ready(function(){
-      #  state_updated($('##{object}_#{id}').val());
-      #});
-      #</script>
-      #|
+      html += self.select_tag id, options_for_select(state_options(country)), options
+      html += %| <script type='text/javascript'>
+      $(document).ready(function(){
+        state_updated($('##{id}').val());
+      });
+      </script>
+      |
       html
     end
     
@@ -305,17 +300,17 @@ module CityHelper
 
     def capital_options(country, state)
       country = :china if country.blank?
-      CITIES[country][state].map {|c| [t(c, :scope => 'states'), c]}
+      CAPITALS[country].map {|c| [t(c, :scope => 'states'), c]}
     end
 
     def capital_select(object, id, options = {}, html_options = {})
-      self.capital_select_tag object, id, options.merge(html_options)
+      self.capital_select_tag "#{object}_#{id}", options.merge(html_options)
     end
 
-    def capital_select_tag(object, id, options = {})
+    def capital_select_tag(id, options = {})
       country = options.delete(:country) || :china
       state   = options.delete(:state)
-      self.select object, id, capital_options(country, state), options
+      self.select_tag id, options_for_select(capital_options(country, state)), options
     end
   end
 end

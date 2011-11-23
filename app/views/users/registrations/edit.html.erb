@@ -42,7 +42,7 @@
 
       <div class="formrow">
         <div class="formlabel_wide">I am...</div>
-        <div class="forminput" style="width: 450px"><%= f.select :category, User::CATEGORIES.collect{|key, value| [value, key]} %></div>
+        <div class="forminput" style="width: 450px"><%= f.select :category, User::CATEGORIES %></div>
       </div>
       <div class="formrow">
         <div class="formlabel_wide">Share what inspires you:</div>
@@ -70,7 +70,7 @@
 
       <div class="formrow">
         <div class="formlabel_wide">Your privacy settings for checkins:</div>
-        <div class="forminput" style="width: 450px"><%= f.select :checkin_privacy, User::PRIVACY.collect{|key, value| [value, key]}, :selected => 3 %></div>
+        <div class="forminput" style="width: 450px"><%= f.select :checkin_privacy, User::PRIVACY, :selected => 3 %></div>
       </div>
 
       <div class="buttoncontainer">

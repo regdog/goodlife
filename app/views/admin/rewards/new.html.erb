@@ -29,11 +29,11 @@
       </p>
       <p>
         <%= f.label "Valid Term" %><br/>
-        <%= f.text_area :valid_term %>
+        <%= f.text_area :valid_term, :size => "80x4" %>
       </p>
       <p>
         <%= f.label "Disclaimer" %><br/>
-        <%= f.text_area :disclaimer %>
+        <%= f.text_area :disclaimer, :size => "80x4" %>
       </p>
       <p>
         <%= f.label "Country" %><br/>
@@ -41,11 +41,11 @@
       </p>
       <p>
         <%= f.label "State" %><br/>
-        <%= raw f.state_select :state, :country => :china, :update => "reward_city", :name => "reward[state]"   %>
-      </p>
-      <p>
+        <%= raw f.state_select :state, {:country => :china, :update => "reward_city", :name => "reward[state]" } %>
+     </p>
+     <p>
         <%= f.label "City" %><br/>
-        <%= raw f.capital_select :city, :country => :china, :name => "reward[city]" %>
+        <%= raw f.city_select :city, :country => :china, :state => :beijing, :name => "reward[city]" %>
       </p>
       <p>
         <%= f.label "Street" %><br/>

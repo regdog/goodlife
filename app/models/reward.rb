@@ -1,8 +1,5 @@
 class Reward < ActiveRecord::Base
   attr_reader :tag_tokens
-  #attr_accessible :address, :latitude, :longitude
-  #geocoded_by :address
-  #after_validation :geocode, :if => :address_changed?
 
   belongs_to :partner
   has_many :user_wishes
@@ -28,7 +25,4 @@ class Reward < ActiveRecord::Base
     self.tag_ids = ids.split(",")
   end
 
-  def address
-    "#{street}, #{city}, #{state}"
-  end
 end

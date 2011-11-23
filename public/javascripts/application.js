@@ -142,16 +142,16 @@ $(document).ready(function() {
     $('#feat_tag_tokens').tokenInput('/admin/tags/feat_tag_tokens.json', {
       crossDomain: false,
       preventDuplicates: true,
-      prePopulate: $('#feat_tag_tokens').data('pre'),
-      theme: 'facebook'
+      prePopulate: $('#feat_tag_tokens').data('pre')
+//      theme: 'facebook'
     });
   }
   if ($('#reward_tag_tokens').length > 0){
     $('#reward_tag_tokens').tokenInput('/admin/tags/reward_tag_tokens.json', {
       crossDomain: false,
       preventDuplicates: true,
-      prePopulate: $('#reward_tag_tokens').data('pre'),
-      theme: 'facebook'
+      prePopulate: $('#reward_tag_tokens').data('pre')
+//      theme: 'facebook'
     });
   }
 

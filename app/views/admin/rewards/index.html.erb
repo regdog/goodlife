@@ -15,7 +15,7 @@
         <% for reward in @rewards %>
           <tr>
             <td><%= link_to reward.name.html_safe, edit_admin_reward_path(reward) %></td>
-            <td><%= reward.address %></td>
+            <td><%= [reward.street, t(reward.city, :scope => :cities), t(reward.state, :scope => :states)].join(",") %></td>
             <td><%= reward.save_money %></td>
             <td><%= reward.redeem_count %></td>
             <td><%= reward.tags.map {|t| t.name}.join(',') %></td>
