@@ -1,17 +1,33 @@
-<div id="checkin" class="checkin">
-  <div class="close" onclick="javascript:$('#dialog-form').remove();">x</div>
-  <div class="title">Check in !<%= @feat.name %> </div>
-  <div class="options">Regular | Epic</div>
-  <%= form_for Checkin.new, :html => { :multipart => true } do |f| %>
-  <div class="prompt">
-    <div class="textblock">What did you do?</div>
-    <div class="message"><%= f.text_area :memo %></div>
-  </div>
-  <%= f.hidden_field :feat_id, :value => @feat.id %>
+<div id="d_checkin" class="checkin" style="position: relative;">
+  <!--<div class="close" onclick="javascript:$('#dialog-form').remove();">x</div>-->
+  <div class="title">做了 <%= @feat.name %> </div>
   <div class="options">
-    <div class="action"><%= f.submit "CHECK IN"%></div>
-    <div class="privacy"></div>
+    <div class="epic">
+      <div class="item" epic="false" style="color:#F58220" text="What did you do?">常规</div>
+      <div class="last" epic="true" text="How awesome was it?">事绩</div>
+    </div>
   </div>
-  <div class="location"></div>
+  <%= form_for Checkin.new, :remote => true, :html => { :multipart => true } do |f| %>
+    <%= f.hidden_field :feat_id, :value => @feat.id %>
+    <%= f.hidden_field :epic %>
+    <%= f.hidden_field :privacy, :value => 3 %>
+    <div class="prompt">
+      <div class="textblock">
+        <div class="text">What did you do?</div>
+        <div class="upload">添加图片</div>
+      </div>
+      <div class="message"><%= f.text_area :memo, :style => "width:100%;" %></div>
+    </div>
+    <div class="options">
+      <div class="action"><p><%= f.submit "提交", :id=> 'submit_button' %></p></div>
+      <div class="privacy">
+        <div class="item" privacy="1">我</div>
+        <div class="item" privacy="2">我的圈子</div>
+        <div class="last" privacy="3" style="color:#F58220">所有人</div>
+      </div>
+    </div>
+    <div class="location"><span>成都/四川</span></div>
+
   <% end %>
+  <div id="loading" style="display: none;"><img id="img-loader" src="/images/ajax-loader_blue.gif" alt="Loading"/></div>
 </div>

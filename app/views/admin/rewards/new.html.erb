@@ -65,3 +65,11 @@
   </div>
   <%# render :partial => 'crud_right' %>
 </div>
+<script type="text/javascript">
+  // Disable Form Submission on Enter Key Press
+  $('*').keypress(function(e){
+      if (e.keyCode == 13){
+          return false;
+      }
+  });
+</script>

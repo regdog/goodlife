@@ -1,20 +1,20 @@
 <div class="feedcontainer">
 <div class="feeditem">
-  <div class="left">
+  <div class="feedleft">
     <div class="profilepic"></div>
     <div class="stamp"><%= link_to image_tag(checkin.feat.image.url(:thumb)), feat_path(checkin.feat) %></div>
   </div>
-  <div class="right">
-    <div class="title"><%= link_to checkin.user.name, member_path(checkin.user) %> did <%= link_to checkin.feat.name, feat_path(checkin.feat) %></div>
+  <div class="feedright">
+    <div class="title"><%= link_to checkin.user.name, member_path(checkin.user) %> 做了 <%= link_to checkin.feat.name, feat_path(checkin.feat) %></div>
     <div class="message">
-      <div class="evidence">evidence pic here</div>
+      <div class="evidence" style="display: none;">evidence pic here</div>
       <%= checkin.memo %>
     </div>
-    <div class="timelocation"><%= time_ago_in_words checkin.created_at %> ago, <%= checkin.location %></div>
+    <div class="timelocation"><%= time_ago_in_words checkin.created_at %>前, <%= checkin.location %></div>
     <% checkin.challenges.each do |challenge| %>
     <div class="block">
       <div class="image"><%= link_to image_tag(challenge.image.nil? ? '/images/icon_defaultchallenge.png' : challenge.image.url(:thumb)), challenge_path(challenge) %></div>
-      <div class="text"><%= checkin.user.name %> was working on <%= link_to challenge.name, challenge_path(challenge)  %></div>
+      <div class="text"><%= checkin.user.name %> 正在挑战 <%= link_to challenge.name, challenge_path(challenge)  %></div>
     </div>
     <% end %>
     <div class="props" id="checkin_<%= checkin.id %>_props">
@@ -31,6 +31,8 @@
           <%= link_to 'give prop', "javascript:void();", :onclick => "$(this).parent().parent().submit()"  %>
         </div>
       <% end if user_signed_in? %>
+    </div>
+    <% unless checkin.comments.empty? %>
       <div class="userprops" id="checkin_<%= checkin.id %>_userprops">
         <% if checkin.comments.size > 4 %>
           <div class="userprop">
@@ -38,14 +40,15 @@
           </div>
         <% end %>
         <% checkin.comments.limit(4).each do |comment| %>
-        <div class="userprop" userpropid=<%= comment.id %>>
-          <div class="profilepic"><%= image_tag "/images/im_facebookprofile.png" %></div>
-          <div class="text"><%= link_to comment.user.name, member_path(comment.user) %> <%= comment.content %></div>
-          <div class="timestamp"><%= time_ago_in_words comment.created_at %> ago</div>
+        <div class="userprop row" userpropid=<%= comment.id %>>
+          <div class="profilepic cell"><%= image_tag "/images/im_facebookprofile.png" %></div>
+          <div class="text cell"><%= link_to comment.user.name, member_path(comment.user) %> <%= comment.content %></div>
+          <div class="timestamp cell"><%= time_ago_in_words comment.created_at %>前</div>
         </div>
         <% end %>
       </div>
-    </div>
+    <% end %>
+
     <% if checkin.feat.creator %>
     <div class="block">
       <div class="image"></div>
@@ -53,6 +56,6 @@
     </div>
     <% end %>
   </div>
-  <div style="clear:both;"></div>
+  <!--<div style="clear:both;"></div>-->
 </div>
 </div>

@@ -1,28 +1,28 @@
 $("#feat_<%= @feat.id %>_planoptions").hide();
-$("#feat_<%= @feat.id %>_plannote").html("<a href='#' class='planLink'><%= current_user.plan_type(@feat).nil? ? 'Plan it' : "Planed #{current_user.plan_type(@feat).downcase}" %></a>")
+$("#feat_<%= @feat.id %>_plannote").html("<a href='#' class='planLink'><%= current_user.plan_type(@feat).nil? ? '计划' : "计划#{current_user.plan_type(@feat).downcase}" %></a>")
 $("#feat_<%= @feat.id %>_plannote").show();
 $("#feat_<%= @feat.id %>_plannote").parent().prev('.middle').show();
 
 <% case @plan_type %>
     <% when 'daily' %>
-      $('#feat_<%= @feat.id %>_plandaily a').html('<b><i>Daily</i></b>');
-      $('#feat_<%= @feat.id %>_planweekly a').text('Weekly');
-      $('#feat_<%= @feat.id %>_planweekend a').text('Weekend');
+      $('#feat_<%= @feat.id %>_plandaily a').html('<b><i>&nbsp;&nbsp;每天</i></b>');
+      $('#feat_<%= @feat.id %>_planweekly a').html('&nbsp;&nbsp;每周');
+      $('#feat_<%= @feat.id %>_planweekend a').html('&nbsp;&nbsp;每周末');
       $("#feat_<%= @feat.id %>_unplan").show();
     <% when 'weekly' %>
-      $('#feat_<%= @feat.id %>_plandaily a').text('Daily');
-      $('#feat_<%= @feat.id %>_planweekly a').html('<b><i>Weekly</i></b>');
-      $('#feat_<%= @feat.id %>_planweekend a').text('Weekend');
+      $('#feat_<%= @feat.id %>_plandaily a').html('&nbsp;&nbsp;每天');
+      $('#feat_<%= @feat.id %>_planweekly a').html('<b><i>&nbsp;&nbsp;每周</i></b>');
+      $('#feat_<%= @feat.id %>_planweekend a').html('&nbsp;&nbsp;每周末');
       $("#feat_<%= @feat.id %>_unplan").show();
     <% when 'weekend' %>
-      $('#feat_<%= @feat.id %>_plandaily a').text('Daily');
-      $('#feat_<%= @feat.id %>_planweekly a').text('Weekly');
-      $('#feat_<%= @feat.id %>_planweekend a').html('<b><i>Weekend</i></b>');
+      $('#feat_<%= @feat.id %>_plandaily a').html('&nbsp;&nbsp;每天');
+      $('#feat_<%= @feat.id %>_planweekly a').html('&nbsp;&nbsp;每周');
+      $('#feat_<%= @feat.id %>_planweekend a').html('<b><i>&nbsp;&nbsp;每周末</i></b>');
       $("#feat_<%= @feat.id %>_unplan").show();
     <% else %>
-      $('#feat_<%= @feat.id %>_plandaily a').text('Daily');
-      $('#feat_<%= @feat.id %>_planweekly a').text('Weekly');
-      $('#feat_<%= @feat.id %>_planweekend a').text('Weekend');
+      $('#feat_<%= @feat.id %>_plandaily a').html('&nbsp;&nbsp;每天');
+      $('#feat_<%= @feat.id %>_planweekly a').html('&nbsp;&nbsp;每周');
+      $('#feat_<%= @feat.id %>_planweekend a').html('&nbsp;&nbsp;每周末');
       $("#feat_<%= @feat.id %>_unplan").hide();
 <% end %>
 

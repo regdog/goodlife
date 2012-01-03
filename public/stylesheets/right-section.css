@@ -1,0 +1,85 @@
+/* right section  */
+
+.rightbarsection {
+    border-top: 1px solid #828584;
+    margin-bottom: 30px;
+    width: 265px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.rightbarsection .title {
+    color: #828584;
+    font-size: 12pt;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.rightbarsection img {
+    width: 25px;
+}
+.lifescoreblock .profilepic {
+    background-image: url("/images/im_facebookprofile.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-size: 100% auto;
+    float: left;
+    height: 105px;
+    width: 105px;
+}
+.lifescoreblock .lifescore {
+    display: table-row;
+    height: 105px;
+    width: 160px;
+    height: 25px;
+    padding-left: 12px;
+}
+.lifescoreblock .lifescore .score {
+    color: #828584;
+    display: table-cell;
+    font-size: 12pt;
+    width: 65px;
+    padding-left: 12px;
+}
+.lifescoreblock .lifescore .name {
+    color: #828584;
+    display: table-cell;
+    font-size: 9pt;
+    line-height: 14px;
+}
+.rightbarrow {
+    display: table-row;
+}
+.rightbar_left {
+    display: table-cell;
+    width: 250px;
+}
+.rightbar_right {
+    display: table-cell;
+}
+.smalltext {
+    color: #828584;
+    font-size: 10pt;
+}
+.smalltext a {
+    color: #F58220;
+}
+.rightbarsection .subfooter {
+    background-color: #979BC9;
+    color: #828584;
+    font-size: 10pt;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+}
+.rightbarsection .subfooter a {
+    color: #FFFFFF;
+}
+.rightbarsection .subtext {
+    color: #828584;
+    font-size: 8pt;
+    line-height: 20px;
+    overflow: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+/* // right section */

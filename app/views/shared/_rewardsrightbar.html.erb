@@ -1,23 +1,28 @@
 <aside>
 <% if user_signed_in? %>
-  <div class="column grid_4 rightbarsection">
-    <div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;"><b>Rewards points:</b></div><div style="display: table-cell;"><b><%= current_user.earned_points %></b></div></div>
-    <div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;"><b>Savings:</b></div><div style="display: table-cell;"><b><%= number_to_currency(current_user.earned_points.to_f*0.1) %></b></div></div>
+<div class="row">
+  <div class="rightbarsection">
+    <div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;"><b>奖励积分:</b></div><div style="display: table-cell;"><b><%= current_user.earned_points %></b></div></div>
+    <div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;"><b>节省:</b></div><div style="display: table-cell;"><b><%= number_to_currency(current_user.earned_points.to_f*0.1) %></b></div></div>
   </div>
+</div>
 <% end %>
-  <div class="column grid_4 rightbarsection">
-    <div class="title">Search for a reward</div>
-    <div class="subtext">Tell us your city, address or zip code to start finding rewards near you!</div>
+<div class="row">
+  <div class="rightbarsection">
+    <div class="title">搜索奖励</div>
+    <div class="subtext">告诉我们你的城市，省份，地址或邮编，开始寻找你附近的奖励！</div>
     <% form_tag '/view/rewards/local', :method => 'get' do %>
-      <%= text_field_tag :address, params[:address] %>
-    <div class="subtext">Have an activity you want to use your reward points for? Enter it here and we'll find it!</div>
-      <%= text_field_tag :keyword, params[:keyword] %><br/><br/>
-      <%= submit_tag 'Search' %>
+      <%= text_field_tag :address, params[:address], :style=>"width:240px" %>
+    <div class="subtext">你想在一个活动中使用您的奖励积分？在这里输入，我们会发现它！</div>
+      <%= text_field_tag :keyword, params[:keyword], :style=>"width:240px" %><br/><br/>
+      <%= submit_tag '查询' %>
     <% end %>
   </div>
+</div>
+<div class="row">
   <div class="column grid_4 rightbarsection">
-    <div class="title">Restrictions</div>
-    <div class="subtext">* You may only redeem one starred premium reward every 30 days.</div>
+    <div class="title">限制</div>
+    <div class="subtext">* 每30天你只可以兑换一个奖励</div>
   </div>
+</div>
 </aside>
-<div id="clear"></div>

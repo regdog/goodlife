@@ -1,80 +1,78 @@
 <!--<h2>Edit <%#= resource_name.to_s.humanize %></h2>-->
-<div class="pagetitle"><h1>About you</h1></div>
-<div class="column grid_10">
+<div class="cell" id="center">
   <div class="form">
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
       <%= devise_error_messages! %>
-      <div class="header">Your Account</div>
-
-      <div class="formrow">
-        <div class="formlabel_wide">Your name:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :name %></div>
+      <div class="header">我的帐户</div>
+      <div>
+        <%= f.label "姓名:*" %>
+        <%= f.text_field :name %>
       </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Email:*</div>
-        <div class="forminput" style="width: 450px"><%= f.email_field :email %></div>
+      <div>
+        <%= f.label "电子邮件:*" %>
+        <%= f.email_field :email %>
       </div>
       <div class="subtext"><i>(leave blank if you don't want to change it)</i></div>
-      <div class="formrow">
-        <div class="formlabel_wide">Password:*</div>
-        <div class="forminput" style="width: 450px"><%= f.password_field :password %></div>
+      <div>
+        <%= f.label "密码:*" %>
+        <%= f.password_field :password %>
       </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Password Confirmation:*</div>
-        <div class="forminput" style="width: 450px"><%= f.password_field :password_confirmation %></div>
+      <div>
+        <%= f.label "密码确认:*" %>
+        <%= f.password_field :password_confirmation %>
       </div>
       <%if !resource.encrypted_password.blank? %>
         <div class="subtext"><i>(we need your current password to confirm your changes)</i></div>
-        <div class="formrow">
-          <div class="formlabel_wide">Current Password:*</div>
-          <div class="forminput" style="width: 450px"><%= f.password_field :current_password %></div>
+        <div>
+          <%= f.label "当前密码:*" %>
+          <%= f.password_field :current_password %>
         </div>
       <%end%>
-      <div class="formrow">
-        <div class="formlabel_wide">Location(city, state):</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :location %></div>
+      <div>
+        <%= f.label "地址(省份, 城市):" %>
+        <%= f.text_field :location %>
       </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Phone number:</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :phone_number %></div>
-      </div>
-      <div class="header">About you</div>
-
-      <div class="formrow">
-        <div class="formlabel_wide">I am...</div>
-        <div class="forminput" style="width: 450px"><%= f.select :category, User::CATEGORIES %></div>
-      </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Share what inspires you:</div>
-        <div class="forminput" style="width: 450px"><%= f.text_area :self_description %></div>
+      <div>
+        <%= f.label "电话:" %>
+        <%= f.text_field :phone_number %>
       </div>
       <br/>
       <br/>
+      <div class="header">关于我</div>
+      <div>
+        <%= f.label "我是..." %>
+        <%= f.select :category, User::CATEGORIES %>
+      </div>
+      <div>
+        <%= f.label "Share what inspires you:" %>
+        <%= f.text_area :self_description %>
+      </div>
       <br/>
-      <div class="header">Notification</div>
+      <br/>
+      <div class="header">提醒</div>
 
-      <div class="formrow" style="height:25px;">
-        <div class="forminput" style="width: 35px"><%= f.check_box :prop_notification %></div>
-        <div class="formlabel" style="width: 450px;">Get an e-mail when your feats get props</div>
+      <div>
+        <%= f.check_box :prop_notification %>
+        <%= f.label "Get an e-mail when your feats get props" %>
       </div>
-      <div class="formrow" style="height:25px;">
-        <div class="forminput" style="width: 35px"><%= f.check_box :checkin_notification %></div>
-        <div class="formlabel" style="width: 450px;">Get an e-mail when feats you've propped get more props</div>
+      <div>
+        <%= f.check_box :checkin_notification %>
+        <%= f.label "Get an e-mail when feats you've propped get more props" %>
       </div>
-      <div class="formrow" style="height:25px;">
-        <div class="forminput" style="width: 35px"><%= f.check_box :challenge_notification %></div>
-        <div class="formlabel" style="width: 450px;">Get updates about challenges</div>
-      </div>
+      <div>
+        <label><%= f.check_box :challenge_notification %>Get updates about challenges</label>
 
-      <div class="header">Option</div>
-
-      <div class="formrow">
-        <div class="formlabel_wide">Your privacy settings for checkins:</div>
-        <div class="forminput" style="width: 450px"><%= f.select :checkin_privacy, User::PRIVACY, :selected => 3 %></div>
+      </div>
+      <br/>
+      <br/>
+      <div class="header">其他</div>
+      <div>
+        <%= f.label "Your privacy settings for checkins:" %>
+        <%= f.select :checkin_privacy, User::PRIVACY, :selected => 3 %>
       </div>
 
       <div class="buttoncontainer">
-        <%= f.submit "Save" %>
+        <%= f.submit "更改" %>
         <div style="float:right;">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</div>
       </div>
 
@@ -82,6 +80,4 @@
 
   </div>
 </div>
-<div class="column grid_4">
-  <%= render :partial => "shared/rightbar" %>
-</div>
+<div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>

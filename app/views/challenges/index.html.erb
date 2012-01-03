@@ -1,17 +1,10 @@
-<div class="pagetitle"><h1>Challenge yourself today</h1></div>
-<div class="column grid_2">
-  <%= render :partial => 'leftnav' %>
-</div>
-<div class="column grid_8">
-    <% tableize @challenges,
-                :name => 'challenges',
-                :cols => 2,
-                :generate_css => false do |challenge| %>
-
+<div class="cell" id="left"><%= render :partial => 'leftnav' %></div>
+<div class="cell" id="center">
+    <%= paginate @challenges %>
+    <% @challenges.each do |challenge| %>
       <%= render :partial => "shared/challenge", :locals => {:challenge => challenge} %>
+    <% end if @challenges %>
+</div>
+<div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
 
-    <% end %>
-</div>
-<div class="column grid_4">
-  <%= render :partial => "shared/rightbar" %>
-</div>
+

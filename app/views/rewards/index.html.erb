@@ -1,64 +1,64 @@
-<div class="pagetitle"><h1>Reward yourself and others!</h1></div>
-<div class="homerighttext">Reward points: <b><%= 10 %></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Savings: <b>$<%= 1.0 %></b></div>
+<div id="center" style="padding-top: 0;">
+  <% if current_user %>
+    <div class="homerighttext">积分: <b><%= current_user.earned_points %></b>&nbsp;&nbsp;&nbsp;节省: <b><%= number_to_currency(current_user.earned_points.to_f*0.1) %></b></div>
+  <% end %>
 <div id="rewards_home_highlights" class="homeblock">
   <div id="rewards_home_highlights_1" highlightbanner="true" style="display: block;">
-    <div class="textarea" style="width: 460px;">
-      <div class="bigtext">Do good with donations.</div><br/>
-      <div class="subtext">	Put your points toward partner donations to 501(c)3 nonprofits. Then check in !donation.</div>
+    <div class="textarea" style="width: 420px;">
+      <div class="bigtext">捐赠做好事</div><br/>
+      <div class="subtext">把你的积分捐给非盈利组织，然后点击作了捐赠事绩</div>
     </div>
-    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_donations.png" %></div>
+    <div class="image" style="text-align: right;width: 400px"><%= image_tag "/images/rewards_highlights/banner_donations.png", :height =>300 %></div>
   </div>
   <div id="rewards_home_highlights_2" highlightbanner="true" style="display: none;">
-    <div class="textarea" style="width: 460px;">
-      <div class="bigtext">Rock out with a $10 iTunes Gift Card</div><br/>
-      <div class="subtext">	Get what you need to !sing, !dance, and !findnewmusic, for 5,000 points.</div>
+    <div class="textarea" style="width: 420px;">
+      <div class="bigtext">摇滚与10美元的iTunes礼品卡</div><br/>
+      <div class="subtext">得到你所需要的！唱，舞蹈，和findnewmusic，为5000点。</div>
     </div>
-    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_itunes.png" %></div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_itunes.png", :height =>300 %></div>
   </div>
   <div id="rewards_home_highlights_3" highlightbanner="true" style="display: none;">
-    <div class="textarea" style="width: 460px;">
-      <div class="bigtext">Get centered with a $10 Gaiam Gift Card</div><br/>
-      <div class="subtext">	Find !yoga supplies or !chooseorganic for your home, at 5,000 points.</div>
+    <div class="textarea" style="width: 420px;">
+      <div class="bigtext">获取10美元的Gaiam礼品卡中心</div><br/>
+      <div class="subtext">找到你的家！瑜伽用品！chooseorganic，在5000点。</div>
     </div>
-    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_gaiam.png" %></div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_gaiam.png", :height =>300 %></div>
   </div>
   <div id="rewards_home_highlights_4" highlightbanner="true" style="display: none;">
-    <div class="textarea" style="width: 460px;">
-      <div class="bigtext">Surprise the family with a $10 Toys R Us Gift Card</div><br/>
-      <div class="subtext">	Discover a new way to !playwithyourkid, for 5000 points.</div>
+    <div class="textarea" style="width: 420px;">
+      <div class="bigtext">惊喜的家庭与10美元的玩具反斗城礼品卡</div><br/>
+      <div class="subtext">playwithyourkid发现一个新的途径，为5000点。</div>
     </div>
-    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_toysrus.png" %></div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_toysrus.png", :height =>300 %></div>
   </div>
   <div id="rewards_home_highlights_5" highlightbanner="true" style="display: none;">
-    <div class="textarea" style="width: 460px;">
-      <div class="bigtext">Buy it Now with a $5 or $10 eBay Gift Cerficiate</div><br/>
-      <div class="subtext">	Explore everything from fashion to gadgets, starting at just 1,800 points.</div>
+    <div class="textarea" style="width: 420px;">
+      <div class="bigtext">现在购买5元或10元易趣礼品Cerficiate</div><br/>
+      <div class="subtext">探索一切从时装到小工具，只需1800点开始。</div>
     </div>
-    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_ebay.png" %></div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_ebay.png", :height =>300 %></div>
   </div>
   <div id="rewards_home_highlights_6" highlightbanner="true" style="display: none;">
-    <div class="textarea" style="width: 460px;">
-      <div class="bigtext">Take a break with a $10 Starbucks Gift Card</div><br/>
-      <div class="subtext">	Claim the moment of peace you deserve, for 5,000 points. </div>
+    <div class="textarea" style="width: 420px;">
+      <div class="bigtext">以一个突破10美元的星巴克礼品卡</div><br/>
+      <div class="subtext">主张和平的时刻，你活该，为5000点。</div>
     </div>
-    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_starbucks.png" %></div>
+    <div class="image" style="text-align: right;width: 500px"><%= image_tag "/images/rewards_highlights/banner_starbucks.png", :height =>300 %></div>
   </div>
 </div>
 <div class="homeblockcolumns">
-  <div class="column1">
-    Use my points to...
+  <div class="column1" style="font-size: 16px;">
+    将我的积分用在...
     <br/>
     <br/>
-    <ul>
-      <% Tag.of_kind("Reward").each do |type| %>
-        <li><%= type.name %></li>
-      <% end %>
-    </ul>
+    <% Tag.of_kind("Reward").each do |type| %>
+      <div class="item" style="font-size: 12px;"><%= type.name %></div>
+    <% end %>
   </div>
   <div class="column2">
     <div class="rightbarsection"  style="margin: 0px; border: 0px; padding-top: 0px">
-      <div class="title">Find rewards near you</div>
-      <div class="subtext">Tell us your city, state, address or zip code to start finding rewards near you!</div>
+      <div class="title">查找您附近的奖励</div>
+      <div class="subtext">告诉我们你的城市，省份，地址或邮编，开始寻找你附近的奖励！</div>
       <br/>
       <br/>
       <div class="inputsubmit"></div>
@@ -66,15 +66,15 @@
   </div>
   <div class="column3">
     <div class="rightbarsection"  style="margin: 0px; border: 0px; padding-top: 0px">
-      <div class="title">Search for a reward</div>
-      <div class="subtext">Looking for something? Enter an activity or a brand.</div>
+      <div class="title">搜索奖励</div>
+      <div class="subtext">寻找东西吗？输入一个活动或一个品牌。</div>
       <br/>
       <br/>
       <div class="inputsubmit"></div>
     </div>
   </div>
 </div>
-
+</div>
 <script>
   iBannerIndex = 2;
   iBannderMax = 6;

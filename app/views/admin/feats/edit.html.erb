@@ -8,22 +8,6 @@
         <%= f.label "Name" %><br/>
         <%= f.text_field :name %>
       </p>
-      <p>
-        <%= f.label "Feat Tags" %><br/>
-        <%= f.text_field :tag_tokens, "data-pre" => @feat.tags.map(&:attributes).to_json %>
-      </p>
-      <p>
-        <%= f.label "Why" %><br/>
-        <%= f.text_area :why, :size => "80x10", :id => "kindeditor" %>
-      </p>
-      <p>
-        <%= f.label "How" %><br/>
-        <%= f.text_area :how, :size => "80x10", :id => "kindeditor1" %>
-      </p>
-      <p>
-        <%= f.label "Points" %><br/>
-        <%= f.text_field :bonus_points %>
-      </p>
       <div class="PaperclipFiles">
           <% if @feat.image.nil? %>
             <%= f.fields_for :image, @feat.build_image do |image_form| %>
@@ -42,7 +26,32 @@
             <% end %>
           <% end %>
       </div>
+      <p>
+        <%= f.label "Feat Tags" %><br/>
+        <%= f.text_field :tag_tokens, "data-pre" => @feat.tags.map(&:attributes).to_json %>
+      </p>
+      <p>
+        <%= f.label "Why" %><br/>
+        <%= f.text_area :why, :size => "80x10", :id => "kindeditor" %>
+      </p>
+      <p>
+        <%= f.label "How" %><br/>
+        <%= f.text_area :how, :size => "80x10", :id => "kindeditor1" %>
+      </p>
+      <p>
+        <%= f.label "Points" %><br/>
+        <%= f.text_field :bonus_points %>
+      </p>
+
       <p><%= f.submit %></p>
     <% end %>
   </div>
 </div>
+<script type="text/javascript">
+  // Disable Form Submission on Enter Key Press
+  $('*').keypress(function(e){
+      if (e.keyCode == 13){
+          return false;
+      }
+  });
+</script>

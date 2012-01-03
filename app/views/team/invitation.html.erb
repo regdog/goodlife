@@ -1,30 +1,19 @@
-<div class="pagetitle"><h1><%= @page_title %></h1></div>
-<div class="column grid_10">
-  <div class="thirdnav">
-    <ul>
-      <li class="<%= active_li_css(@view_by, "Teammates") %>"><%= link_to 'Teammates', teammates_path %></li>
-      <li class="<%= active_li_css(@view_by, "Our Feats") %>"><%= link_to 'Our Checkins', team_checkins_path %></li>
-      <li class="<%= active_li_css(@view_by, "Requests") %>"><%= link_to 'Requests', my_requests_path %></li>
-      <li class="<%= active_li_css(@view_by, "Invite") %>"><%= link_to 'Invite Teammates', invitation_path %></li>
-    </ul>
-  </div>
-  <div class="column grid_8">
+<div class="cell" id="center">
+  <%= render :partial => "subnav", :locals => {:view_by => @view_by} %>
+  <br/>
+  <br/>
   <div id="invite_teammember" class="form">
-    <div class="header">Invite via e-mail</div>
+    <div class="header">通过电邮邀请</div>
     <%= form_tag '/team/invite',:method => 'get' do %>
-    <div class="formrow">
-      <div class="formlabel_wide"><%= label_tag "Your friend's name':"%></div>
-      <div class="forminput"><%= text_field_tag :name %></div>
+    <div>
+      <%= label_tag "朋友的姓名:"%>
+      <%= text_field_tag :name %>
     </div>
-    <div class="formrow">
-      <div class="formlabel_wide"><%= label_tag "Your friend's e-mail':"%></div>
-      <div class="forminput"><%= email_field_tag :email %></div>
+    <div>
+      <%= label_tag "朋友的E-mail:"%><%= email_field_tag :email %>
     </div>
-    <%= submit_tag 'SEND INVITES' %>
+    <%= submit_tag '发出邀请' %>
     <% end %>
   </div>
-  </div>
 </div>
-<div class="column grid_4">
-  <%= render :partial => "shared/rightbar" %>
-</div>
+<div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>

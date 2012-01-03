@@ -1,7 +1,5 @@
-<ul class="navigation primary">
-  <li class="leftnavitem <%= active_li_css(@view_by, "index") %>"><%= link_to "All", plans_path %></li>
-  <li class="leftnavitem <%= active_li_css(@view_by,"daily") %>"><%= link_to "Daily", daily_plans_path %></li>
-  <li class="leftnavitem <%= active_li_css(@view_by, 'weekly') %>"><%= link_to "Weekly", weekly_plans_path %></li>
-  <li class="leftnavitem <%= active_li_css(@view_by, 'weekend') %>"><%= link_to "Weekend", weekend_plans_path %></li>
-</ul>
-<div class="clear"></div>
+
+  <div class="leftnavitem <%= active_li_css(@view_by, "index") %>"><%= link_to "全部", plans_path %></div>
+  <div class="leftnavitem <%= active_li_css(@view_by,"daily") %>"><%= link_to "日计划", daily_plans_path %></div>
+  <div class="leftnavitem <%= active_li_css(@view_by, 'weekly') %>"><%= link_to "周计划", weekly_plans_path %></div>
+  <div class="leftnavitem <%= active_li_css(@view_by, 'weekend') %>"><%= link_to "周末计划", weekend_plans_path %></div>

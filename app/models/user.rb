@@ -1,4 +1,5 @@
- require "party_boy"
+# encoding: UTF-8
+require "party_boy"
 
 class User < ActiveRecord::Base
   include Party::Boy
@@ -35,21 +36,21 @@ class User < ActiveRecord::Base
 
   # user categories
   CATEGORIES = {
-    'I am a mom' => 1,
-    'I am a dad' => 2,
-    'I am a student' => 3,
-    'I am a recent grad' => 4,
-    'I am a working adult' => 5,
-    'I am a grandparent' => 6,
-    'I am retired' => 7,
-    'None of the above fit' => -1
+    '我是一个妈妈' => 1,
+    '我是一个父亲' => 2,
+    '我是一个学生' => 3,
+    '我刚刚毕业' => 4,
+    '我是工作的成年人' => 5,
+    '我是祖父母' => 6,
+    '我退休了' => 7,
+    '以上都不是' => -1
   }
 
   # checkin privacy
   PRIVACY = {
-     "Don't share with anybody" => 1,
-     "Share with just my team" => 2,
-     "Share with everybody" => 3
+     "不要与任何人分享" => 1,
+     "只与我的圈子分享" => 2,
+     "与任何人分享" => 3
   }
 
   def category_name

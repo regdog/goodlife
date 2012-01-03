@@ -1,22 +1,13 @@
-<div class="pagetitle">
-  <h1>
-  <% case params[:action] %>
-    <% when 'epic' %>
-      Recent awesome checkins
-    <% else %>
-      Give props to people doing good
-  <% end %>
-  </h1>
-</div>
-<div class="column grid_10">
-  <div class="thirdnav">
-    <div class="item"><%= link_to 'Latest', checkins_path, :class=>"#{params[:action]=='index' ? 'active' : ''}" %></div>
-    <div class="last"><%= link_to 'Epic', epic_checkins_path, :class=>"#{params[:action]=='epic' ? 'active' : ''}" %></div>
+<div class="cell" id="center">
+  <div class="thirdnav" style="font-size: 16px">
+    <div class="item <%= active_li_css(@view_by, "Latest") %>"><%= link_to '新事迹', checkins_path, :class=>"#{params[:action]=='index' ? 'active' : ''}" %></div>
+    <div class="last <%= active_li_css(@view_by, "Epic") %>"><%= link_to '好事迹', epic_checkins_path, :class=>"#{params[:action]=='epic' ? 'active' : ''}" %></div>
   </div>
+  <br/>
+  <br/>
   <% @checkins.each do |checkin| %>
     <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
   <% end %>
 </div>
-<div class="column grid_4">
-  <%= render :partial => "shared/rightbar" %>
-</div>
+<div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
+

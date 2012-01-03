@@ -1,49 +1,49 @@
 <div class="navcontainer">
   <ul class="menu">
 	<li>
-      <%= link_to "Check-ins", checkins_path %>
+      <%= link_to "事迹", checkins_path %>
       <div class="bottombar"></div>
 	</li>
 	<li>
-	  <%= link_to "Feats", feats_path %>
+	  <%= link_to "事绩", feats_path %>
       <div class="bottombar"></div>
 	  <span id="subnav_feats" class="submenu">
-        <%= link_to "All feats", catalog_feats_path, :id => active?("feats") %>
-        <%= link_to "Plan feats", plans_path, :id => active?("plans") if user_signed_in? %>
-        <%= link_to "Challenge", challenges_path, :id => active?("challenges") %>
+        <%= link_to "全部事绩", catalog_feats_path, :id => active?("feats") %>
+        <%= link_to "计划的事绩", plans_path, :id => active?("plans") if user_signed_in? %>
+        <%= link_to "挑战", challenges_path, :id => active?("challenges") %>
       </span>
 	</li>
 	<li>
-	  <%= link_to "Rewards", rewards_path %>
+	  <%= link_to "激励", rewards_path %>
       <div class="bottombar"></div>
 	  <span id="subnav_rewards" class="submenu">
-        <%= link_to "Local savings", local_rewards_path, :id => active?("rewards", "local") %>
-        <%= link_to "Premium rewards", premium_rewards_path, :id => active?("rewards", "premium") %>
-        <%= link_to "Wishlist", wishlist_rewards_path, :id => active?("rewards", "wishlist") if user_signed_in? %>
+        <%= link_to "本地奖励", local_rewards_path, :id => active?("rewards", "local") %>
+        <%= link_to "特别奖励", premium_rewards_path, :id => active?("rewards", "premium") %>
+        <%= link_to "希望的奖励", wishlist_rewards_path, :id => active?("rewards", "wishlist") if user_signed_in? %>
       </span>
 	</li>
     <% if user_signed_in? %>
 	<li>
-	  <%= link_to "Team", teammates_path %>
+	  <%= link_to "我的圈子", teammates_path %>
       <div class="bottombar"></div>
 	  <span id="subnav_team" class="submenu">
-        <%= link_to "My team", teammates_path, :id => active?("team", "index") %>
-        <%= link_to "Our checkins", team_checkins_path, :id => active?("team", "checkins") %>
-        <%= link_to "Requests", my_requests_path, :id => active?("team", "requests") %>
+        <%= link_to "我的朋友", teammates_path, :id => active?("team", "index") %>
+        <%= link_to "我们的事迹", team_checkins_path, :id => active?("team", "checkins") %>
+        <%= link_to "请求", my_requests_path, :id => active?("team", "requests") %>
       </span>
 	</li>
 	<li>
-	  <%= link_to "My Profile", profile_path %>
+	  <%= link_to "关于我", profile_path %>
       <div class="bottombar"></div>
 	  <span id="subnav_profile" class="submenu">
-        <%= link_to "My checkins", member_path(current_user), :id => active?("member", "show") %>
-        <%= link_to "My account", profile_path, :id => active?("registrations", "edit") %>
-        <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+        <%= link_to "我的事迹", member_path(current_user), :id => active?("member", "show") %>
+        <%= link_to "我的资料", profile_path, :id => active?("registrations", "edit") %>
+        <%= link_to "登出", destroy_user_session_path, :method => 'delete' %>
       </span>
 	</li>
     <% else %>
 	<li>
-	  <%= link_to "Sign In", new_user_session_path, :class => 'sign_in' %> / <%= link_to "Sign Up", new_user_registration_path, :class => 'sign_up' %>
+	  <%= link_to "登录", new_user_session_path, :class => 'sign_in' %> / <%= link_to "注册", new_user_registration_path, :class => 'sign_up' %>
       <div class="bottombar"></div>
 	</li>
     <% end %>

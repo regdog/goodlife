@@ -1,18 +1,12 @@
-<%# tabnav :feats do %>
-<div class="pagetitle"><h1>Your planned feats</h1></div>
-<div class="column grid_2">
-  <%= render :partial => 'leftnav' %>
-</div>
-<div class="column grid_8">
-  <p><%= paginate @feats %></p>
+<div class="cell" id="left"><%= render :partial => 'leftnav' %></div>
+<div class="cell" id="center">
+  <%= paginate @feats %>
   <% tableize @feats,
                 :name => 'feats',
-                #:header => 'Listing Feats',
                 :cols => 4 do |feat| %>
 
     <%= render :partial => "shared/featgrid", :locals => {:feat => feat} %>
-  <% end if @feats %>
+  <% end %>
 </div>
-<div class="column grid_4">
-  <%= render :partial => "shared/rightbar" %>
-</div><%# end %>
+<div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
+

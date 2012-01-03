@@ -1,29 +1,29 @@
-<div class="featgrid">
+<div class="feattablet">
   <div class="top">
     <div class="stamp"><%= link_to image_tag(feat.image.url(:medium)), feat_path(feat) if feat.image %></div>
     <div class="sponsor"></div>
     <% if current_user %>
-      <a class="button featcheckin" href=<%= checkin_feat_path(feat) %>><div>did it</div></a>
+      <a class="btn featcheckin" href=<%= checkin_feat_path(feat) %>>做了</a>
     <% end %>
   </div>
   <div class="middle">
-    <div class="points"><%= feat.bonus_points %> pts</div>
+    <div class="points"><%= feat.bonus_points %>分</div>
     <div class="title"><%= feat.name %></div>
   </div>
   <% if current_user %>
   <div class="featplan">
-    <div class="plannote" id=<%= "feat_#{feat.id}_plannote" %>><a href="javascript:void(0)" class="planLink"><%= current_user.plan_type(feat).nil? ? 'Plan it' : "Planed #{current_user.plan_type(feat).downcase}" %></a></div>
+    <div class="plannote" id=<%= "feat_#{feat.id}_plannote" %>><a href="javascript:void(0)" class="planLink"><%= current_user.plan_type(feat).nil? ? '计划' : "计划 #{current_user.plan_type(feat).downcase}" %></a></div>
     <div class="planoptions" <%="id='feat_#{feat.id}_planoptions'" %>>
-      <div class="title">Do it..</div>
-      <div id=<%= "feat_#{feat.id}_plandaily" %>><%= link_to current_user.plan_type(feat)!="daily" ? "&nbsp;&nbsp;Daily".html_safe : "&nbsp;&nbsp;<b><i>Daily</i></b>".html_safe, plan_feats_path(feat.id, 'daily'), :remote => true %><br/></div>
-      <div id=<%= "feat_#{feat.id}_planweekly" %>><%= link_to current_user.plan_type(feat)!="weekly" ? "&nbsp;&nbsp;Weekly".html_safe : "&nbsp;&nbsp;<b><i>Weekly</i></b>".html_safe, plan_feats_path(feat.id, 'weekly'), :remote => true %><br/></div>
-      <div id=<%= "feat_#{feat.id}_planweekend" %>><%= link_to current_user.plan_type(feat)!="weekend" ? "&nbsp;&nbsp;Weekend".html_safe : "&nbsp;&nbsp;<b><i>Weekend</i></b>".html_safe, plan_feats_path(feat.id, 'weekend'), :remote => true %><br/></div>
+      <div class="title">计划做..</div>
+      <div id=<%= "feat_#{feat.id}_plandaily" %>><%= link_to current_user.plan_type(feat)!="daily" ? "&nbsp;&nbsp;每天".html_safe : "&nbsp;&nbsp;<b><i>每天</i></b>".html_safe, plan_feats_path(feat.id, 'daily'), :remote => true %><br/></div>
+      <div id=<%= "feat_#{feat.id}_planweekly" %>><%= link_to current_user.plan_type(feat)!="weekly" ? "&nbsp;&nbsp;每周".html_safe : "&nbsp;&nbsp;<b><i>每周</i></b>".html_safe, plan_feats_path(feat.id, 'weekly'), :remote => true %><br/></div>
+      <div id=<%= "feat_#{feat.id}_planweekend" %>><%= link_to current_user.plan_type(feat)!="weekend" ? "&nbsp;&nbsp;每周末".html_safe : "&nbsp;&nbsp;<b><i>每周末</i></b>".html_safe, plan_feats_path(feat.id, 'weekend'), :remote => true %><br/></div>
       <% if current_user.plan_type(feat).nil? %>
-        <div style="display: none;" id=<%= "feat_#{feat.id}_unplan" %>><%= link_to "&nbsp;&nbsp;Unplan".html_safe, plan_feats_path(feat.id, 'unplan'), :remote => true %><br/></div>
+        <div style="display: none;" id=<%= "feat_#{feat.id}_unplan" %>><%= link_to "&nbsp;&nbsp;取消计划".html_safe, plan_feats_path(feat.id, 'unplan'), :remote => true %><br/></div>
       <% else %>
-        <div style="display: block;" id=<%= "feat_#{feat.id}_unplan" %>><%= link_to "&nbsp;&nbsp;Unplan".html_safe, plan_feats_path(feat.id, 'unplan'), :remote => true %><br/></div>
+        <div style="display: block;" id=<%= "feat_#{feat.id}_unplan" %>><%= link_to "&nbsp;&nbsp;取消计划".html_safe, plan_feats_path(feat.id, 'unplan'), :remote => true %><br/></div>
       <% end %>
-      <a href="javascript:void(0)" class="closeLink">Close</a>
+      <a href="javascript:void(0)" class="closeLink">返回</a>
     </div>
   </div>
   <% end %>

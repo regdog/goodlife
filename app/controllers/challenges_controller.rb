@@ -1,34 +1,36 @@
+# encoding: UTF-8
 class ChallengesController < ApplicationController
   def index
+    @page_title = "来个自我挑战吧"
     if current_user
-      @challenges = current_user.challenges
+      @challenges = current_user.challenges.page(params[:page]).per(20)
       @view_by = "mine"
     else
-      @challenges = Challenge.all
+      @challenges = Challenge.sort_by_date.page(params[:page]).per(20)
       @view_by = "all"
     end
   end
 
   def mine
-    @challenges = current_user.challenges
+    @challenges = current_user.challenges.page(params[:page]).per(20)
     @view_by = "mine"
     render :index
   end
 
   def date
-    @challenges = Challenge.sort_by_date
+    @challenges = Challenge.sort_by_date.page(params[:page]).per(20)
     @view_by = "date"
     render :index
   end
 
   def popularity
-    @challenges = Challenge.sort_by_popularity
+    @challenges = Challenge.sort_by_popularity.page(params[:page]).per(20)
     @view_by = "popularity"
     render :index
   end
 
   def points
-    @challenges = Challenge.sort_by_points
+    @challenges = Challenge.sort_by_points.page(params[:page]).per(20)
     @view_by = "points"
     render :index
   end
@@ -49,11 +51,13 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+    @page_title = @challenge.name
   end
 
   def new
     @challenge = Challenge.new
     @challenge.build_image
+    @page_title = "创建新的挑战"
     @view_by = "new"
   end
 

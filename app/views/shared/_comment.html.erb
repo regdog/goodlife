@@ -11,17 +11,20 @@
   <%= link_to 'give prop', "javascript:void();", :onclick => "$(this).parent().parent().submit()"  %>
 </div>
 <% end if user_signed_in? %>
-<div class="userprops" id="checkin_<%= checkin.id %>_userprops">
-<% if checkin.comments.size > 4 %>
-  <div class="userprop">
-    <div class="text"><%= link_to "View all #{checkin.comments.size} comments", checkin_comments_path(checkin), :remote => true %></div>
+
+<% unless checkin.comments.empty? %>
+  <div class="userprops" id="checkin_<%= checkin.id %>_userprops">
+  <% if checkin.comments.size > 4 %>
+    <div class="userprop">
+      <div class="text"><%= link_to "View all #{checkin.comments.size} comments", checkin_comments_path(checkin), :remote => true %></div>
+    </div>
+  <% end %>
+  <% checkin.comments.limit(4).each do |comment| %>
+    <div class="userprop row" userpropid=<%= comment.id %>>
+      <div class="profilepic cell"><%= image_tag "/images/im_facebookprofile.png" %></div>
+      <div class="text cell"><%= link_to comment.user.name, member_path(comment.user) %> <%= comment.content %></div>
+      <div class="timestamp cell"><%= time_ago_in_words comment.created_at %>前</div>
+  </div>
+  <% end %>
   </div>
 <% end %>
-<% checkin.comments.limit(4).each do |comment| %>
-<div class="userprop" userpropid=<%= comment.id %>>
-  <div class="profilepic"><%= image_tag "/images/im_facebookprofile.png" %></div>
-  <div class="text"><%= link_to comment.user.name, member_path(comment.user) %> <%= comment.content %></div>
-  <div class="timestamp"><%= time_ago_in_words comment.created_at %> ago</div>
-</div>
-<% end %>
-</div>

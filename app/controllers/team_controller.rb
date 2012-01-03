@@ -1,14 +1,15 @@
+# encoding: UTF-8
 class TeamController < ApplicationController
   def index
     @teammates = current_user.friends
     @user = User.new
-    @page_title = "Your team"
+    @page_title = "我的圈子"
     @view_by = "Teammates"
   end
 
   def checkins
     @checkins = current_user.team_checkins
-    @page_title = "Your team's check-ins"
+    @page_title = "我们的事迹"
     @view_by = "Our Feats"
   end
 
@@ -21,12 +22,12 @@ class TeamController < ApplicationController
       @requests << m
     end
 
-    @page_title = "Requests to join teams"
+    @page_title = "我收到的请求"
     @view_by = "Requests"
   end
 
   def invitation
-    @page_title = "Invite your friends to your team"
+    @page_title = "邀请朋友加入我的圈子"
     @view_by = "Invite"
   end
 

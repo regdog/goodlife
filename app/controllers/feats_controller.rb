@@ -1,9 +1,11 @@
+# encoding: UTF-8
 class FeatsController < ApplicationController
   def index
     redirect_to catalog_feats_path
   end
 
   def catalog
+    @page_title = "今天你做了什么事儿？"
     if params[:type]
       @category = Tag.of_kind("Feat").find_by_name(params[:type])
       @feats = @category.feats.page(params[:page]).per(20) if @category
@@ -17,7 +19,7 @@ class FeatsController < ApplicationController
 
   def show
     @feat = Feat.find(params[:id])
-    #render :layout => 'corp'
+    @page_title = @feat.name
   end
 
   def plan

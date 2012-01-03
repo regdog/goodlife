@@ -1,17 +1,16 @@
-<div class="tabs">
+<div class="feat_checkins">
   <!-- tabs -->
-  <ul class="tabnav">
-    <li style="float: left"><a href="#latest">Latest</a></li>
-    <li style="float: left">|</li>
-    <li style="float: left"><a href="#epic">Epic</a></li>
+  <ul class="tabs">
+    <li><a href="#latest">新事迹</a></li>
+    <li><a href="#epic">好事迹</a></li>
   </ul>
   <!-- tab containers -->
-  <div id="latest" style="clear:both;">
+  <div class="clear" id="latest" >
     <% @feat.checkins.latest.each do |checkin| %>
       <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
     <% end %>
   </div>
-  <div id="epic" style="clear:both;">
+  <div class="clear" id="epic">
     <% @feat.checkins.epic.each do |checkin| %>
       <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
     <% end %>

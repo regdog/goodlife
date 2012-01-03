@@ -4,7 +4,7 @@ module ApplicationHelper
 	  names.flatten!
 	  for name in names
   	  if name == comparison_name
-        return 'active'
+        return 'current'
       end
     end
     return ''

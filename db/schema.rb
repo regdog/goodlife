@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111121032246) do
+ActiveRecord::Schema.define(:version => 20120101102422) do
 
   create_table "accepted_challenges", :force => true do |t|
     t.integer  "user_id"
@@ -78,11 +78,12 @@ ActiveRecord::Schema.define(:version => 20111121032246) do
   add_index "challenges_feats", ["challenge_id", "feat_id"], :name => "index_challenges_feats_on_challenge_id_and_feat_id", :unique => true
 
   create_table "checkins", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "feat_id",    :null => false
+    t.integer  "user_id",                       :null => false
+    t.integer  "feat_id",                       :null => false
+    t.boolean  "epic",       :default => false
     t.text     "memo"
-    t.integer  "public"
-    t.string   "user_ip"
+    t.integer  "privacy"
+    t.string   "location"
     t.datetime "created_at"
   end
 
@@ -110,7 +111,17 @@ ActiveRecord::Schema.define(:version => 20111121032246) do
 
   add_index "contents", ["permalink"], :name => "index_contents_on_permalink", :unique => true
 
+  create_table "epic_images", :force => true do |t|
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "feats", :force => true do |t|
+    t.string   "permalink"
     t.integer  "creator_id"
     t.string   "creator_type"
     t.string   "name",          :limit => 100, :default => "",    :null => false
@@ -167,8 +178,9 @@ ActiveRecord::Schema.define(:version => 20111121032246) do
     t.string   "name"
     t.string   "address"
     t.string   "city"
-    t.string   "region"
+    t.string   "state"
     t.string   "country"
+    t.string   "zipcode"
     t.string   "phone"
     t.datetime "created_at"
   end
@@ -254,10 +266,11 @@ ActiveRecord::Schema.define(:version => 20111121032246) do
   add_index "user_wishes", ["user_id", "reward_id"], :name => "index_user_wishes_on_user_id_and_reward_id", :unique => true
 
   create_table "users", :force => true do |t|
+    t.string   "permalink"
     t.string   "email",                                                               :default => "",    :null => false
     t.string   "encrypted_password",     :limit => 128,                               :default => ""
     t.string   "name"
-    t.integer  "category"
+    t.integer  "category",               :limit => 1
     t.integer  "earned_points",          :limit => 8,                                 :default => 0
     t.decimal  "life_score",                            :precision => 2, :scale => 1, :default => 0.0
     t.string   "reset_password_token"
@@ -281,6 +294,8 @@ ActiveRecord::Schema.define(:version => 20111121032246) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.string   "location"
+    t.string   "phone_number"
     t.text     "self_description"
     t.boolean  "prop_notification",                                                   :default => false
     t.boolean  "checkin_notification",                                                :default => false

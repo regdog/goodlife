@@ -1,54 +1,69 @@
-<div class="pagetitle"><h1>Create a new challenge</h1></div>
-<div class="column grid_10">
+<script type="text/javascript">
+  // Disable Form Submission on Enter Key Press
+  $('*').keypress(function(e){
+      if (e.keyCode == 13){
+          return false;
+      }
+  });
+</script>
+
+<div class="cell" id="center">
   <div class="form">
     <%= form_for @challenge, :url => {:action => "create"}, :html => { :multipart => true } do |f| %>
-      <div class="header">About your challenge</div>
-      <div class="formrow">
-        <div class="formlabel_wide">Challenge name:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :name %></div>
+      <div class="header">关于挑战</div>
+      <div>
+        <%= f.label "名称:*" %>
+        <%= f.text_field :name %>
       </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Challenge description:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :description %></div>
+      <div>
+        <%= f.label "描述:*" %>
+        <%= f.text_field :description %>
       </div>
-      <div class="formrow">
+      <div>
         <%= f.fields_for :image do |builder| %>
-          <p>
-            <div class="formlabel_wide">Upload a picture:</div>
-            <div class="forminput" style="width: 450px"><%= builder.file_field :upload %></div>
-          </p>
+            <%= f.label "图片上传:" %>
+            <%= builder.file_field :upload %>
         <% end %>
       </div>
       <br/>
       <br/>
-      <div class="header">Feats</div>
-      <div class="formrow">
-        <div class="formlabel_wide">Add feats:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :feat_tokens %></div>
+      <div class="header">包括哪些事绩?</div>
+      <div>
+        <%= f.label "添加事绩:*" %>
+        <%= f.text_field :feat_tokens %>
       </div>
       <br/>
       <br/>
-      <div class="header">Challenge Details</div>
-      <div class="formrow">
-        <div class="formlabel_wide">Start on:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :start_on_string %></div>
+      <!--<div class="formrow">-->
+        <!--<div class="formlabel_wide">Add a feat:*</div>-->
+        <!--<div class="forminput" style="width: 450px"><%#= f.text_field :feat_tokens, :id => "feat_selection" %></div>-->
+      <!--</div>-->
+      <!--<br/>-->
+      <!--<br/>-->
+      <div class="header">挑战时间及奖励</div>
+      <div>
+        <%= f.label "开始时间:*" %>
+        <%= f.text_field :start_on_string %>
+      </div>
+      <div>
+        <%= f.label "结束时间:*" %>
+        <%= f.text_field :end_on_string %>
       </div>
       <div class="formrow">
-        <div class="formlabel_wide">End on:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :end_on_string %></div>
-      </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Bonus points for wining:*</div>
-        <div class="forminput" style="width: 150px"><%= f.select :bonus_points, [['no extra points', 0], ['10 points', 10], ['25 points', 25], ['50 points',50], ['75 points', 75]], :selected => 0 %></div>
+        <%= f.label "奖励积分:*" %>
+        <%= f.select :bonus_points, [['no extra points', 0], ['10 points', 10], ['25 points', 25], ['50 points',50], ['75 points', 75]], :selected => 0 %>
       </div>
       <br/>
       <br/>
       <div class="buttoncontainer">
-        <%= f.submit %> <%= link_to "Cancel", mine_challenges_path %>
+        <%= f.submit "新增" %><%= link_to "取消并返回", mine_challenges_path %>
       </div>
     <% end %>
   </div>
 </div>
+<div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
+
+
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
 <%= javascript_include_tag "jquery.tokeninput", "jquery-ui-timepicker-addon"%>

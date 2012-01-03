@@ -2,6 +2,16 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(document).ready(function() {
+     /*shows the loading div every time we have an Ajax call*/
+//    $("#loading").bind("ajaxSend", function(){
+//           $(this).show();
+//     }).bind("ajaxComplete", function(){
+//           $(this).hide();
+//     });
+
+    $('#submit_button').live('click',function(){
+        var box = new ajaxLoader($('#d_checkin'), {classOveride: 'blue-loader'});
+    });
 
   // initialize active subnav menu
    $(".menu li span").find("#subnavActive").parent().show();
@@ -26,13 +36,15 @@ $(document).ready(function() {
   // sign up modal dialog
   $('.sign_up').click(function(e) {
     var url = $(this).attr('href');
-    var dialog_form = $('<div id="dialog-form">Loading form...</div>').dialog({
+    $.easy.popup('#popup_dialog');
+    var dialog_form = $('<div id="dialog-form"><img id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
       autoOpen: false,
-      width: 520,
+      width: 470,
       modal: true,
+      closeText: "X",
       position: ['center', 120],
       open: function() {
-        return $(this).load(url + ' #sign_up_content');
+        return $(this).load(url + ' #d_signup');
       }
     });
     dialog_form.dialog('open');
@@ -41,27 +53,20 @@ $(document).ready(function() {
     $(window).resize(function(){
       dialog_form.dialog( 'option', 'position', 'center' );
     });
-
-    // Hide the title bar
-    //$('.ui-dialog-titlebar-close').hide();
-
-    // Modal Dialog Close on Overlay Click
-    $(".ui-widget-overlay").live('click', function () {
-      dialog_form.dialog( "close" );
-	});
-
   });
 
   // sign in modal dialog
   $('.sign_in').click(function(e) {
+
     var url = $(this).attr('href');
-    var dialog_form = $('<div id="dialog-form">Loading form...</div>').dialog({
+    var dialog_form = $('<div id="dialog-form"><img class="center" id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
       autoOpen: false,
-      width: 520,
+      width: 460,
       modal: true,
+      closeText: "X",
       position: ['center', 120],
       open: function() {
-        return $(this).load(url + ' #sign_in_content');
+        return $(this).load(url + ' #d_signin');
       }
     });
     dialog_form.dialog('open');
@@ -70,26 +75,33 @@ $(document).ready(function() {
     $(window).resize(function(){
       dialog_form.dialog( 'option', 'position', 'center' );
     });
+
     // Hide the close button
     //jQuery('.ui-dialog-titlebar-close').hide();
 
     // Modal Dialog Close on Overlay Click
-    $(".ui-widget-overlay").live('click', function () {
-      dialog_form.dialog( "close" );
-	});
+//    $(".ui-widget-overlay").live('click', function () {
+//      dialog_form.dialog( "close" );
+//	});
 
   });
 
   // check in modal dialog
   $('.featcheckin').click(function(e) {
     var url = $(this).attr('href');
-    var dialog_form = $('<div id="dialog-form">Loading form...</div>').dialog({
+    var dialog_form = $('<div id="dialog-form"><img id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
       autoOpen: false,
-      width: 520,
+      width: 420,
+      closeText: "X",
       modal: true,
+//      overlay: {
+//          backgroundColor: '#000',
+//          opacity: 0.5
+//      },
+//      buttons:{ "Shutup": function() { $(this).dialog("close"); } },
       position: ['center', 120],
       open: function() {
-        return $(this).load(url + ' #checkin');
+        return $(this).load(url + ' #d_checkin');
       }
     });
     dialog_form.dialog('open');
@@ -102,9 +114,9 @@ $(document).ready(function() {
     //jQuery('.ui-dialog-titlebar-close').hide();
 
     // Modal Dialog Close on Overlay Click
-    $(".ui-widget-overlay").live('click', function () {
-      dialog_form.dialog( "close" );
-	});
+//    $(".ui-widget-overlay").live('click', function () {
+//      dialog_form.dialog( "close" );
+//	});
 
   });
 
@@ -128,6 +140,7 @@ $(document).ready(function() {
       return false;
     });
   }
+
 
 // Tokeninputs
   if ($('#challenge_feat_tokens').length > 0){
@@ -182,6 +195,20 @@ $(document).ready(function() {
 //  }).blur(function (){
 //    $(this).animate({ height: "20px" });
 //  });
+
+    // checkin dialog form
+     $('.epic > div').live('click', function () {
+        $('#checkin_epic').val( $(this).attr('epic') );
+        $(this).css({'color': '#F58220'});
+        $(this).siblings().css({'color': '#828584'});
+        $('.textblock').find('.text').text( $(this).attr('text') );
+    })
+
+    $('.privacy > div').live('click', function () {
+        $('#checkin_privacy').val( $(this).attr('privacy') );
+        $(this).css({'color': '#F58220'});
+        $(this).siblings().css({'color': '#828584'});
+    })
 
 
 });

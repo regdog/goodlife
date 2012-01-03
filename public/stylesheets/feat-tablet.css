@@ -1,0 +1,138 @@
+/* feat tablet */
+    .feats_table td {
+        border-bottom: 1px solid #F1F1F1;
+        float: left;
+        padding-left: 0px;
+        margin-right: 30px;
+        padding-top: 0;
+        margin-bottom: 20px;
+        width: 120px;
+        height: 290px;
+    }
+    .feattablet {
+        float: left;
+        margin-right: 20px;
+        position: relative;
+    }
+    .feattablet{
+        float: left;
+        text-align: center;
+        width: 120px;
+        padding-top: 0px;
+        padding-bottom: 10px;
+    }
+    .feattablet .top {
+        background-color: #F8FAF8;
+        border: 1px solid #EAEBEB;
+        width: 117px;
+        -moz-box-shadow: 5px 5px 5px #c1c1c1;
+        -webkit-box-shadow: 5px 5px 5px #c1c1c1;
+        box-shadow: 5px 5px 5px #c1c1c1;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .feattablet .top .stamp {
+        border-right: 1px solid #D3D5D6;
+        border-left: 1px solid #D3D5D6;
+        border-top: 1px solid #D3D5D6;
+        background-color: #F8FAF8;
+        height: 118px;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .feattablet .top .stamp img {
+        height: 106px;
+        width: 106px;
+        margin-left: 3px;
+        margin-right: 3px;
+        margin-top: 6px;
+    }
+    .feattablet .sponsor_blank {
+        width: 107px;
+        background-color: white;
+        font-size: 8pt;
+        line-height: 13px;
+        min-height: 15px;
+        color: #828584;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 4px;
+        padding-right: 5px;
+        border-top: 1px solid #D1D3D4;
+        background-color: white;
+        position: relative;
+    }
+    .feattablet .sponsor {
+        background-color: #F68120;
+        border-left: 1px solid #D4D5D6;
+        border-right: 1px solid #D4D5D6;
+        border-top: 1px solid #F0F0F1;
+        color: white;
+        font-size: 8pt;
+        line-height: 13px;
+        min-height: 15px;
+        padding: 2px 5px 2px 4px;
+        position: relative;
+        width: 107px;
+    }
+    .feattablet .top a.btn {
+        width: auto;
+        display: block;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        padding: 7px 9px;
+        background: #D1D3D4;
+        background: -moz-linear-gradient(top, rgba(209, 211, 212, 1) 0%, rgba(148, 150, 153, 1) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(209, 211, 212, 1)), color-stop(100%,rgba(148, 150, 153, 1)));
+        background: -webkit-linear-gradient(top, rgba(209, 211, 212, 1) 0%,rgba(148, 150, 153, 1) 100%);
+        background: -o-linear-gradient(top, rgba(209, 211, 212, 1) 0%,rgba(148, 150, 153, 1) 100%);
+        background: -ms-linear-gradient(top, rgba(209, 211, 212, 1) 0%,rgba(148, 150, 153, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d3d4', endColorstr='#949699',GradientType=0 );
+        height: 18px;
+        line-height: 18px;
+    }
+    .feattablet .top a:hover.btn {
+        color: white;
+        text-decoration: none;
+        padding: 7px 9px;
+        background: #828584;
+    }
+    .feattablet .middle {
+        text-align: left;
+        font-size: 10pt;
+        color: #828584;
+        padding-top: 10px;
+    }
+    .feattablet .middle .points {
+        height: 22px;
+        font-weight: 400;
+        font-style: italic;
+    }
+    .feattablet .middle .title {
+        font-weight: 700;
+        line-height: 12pt;
+        overflow: hidden;
+        height: 40px;
+    }
+    .feattablet .featplan {
+        text-align: left;
+        font-size: 10pt;
+    }
+    .feattablet .plannote a {
+        color:#F58220;
+    }
+    .featplan .planoptions{
+        padding-top: 5px;
+    }
+/* // feat tablet */

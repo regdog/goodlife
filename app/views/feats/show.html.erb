@@ -1,27 +1,26 @@
-<div class="pagetitle"><h1><%= @feat.name %></h1></div>
-<div class="column grid_10">
+<div class="cell" id="center" style="overflow: hidden;">
   <div class="feat">
-    <div class="sponsorrow"></div>
-    <div class="main">
-      <div class="stampside">
+    <!--<div class="sponsorrow"></div>-->
+    <div class="main row">
+      <div class="stampside cell">
         <div class="stampcontainer">
           <%= render :partial => "shared/featgrid", :locals => {:feat => @feat} %>
         </div>
       </div>
-      <div class="details">
-        <span class="title">Why?</span>
+      <div class="details cell">
+        <span class="title"><b>为什么?</b></span>
         <br/>
         <%= @feat.why.html_safe %>
         <br/>
         <br/>
-        <span class="title">How?</span>
+        <span class="title"><b>怎么做?</b></span>
         <br/>
         <%= @feat.how.html_safe %>
       </div>
     </div>
+
     <%= render :partial =>"checkins" %>
   </div>
 </div>
-<div class="column grid_4">
-  <%= render :partial => "shared/rightbar" %>
-</div>
+<div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
+

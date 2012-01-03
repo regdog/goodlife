@@ -1,0 +1,388 @@
+/*  header content */
+#header {height: 80px;}
+#header .logo {
+    float: left;
+    height: 80%;
+    position: relative;
+    width: 230px;
+}
+#header .logo img {
+    margin-top: -22px;
+    position: absolute;
+    top: 50%;
+}
+.navcontainer {
+    height: 70px;
+    float: right;
+    margin: 0 0 0 auto;
+    overflow: hidden;
+}
+    /* site menu */
+    .menu {
+        padding: 0;
+        list-style: none;
+        margin-top: 5px;
+    }
+    .menu li {
+        padding: 0;
+        margin: 0 10px;
+        float: left;
+        position: relative;
+        text-align: left;
+        font-size: 16px;
+    }
+    .menu a {
+        padding-bottom: 8px;
+        display: inline;
+        text-decoration: none;
+    }
+    .menu a:hover {
+        color: #F58220;
+    }
+    .bottombar {
+        margin-top: 8px;
+        border-top: 1px solid #828584;
+        width: 110px
+    }
+    .submenu {
+        width: 360px;
+        height: 45px;
+        position: absolute;
+        top: 20px;
+        padding-top: 20px;
+        font-style: normal;
+        z-index: 2;
+        display: none;
+
+    }
+    span#subnav_feats {
+        text-align: left;
+        left: -60px;
+    }
+    span#subnav_rewards {
+        text-align: left;
+        left: -100px;
+    }
+    span#subnav_team {
+        text-align: left;
+        left: -60px;
+    }
+    span#subnav_profile {
+        text-align: right;
+        right: 0px;
+    }
+    .submenu a {
+        padding: 10px 5px;
+        display: inline;
+        text-decoration: none;
+        font-weight: normal;
+    }
+    .submenu a#subnavActive {
+        color: #F58220;
+    }
+    /* // site menu */
+
+/* header content */
+
+
+
+/* welcome page */
+.welcome_content {
+	width: 100%;
+	background-color: #f58322;
+	height: 325px;
+	margin-top: 10px;
+    margin-bottom: 20px;
+	padding-top: 20px; padding-bottom: 20px;
+}
+.welcome_center {
+    background-color: #fff;
+    height: 325px;
+    border: 1px solid #fff;
+}
+.welcome_center .textarea {
+    float: left;
+    height: 100%;
+    width: 400px;
+    padding: 20px;
+}
+.welcome_center .textarea .bigtext {
+    font-size: 26pt;
+    color: #f58322;
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 35px;
+}
+.welcome_center .textarea .subtext {
+    color: #828584;
+    font-size: 13pt;
+    line-height: 23px;
+    margin-bottom: 25px;
+}
+.welcome_center .textarea .subtext a {
+    color: #f58322;
+}
+.welcome_center .textarea .action {
+    color: #828584;
+    font-size: 12pt;
+}
+.welcome_center .image {
+    width: 500px;
+    padding-top: 9px;
+    float: right;
+    padding-right: 20px;
+    text-align: right;
+}
+.welcome_column {
+ padding-top: 20px;
+ border-top: 2px solid #828584;
+}
+
+/* // welcome page */
+
+
+
+/* content */
+
+.pagetitle {
+    margin-top: 15px;
+    /*margin-bottom: 10px;*/
+}
+.pagination{padding-bottom: 20px;}
+
+
+    /* feat detail */
+    #center .feat {
+        width: 637px;
+    }
+    .feat .sponsorrow {
+        margin-top: 10px;
+        min-height: 50px;
+        background-color: #EAEAEA;
+        border: 1px solid #DDD;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 17px;
+        width: 590px;
+        margin-bottom: 10px;
+    }
+    .feat .sponsorrow .sponsorbanner {
+        width: 586px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: relative;
+        background-color: white;
+    }
+    .feat .sponsorrow .sponsorbanner .logo {
+        float: left;
+        width: 120px;
+        height: 120px;
+        padding-left: 30px;
+    }
+    .feat .sponsorrow .sponsorbanner .text {
+        padding-left: 40px;
+        color: #828584;
+        font-size: 14px;
+        width: 350px;
+        height: 100px;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .feat .sponsorrow .sponsorbanner .bottom {
+        position: absolute;
+        /*background: url(/mccoy/img/im_bannerbottom_short.png) no-repeat;*/
+        height: 25px;
+        width: 600px;
+        left: -9px;
+        bottom: -13px;
+    }
+    .feat .main {
+        overflow: hidden;
+        padding-bottom: 30px;
+        min-height: 265px;
+    }
+    .feat .details{
+        font-size: 14px;
+    }
+    .tabs{
+        margin:0;
+        }
+    .tabs li{
+        float:left;
+        margin:0 2px 0 0;
+        list-style:none;
+        }
+    .tabs li a{
+        float:left;
+        line-height:30px;
+        height:30px;
+        padding:0 20px;
+        text-decoration:none !important;
+        border:1px solid #eee;
+        background:#fff;
+        }
+    .tabs li.selected a{
+        background:#eee;
+        }
+    .tabs li a:focus{outline:none;}
+    .tab{
+        height:250px;
+        background:#eee;
+        padding:20px;
+        }
+
+    /* // feat detail */
+
+    /* challenge grid */
+    .challengegrid {
+        margin-bottom: 25px;
+        border-bottom: 1px solid #DDD;
+        margin-right: 25px;
+    }
+    .challengeleft {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .challengeright {
+        color:#828584;
+        padding-bottom: 10px;
+        font-size: 13px;
+    }
+    /* // challenge grid */
+
+
+/* // content */
+
+
+
+/* footer */
+.footer {
+    border-top: 1px solid #828584;
+    padding-top: 10px;
+    height: 35px;
+}
+.footer .item {
+    float: left;
+    font-size: 10pt;
+    color: #828584;
+    margin-right: 40px;
+}
+.subfooter {
+    color: #828584;
+    text-align: center;
+    font-size: 8pt;
+}
+
+/* // footer */
+
+
+
+/* team */
+.featgrid {
+    cursor: pointer;
+    border: 1px solid #E5E5E5;
+    background-color: white;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 3px 3px 3px #c1c1c1;
+    -moz-box-shadow: 3px 3px 3px #c1c1c1;
+    -webkit-box-shadow: 3px 3px 3px #c1c1c1;
+    padding: 10px;
+    margin: 10px;
+    width: 136px;
+    height: 150px;
+    float: left;
+    position: relative;
+    text-align: center;
+}
+
+/* // team */
+
+/* rewards */
+.homeblockcolumns .item {
+    float: left;
+    font-size: 10pt;
+    color: #828584;
+    margin-right: 40px;
+    width: 80px;
+    height:30px;
+}
+.homerighttext {
+    position: relative;
+    text-align: right;
+    right: 0px;
+    top: 0px;
+    height: 25px;
+    color: #F58220;
+    font-size: 16px;
+    font-weight: 700;
+}
+.homeblock {
+    width: 100%;
+    height: 300px;
+    background-color: #F58322;
+    position: relative;
+}
+.homeblock .textarea {
+    float: left;
+    width: 600px;
+    padding: 20px;
+}
+.homeblock .textarea .bigtext {
+    font-size: 26px;
+    color: white;
+    font-weight: 700;
+    height:auto;
+    line-height: 30px;
+    width: 100%;
+}
+.homeblock .textarea .subtext {
+    font-size: 15px;
+    color: white;
+    width: 100%;
+}
+.homeblock .image {
+    float: left;
+    width: 350px;
+}
+
+.homeblockcolumns {
+    width: 100%;
+    height: 140px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+.homeblockcolumns .column1 {
+    float: left;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 390px;
+    height: 100%;
+    border-top: 2px solid #828584;
+    color: #828584;
+    margin-right: 33px;
+}
+.homeblockcolumns .column2 {
+    float: left;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 290px;
+    height: 100%;
+    border-top: 2px solid #828584;
+    color: #828584;
+    margin-right: 33px;
+}
+.homeblockcolumns .column3 {
+    float: left;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 239px;
+    margin-right: 0px;
+    height: 100%;
+    color: #828584;
+    border-top: 2px solid #828584;
+}
+
+/* // rewards */

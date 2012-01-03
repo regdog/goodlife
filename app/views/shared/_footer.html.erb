@@ -1,5 +1,6 @@
-<ul>
+<div class="footer">
   <% @pages.each do |page| %>
-    <li><%= link_to page.title, "/corp/#{page.permalink}" %></li>
+    <div class="item"><%= link_to page.title, "/corp/#{page.permalink}"%></div>
   <% end %>
-</ul>
+</div>
+<div class="subfooter clear"> Copyright (c) Goodlife 2011 </div>

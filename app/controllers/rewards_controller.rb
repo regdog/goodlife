@@ -1,8 +1,11 @@
+# encoding: UTF-8
 class RewardsController < ApplicationController
   def index
+    @page_title = "奖励自己和大家"
   end
 
   def local
+    @page_title = "奖励自己和大家"
     parameters = {:partner_tag_name_starts_with => 'Local'}
     if params[:address] && params[:address] != ''
       parameters[:city_or_street_or_zipcode_contains] = params[:address]
@@ -15,17 +18,18 @@ class RewardsController < ApplicationController
     if params[:type] && params[:type]!= 'all'
       parameters[:tags_name_equals] = params[:type]
     end
-
+    @view_by = params[:type]
     @rewards = Reward.search(parameters).page(params[:page]).per(20)
   end
 
   def premium
     @rewards = Reward.premium
-    @page_title
+    @page_title = "奖励自己和大家"
   end
 
   def wishlist
     @rewards = current_user.wishes
+    @page_title = "你的愿望清单"
   end
 
   def show

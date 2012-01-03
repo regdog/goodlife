@@ -1,21 +1,18 @@
-<div class="pagetitle"><h1>Redeem your reward</h1></div>
-<div class="column grid_10">
+<div class="cell" id="center">
   <div class="form">
     <%= form_for @redemption, :url => {:action => "create"} do |f| %>
       <%#= f.hidden_field :reward_id, {:value => @reward.id} %>
-      <div class="header">Your reward</div>
+      <div class="header top">你的奖励</div>
       <div class="rewardinfo">
         <div class="rewardpic" style="display: table-cell;"><%= image_tag @reward.image.url(:small) if @reward.image %></div>
         <div class="rewarddetail" style="display: table-cell; vertical-align: top;padding-left: 20px;font-size: 10pt;">
           <b><%= @reward.partner.business_name %></b>
           <br/>
-          <i>For <%= @reward.redeem_points %> points</i>
+          <span style="font-size: 9pt; font-weight: normal; color: #8F8F8F"><i><%= @reward.redeem_points %>个积分</i></span>
           <br/>
-          <span style="font-size: 9pt; font-weight: normal; color: #8F8F8F">in <%= "#{@reward.city}, #{@reward.state}" %></span>
+          <span style="font-size: 9pt; font-weight: normal; color: #8F8F8F"><%= "#{@reward.street}, #{@reward.city}, #{@reward.state}" %></span>
           <br/>
           <span style="font-size: 9pt; font-weight: normal; color: #8F8F8F">
-            <%= @reward.street %>
-            <br/>
             <%= @reward.phone %>
           </span>
           <br/>
@@ -36,36 +33,34 @@
         </div>
       </div>
 
-      <div class="header">Your information</div>
-      <div class="formrow">
-        <div class="formlabel_wide">Your name:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :name %></div>
+      <div class="header">你的资料</div>
+      <div>
+        <%= f.label "你的姓名:*" %>
+        <%= f.text_field :name %>
       </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Your address:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :address %></div>
+      <div>
+        <%= f.label "你的地址:*" %>
+        <%= f.text_field :address %>
       </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Your city:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :city %></div>
+      <div>
+        <%= f.label "你的城市:*" %>
+        <%= f.text_field :city %>
       </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Your state:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :state %></div>
+      <div>
+        <%= f.label "你的省份:*" %>
+        <%= f.text_field :state %>
       </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Your zipcode:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :zipcode %></div>
+      <div>
+        <%= f.label "你的邮编:*" %>
+        <%= f.text_field :zipcode %>
       </div>
-      <div class="formrow">
-        <div class="formlabel_wide">Your phone number:*</div>
-        <div class="forminput" style="width: 450px"><%= f.text_field :phone %></div>
+      <div>
+        <%= f.label "你的手机号码:*" %>
+        <%= f.text_field :phone %>
       </div>
 
-      <p><%= f.submit "REDEEM" %></p>
+      <p><%= f.submit "兑换" %></p>
     <% end %>
   </div>
 </div>
-<div class="column grid_4">
-  <%= render :partial => "shared/rightbar" %>
-</div>
+<div class="cell" id="right"><%= render :partial => "shared/rewardsrightbar" %></div>

@@ -1,44 +1,44 @@
-<div id="sign_up_content">
-  <div class="close" onclick="javascript:$('#dialog-form').remove();">x</div>
-  <div class="title">Welcome to Goodlife</div>
+<div id="d_signup">
+  <!--<div class="close" onclick="javascript:$('#dialog-form').remove();">x</div>-->
+  <div class="formlable">欢迎访问LifeDNA</div>
   <div class="header">
-    Get motivated to do good every day.<br/>
-    Log in to start earning points for every feat you do. <br/><br/>
-    <span class="title"><%= link_to "Explore our site...", checkins_path %></span>
+    我们鼓励你每天做有益的事情<br/>
+    登录网站开始为你做的每一件事绩赚取积分 <br/><br/>
+    <span class="title"><%= link_to "先去网站转转...", checkins_path %></span>
   </div>
-  <div class="title">
-    <span>Have a Douban or Weibo account? <br/>You can sign up with one step.</span>
-    <div style="float:right">
-      <div><%= link_to image_tag('douban.png', :alt=>'douban', :width => 120), user_omniauth_authorize_path(:douban)%></div>
-      <div><%= link_to image_tag('tsina.png', :alt=>'sina weibo', :width => 120), user_omniauth_authorize_path(:tsina)%></div>
+  <div class="onestep">
+    <div style="float: left; padding-right: 10px;height:20px;line-height: 20px;">
+      <span>已有豆瓣/微博帐号？一步注册!</span>
     </div>
+    <div style="float: left; padding-right: 10px;"><%= link_to image_tag('douban.png', :alt=>'douban', :height => 20), user_omniauth_authorize_path(:douban)%></div>
+    <div style="float: left; padding-right: 10px;"><%= link_to image_tag('tsina.png', :alt=>'sina weibo', :height => 20), user_omniauth_authorize_path(:tsina)%></div>
     <div style="clear: both;"></div>
   </div>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-    <div class="formrow">
-      <div class="formlabel"><%= f.label "Your name:*" %></div>
-      <div class="forminput"><%= f.text_field :name %></div>
+    <div>
+      <%= f.label "你的姓名:*" %>
+      <%= f.text_field :name %>
     </div>
-    <div class="formrow">
-      <div class="formlabel"><%= f.label "Your email:*" %></div>
-      <div class="forminput"><%= f.email_field :email %></div>
+    <div>
+      <%= f.label "你的电邮:*" %>
+      <%= f.email_field :email %>
     </div>
-    <div class="formrow">
-      <div class="formlabel"><%= f.label "I am:" %></div>
-      <div class="forminput"><%= f.select :category, User::CATEGORIES.collect{|key, value| [value,key]} %></div>
+    <div>
+      <%= f.label "你是:" %>
+      <%= f.select :category, User::CATEGORIES %>
     </div>
     <% if resource.password_required? %>
-      <div class="formrow">
-        <div class="formlabel"><%= f.label "Password:*" %></div>
-        <div class="forminput"><%= f.password_field :password %></div>
+      <div>
+        <%= f.label "密码:*" %>
+        <%= f.password_field :password %>
       </div>
-      <div class="formrow">
-        <div class="formlabel"><%= f.label "Password confirmation:*" %></div>
-        <div class="forminput"><%= f.password_field :password_confirmation %></div>
+      <div>
+        <%= f.label "密码确认:*" %>
+        <%= f.password_field :password_confirmation %>
       </div>
     <%end%>
-    <p><%= f.submit "Sign up" %></p>
+    <p><%= f.submit "注册" %></p>
   <% end %>
 
   <%= render :partial => "users/shared/links" %>

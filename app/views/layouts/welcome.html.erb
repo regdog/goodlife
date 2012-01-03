@@ -4,54 +4,11 @@
   <title>GoodLife</title>
   <%= stylesheet_link_tag :all %>
   <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
-  <%= javascript_include_tag :defaults, 'jquery-ui' %>
+  <%= javascript_include_tag :defaults, 'jquery-ui', 'script','easy','main' %>
   <meta charset="utf-8">
   <%= csrf_meta_tag %>
 </head>
-<body class="home_body">
-  <div id="wrapper">
-    <div class="row" id="header">
-    <head>
-      <div class="logo"><%= link_to image_tag("/images/im_logo_full.png"), root_path %></div>
-      <div class="navigation">
-        <div class="navcontainer">
-          <div class="navitem" style="padding-top: 12px; text-align: right">
-            <%= link_to image_tag('douban.png', :alt=>'douban'), user_omniauth_authorize_path(:douban)%>
-          </div>
-          <div class="navitem" style="padding-top: 12px; text-align: right">
-            <%= link_to image_tag('tsina.png', :alt=>'sina weibo'), user_omniauth_authorize_path(:tsina)%>
-          </div>
-          <div class="navitem">
-            <%= link_to "Sign In", new_user_session_path, :class => 'sign_in' %> / <%= link_to "Sign Up", new_user_registration_path, :class => 'sign_up' %>
-          </div>
-        </div>
-      </div>
-    </head>
-    </div>
-    <div class="home_content">
-      <div class="row">
-        <%= yield %>
-      </div>
-      <div class="row">
-        <div class="outer">
-            <div class="homeleft">
-              <div class="homecontent">This might sound kind of strange, but yes, we will actually give you rewards, or donations to nonprofits, for being a good person. For real.</div>
-            </div>
-            <div class="homemiddle">
-              <div class="homecontent">"Studies have shown that people who track their good habits are more likely to keep them up, and sharing that information with others gives us a boost of pride--even for simple tasks..."</div>
-            </div>
-            <div class="homeright">
-              <div class="homecontent">"Studies have shown that people who track their good habits are more likely to keep them up, and sharing that information with others gives us a boost of pride--even for simple tasks..."</div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    <div class="row" id="footer">
-      <div class="footer">
-        <%= render :partial => "shared/footer" %>
-      </div>
-      <div class="subfooter"> Copyright (c) Goodlife 2011 </div>
-    </div>
+<body>
+  <%= yield %>
 </body>
 </html>

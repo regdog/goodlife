@@ -27,12 +27,31 @@
         <%= f.fields_for :image do |builder| %>
           <p>
             <%= builder.label "Add A Photo" %>
-            <%= builder.file_field :upload %>
+            <%= builder.file_field :upload, :onchange => "javascript: change_image();", :id=>"myfile'" %>
           </p>
         <% end %>
       </div>
+      <div id="imagepreview"><img id="pic" border="2" src=""></div>
       <p><%= f.submit %></p>
     <% end %>
   </div>
   <%# render :partial => 'crud_right' %>
 </div>
+<script type="text/javascript">
+  // Disable Form Submission on Enter Key Press
+  $('*').keypress(function(e){
+      if (e.keyCode == 13){
+          return false;
+      }
+  });
+
+function change_image() {
+    alert("this is test");
+    img = document.getElementById("pic");
+    fileinput = document.input.File;
+    if (img && fileinput) {
+        img.src = fileinput.files[0].getAsDataURL();
+    }
+    alert(img.src);
+}
+</script>

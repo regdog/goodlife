@@ -35,7 +35,7 @@
   <% unless user_signed_in? %>
     <div class="row">
       <div class="column grid_3">
-        <h3>most populate feats</h3>
+        <h3>做的最多的事绩</h3>
         <div>
         <% Feat.sort_by_popular.limit(3).each do |f| %>
           <p>
@@ -48,7 +48,7 @@
     </div>
     <div class="row">
       <div class="column grid_3">
-        <h3>most populate rewards</h3>
+        <h3>最受欢迎奖励</h3>
         <div>
         <% Reward.limit(3).each do |r| %>
           <p>
@@ -61,7 +61,7 @@
   <% else %>
     <div class="row">
        <div class="column grid_3">
-         <h3>my team ranking</h3>
+         <h3>我的圈子</h3>
          <% current_user.members.each do |m| %>
           <p>
           <span><%= "#{m.name} #{m.sign_in_count}" %></span>

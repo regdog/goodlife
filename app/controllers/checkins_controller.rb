@@ -1,10 +1,16 @@
+# encoding: UTF-8
 class CheckinsController < ApplicationController
+  respond_to :html, :js
   def index
     @checkins = Checkin.latest
+    @page_title = "鼓励人们的事迹"
+    @view_by = "Latest"
   end
 
   def epic
     @checkins = Checkin.epic
+    @page_title = "很棒的事迹"
+    @view_by = "Epic"
     render :index
   end
 
@@ -12,8 +18,12 @@ class CheckinsController < ApplicationController
     @checkin = Checkin.new(params[:checkin])
     @checkin.user = current_user
     @checkin.location = request.location
+    #if @checkin.save
+    #  redirect_to feats_path
+    #end
+
     if @checkin.save
-      redirect_to feats_path
+      respond_with @checkin, :layout => !request.xhr?
     end
   end
 

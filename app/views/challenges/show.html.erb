@@ -1,5 +1,4 @@
-<div class="pagetitle"><h1><%= @challenge.name %></h1></div>
-<div class="column grid_10">
+<div class="cell" id="center">
   <%= render :partial => "shared/challenge", :locals => {:challenge => @challenge} %>
   <% tableize @challenge.feats,
                 :name => 'feats',
@@ -8,6 +7,4 @@
     <%= render :partial => "shared/featgrid", :locals => {:feat => feat} %>
   <% end %>
 </div>
-<div class="column grid_4">
-  <%= render :partial => "shared/rightbar" %>
-</div>
+<div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>

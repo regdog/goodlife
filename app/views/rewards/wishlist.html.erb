@@ -1,13 +1,11 @@
-<div class="pagetitle"><h1>Your wishlist</h1></div>
-<div class="column grid_10">
-  <% tableize @rewards,
+<div class="cell" id="center">
+    <% tableize @rewards,
             :name => 'rewards',
             :cols => 4,
             :generate_css => false do |reward| %>
 
-    <%= render :partial => "shared/rewardgrid", :locals => {:reward => reward} %>
-  <% end if @rewards %>
+      <%= render :partial => "shared/rewardgrid", :locals => {:reward => reward} %>
+    <% end if @rewards %>
 </div>
-<div class="column grid_4">
-  <%= render :partial => "shared/rewardsrightbar" %>
-</div>
+<div class="cell" id="right"><%= render :partial => "shared/rewardsrightbar" %></div>
+

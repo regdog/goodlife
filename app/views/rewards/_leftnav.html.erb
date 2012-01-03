@@ -1,12 +1,8 @@
-<ul class="navigation primary">
-  <li class="leftnavitem <%= active_li_css(@view_by, "all") %>"><%= link_to "All", search_local_rewards_path('all', params[:address]) %></li>
-  <% Tag.of_kind("Reward").each do |type| %>
-    <li class="leftnavitem <%= active_li_css(@view_by, type.name) %>">
-      <% if params[:address].nil? %>
-	    <%= link_to type.name, search_local_rewards_path(type.name) if type.name != 'Premium'  %>
-      <% else %>
-        <%= link_to type.name, search_local_rewards_path(type.name, params[:address]) if type.name != 'Premium'  %>
-      <% end %>
-	</li>
+<div class="leftnavitem <%= active_li_css(@view_by, "all") %>"><%= link_to "全部", search_local_rewards_path('all', params[:address]) %></div>
+<% Tag.of_kind("Reward").each do |type| %>
+  <% if params[:address].nil? %>
+    <div class="leftnavitem <%=active_li_css(@view_by, type.name) %>"><%= link_to type.name, search_local_rewards_path(type.name) %></div>
+  <% else %>
+    <div class="leftnavitem <%=active_li_css(@view_by, type.name) %>"><%= link_to type.name, search_local_rewards_path(type.name, params[:address]) %></div>
   <% end %>
-</ul>
+<% end %>

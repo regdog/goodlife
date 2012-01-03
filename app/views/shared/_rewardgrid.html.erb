@@ -6,15 +6,17 @@
   <% end %>
   <div class="top">
     <div class="logo"><%= image_tag reward.image.url(:small) if reward.image %></div>
+    <br/>
     <% if user_signed_in? %>
-      <a class="button " href="<%= new_reward_redemption_path(reward) %>"><div>get it</div></a>
+      <a class="btn" href="<%= new_reward_redemption_path(reward) %>">兑换</a>
     <% else %>
-      <a class="button featcheckin"><div>more points</div></a>
+      <a class="btn">更多积分</a>
     <% end %>
   </div>
   <div class="main">
-    <div class="title">Save ￥<%= reward.save_money %></div>
-    <div class="description"><b><%= reward.partner.business_name %></b><br/><%= link_to "#{[reward.street,t(reward.city, :scope => :cities),t(reward.state, :scope => :states)].join('/')}","http://ditu.google.com/maps?q=#{[reward.street,t(reward.city, :scope => :cities),t(reward.state, :scope => :states)].join(',')}", :target => "_blank" %></div>
-    <div class="points">For <%= reward.redeem_points %> points</div>
+    <div class="title">节省¥<%= reward.save_money %></div>
+    <div class="description"><p><b><%= reward.partner.business_name %></b><br/><%= link_to "#{[reward.street,t(reward.city, :scope => :cities),t(reward.state, :scope => :states)].join('/')}","http://ditu.google.com/maps?q=#{[reward.street,t(reward.city, :scope => :cities),t(reward.state, :scope => :states)].join(',')}", :target => "_blank" %></p></div>
+    <div class="points"><%= reward.redeem_points %>积分</div>
+    <div class="readmore"><a href="#">查看</a></div>
   </div>
 </div>

@@ -1,16 +1,56 @@
-<div class="home_center">
-  <div class="textarea">
-    <div class="bigtext">Small change adds up.</div>
-    <div class="subtext">
-	  <%= link_to "Be better. It's easier than you think.", catalog_feats_path %><br>
-	  <br>
-	  Doing small, positive actions,<br>
-	  every day, adds up to big change.<br>
-	  We're here to help you get there.<br>
-	</div>
-    <div class="action">
-      <a class="button sign_up" href=<%= new_user_registration_path %>><div style="width: 250px;" >GET STARTED NOW</div></a>
+<div class="content">
+  <div id="header">
+    <div class="logo"><%= link_to image_tag("/images/im_logo_full.png"), root_path %></div>
+      <div class="navcontainer">
+        <div class="navitem">
+          <%= link_to image_tag('douban.png', :alt=>'douban'), user_omniauth_authorize_path(:douban)%>
+        </div>
+        <div class="navitem">
+          <%= link_to image_tag('tsina.png', :alt=>'sina weibo'), user_omniauth_authorize_path(:tsina)%>
+        </div>
+        <div class="navitem last">
+          <%= link_to "登录", new_user_session_path, :class => 'sign_in' %> / <%= link_to "注册", new_user_registration_path, :class => 'sign_up' %>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="welcome_content">
+  <div class="content">
+  <div class="welcome_center">
+    <div class="textarea">
+      <div class="bigtext">小改变，大不同</div>
+      <div class="subtext">
+	    <%= link_to "变得更好，比你想象的更容易", catalog_feats_path %><br>
+	    <br>
+	    每天做小的，积极的行动，<br>
+	    累加起来，会发生很大的变化。<br>
+        我们在这里帮助你做到。<br>
+	  </div>
+      <div class="action">
+        <a class="button sign_up" href=<%= new_user_registration_path %>><div style="width: 240px;" >现在开始</div></a>
+      </div>
+    </div>
+    <div class="image"><%= image_tag "/images/im_homestamps.png" %></div>
+  </div>
+  </div>
+</div>
+<div class="content" style="font-size: 16px; line-height:1.5em; overflow: hidden;">
+  <div class="cols cols3">
+    <div class="col first">
+      <div class="welcome_column">这听起来有点奇怪，但是我们是认真的。如果你是一个好人，我们将给你奖励，或捐赠给非营利组织。</div>
+    </div>
+    <div class="col">
+      <div class="welcome_column">"有研究表明，跟踪其良好的生活习惯的人更容易使他们能跟上，并与他人分享这些信息为我们提供了一种自豪感的提升 - 即使是简单的任务..."</div>
+    </div>
+    <div class="col">
+      <div class="welcome_column">"当我做一件好事，那种自豪和满意的感觉，驱使我继续做好事..."</div>
     </div>
   </div>
-  <div class="image"><%= image_tag "im_homestamps.png" %></div>
 </div>
+<div class="content">
+<div id="footer">
+  <%= render :partial => "shared/footer" %>
+</div>
+</div>
+</div>
+

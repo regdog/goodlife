@@ -3,6 +3,7 @@ class CreateCheckins < ActiveRecord::Migration
     create_table :checkins do |t|
       t.references :user, :null => false
       t.references :feat, :null => false
+      t.boolean :epic, :default => false
       t.text :memo
       t.integer :privacy
       t.string :location
