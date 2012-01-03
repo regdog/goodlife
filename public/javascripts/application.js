@@ -144,7 +144,10 @@ $(document).ready(function() {
 
 // Tokeninputs
   if ($('#challenge_feat_tokens').length > 0){
-    $('#challenge_feat_tokens').tokenInput('/admin/feats/feat_tokens.json', {
+    $('#challenge_feat_tokens').tokenInput('/view/feats/feat_tokens.json', {
+      hintText: "输入名称进行检索",
+      searchingText: "检索中...",
+      noResultsText: "无匹配结果",
       crossDomain: false,
       preventDuplicates: true,
       prePopulate: $('#challenge_feat_tokens').data('pre')

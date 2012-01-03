@@ -22,6 +22,7 @@ GoodLife::Application.routes.draw do
     resources :feats, :only => [:index, :show] do
       get 'catalog', :on => :collection
       get 'checkin', :on => :member
+      get 'feat_tokens', :on => :collection
     end
     match 'feats/:id/plan/:type' => 'feats#plan', :as => 'plan_feats'
 

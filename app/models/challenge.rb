@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Challenge < ActiveRecord::Base
   attr_reader :feat_tokens
 
@@ -17,6 +18,13 @@ class Challenge < ActiveRecord::Base
   scope :sort_by_popularity, order('participants_count DESC').order('start_on DESC')
   SORT_TYPES = ['My Challenges', 'By Date', 'By Popularity', 'By Points']
 
+  PERIODS = {
+    '1个星期' => '1',
+    '2个星期' => '2',
+    '3个星期' => '3',
+    '1个月' => '4',
+    '2个月' => '5'
+  }
 
   def feat_tokens=(ids)
     self.feat_ids = ids.split(",")

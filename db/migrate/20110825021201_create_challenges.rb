@@ -6,6 +6,7 @@ class CreateChallenges < ActiveRecord::Migration
       t.text        :description, :null => false
       t.integer     :bonus_points
       t.integer     :participants_count, :default => 0
+      t.string      :period, :default => 1
       t.datetime    :start_on
       t.datetime    :end_on
       t.timestamps

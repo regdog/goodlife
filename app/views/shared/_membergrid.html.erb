@@ -4,7 +4,7 @@
     <% if current_user.members.include?(member) %>
       <a class="button featcheckin" href=<%= member_path(member) %>><div>VIEW</div></a>
     <% elsif current_user.invited_teammates.include?(member) %>
-      <a class="button featcheckin" href="javascript:void(0);"><div>INVITED</div></a>
+      <a class="button" href="javascript:void(0);"><div>INVITED</div></a>
     <% elsif current_user.invited_by_teammates.include?(member) %>
       <a class="button " href=<%= join_team_path(member) %>><div>JOIN TEAM</div></a>
     <% end %>

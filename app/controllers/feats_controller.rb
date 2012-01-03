@@ -1,5 +1,7 @@
 # encoding: UTF-8
 class FeatsController < ApplicationController
+  respond_to :json, :only => :feat_tokens
+
   def index
     redirect_to catalog_feats_path
   end
@@ -37,5 +39,16 @@ class FeatsController < ApplicationController
 
   def checkin
     @feat = Feat.find(params[:id])
+  end
+
+  def feat_tokens
+    if !params[:q]
+      @feats = Feat.all
+    else
+      @feats = Feat.where("name like ?", "%#{params[:q]}%").order(:name)
+    end
+
+    ActiveRecord::Base.include_root_in_json = false
+    respond_with(@feats.to_json(:only=>[:id, :name]))
   end
 end

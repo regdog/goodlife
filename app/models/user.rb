@@ -165,12 +165,26 @@ class User < ActiveRecord::Base
     User.transaction do
       if self.challenges.include?(challenge)
         return nil
-      elsif challenge.participable?
+      #elsif challenge.participable?
+      else
         self.challenges << challenge
         self.save
         challenge.add_counts
-      else
-        return nil
+        accepted_challenge = self.accepted_challenges.last
+        accepted_challenge.accepted_on = Time.now
+        case challenge.period
+          when "1"
+            accepted_challenge.complete_on = 1.week.from_now.localtime
+          when "2"
+            accepted_challenge.complete_on = 2.week.from_now.localtime
+          when "3"
+            accepted_challenge.complete_on = 3.week.from_now.localtime
+          when "4"
+            accepted_challenge.complete_on = 1.month.from_now.localtime
+          when "5"
+            accepted_challenge.complete_on = 2.month.from_now.localtime
+        end
+        accepted_challenge.save
       end
     end
   end

@@ -103,6 +103,7 @@ color: #333;
     padding: 5px;
     background-color: white;
     border: 1px solid #666;
+    overflow: hidden;
 }
 .checkin .prompt .message textarea {
     height: 70px;
