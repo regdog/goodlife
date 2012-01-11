@@ -1,22 +1,28 @@
 <div class="cell" id="center">
-  <div class="memberdetails">
-    <div class="profilepic cell" style="padding-right: 15px;"><%= image_tag('/images/im_facebookprofile.png') %></div>
+  <div class="memberdetails" style="font-size: 13px;">
+    <div class="profilepic cell" style="padding-right: 15px;">
+      <% if @member.avatar_file_name %>
+        <%= image_tag @member.avatar.url(:normal) %>
+      <% else %>
+        <%= image_tag('/images/im_facebookprofile.png') %>
+      <% end %>
+    </div>
     <div class="scores cell">
-      <div style="display: table-row;"><div style="font-size:14px; display: table-cell; padding: 0 15px 5px 0;"><%= @member.life_score  %></div><div style="display: table-cell;">life score</div></div>
-      <div style="display: table-row;"><div style="font-size:14px; display: table-cell; padding: 0 5px 5px 0;"><%= @member.feats_done.size  %></div><div style="display: table-cell;">feat done</div></div>
-      <div style="display: table-row;"><div style="font-size:14px; display: table-cell; padding: 0 5px 5px 0;"><%= @member.earned_points  %></div><div style="display: table-cell;">points earned</div></div>
+      <div style="display: table-row;"><div style="display: table-cell;">分数</div><div style="font-size:14px; font-weight:bold; display: table-cell; padding: 0 15px 5px 5px;"><%= @member.life_score  %></div></div>
+      <div style="display: table-row;"><div style="display: table-cell;">已作过事绩</div><div style="font-size:14px; font-weight:bold;display: table-cell; padding: 0 5px 5px 5px;"><%= @member.feats_done.size  %></div></div>
+      <div style="display: table-row;"><div style="display: table-cell;">积分</div><div style="font-size:14px; font-weight:bold; display: table-cell; padding: 0 5px 5px 5px;"><%= @member.earned_points  %></div></div>
     </div>
     <div class="profile cell" style="text-align: right;">
-      <div style="display: table-row;"><div style="width: 400px;display: table-cell; padding: 0 15px 5px 0;"><b>Location:</b><br/><%= @member.location %></div></div>
-      <div style="display: table-row;"><div style="width: 400px;display: table-cell; padding: 0 15px 5px 0;"><b>A member Since:</b><br/><%= @member.confirmed_at.strftime "%m/%d/%Y" %></div></div>
-      <div style="display: table-row;"><div style="width: 400px;display: table-cell; padding: 0 15px 5px 0;"><b>What inspires me to do good:</b><br/><%= @member.self_description %></div></div>
+      <div style="display: table-row;"><div style="width: 400px;display: table-cell; padding: 0 15px 5px 0;"><b>地址:</b><br/><%= @member.location %></div></div>
+      <div style="display: table-row;"><div style="width: 400px;display: table-cell; padding: 0 15px 5px 0;"><b>注册日期:</b><br/><%= @member.confirmed_at.strftime "%m/%d/%Y" %></div></div>
+      <div style="display: table-row;"><div style="width: 400px;display: table-cell; padding: 0 15px 5px 0;"><b>是什么鼓舞我做好的事绩:</b><br/><%= @member.self_description %></div></div>
     </div>
   </div>
   <br/>
   <br/>
   <div class="tab_checkins">
     <% @member.checkins.each do |checkin| %>
-      <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
+      <%= render :partial => "shared/mycheckins", :locals => {:checkin => checkin } %>
     <% end %>
   </div>
 </div>

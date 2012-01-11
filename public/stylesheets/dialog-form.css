@@ -15,7 +15,7 @@
   filter: alpha(opacity = 50);
 }
 .ui-widget-content {
-color: #333;
+/*color: #333;*/
 }
 .ui-dialog .ui-dialog-titlebar {
     float: right;
@@ -68,14 +68,14 @@ color: #333;
     margin-bottom: 0;
 }
 .checkin .title {
-    color: #828584;
+    
     font-weight: 700;
     font-size: 16px;
 }
 .checkin .options {
     height: 35px;
     margin-top: 10px;
-    color: #828584;
+    
     font-size: 14px;
     overflow: hidden;
 }
@@ -91,7 +91,7 @@ color: #333;
     margin: 0;
     float: left;
     font-size: 12pt;
-    color: #828584;
+    
 }
 .checkin .prompt .textblock .upload {
     margin: 0;
@@ -125,7 +125,7 @@ color: #333;
     margin-top: 10px;
     float: right;
     font-size: 12px;
-    color: #828584;
+    
     height:35px;
     text-align: right;
     overflow: hidden;
@@ -149,7 +149,7 @@ color: #333;
     height: 20px;
     width: 100%;
     font-size: 9pt;
-    color: #828584;
+    
     padding: 0px;
     text-align: center;
     margin-top: 10px;
@@ -179,7 +179,7 @@ color: #333;
     padding-bottom: 10px;
 }
 #d_signup form {
-    color: #A4A6A9;
+    /*color: #A4A6A9;*/
 }
 /* // signup form */
 
@@ -208,11 +208,11 @@ color: #333;
     width: 100%;
     padding-bottom: 25px;
     line-height: 20px;
-    color: #A4A6A9;
+    /*color: #A4A6A9;*/
     font-size: 10pt;
 }
 #d_signin form {
-    color: #A4A6A9;
+    /*color: #A4A6A9;*/
 }
 
 /* // signin form */

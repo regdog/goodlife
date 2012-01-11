@@ -49,7 +49,13 @@
    <div class="rightbarsection">
      <div class="title">我的生命分数</div>
      <div class="lifescoreblock">
-       <div class="profilepic"></div>
+       <div class="profilepic">
+         <% if current_user.avatar_file_name %>
+           <%= image_tag current_user.avatar.url(:normal) %>
+         <% else %>
+           <%= image_tag "/images/im_facebookprofile.png" %>
+         <% end %>
+       </div>
        <div class="lifescore">
          <div class="score"><%= current_user.life_score %></div>
          <div class="name">分数</div>
@@ -72,14 +78,20 @@
         <tbody>
         <% current_user.members.each do |m| %>
           <tr height="35">
-            <td width="30"><%= image_tag "/images/im_facebookprofile.png" %></td>
+            <td width="30">
+              <% if m.avatar_file_name %>
+                <%= image_tag m.avatar.url(:thumb) %>
+              <% else %>
+                <%= image_tag "/images/im_facebookprofile.png" %>
+              <% end %>
+            </td>
             <td class="smalltext" width="170"><%= link_to m.name, member_path(m) %></td>
             <td class="smalltext" align="right" width="80"><%="#{m.earned_points}分" %></td>
           </tr>
         <% end %>
         </tbody>
       </table>
-      <div class="subfooter"><%= link_to "邀请朋友加入我的圈子!", invitation_path %></div>
+      <div class="subfooter"><%= link_to "邀请朋友加入我的圈子!", team_invitation_path %></div>
     </div>
   </div>
 

@@ -1,6 +1,6 @@
 class Reward < ActiveRecord::Base
   attr_reader :tag_tokens
-
+  uniquify :permalink
   belongs_to :partner
   has_many :user_wishes
   has_many :wanted_users, :through => :user_wishes, :source => :user
@@ -25,4 +25,7 @@ class Reward < ActiveRecord::Base
     self.tag_ids = ids.split(",")
   end
 
+  def to_param
+    permalink
+  end
 end

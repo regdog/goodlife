@@ -1,0 +1,2 @@
+$("[coupon_id=<%= @reward.id %>]").find(".overlay").html('<%= escape_javascript(render(:partial => "wishoverlay", :locals => { :reward => @reward }))%>').show();
+$("[coupon_id=<%= @reward.id %>]").find(".saved").remove();

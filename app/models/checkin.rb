@@ -30,7 +30,7 @@ class Checkin < ActiveRecord::Base
       user = self.user
       user.earned_points = user.earned_points + self.feat.bonus_points
       self.challenges.each do |challenge|
-        if user.challenge_completed?(challenge)
+        if user.complete_challenge?(challenge)
           user.earned_points = user.earned_points + challenge.bonus_points
         end
       end

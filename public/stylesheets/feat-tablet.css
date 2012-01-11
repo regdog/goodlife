@@ -61,7 +61,6 @@
         font-size: 8pt;
         line-height: 13px;
         min-height: 15px;
-        color: #828584;
         padding-top: 2px;
         padding-bottom: 2px;
         padding-left: 4px;
@@ -111,7 +110,6 @@
     .feattablet .middle {
         text-align: left;
         font-size: 10pt;
-        color: #828584;
         padding-top: 10px;
     }
     .feattablet .middle .points {
@@ -131,6 +129,9 @@
     }
     .feattablet .plannote a {
         color:#F58220;
+    }
+    .feattablet .plannote span.planned {
+        color:#9acd32;
     }
     .featplan .planoptions{
         padding-top: 5px;

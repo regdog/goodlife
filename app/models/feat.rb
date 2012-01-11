@@ -1,5 +1,5 @@
 class Feat < ActiveRecord::Base
-  permalink :name
+  uniquify :permalink, :chars => 0..9
   attr_reader :tag_tokens
   belongs_to :creator, :polymorphic => true
   has_and_belongs_to_many :challenges
@@ -34,5 +34,9 @@ class Feat < ActiveRecord::Base
 
   def tag_tokens=(ids)
     self.tag_ids = ids.split(",")
+  end
+
+  def to_param
+    permalink
   end
 end

@@ -51,7 +51,6 @@
     /* left vertical navigation for feats/rewards */
     .leftnavitem {
         width: 100px;
-        color: #828584;
         font-size: 16px;
         height: 25px;
         line-height: 25px;
@@ -61,7 +60,6 @@
 
     /* wlecome page nav item */
     .navitem {
-        color: #828584;
         cursor: pointer;
         float: left;
         font-size: 16px;

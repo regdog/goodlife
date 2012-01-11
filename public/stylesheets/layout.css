@@ -19,6 +19,10 @@
 		width: 1000px;
 		text-align:left;
 		}
+
+    .corp, .welcome_body {
+        min-height: 600px;
+    }
 	/*.main, .secondary, .tertiary, .quaternary{*/
 		/*float:left;*/
 		/*display:inline;*/

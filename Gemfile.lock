@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/alluniq/redeem.git
+  revision: 89135dbb72d17f93430b39215d3045975c25397a
+  specs:
+    redeem (0.0.1)
+      activerecord (~> 3.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -176,9 +183,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.30)
+    uniquify (0.1.0)
     uuid (2.3.4)
       macaddr (~> 1.0)
-    uuidtools (2.1.2)
     warden (1.0.6)
       rack (>= 1.0)
 
@@ -201,5 +208,6 @@ DEPENDENCIES
   permalink
   rails (= 3.0.9)
   rake (= 0.8.7)
+  redeem!
   ruby-debug19
-  uuidtools
+  uniquify (~> 0.1.0)

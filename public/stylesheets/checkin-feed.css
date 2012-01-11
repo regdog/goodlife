@@ -24,6 +24,10 @@
     height: 55px;
     width: 55px;
 }
+.feeditem .feedleft .profilepic img {
+    width: 55px;
+    height: 55px;
+}
 .feeditem .feedleft .stamp {
     height: 75px;
     margin-top: 5px;
@@ -54,7 +58,6 @@
     vertical-align: top;
 }
 .feeditem .feedright .title {
-    color: #828584;
     font-size: 13px;
     position: relative;
 }
@@ -78,7 +81,6 @@
     width: 20px;
 }
 .feeditem .feedright .title .didittoo {
-    color: #828584;
     display: none;
     font-size: 8pt;
     padding-top: 2px;
@@ -89,7 +91,7 @@
     width: 60px;
 }
 .feeditem .feedright .message {
-    color: #000000;
+    /*color: #777;*/
     font-size: 13px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -107,7 +109,7 @@
     max-width: 75px;
 }
 .feeditem .feedright .timelocation {
-    color: #828584;
+    
     font-size: 12px;
     font-style: italic;
 }
@@ -134,7 +136,7 @@
     width: 25px;
 }
 .feeditem .feedright .block .text {
-    color: #828584;
+    
     display: table-cell;
     /*float: left;*/
     font-size: 10pt;
@@ -162,9 +164,9 @@
     border-right: 1px solid #F1F1F1;
     float: left;
     font-size: 9pt;
-    margin-right: 5px;
+    margin-right: 10px;
     margin-left: 0;
-    padding-right: 5px;
+    padding-right: 10px;
 }
 .feeditem .feedright .props textarea {
     font-size: 10pt;
@@ -181,19 +183,18 @@
     height: 25px;
     margin-top: 5px;
     text-align: right;
-    width: 100%;
+    width: 500px;
 }
 .feeditem .feedright .giveprop a {
     color: #F58220;
     text-decoration: none;
 }
 .feeditem .feedright .userprops {
-    margin-top:15px;
+    margin-top: 10px;
     border-top: 1px solid #F1F1F1;
 }
 .feeditem .feedright .userprop {
-    color: #828584;
-    font-size: 10pt;
+    /*font-size: 10pt;*/
     text-align: justify;
     margin-left: 21px;
     margin-top: 10px;
@@ -218,8 +219,24 @@
     text-decoration: none;
 }
 .feeditem .feedright .userprop .timestamp {
-    color: #828584;
     padding-left: 15px;
     width: 85px;
 }
 /* // Goodlife checkin  */
+#toTop {
+	width:100px;
+        border:1px solid #ccc;
+        /*background:#f7f7f7;*/
+    background:Lightgreen;
+        text-align:center;
+        padding:5px;
+        position:fixed; /* this is the magic */
+        bottom:10px; /* together with this to put the div at the bottom*/
+        right:10px;
+        cursor:pointer;
+        display:none;
+        /*color:#333;*/
+    color:green;
+        font-family:verdana;
+        font-size:11px;
+}

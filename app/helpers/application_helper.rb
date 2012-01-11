@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module ApplicationHelper
 	def active_li_css(comparison_name, *names)
 	  # Make sure we can pass in an array or multiple strings
@@ -25,5 +26,17 @@ module ApplicationHelper
     else
       return "subnavActive" if controller.controller_name == controller_name
     end
+  end
+
+  def pageless(total_pages, url=nil, container=nil)
+    opts = {
+      :totalPages => total_pages,
+      :url        => url,
+      :loaderMsg  => '正在载入更多事迹'
+    }
+
+    container && opts[:container] ||= container
+
+    javascript_tag("$('#results').pageless(#{opts.to_json});")
   end
 end

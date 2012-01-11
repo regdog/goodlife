@@ -33,12 +33,12 @@ class RewardsController < ApplicationController
   end
 
   def show
-    @reward = Reward.find(params[:id])
+    @reward = Reward.find_by_permalink(params[:id])
     render :layout => 'corp'
   end
 
-  def add_wish
-    @reward = Reward.find(params[:id])
+  def want
+    @reward = Reward.find_by_permalink(params[:id])
     current_user.add_wish(@reward)
 
     respond_to do |format|
@@ -46,8 +46,8 @@ class RewardsController < ApplicationController
     end
   end
 
-  def remove_wish
-    @reward = Reward.find(params[:id])
+  def unwant
+    @reward = Reward.find_by_permalink(params[:id])
     current_user.remove_wish(@reward)
 
     respond_to do |format|
@@ -56,7 +56,7 @@ class RewardsController < ApplicationController
   end
 
   def print
-    @reward = Reward.find(params[:id])
+    @reward = Reward.find_by_permalink(params[:id])
     render :layout => 'print'
   end
 end

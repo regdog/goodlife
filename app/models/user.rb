@@ -5,16 +5,18 @@ class User < ActiveRecord::Base
   include Party::Boy
   acts_as_friend
 
-  permalink :name
+  #uniquify :permalink do
+  #  email.split('@').first.downcase << rand(9999999).to_s
+  #end
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :confirmable,    
-         :lockable, :invitable, :invite_for => 2.weeks
+         :lockable, :invitable, :invite_for => 2.weeks, :invitation_limit => 5
          
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :name, :password, :password_confirmation, :remember_me, :category, :location, :phone_number, :self_description,
-                  :prop_notification, :checkin_notification, :challenge_notification, :checkin_privacy
+                  :avatar, :prop_notification, :checkin_notification, :challenge_notification, :checkin_privacy
   validates_presence_of :name, :if => :name_required?
   validates_uniqueness_of :name
 
@@ -34,6 +36,12 @@ class User < ActiveRecord::Base
   # my redemptions
   has_many :redemptions
 
+  # paperclip
+  has_attached_file :avatar, :styles => { :normal => "105x105>", :thumb => "55x55#" }
+  validates_attachment_size :avatar, :less_than => 1.megabytes
+  validates_attachment_content_type :avatar, :content_type => ['image/x-png', 'image/jpg', 'image/jpeg']
+
+  before_create :set_permalink
   # user categories
   CATEGORIES = {
     '我是一个妈妈' => 1,
@@ -52,6 +60,10 @@ class User < ActiveRecord::Base
      "只与我的圈子分享" => 2,
      "与任何人分享" => 3
   }
+
+  def set_permalink
+    self.permalink = email.split('@').first.downcase << rand(9999999).to_s
+  end
 
   def category_name
     CATEGORIES[category]
@@ -203,7 +215,7 @@ class User < ActiveRecord::Base
   end
 
   # users participated challenge completed or not
-  def challenge_completed?(challenge)
+  def complete_challenge?(challenge)
     all_feats = challenge.feats
     uncompleted_feats ||= []
     completed_feats ||=[]
@@ -218,7 +230,7 @@ class User < ActiveRecord::Base
   def uncompleted_challenges
     uncompleted ||= []
     self.challenges.each do |challenge|
-      unless self.challenge_completed?(challenge)
+      unless self.complete_challenge?(challenge)
         uncompleted << challenge
       end
     end
@@ -341,4 +353,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  # permalink customization
+  def to_param
+    permalink
+  end
 end

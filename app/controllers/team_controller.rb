@@ -44,9 +44,15 @@ class TeamController < ApplicationController
   end
 
   def join
-    user = User.find(params[:member])
+    user = User.find_by_permalink(params[:user_permalink])
     if current_user.accept_membership(user)
       redirect_to :action => 'index'
     end
+  end
+
+  def remove
+    user = User.find_by_permalink(params[:user_permalink])
+    current_user.remove_membership(user)
+    redirect_to :action => 'index'
   end
 end

@@ -5,9 +5,27 @@
   </div>
   <br/>
   <br/>
-  <% @checkins.each do |checkin| %>
-    <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
-  <% end %>
+  <div id="results">
+      <% @checkins.each do |checkin| %>
+        <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
+      <% end %>
+      <%= pageless(@num_pages, checkins_path) %>
+  </div>
 </div>
 <div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
+<div id="toTop">^ 回顶部</div>
+<script type="text/javascript">
+$(function() {
+	$(window).scroll(function() {
+		if($(this).scrollTop() != 0) {
+			$('#toTop').fadeIn();
+		} else {
+			$('#toTop').fadeOut();
+		}
+	});
 
+	$('#toTop').click(function() {
+		$('body,html').animate({scrollTop:0},800);
+	});
+});
+</script>

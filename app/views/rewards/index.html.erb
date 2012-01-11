@@ -55,13 +55,13 @@
       <div class="item" style="font-size: 12px;"><%= type.name %></div>
     <% end %>
   </div>
+  <% form_tag '/view/rewards/local', :method => 'get' do %>
   <div class="column2">
     <div class="rightbarsection"  style="margin: 0px; border: 0px; padding-top: 0px">
       <div class="title">查找您附近的奖励</div>
-      <div class="subtext">告诉我们你的城市，省份，地址或邮编，开始寻找你附近的奖励！</div>
+      <div class="subtext">告诉我们你的街道或邮编，开始寻找你附近的奖励！</div>
       <br/>
-      <br/>
-      <div class="inputsubmit"></div>
+      <div class="inputsubmit"><%= text_field_tag :address, params[:address], :style=>"width:240px" %></div>
     </div>
   </div>
   <div class="column3">
@@ -69,10 +69,11 @@
       <div class="title">搜索奖励</div>
       <div class="subtext">寻找东西吗？输入一个活动或一个品牌。</div>
       <br/>
-      <br/>
-      <div class="inputsubmit"></div>
+      <div class="inputsubmit"><%= text_field_tag :keyword, params[:keyword], :style=>"width:200px" %></div>
+      <%= submit_tag '查询' %>
     </div>
   </div>
+  <% end %>
 </div>
 </div>
 <script>

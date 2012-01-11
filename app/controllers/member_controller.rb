@@ -1,8 +1,7 @@
 # encoding: UTF-8
 class MemberController < ApplicationController
   def show
-    id = params[:nameid]
-    @member = User.find(id)
+    @member = User.find_by_permalink(params[:permalink])
     @page_title = "#{@member.name}"
   end
 end

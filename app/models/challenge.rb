@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class Challenge < ActiveRecord::Base
   attr_reader :feat_tokens
-
+  uniquify :permalink, :chars => 0..9
   belongs_to :creator, :polymorphic => true
   has_and_belongs_to_many :checkins
   has_and_belongs_to_many :feats
@@ -76,5 +76,9 @@ class Challenge < ActiveRecord::Base
 
   def end_on_string=(datetime_str)
     self.end_on = Time.parse(datetime_str) rescue nil
+  end
+
+  def to_param
+    permalink
   end
 end

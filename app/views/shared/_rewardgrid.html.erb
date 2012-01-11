@@ -1,8 +1,8 @@
 <div class="coupontablet" coupon_id=<%= reward.id %>>
   <% if user_signed_in? %>
-  <div class="overlay">
-    <%= render :partial => "rewards/wishlink", :locals => {:reward => reward} %>
-  </div>
+    <div class="overlay"><%= render :partial => "wishoverlay", :locals => {:reward => reward} %></div>
+
+    <%= render :partial => "savedoverlay", :locals => {:reward => reward} %>
   <% end %>
   <div class="top">
     <div class="logo"><%= image_tag reward.image.url(:small) if reward.image %></div>
@@ -17,6 +17,6 @@
     <div class="title">节省¥<%= reward.save_money %></div>
     <div class="description"><p><b><%= reward.partner.business_name %></b><br/><%= link_to "#{[reward.street,t(reward.city, :scope => :cities),t(reward.state, :scope => :states)].join('/')}","http://ditu.google.com/maps?q=#{[reward.street,t(reward.city, :scope => :cities),t(reward.state, :scope => :states)].join(',')}", :target => "_blank" %></p></div>
     <div class="points"><%= reward.redeem_points %>积分</div>
-    <div class="readmore"><a href="#">查看</a></div>
+    <div class="readmore"><%= link_to "查看", reward_path(reward) %></div>
   </div>
 </div>

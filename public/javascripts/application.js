@@ -34,9 +34,9 @@ $(document).ready(function() {
   });
 
   // sign up modal dialog
-  $('.sign_up').click(function(e) {
+  $('.sign_up').live('click', function(e) {
+    if ($('#dialog-form').length > 0 ) {$('#dialog-form').remove();}
     var url = $(this).attr('href');
-    $.easy.popup('#popup_dialog');
     var dialog_form = $('<div id="dialog-form"><img id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
       autoOpen: false,
       width: 470,
@@ -45,10 +45,12 @@ $(document).ready(function() {
       position: ['center', 120],
       open: function() {
         return $(this).load(url + ' #d_signup');
+
       }
     });
-    dialog_form.dialog('open');
     e.preventDefault();
+    dialog_form.dialog('open');
+//    e.preventDefault();
 
     $(window).resize(function(){
       dialog_form.dialog( 'option', 'position', 'center' );
@@ -56,8 +58,8 @@ $(document).ready(function() {
   });
 
   // sign in modal dialog
-  $('.sign_in').click(function(e) {
-
+  $('.sign_in').live('click', function(e) {
+    if ($('#dialog-form').length > 0 ) {$('#dialog-form').remove();}
     var url = $(this).attr('href');
     var dialog_form = $('<div id="dialog-form"><img class="center" id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
       autoOpen: false,
@@ -69,8 +71,101 @@ $(document).ready(function() {
         return $(this).load(url + ' #d_signin');
       }
     });
-    dialog_form.dialog('open');
     e.preventDefault();
+    dialog_form.dialog('open');
+
+    $(window).resize(function(){
+      dialog_form.dialog( 'option', 'position', 'center' );
+    });
+
+    // Hide the close button
+    //jQuery('.ui-dialog-titlebar-close').hide();
+
+    // Modal Dialog Close on Overlay Click
+//    $(".ui-widget-overlay").live('click', function () {
+//      dialog_form.dialog( "close" );
+//	});
+
+  });
+
+  // forget password modal dialog
+  $('.reset_password').live('click', function(e) {
+    if ($('#dialog-form').length > 0 ) {$('#dialog-form').remove();}
+    var url = $(this).attr('href');
+    var dialog_form = $('<div id="dialog-form"><img class="center" id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
+      autoOpen: false,
+      width: 460,
+      modal: true,
+      closeText: "X",
+      position: ['center', 120],
+      open: function() {
+        return $(this).load(url + ' #d_reset_password');
+      }
+    });
+    e.preventDefault();
+    dialog_form.dialog('open');
+
+    $(window).resize(function(){
+      dialog_form.dialog( 'option', 'position', 'center' );
+    });
+
+    // Hide the close button
+    //jQuery('.ui-dialog-titlebar-close').hide();
+
+    // Modal Dialog Close on Overlay Click
+//    $(".ui-widget-overlay").live('click', function () {
+//      dialog_form.dialog( "close" );
+//	});
+
+  });
+
+  // resend confirmation modal dialog
+  $('.resend_confirmation').live('click', function(e) {
+    if ($('#dialog-form').length > 0 ) {$('#dialog-form').remove();}
+    var url = $(this).attr('href');
+    var dialog_form = $('<div id="dialog-form"><img class="center" id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
+      autoOpen: false,
+      width: 460,
+      modal: true,
+      closeText: "X",
+      position: ['center', 120],
+      open: function() {
+        return $(this).load(url + ' #d_resend_confirmation');
+      }
+    });
+    e.preventDefault();
+    dialog_form.dialog('open');
+
+    $(window).resize(function(){
+      dialog_form.dialog( 'option', 'position', 'center' );
+    });
+
+    // Hide the close button
+    //jQuery('.ui-dialog-titlebar-close').hide();
+
+    // Modal Dialog Close on Overlay Click
+//    $(".ui-widget-overlay").live('click', function () {
+//      dialog_form.dialog( "close" );
+//	});
+
+  });
+
+  // resend unlock modal dialog
+  $('.resend_unlocks').live('click', function(e) {
+    if ($('#dialog-form').length > 0 ) {$('#dialog-form').remove();}
+    var url = $(this).attr('href');
+    var dialog_form = $('<div id="dialog-form"><img class="center" id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
+      autoOpen: false,
+      width: 460,
+      modal: true,
+      closeText: "X",
+      position: ['center', 120],
+      open: function() {
+        return $(this).load(url + ' #d_resend_unlocks');
+      }
+    });
+    e.preventDefault();
+    dialog_form.dialog('open');
 
     $(window).resize(function(){
       dialog_form.dialog( 'option', 'position', 'center' );
@@ -88,6 +183,7 @@ $(document).ready(function() {
 
   // check in modal dialog
   $('.featcheckin').click(function(e) {
+    if ($('#dialog-form').length > 0 ) {$('#dialog-form').remove();}
     var url = $(this).attr('href');
     var dialog_form = $('<div id="dialog-form"><img id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
       autoOpen: false,

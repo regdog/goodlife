@@ -20,12 +20,12 @@ class FeatsController < ApplicationController
   end
 
   def show
-    @feat = Feat.find(params[:id])
+    @feat = Feat.find_by_permalink(params[:id])
     @page_title = @feat.name
   end
 
   def plan
-    @feat = Feat.find(params[:id])
+    @feat = Feat.find_by_permalink(params[:id])
     @plan_type = params[:type]
     if @plan_type == 'unplan'
       PlannedTodo.find_by_user_id_and_feat_id(current_user.id, @feat.id).destroy
@@ -38,7 +38,7 @@ class FeatsController < ApplicationController
   end
 
   def checkin
-    @feat = Feat.find(params[:id])
+    @feat = Feat.find_by_permalink(params[:id])
   end
 
   def feat_tokens

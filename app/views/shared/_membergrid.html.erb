@@ -1,18 +1,29 @@
-<div class="featgrid">
+<div class="teamgrid">
   <div class="top">
     <div class="stamp"><%= link_to image_tag('/images/im_facebookprofile.png'), member_path(member) %></div>
+  </div>
+  <div style="margin-top: 45px;">
     <% if current_user.members.include?(member) %>
-      <a class="button featcheckin" href=<%= member_path(member) %>><div>VIEW</div></a>
+      <a class="btn" href=<%= member_path(member) %>><div>看看</div></a>
     <% elsif current_user.invited_teammates.include?(member) %>
-      <a class="button" href="javascript:void(0);"><div>INVITED</div></a>
+      <a class="btn" href="javascript:void(0);"><div>已邀请</div></a>
     <% elsif current_user.invited_by_teammates.include?(member) %>
-      <a class="button " href=<%= join_team_path(member) %>><div>JOIN TEAM</div></a>
+      <a class="btn" href=<%= join_team_path(member) %>><div>加入他的圈子</div></a>
     <% end %>
   </div>
   <div class="middle">
     <div class="title"><%= member.name %></div>
-    <div class="points">
-      Points: <%= member.earned_points %><br/>
+    <div class="description">
+      积分: <b><%= member.earned_points %></b>
+      <br/>
+      最近事迹：
+      <br/>
+      <br/>
+    </div>
+    <div class="description">
+      <% if current_user.members.include?(member) %>
+        <%= link_to "从我的圈子中移除", remove_buddy_path(member) %>
+      <% end %>
     </div>
   </div>
 </div>

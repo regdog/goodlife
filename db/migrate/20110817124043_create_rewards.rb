@@ -2,6 +2,7 @@ class CreateRewards < ActiveRecord::Migration
   def self.up
     create_table :rewards do |t|
       t.references  :partner
+      t.string      :permalink
       t.string      :name, :null => false
       t.text        :information, :null => false
       t.string      :valid_term, :null => false

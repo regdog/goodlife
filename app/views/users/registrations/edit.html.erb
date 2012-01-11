@@ -1,7 +1,7 @@
 <!--<h2>Edit <%#= resource_name.to_s.humanize %></h2>-->
 <div class="cell" id="center">
   <div class="form">
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :method => :put }) do |f| %>
       <%= devise_error_messages! %>
       <div class="header">我的帐户</div>
       <div>
@@ -12,7 +12,7 @@
         <%= f.label "电子邮件:*" %>
         <%= f.email_field :email %>
       </div>
-      <div class="subtext"><i>(leave blank if you don't want to change it)</i></div>
+      <div class="subtext" style="color: #9acd32;"><i>(如果不更改密码，此项可以留空)</i></div>
       <div>
         <%= f.label "密码:*" %>
         <%= f.password_field :password %>
@@ -22,7 +22,7 @@
         <%= f.password_field :password_confirmation %>
       </div>
       <%if !resource.encrypted_password.blank? %>
-        <div class="subtext"><i>(we need your current password to confirm your changes)</i></div>
+        <div class="subtext" style="color: #9acd32;"><i>(如对资料做修改，此项必填)</i></div>
         <div>
           <%= f.label "当前密码:*" %>
           <%= f.password_field :current_password %>
@@ -35,6 +35,13 @@
       <div>
         <%= f.label "电话:" %>
         <%= f.text_field :phone_number %>
+      </div>
+      <div>
+        <%= f.label "头像:" %>
+        <%= f.file_field :avatar %>
+      </div>
+      <div>
+
       </div>
       <br/>
       <br/>

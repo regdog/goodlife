@@ -1,0 +1,11 @@
+<div class="navcontainer">
+<div class="navitem">
+  <%= link_to image_tag('douban.png', :alt=>'douban'), user_omniauth_authorize_path(:douban)%>
+</div>
+<div class="navitem">
+  <%= link_to image_tag('tsina.png', :alt=>'sina weibo'), user_omniauth_authorize_path(:tsina)%>
+</div>
+<div class="navitem last">
+  <%= link_to "登录", new_user_session_path, :class => 'sign_in' %> / <%= link_to "注册", new_user_registration_path, :class => 'sign_up' %>
+</div>
+</div>

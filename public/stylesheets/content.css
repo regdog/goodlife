@@ -114,7 +114,6 @@
     line-height: 35px;
 }
 .welcome_center .textarea .subtext {
-    color: #828584;
     font-size: 13pt;
     line-height: 23px;
     margin-bottom: 25px;
@@ -123,7 +122,6 @@
     color: #f58322;
 }
 .welcome_center .textarea .action {
-    color: #828584;
     font-size: 12pt;
 }
 .welcome_center .image {
@@ -182,7 +180,6 @@
     }
     .feat .sponsorrow .sponsorbanner .text {
         padding-left: 40px;
-        color: #828584;
         font-size: 14px;
         width: 350px;
         height: 100px;
@@ -245,7 +242,6 @@
         padding-right: 20px;
     }
     .challengeright {
-        color:#828584;
         padding-bottom: 10px;
         font-size: 13px;
     }
@@ -265,11 +261,9 @@
 .footer .item {
     float: left;
     font-size: 10pt;
-    color: #828584;
     margin-right: 40px;
 }
 .subfooter {
-    color: #828584;
     text-align: center;
     font-size: 8pt;
 }
@@ -304,7 +298,6 @@
 .homeblockcolumns .item {
     float: left;
     font-size: 10pt;
-    color: #828584;
     margin-right: 40px;
     width: 80px;
     height:30px;
@@ -361,7 +354,6 @@
     width: 390px;
     height: 100%;
     border-top: 2px solid #828584;
-    color: #828584;
     margin-right: 33px;
 }
 .homeblockcolumns .column2 {
@@ -371,7 +363,6 @@
     width: 290px;
     height: 100%;
     border-top: 2px solid #828584;
-    color: #828584;
     margin-right: 33px;
 }
 .homeblockcolumns .column3 {
@@ -381,8 +372,12 @@
     width: 239px;
     margin-right: 0px;
     height: 100%;
-    color: #828584;
     border-top: 2px solid #828584;
 }
 
 /* // rewards */
+
+/* pagination */
+span.page.current {color: #9acd32;}
+
+/* // pagination */

@@ -1,1 +1,0 @@
-$("[coupon_id=<%= @reward.id %>]").find(".overlay").html('<%= escape_javascript(render(:partial => "wishlink", :locals => { :reward => @reward }))%>').show('slow');

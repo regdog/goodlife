@@ -1,23 +1,23 @@
 $("#feat_<%= @feat.id %>_planoptions").hide();
-$("#feat_<%= @feat.id %>_plannote").html("<a href='#' class='planLink'><%= current_user.plan_type(@feat).nil? ? '计划' : "计划#{current_user.plan_type(@feat).downcase}" %></a>")
+$("#feat_<%= @feat.id %>_plannote").html("<a href='#' class='planLink'><span class=<%= current_user.plan_type(@feat).nil? ? 'unplan' : 'planned' %>><%= current_user.plan_type(@feat).nil? ? '计划' : "已计划 - #{PlannedTodo::PLANS[current_user.plan_type(@feat).downcase]}做" %></span></a>")
 $("#feat_<%= @feat.id %>_plannote").show();
 $("#feat_<%= @feat.id %>_plannote").parent().prev('.middle').show();
 
 <% case @plan_type %>
     <% when 'daily' %>
-      $('#feat_<%= @feat.id %>_plandaily a').html('<b><i>&nbsp;&nbsp;每天</i></b>');
+      $('#feat_<%= @feat.id %>_plandaily a').html("<b><i>&nbsp;&nbsp;<span style='text-decoration:underline;'>每天</span></i></b>");
       $('#feat_<%= @feat.id %>_planweekly a').html('&nbsp;&nbsp;每周');
       $('#feat_<%= @feat.id %>_planweekend a').html('&nbsp;&nbsp;每周末');
       $("#feat_<%= @feat.id %>_unplan").show();
     <% when 'weekly' %>
       $('#feat_<%= @feat.id %>_plandaily a').html('&nbsp;&nbsp;每天');
-      $('#feat_<%= @feat.id %>_planweekly a').html('<b><i>&nbsp;&nbsp;每周</i></b>');
+      $('#feat_<%= @feat.id %>_planweekly a').html("<b><i>&nbsp;&nbsp;<span style='text-decoration:underline;'>每周</span></i></b>");
       $('#feat_<%= @feat.id %>_planweekend a').html('&nbsp;&nbsp;每周末');
       $("#feat_<%= @feat.id %>_unplan").show();
     <% when 'weekend' %>
       $('#feat_<%= @feat.id %>_plandaily a').html('&nbsp;&nbsp;每天');
       $('#feat_<%= @feat.id %>_planweekly a').html('&nbsp;&nbsp;每周');
-      $('#feat_<%= @feat.id %>_planweekend a').html('<b><i>&nbsp;&nbsp;每周末</i></b>');
+      $('#feat_<%= @feat.id %>_planweekend a').html("<b><i>&nbsp;&nbsp;<span style='text-decoration:underline;'>每周末</span></i></b>");
       $("#feat_<%= @feat.id %>_unplan").show();
     <% else %>
       $('#feat_<%= @feat.id %>_plandaily a').html('&nbsp;&nbsp;每天');
@@ -30,14 +30,14 @@ $("#feat_<%= @feat.id %>_plannote").parent().prev('.middle').show();
   $('a.planLink').click(function() {
     $(this).parent().hide();
     $(this).parent().parent().prev('.middle').hide();
-    $(this).parent().next('.planoptions').show('slow');
+    $(this).parent().next('.planoptions').show();
     return false;
   });
   // close the plan options on clicking the noted link
   $('a.closeLink').click(function() {
     $(this).parent().hide();
-    $(this).parent().parent().prev('.middle').show('slow');
-    $(this).parent().prev('.plannote').show('slow');
+    $(this).parent().parent().prev('.middle').show();
+    $(this).parent().prev('.plannote').show();
     return false;
   });
 //});

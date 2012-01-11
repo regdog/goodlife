@@ -14,3 +14,14 @@
   <% end %>
 </div>
 <div class="cell" id="right"><%= render :partial => "shared/rewardsrightbar" %></div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    // coupon hover effect
+      $(".coupontablet").hover(function() {
+        $(this).find(".saved").hide();
+      }, function() {
+        $(this).find(".saved").show();
+      });
+
+  });
+</script>

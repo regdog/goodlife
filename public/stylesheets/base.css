@@ -69,7 +69,7 @@
 	body, table, input, textarea, select, li, button{
 		font:1em "微软雅黑", Arial,Verdana,Helvetica,Sans-Serif;
 		line-height:1.5em;
-		color:#626463;
+		color:#777;
 		}		
 	body{
 		font-size:12px;
@@ -78,13 +78,13 @@
 		}	
 	a, a:visited{
 		text-decoration:none;
-		color:#828584;
+		color:#777;
         /*color:#F58220;*/
 		}
 	a:hover{color:#F58220;}
     .current a{color:#F58220;}
     a.btn {
-        color: #828584;
+        color: #777;
         text-decoration: none;
         padding: 7px 9px;
         background: #DFDFDF;
@@ -112,9 +112,10 @@
 		margin:0 0 1.5em 0;
 		}
 	legend{padding:2px 5px;}	
-	form>div{margin:.5em 0;clear:both;overflow:hidden;}
-    form>div{margin:.5em 0;overflow:hidden;}
-	form>div.col{clear:none;}form div.first{clear:both;}
+	.form div{margin:.5em 0;clear:both;overflow:hidden;}
+    .form div{margin:.5em 0;overflow:hidden;}
+	.form div.col{clear:none;}　
+	.form div.first{clear:both;}
 	
 	input[type="text"], input[type="password"], input[type="email"], textarea, .field, .area, select{
 		border:1px solid #aaa;
@@ -147,12 +148,12 @@
 	.notvalid{border:1px solid #900 !important;}
 
     /* two column form styling */
-    form div>label {float:left;}
-    form div>input, form div>select, form div>textarea {float:right;}
-
+    .form div label {float:left;}
+    .form div input, .form div select, .form div textarea {float:right;}
+    .form ul li input {float:left;}
     /* single column form styling */
-    form .s_column div {height:auto; margin-bottom:3px; padding:0px; float: left}
-    form .s_column div label, form .s_column div input, form .s_column div select {float:none;}
+    .form .s_column div {height:auto; margin-bottom:3px; padding:0px; float: left}
+    .form .s_column div label, .form .s_column div input, .form .s_column div select {float:none;}
 
     /* Ajax Loader styles */
     .ajax_loader {background: url("/images/spinner_squares_circle.gif") no-repeat center center transparent;width:100%;height:100%;}

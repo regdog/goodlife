@@ -6,6 +6,6 @@
     <%= image_tag @reward.image.url(:small) if @reward.image %>
   <% end %>
 </p>
-<p>Description<br/><%= @reward.description.html_safe %></p>
+<p>Information<br/><%= @reward.information.html_safe %></p>
 <p>Redeem Points<br/><%= @reward.redeem_points %></p>
 <p>Save Money<br/>$ <%= @reward.save_money %></p>

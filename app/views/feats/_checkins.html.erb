@@ -7,12 +7,12 @@
   <!-- tab containers -->
   <div class="clear" id="latest" >
     <% @feat.checkins.latest.each do |checkin| %>
-      <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
+      <%= render :partial => "shared/feat_checkins", :locals => {:checkin => checkin } %>
     <% end %>
   </div>
   <div class="clear" id="epic">
     <% @feat.checkins.epic.each do |checkin| %>
-      <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
+      <%= render :partial => "shared/feat_checkins", :locals => {:checkin => checkin } %>
     <% end %>
   </div>
 </div>

@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-  layout 'application'
+  layout 'corp'
 
   def show
     @page = Content.find_by_permalink(params[:permalink])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120101102422) do
+ActiveRecord::Schema.define(:version => 20120108130815) do
 
   create_table "accepted_challenges", :force => true do |t|
     t.integer  "user_id"
@@ -51,10 +51,11 @@ ActiveRecord::Schema.define(:version => 20120101102422) do
   create_table "challenges", :force => true do |t|
     t.integer  "creator_id"
     t.string   "creator_type"
-    t.string   "name",                              :null => false
-    t.text     "description",                       :null => false
+    t.string   "name",                                :null => false
+    t.text     "description",                         :null => false
     t.integer  "bonus_points"
     t.integer  "participants_count", :default => 0
+    t.string   "period",             :default => "1"
     t.datetime "start_on"
     t.datetime "end_on"
     t.datetime "created_at"
@@ -301,6 +302,9 @@ ActiveRecord::Schema.define(:version => 20120101102422) do
     t.boolean  "checkin_notification",                                                :default => false
     t.boolean  "challenge_notification",                                              :default => false
     t.integer  "checkin_privacy",        :limit => 1,                                 :default => 0
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

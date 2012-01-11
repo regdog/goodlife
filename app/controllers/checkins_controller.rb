@@ -2,9 +2,14 @@
 class CheckinsController < ApplicationController
   respond_to :html, :js
   def index
-    @checkins = Checkin.latest
+    @checkins = Checkin.latest.page(params[:page])
+    @num_pages =  Checkin.latest.page(params[:page]).num_pages
     @page_title = "鼓励人们的事迹"
     @view_by = "Latest"
+    if request.xhr?
+      sleep(2)
+      render :partial => @checkins
+    end
   end
 
   def epic
@@ -23,6 +28,7 @@ class CheckinsController < ApplicationController
     #end
 
     if @checkin.save
+      #Notifier.checkin_notification(@checkin).deliver
       respond_with @checkin, :layout => !request.xhr?
     end
   end

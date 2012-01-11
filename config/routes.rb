@@ -44,8 +44,8 @@ GoodLife::Application.routes.draw do
       get 'local', :on => :collection
       get 'premium', :on => :collection
       get 'wishlist', :on => :collection
-      get 'add_wish', :on => :member
-      get 'remove_wish', :on => :member
+      get 'want', :on => :member
+      get 'unwant', :on => :member
       get 'print', :on => :member
       resources :redemptions, :only => [:new, :create]
     end
@@ -58,11 +58,12 @@ GoodLife::Application.routes.draw do
   get 'team' => "team#index", :as => :teammates
   get 'team/checkins' => "team#checkins", :as => :team_checkins
   get 'team/requests' => "team#requests", :as => :my_requests
-  get 'team/invitation' => "team#invitation", :as => :invitation
+  get 'team/invitation' => "team#invitation", :as => :team_invitation
   get 'team/invite' => 'team#invite'
-  match 'team/join/:member' => 'team#join', :as =>:join_team
+  get 'buddy/remove/:user_permalink' => 'team#remove', :as => :remove_buddy
+  match 'team/join/:user_permalink' => 'team#join', :as =>:join_team
 
-  get 'member/:nameid' => "member#show", :as => :member
+  get 'member/:permalink' => "member#show", :as => :member
 
   match 'corp/:permalink' => 'contents#show'
   get 'search/index', :as => :search
