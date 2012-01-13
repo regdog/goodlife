@@ -61,16 +61,40 @@
       <div class="title">查找您附近的奖励</div>
       <div class="subtext">告诉我们你的街道或邮编，开始寻找你附近的奖励！</div>
       <br/>
-      <div class="inputsubmit"><%= text_field_tag :address, params[:address], :style=>"width:240px" %></div>
+      <div class="searchwrapper">
+        <%= form_tag '/view/rewards/local', :method => 'get' do %>
+          <%= text_field_tag :address, params[:address], :style=>"width:240px", :id=>"location-search-box" %>
+          <%= image_submit_tag "/images/search.png", :id => "location_submit", :style => "display: none;" %>
+        <% end %>
+      </div>
+        <script type="text/javascript">
+            $("#location-search-box").focus(function(){
+                $("#location_submit").show();
+            }).blur(function(){
+                $("#location_submit").hide();
+            });
+        </script>
     </div>
   </div>
+
   <div class="column3">
     <div class="rightbarsection"  style="margin: 0px; border: 0px; padding-top: 0px">
       <div class="title">搜索奖励</div>
       <div class="subtext">寻找东西吗？输入一个活动或一个品牌。</div>
       <br/>
-      <div class="inputsubmit"><%= text_field_tag :keyword, params[:keyword], :style=>"width:200px" %></div>
-      <%= submit_tag '查询' %>
+      <div class="searchwrapper">
+        <%= form_tag '/view/rewards/local', :method => 'get' do %>
+          <%= text_field_tag :keyword, params[:keyword], :style=>"width:240px", :id=>"keyword-search-box" %>
+          <%= image_submit_tag "/images/search.png", :id => "keyword_submit", :style => "display: none;" %>
+        <% end %>
+      </div>
+        <script type="text/javascript">
+            $("#keyword-search-box").focus(function(){
+                $("#keyword_submit").show();
+            }).blur(function(){
+                $("#keyword_submit").hide();
+            });
+        </script>
     </div>
   </div>
   <% end %>

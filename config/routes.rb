@@ -66,7 +66,8 @@ GoodLife::Application.routes.draw do
   get 'member/:permalink' => "member#show", :as => :member
 
   match 'corp/:permalink' => 'contents#show'
-  get 'search/index', :as => :search
+  get 'search/all' => 'search#all_search'
+  get 'search/feats' => 'search#live_search'
 
   get 'kindeditor/images_list'
   post 'kindeditor/upload'

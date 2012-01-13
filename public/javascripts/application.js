@@ -182,7 +182,7 @@ $(document).ready(function() {
   });
 
   // check in modal dialog
-  $('.featcheckin').click(function(e) {
+  $('.featcheckin').live('click', function(e) {
     if ($('#dialog-form').length > 0 ) {$('#dialog-form').remove();}
     var url = $(this).attr('href');
     var dialog_form = $('<div id="dialog-form"><img id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({

@@ -45,64 +45,45 @@
      </div>
    </div>
    <script type="text/javascript">
-        var timer;
         $("#quick-search-box").live("keyup", function() {
-          if (this.value.length > 0){
-              if (timer){
-                  clearTimeout(timer);
-              }
-              timer = setTimeout(function(){
-                  if ($("#quick-search-box").val().length > 0){
-                      $("#quick-search-box").addClass("loading"); // show the spinner
-                      var form = $("#live-search-form"); // grab the form wrapping the search bar.
-                      var url = "/search/feats"; // live_search action.
-                      var formData = form.serialize(); // grab the data in the form
-                      $.get(url, formData, function(html) { // perform an AJAX get
-                        $("#quick-search-box").removeClass("loading"); // hide the spinner
-                        $("#live-search-results").html(html); // replace the "results" div with the results
-                        if ( $("#live-search-results > *").length > 0 ) {
-                            $("#live-search-results").addClass("search_result_border");
-                        }
-                      });
-                  }
-              }, 1000);
-          }else{
-              $("#live-search-results").html('');
-              $("#live-search-results").removeClass("search_result_border");
-          }
+              var keyCode = $.ui.keyCode;
+			  switch(event.keyCode){
+				case 13:
+					return false;
+					break;
+				case 27:  // esc
+					$(this).val("");
+					break;
+				case 38: // up
+					break;
+				case 40: // down
+					break;
+				default:
+                  $("#quick-search-box").addClass("loading"); // show the spinner
+                  var form = $("#live-search-form"); // grab the form wrapping the search bar.
+                  var url = "/search/feats"; // live_search action.
+                  var formData = form.serialize(); // grab the data in the form
+                  $.get(url, formData, function(html) { // perform an AJAX get
+                    $("#quick-search-box").removeClass("loading"); // hide the spinner
+                    $("#live-search-results").html(html); // replace the "results" div with the results
+                  });
+					break;
+			  };
+
         });
 
         $('#quick-search-box').focus( function () {
 //            $(this).val() = ($(this).val() == "" || $(this).val() == "Search Feat") ?  "" : $(this).val();
             return false;
         }).blur(function (){
-            if (timer){
-                clearTimeout(timer);
-            }
-            timer = setTimeout(function(){
-                $("#live-search-results").html('');
-                $("#live-search-results").removeClass("search_result_border");
-            }, 500);
+            $("#live-search-results").html('');
         });
    </script>
-
    <div class="rightbarsection">
-     <div class="title">查找事绩或奖励</div>
-     <div class="searchwrapper">
-       <%= form_tag({:controller => :search, :action => :all_search}, :method=>"get") do %>
-         <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id => "all-search-box" %>
-         <%= image_submit_tag "/images/search.png", :class => "searchbox_submit", :style => "display: none;" %>
-       <% end %>
+     <div class="title">查找</div>
+     <div>
      </div>
    </div>
-   <script type="text/javascript">
-     $("#all-search-box").focus(function(){
-        $(".searchbox_submit").show();
-     }).blur(function(){
-        $(".searchbox_submit").hide();
-     });
-
-   </script>
 
    <div class="rightbarsection">
      <div class="title">我的生命分数</div>

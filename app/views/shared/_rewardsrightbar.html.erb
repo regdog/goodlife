@@ -2,8 +2,8 @@
 <% if user_signed_in? %>
 <div class="row">
   <div class="rightbarsection">
-    <div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;"><b>奖励积分:</b></div><div style="display: table-cell;"><b><%= current_user.earned_points %></b></div></div>
-    <div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;"><b>节省:</b></div><div style="display: table-cell;"><b><%= number_to_currency(current_user.earned_points.to_f*0.1) %></b></div></div>
+    <div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;font-size: 13px;"><b>奖励积分:</b></div><div style="display: table-cell;font-size: 14px;"><b><%= current_user.earned_points %></b></div></div>
+    <!--<div style="display: table-row;color: #F58220;"><div style="display: table-cell; padding-right: 15px;"><b>节省:</b></div><div style="display: table-cell;"><b><%#= number_to_currency(current_user.earned_points.to_f*0.1) %></b></div></div>-->
   </div>
 </div>
 <% end %>
@@ -11,14 +11,39 @@
   <div class="rightbarsection">
     <div class="title">搜索奖励</div>
     <div class="subtext">告诉我们你的城市，省份，地址或邮编，开始寻找你附近的奖励！</div>
+    <div class="searchwrapper">
     <%= form_tag '/view/rewards/local', :method => 'get' do %>
-      <%= text_field_tag :address, params[:address], :style=>"width:240px" %>
-    <div class="subtext">你想在一个活动中使用您的奖励积分？在这里输入，我们会发现它！</div>
-      <%= text_field_tag :keyword, params[:keyword], :style=>"width:240px" %><br/><br/>
-      <%= submit_tag '查询' %>
+      <%= text_field_tag :address, params[:address], :style=>"width:240px", :id=>"location-search-box" %>
+      <%= image_submit_tag "/images/search.png", :id => "location_submit", :style => "display: none;" %>
     <% end %>
+    </div>
   </div>
 </div>
+<script type="text/javascript">
+    $("#location-search-box").focus(function(){
+        $("#location_submit").show();
+    }).blur(function(){
+        $("#location_submit").hide();
+    });
+</script>
+<div class="row">
+  <div class="rightbarsection">
+    <div class="subtext">你想在一个活动中使用您的奖励积分？在这里输入，我们会发现它！</div>
+    <div class="searchwrapper">
+    <%= form_tag '/view/rewards/local', :method => 'get' do %>
+      <%= text_field_tag :keyword, params[:keyword], :style=>"width:240px", :id=>"keyword-search-box" %>
+      <%= image_submit_tag "/images/search.png", :id => "keyword_submit", :style => "display: none;" %>
+    <% end %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $("#keyword-search-box").focus(function(){
+        $("#keyword_submit").show();
+    }).blur(function(){
+        $("#keyword_submit").hide();
+    });
+</script>
 <div class="row">
   <div class="column grid_4 rightbarsection">
     <div class="title">限制</div>
