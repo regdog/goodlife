@@ -30,6 +30,14 @@ class Challenge < ActiveRecord::Base
     self.feat_ids = ids.split(",")
   end
 
+  def feat_tokens
+    ids ||= []
+    self.feats.each do |f|
+      ids << f.id
+    end
+    ids.join(",");
+  end
+
   # completed challenge feats with users
   def completed_feats(user)
     feats ||= []

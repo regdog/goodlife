@@ -67,7 +67,9 @@ GoodLife::Application.routes.draw do
 
   match 'corp/:permalink' => 'contents#show'
   get 'search/all' => 'search#all_search'
-  get 'search/feats' => 'search#live_search'
+  get 'search/checkin' => 'search#search_for_checkin'
+  get 'search/selection' => 'search#search_for_selection'
+  get 'search/feat' => 'search#feat'
 
   get 'kindeditor/images_list'
   post 'kindeditor/upload'

@@ -37,8 +37,75 @@
       <div class="header">包括哪些事绩?</div>
       <div>
         <%= f.label "添加事绩:*" %>
-        <%= f.text_field :feat_tokens %>
+        <%= f.hidden_field :feat_tokens %>
+        <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id=>"quick-feat-selection"  %>
+        <div id="match-feats"></div>
+        <div id="selected-feats"></div>
       </div>
+       <script type="text/javascript">
+            var feat_tokens = $("#challenge_feat_tokens").val().split(",");
+            var timer;
+            $("#quick-feat-selection").live("keyup", function() {
+              if (this.value.length > 0){
+                  if (timer){
+                      clearTimeout(timer);
+                  }
+                  timer = setTimeout(function(){
+                      if ($("#quick-feat-selection").val().length > 0){
+                          var url = "/search/selection"; // search for selection
+                          $.get(url, {q:$("#quick-feat-selection").val()}, function(html) { // perform an AJAX get
+                            $("#match-feats").html(html); // replace the "results" div with the results
+                            if ( $("#match-feats > *").length > 0 ) {
+                                $("#match-feats").addClass("search_result_border");
+                            }
+                          });
+                      }
+                  }, 1000);
+              }else{
+                  $("#match-feats").html('');
+                  $("#match-feats").removeClass("search_result_border");
+              }
+            });
+
+            $('#quick-feat-selection').focus( function () {
+                  var url = "/search/selection"; // search for selection
+                  $.get(url, {q:$("#quick-feat-selection").val()}, function(html) { // perform an AJAX get
+                    $("#match-feats").html(html); // replace the "results" div with the results
+                    if ( $("#match-feats > *").length > 0 ) {
+                        $("#match-feats").addClass("search_result_border");
+                    }
+                  });
+                return false;
+            }).blur(function (){
+                if (timer){
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(function(){
+                    $("#quick-feat-selection").val('');
+                    $("#match-feats").html('');
+                    $("#match-feats").removeClass("search_result_border");
+                }, 500);
+            });
+
+            $(".featselect").live('click', function(){
+                  var url = "/search/feat";
+                  var id = $(this).attr("id");
+                  $.get(url, {id:$(this).attr("id")}, function(html) {
+                      $("#selected-feats").prepend(html);
+                      feat_tokens.push(id)
+                      $("#challenge_feat_tokens").val(feat_tokens.join(','));
+                });
+            });
+
+            $(".delete_action").live('click', function(){
+                $(this).parent().remove();
+                var id = $(this).parent().attr("id");
+                feat_tokens = $.map(feat_tokens, function(value,index){
+                    return id === feat_tokens[index] ? null : value;
+                })
+                $("#challenge_feat_tokens").val(feat_tokens.join(','));
+            });
+       </script>
       <br/>
       <br/>
       <div class="header">挑战时间及奖励</div>

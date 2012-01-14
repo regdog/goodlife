@@ -75,13 +75,14 @@ class ChallengesController < ApplicationController
 
   def edit
     @challenge = Challenge.find_by_permalink(params[:id])
+    @feats = @challenge.feats
   end
 
   def update
     @challenge = Challenge.find_by_permalink(params[:id])
 
     if @challenge.update_attributes(params[:challenge])
-      redirect_to challenges_feats_path
+      redirect_to mine_challenges_path
     else
       redirect_to :action => "edit"
     end

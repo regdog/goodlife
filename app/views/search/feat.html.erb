@@ -1,0 +1,8 @@
+<div id=<%= @feat.id %>>
+  <%= image_tag @feat.image.url(:thumb), :width => 25, :height => 25 %>
+  <span style="width: 310px;"><%= @feat.name %></span>
+  <span class="delete_action" style="cursor: pointer;"><%= image_tag "/images/im_delete.png" %></span>
+  <%#= link_to feat.name, checkin_feat_path(@feat), :class => "featselect", :id => @feat.permalink %>
+</div>
+
+

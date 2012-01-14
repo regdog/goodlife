@@ -2,11 +2,20 @@
 class SearchController < ApplicationController
 
   # feats quick checkin
-  def live_search
+  def search_for_checkin
     @feats = Feat.where("name like ?", "%#{params[:q]}%").order(:name) if params[:q].length > 0
     render :layout => false
   end
 
+  def search_for_selection
+    @feats = Feat.where("name like ?", "%#{params[:q]}%").order(:name)
+    render :layout => false
+  end
+
+  def feat
+    @feat = Feat.find(params[:id])
+    render :layout => false
+  end
   # search feats, challenges, rewards
   def all_search
     @results ||= []

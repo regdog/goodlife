@@ -51,4 +51,9 @@ class FeatsController < ApplicationController
     ActiveRecord::Base.include_root_in_json = false
     respond_with(@feats.to_json(:only=>[:id, :name]))
   end
+
+  #def select
+  #  @feat = Feat.find_by_permalink(:params[:id])
+  #  render :layout => false
+  #end
 end

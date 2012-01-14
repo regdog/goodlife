@@ -37,7 +37,7 @@
    <div class="rightbarsection">
      <div class="title">快速记事</div>
      <div class="search_box">
-       <%= form_tag({:controller => :search, :action => :live_search}, :method=>"get", :id=>"live-search-form") do %>
+       <%= form_tag({:controller => :search, :action => :search_for_checkin}, :method=>"get", :id=>"live-search-form") do %>
          <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id=>"quick-search-box"  %>
          <%= submit_tag "查询", :style=>"display:none;" %>
          <div id="live-search-results"></div>
@@ -55,7 +55,7 @@
                   if ($("#quick-search-box").val().length > 0){
                       $("#quick-search-box").addClass("loading"); // show the spinner
                       var form = $("#live-search-form"); // grab the form wrapping the search bar.
-                      var url = "/search/feats"; // live_search action.
+                      var url = "/search/checkin"; // live_search action.
                       var formData = form.serialize(); // grab the data in the form
                       $.get(url, formData, function(html) { // perform an AJAX get
                         $("#quick-search-box").removeClass("loading"); // hide the spinner
