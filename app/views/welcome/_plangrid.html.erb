@@ -1,0 +1,12 @@
+<div class="feattablet">
+  <div class="top">
+    <div class="stamp"><%= link_to image_tag(feat.image.url(:medium)), feat_path(feat) if feat.image %></div>
+    <div class="sponsor"></div>
+    <% if current_user %>
+      <a class="btn featcheckin" href=<%= checkin_feat_path(feat) %>>做了</a>
+    <% end %>
+  </div>
+  <div class="middle">
+    <div class="title"><%= feat.name %></div>
+  </div>
+</div>

@@ -1,4 +1,13 @@
 /* feat tablet */
+    .plans_table td {
+        border-bottom: 1px solid #F1F1F1;
+        float: left;
+        padding-left: 0px;
+        margin-right: 30px;
+        padding-top: 0;
+        margin-top: 20px;
+        width: 120px;
+    }
     .feats_table td {
         border-bottom: 1px solid #F1F1F1;
         float: left;

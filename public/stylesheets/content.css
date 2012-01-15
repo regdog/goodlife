@@ -107,11 +107,11 @@
     padding: 20px;
 }
 .welcome_center .textarea .bigtext {
-    font-size: 26pt;
+    font-size: 24pt;
     color: #f58322;
     font-weight: 700;
     margin-bottom: 30px;
-    line-height: 35px;
+    line-height: 40px;
 }
 .welcome_center .textarea .subtext {
     font-size: 13pt;
@@ -143,7 +143,7 @@
 /* content */
 
 .pagetitle {
-    margin-top: 15px;
+    margin-top: 10px;
     /*margin-bottom: 10px;*/
 }
 .pagination{padding-bottom: 20px;}
@@ -378,7 +378,7 @@
 /* // rewards */
 
 /* pagination */
-span.page.current {color: #9acd32;}
+span.page.current {color: #F58220;}
 /* // pagination */
 
 /* search */
@@ -430,16 +430,30 @@ span.page.current {color: #9acd32;}
     vertical-align: middle;
 }
 #live-search-results {
-    width: 246px;
-    background:#eee;
-    margin: 0 2px;
-    padding: 0;
+    width: 240px;
+    background:#fff;
+    padding: 0 5px 0 5px;
     position: absolute;
     z-index: 1;
 }
 .search_result_border {
-    border-bottom: 1px solid #555;
-    border-left: 1px solid #555;
-    border-right: 1px solid #555;
+    border-bottom: 1px solid #f0e68c;
+    border-left: 1px solid #f0e68c;
+    border-right: 1px solid #f0e68c;
+}
+#match-feats, #selected-feats {
+    width: 350px;
+    margin: 0;
+    padding: 0 5px 0px 0px;
+    float:right;
+}
+#match-feats > div {
+    vertical-align: middle;
+}
+.featselect:hover {
+    cursor: pointer;
+}
+.featselect:hover a {
+    color: #F58220;
 }
 /* //search */

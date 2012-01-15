@@ -1,6 +1,6 @@
 <% @feats.each do |feat| %>
-  <div>
+  <div class="featselect" id=<%= feat.id %>>
     <%= image_tag feat.image.url(:thumb), :width => 25, :height => 25 %>
-    <%= link_to feat.name, "javascript:void(0);", :class => "featselect", :id => feat.id %>
+    <%= link_to feat.name, "javascript:void(0);" %>
   </div>
 <% end if @feats %>

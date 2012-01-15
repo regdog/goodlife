@@ -23,7 +23,7 @@
       <div class="text">
         <%= checkin.user.name %>
         <% if checkin.user.complete_challenge?(challenge) %>
-          刚刚完成挑战 <%= link_to challenge.name, challenge_path(challenge)  %>
+          完成了挑战 <%= link_to challenge.name, challenge_path(challenge)  %><i> +<%= challenge.bonus_points %>分!</i>
         <% else %>
           正在挑战 <%= link_to challenge.name, challenge_path(challenge)  %>
         <% end %>

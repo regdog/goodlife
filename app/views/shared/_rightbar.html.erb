@@ -37,11 +37,8 @@
    <div class="rightbarsection">
      <div class="title">快速记事</div>
      <div class="search_box">
-       <%= form_tag({:controller => :search, :action => :search_for_checkin}, :method=>"get", :id=>"live-search-form") do %>
-         <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id=>"quick-search-box"  %>
-         <%= submit_tag "查询", :style=>"display:none;" %>
-         <div id="live-search-results"></div>
-       <% end %>
+       <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id=>"quick-search-box"  %>
+       <div id="live-search-results"></div>
      </div>
    </div>
    <script type="text/javascript">
@@ -54,10 +51,10 @@
               timer = setTimeout(function(){
                   if ($("#quick-search-box").val().length > 0){
                       $("#quick-search-box").addClass("loading"); // show the spinner
-                      var form = $("#live-search-form"); // grab the form wrapping the search bar.
+//                      var form = $("#live-search-form"); // grab the form wrapping the search bar.
                       var url = "/search/checkin"; // live_search action.
-                      var formData = form.serialize(); // grab the data in the form
-                      $.get(url, formData, function(html) { // perform an AJAX get
+//                      var formData = form.serialize(); // grab the data in the form
+                      $.get(url, {q:$("#quick-search-box").val()}, function(html) { // perform an AJAX get
                         $("#quick-search-box").removeClass("loading"); // hide the spinner
                         $("#live-search-results").html(html); // replace the "results" div with the results
                         if ( $("#live-search-results > *").length > 0 ) {
@@ -89,7 +86,7 @@
    <div class="rightbarsection">
      <div class="title">查找事绩或奖励</div>
      <div class="searchwrapper">
-       <%= form_tag({:controller => :search, :action => :all_search}, :method=>"get") do %>
+       <%= form_tag("/search/all", :method=>"get") do %>
          <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id => "all-search-box" %>
          <%= image_submit_tag "/images/search.png", :class => "searchbox_submit", :style => "display: none;" %>
        <% end %>
