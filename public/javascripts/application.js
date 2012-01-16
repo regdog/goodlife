@@ -9,9 +9,7 @@ $(document).ready(function() {
 //           $(this).hide();
 //     });
 
-    $('#submit_button').live('click',function(){
-        var box = new ajaxLoader($('#d_checkin'), {classOveride: 'blue-loader'});
-    });
+
 
   // initialize active subnav menu
    $(".menu li span").find("#subnavActive").parent().show();
@@ -50,11 +48,18 @@ $(document).ready(function() {
     });
     e.preventDefault();
     dialog_form.dialog('open');
-//    e.preventDefault();
 
     $(window).resize(function(){
       dialog_form.dialog( 'option', 'position', 'center' );
     });
+
+    // Hide the close button
+    //jQuery('.ui-dialog-titlebar-close').hide();
+
+    // Modal Dialog Close on Overlay Click
+//    $(".ui-widget-overlay").live('click', function () {
+//      dialog_form.dialog( "close" );
+//	});
   });
 
   // sign in modal dialog
@@ -77,15 +82,6 @@ $(document).ready(function() {
     $(window).resize(function(){
       dialog_form.dialog( 'option', 'position', 'center' );
     });
-
-    // Hide the close button
-    //jQuery('.ui-dialog-titlebar-close').hide();
-
-    // Modal Dialog Close on Overlay Click
-//    $(".ui-widget-overlay").live('click', function () {
-//      dialog_form.dialog( "close" );
-//	});
-
   });
 
   // forget password modal dialog
@@ -108,15 +104,6 @@ $(document).ready(function() {
     $(window).resize(function(){
       dialog_form.dialog( 'option', 'position', 'center' );
     });
-
-    // Hide the close button
-    //jQuery('.ui-dialog-titlebar-close').hide();
-
-    // Modal Dialog Close on Overlay Click
-//    $(".ui-widget-overlay").live('click', function () {
-//      dialog_form.dialog( "close" );
-//	});
-
   });
 
   // resend confirmation modal dialog
@@ -166,22 +153,13 @@ $(document).ready(function() {
     });
     e.preventDefault();
     dialog_form.dialog('open');
-
-    $(window).resize(function(){
-      dialog_form.dialog( 'option', 'position', 'center' );
-    });
-
-    // Hide the close button
-    //jQuery('.ui-dialog-titlebar-close').hide();
-
-    // Modal Dialog Close on Overlay Click
-//    $(".ui-widget-overlay").live('click', function () {
-//      dialog_form.dialog( "close" );
-//	});
+//    $(window).resize(function(){
+//      dialog_form.dialog( 'option', 'position', 'center' );
+//    });
 
   });
 
-  // check in modal dialog
+  // check in modal dialog form
   $('.featcheckin').live('click', function(e) {
     if ($('#dialog-form').length > 0 ) {$('#dialog-form').remove();}
     var url = $(this).attr('href');
@@ -202,19 +180,43 @@ $(document).ready(function() {
     });
     dialog_form.dialog('open');
     e.preventDefault();
-
-    $(window).resize(function(){
-      dialog_form.dialog( 'option', 'position', 'center' );
-    });
-    // Hide the close button
-    //jQuery('.ui-dialog-titlebar-close').hide();
-
-    // Modal Dialog Close on Overlay Click
-//    $(".ui-widget-overlay").live('click', function () {
-//      dialog_form.dialog( "close" );
-//	});
-
   });
+
+$('.epic > div').live('click', function () {
+    $('#checkin_epic').val( $(this).attr('epic') );
+    $(this).css({'color': '#F58220'});
+    $(this).siblings().css({'color': '#828584'});
+    $('.textblock').find('.text').text( $(this).attr('text') );
+    if ($(this).attr('epic') == 'true'){
+        $('.message > textarea').removeClass('validate[required]');
+        $('.message > textarea').addClass('validate[required,minSize[6]]');
+    }else{
+       $('.message > textarea').removeClass('validate[required,minSize[6]]');
+       $('.message > textarea').addClass('validate[required] text-input');
+    }
+});
+
+$('.privacy > div').live('click', function () {
+    $('#checkin_privacy').val( $(this).attr('privacy') );
+    $(this).css({'color': '#F58220'});
+    $(this).siblings().css({'color': '#828584'});
+});
+
+$('#submit_button').live('click',function(e){
+    if ($('#new_checkin').validationEngine('validate')) {
+        var box = new ajaxLoader($('#d_checkin'), {classOveride: 'blue-loader'});
+        return true;
+    }else{
+        return false;
+    }
+//        $("#new_checkin").validationEngine({
+//            onSuccess: function(){
+//            },
+//            onFailure: function(){
+//            }
+//        });
+});
+
 
 // Plan feats
   if ($('.featplan').length > 0 ) {
@@ -250,22 +252,6 @@ $(document).ready(function() {
 //    });
 //  }
 
-  if ($('#feat_tag_tokens').length > 0){
-    $('#feat_tag_tokens').tokenInput('/admin/tags/feat_tag_tokens.json', {
-      crossDomain: false,
-      preventDuplicates: true,
-      prePopulate: $('#feat_tag_tokens').data('pre')
-//      theme: 'facebook'
-    });
-  }
-  if ($('#reward_tag_tokens').length > 0){
-    $('#reward_tag_tokens').tokenInput('/admin/tags/reward_tag_tokens.json', {
-      crossDomain: false,
-      preventDuplicates: true,
-      prePopulate: $('#reward_tag_tokens').data('pre')
-//      theme: 'facebook'
-    });
-  }
 
   // feat checkin tabs
     $(function () {
@@ -281,33 +267,6 @@ $(document).ready(function() {
         }).filter(':first').click();
     });
 
-
-  // auto expand textarea
-  $('textarea').focus( function () {
-    $(this).animate({ height: "40px" });
-    $(this).next('.giveprop').show();
-    return false;
-  });
-//  $('textarea').focus( function () {
-//    $(this).animate({ height: "40px" });
-//    return false;
-//  }).blur(function (){
-//    $(this).animate({ height: "20px" });
-//  });
-
-    // checkin dialog form
-     $('.epic > div').live('click', function () {
-        $('#checkin_epic').val( $(this).attr('epic') );
-        $(this).css({'color': '#F58220'});
-        $(this).siblings().css({'color': '#828584'});
-        $('.textblock').find('.text').text( $(this).attr('text') );
-    })
-
-    $('.privacy > div').live('click', function () {
-        $('#checkin_privacy').val( $(this).attr('privacy') );
-        $(this).css({'color': '#F58220'});
-        $(this).siblings().css({'color': '#828584'});
-    })
 
 
 });

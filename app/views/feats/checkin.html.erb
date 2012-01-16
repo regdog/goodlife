@@ -16,7 +16,7 @@
         <div class="text">What did you do?</div>
         <div class="upload">添加图片</div>
       </div>
-      <div class="message"><%= f.text_area :memo, :style => "width:100%;" %></div>
+      <div class="message"><%= f.text_area :memo, :style => "width:100%;", :class => "validate[required] text-input" %></div>
     </div>
     <div class="options">
       <div class="action"><p><%= f.submit "提交", :id=> 'submit_button' %></p></div>
@@ -27,7 +27,6 @@
       </div>
     </div>
     <div class="location"><span>成都/四川</span></div>
-
   <% end %>
   <div id="loading" style="display: none;"><img id="img-loader" src="/images/ajax-loader_blue.gif" alt="Loading"/></div>
 </div>
