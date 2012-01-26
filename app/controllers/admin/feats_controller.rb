@@ -32,12 +32,12 @@ class Admin::FeatsController < Admin::BaseController
   end
 
   def edit
-    @feat = Feat.find(params[:id])
+    @feat = Feat.find_by_permalink(params[:id])
     @search = Feat.search(params[:search])
   end
 
   def update
-    @feat = Feat.find(params[:id])
+    @feat = Feat.find_by_permalink(params[:id])
 
     if @feat.update_attributes(params[:feat])
       redirect_to :action => "index"
@@ -47,7 +47,7 @@ class Admin::FeatsController < Admin::BaseController
   end
 
   def destroy
-    @feat = Feat.find(params[:id])
+    @feat = Feat.find_by_permalink(params[:id])
     @feat.destroy
     redirect_to admin_feats_path
   end

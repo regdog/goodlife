@@ -6,11 +6,11 @@
       <div class="header">我的帐户</div>
       <div>
         <%= f.label "姓名:*" %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, :required => true %>
       </div>
       <div>
         <%= f.label "电子邮件:*" %>
-        <%= f.email_field :email %>
+        <%= f.email_field :email, :required => true %>
       </div>
       <div class="subtext" style="color: #9acd32;"><i>(如果不更改密码，此项可以留空)</i></div>
       <div>
@@ -27,17 +27,17 @@
           <%= f.label "当前密码:*" %>
           <%= f.password_field :current_password %>
         </div>
-      <%end%>
+      <% end %>
       <div>
         <%= f.label "地址(省份, 城市):" %>
         <%= f.text_field :location %>
       </div>
       <div>
-        <%= f.label "电话:" %>
-        <%= f.text_field :phone_number %>
+        <%= f.label "手机:" %>
+        <%= f.text_field :phone %>
       </div>
       <div>
-        <%= f.label "头像:" %>
+        <%= f.label "更新头像:" %>
         <%= f.file_field :avatar %>
       </div>
       <div>
@@ -48,11 +48,11 @@
       <div class="header">关于我</div>
       <div>
         <%= f.label "我是..." %>
-        <%= f.select :category, User::CATEGORIES %>
+        <%= f.select :role, User::CATEGORIES %>
       </div>
       <div>
-        <%= f.label "Share what inspires you:" %>
-        <%= f.text_area :self_description %>
+        <%= f.label "是什么鼓舞我:" %>
+        <%= f.text_area :information %>
       </div>
       <br/>
       <br/>
@@ -60,22 +60,21 @@
 
       <div>
         <%= f.check_box :prop_notification %>
-        <%= f.label "Get an e-mail when your feats get props" %>
+        <%= f.label "如果有人回复我的事迹，请邮件通知我" %>
       </div>
       <div>
-        <%= f.check_box :checkin_notification %>
-        <%= f.label "Get an e-mail when feats you've propped get more props" %>
+        <%#= f.check_box :checkin_notification %>
+        <%#= f.label "Get an e-mail when feats you've propped get more props" %>
       </div>
-      <div>
-        <label><%= f.check_box :challenge_notification %>Get updates about challenges</label>
-
-      </div>
+      <!--<div>-->
+        <!--<label><%#= f.check_box :challenge_notification %>Get updates about challenges</label>-->
+      <!--</div>-->
       <br/>
       <br/>
       <div class="header">其他</div>
       <div>
-        <%= f.label "Your privacy settings for checkins:" %>
-        <%= f.select :checkin_privacy, User::PRIVACY, :selected => 3 %>
+        <%= f.label "我的事迹隐私设置:" %>
+        <%= f.select :checkin_privacy, User::PRIVACY %>
       </div>
 
       <div class="buttoncontainer">

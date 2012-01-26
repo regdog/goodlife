@@ -23,7 +23,7 @@
   <div class="column grid_3">
     <%= link_to "Create New Content", new_admin_content_path %>
     <h3>Search Partner</h3>
-    <%= form_tag search_path, :method=>'get' do%>
+    <%= form_tag "/admin/contents", :method=>'get' do%>
 		<p>
 			<%= text_field_tag :search, params[:search] %>
 			<%= submit_tag 'Go' %>

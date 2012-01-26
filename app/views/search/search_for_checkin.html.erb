@@ -1,5 +1,5 @@
 <% @feats.each do |feat| %>
-  <div>
+  <div class="display_box">
     <%#= image_tag feat.image.url(:thumb), :width => 25, :height => 25 %>
     <%= link_to feat.name, checkin_feat_path(feat), :class => "featcheckin" %>
   </div>

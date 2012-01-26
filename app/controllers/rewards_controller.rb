@@ -34,7 +34,7 @@ class RewardsController < ApplicationController
 
   def show
     @reward = Reward.find_by_permalink(params[:id])
-    render :layout => 'corp'
+    #render :layout => 'corp'
   end
 
   def want

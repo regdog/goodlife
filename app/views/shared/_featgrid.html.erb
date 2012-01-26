@@ -13,7 +13,7 @@
   <% if current_user %>
   <div class="featplan">
     <div class="plannote" id=<%= "feat_#{feat.id}_plannote" %>>
-      <a href="javascript:void(0)" class="planLink"><span class=<%= current_user.plan_type(feat).nil? ? 'unplan' : 'planned' %>><%= current_user.plan_type(feat).nil? ? '计划' : "已计划 - #{PlannedTodo::PLANS[current_user.plan_type(feat).downcase]}做" %></span></a>
+      <a href="javascript:void(0)" class="planLink"><span class=<%= current_user.plan_type(feat).nil? ? 'unplan' : 'planned' %>><%= current_user.plan_type(feat).nil? ? '计划' : "已计划 - #{PlannedFeat::PLANS[current_user.plan_type(feat).downcase]}做" %></span></a>
     </div>
     <div class="planoptions" <%="id='feat_#{feat.id}_planoptions'" %>>
       <div class="title">计划做..</div>

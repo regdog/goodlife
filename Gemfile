@@ -6,22 +6,27 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '0.2.6'
-gem 'devise', '1.4.2'
-gem 'devise_invitable', '~> 0.5.4'
-#gem 'mongrel'
-gem 'omniauth'
+gem "devise", "~> 1.4.9"
+gem "devise_invitable", "~> 0.6.0"
+gem 'omniauth', "~> 0.3.2"
+gem 'party_boy', "~> 0.3.3"
 gem 'meta_search'
 gem 'kaminari'
-gem 'paperclip', '~> 2.3.16'
-gem 'redeem', :git => 'git://github.com/alluniq/redeem.git'
-#gem 'geo_ip', '~> 0.3.0'
+gem 'paperclip', '~> 2.4.5'
 gem 'permalink'
 gem 'geocoder'
 gem 'jquery-rails'
 gem 'cancan'
-gem "flash-message-conductor", "~> 1.0.2"
-gem "uniquify", "~> 0.1.0"
+gem "uniquify"
+gem 'goose'
+
+
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem 'sqlite3'
+end
 
 
 # Use unicorn as the web server
@@ -43,7 +48,6 @@ gem "uniquify", "~> 0.1.0"
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-group :development, :test do
-   gem "nifty-generators"
-   gem 'ruby-debug19', :require => 'ruby-debug'
-end
+# group :development, :test do
+#   gem 'webrat'
+# end

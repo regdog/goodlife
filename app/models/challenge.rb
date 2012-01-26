@@ -13,17 +13,17 @@ class Challenge < ActiveRecord::Base
   #accepts_nested_attributes_for :feats, :reject_if => lambda { |a| a[:content].blank? }
 
   # sort by date, popularity, points
-  scope :sort_by_date, order('start_on DESC')
-  scope :sort_by_points, order('bonus_points DESC').order('start_on DESC')
-  scope :sort_by_popularity, order('participants_count DESC').order('start_on DESC')
+  scope :sort_by_date, order('created_at DESC')
+  scope :sort_by_points, order('bonus_points DESC').order('created_at DESC')
+  scope :sort_by_popularity, order('participants_count DESC').order('created_at DESC')
   SORT_TYPES = ['My Challenges', 'By Date', 'By Popularity', 'By Points']
 
   PERIODS = {
-    '1个星期' => '1',
-    '2个星期' => '2',
-    '3个星期' => '3',
-    '1个月' => '4',
-    '2个月' => '5'
+    '1个星期' => 1,
+    '2个星期' => 2,
+    '3个星期' => 3,
+    '1个月' => 4,
+    '2个月' => 5
   }
 
   def feat_tokens=(ids)
@@ -52,12 +52,13 @@ class Challenge < ActiveRecord::Base
     self.feats - self.completed_feats(user)
   end
 
-  def participable?
-    if self.end_on > Time.now
-      return true
-    else
-      return false
-    end
+  def participable?(user)
+    return true
+    #if self.end_on > Time.now
+    #  return true
+    #else
+    #  return false
+    #end
   end
 
   def add_counts
@@ -70,21 +71,21 @@ class Challenge < ActiveRecord::Base
     self.save
   end
 
-  def start_on_string
-    start_on.strftime("%Y/%m/%d %H:%M") if start_on
-  end
-
-  def start_on_string=(datetime_str)
-    self.start_on = Time.parse(datetime_str) rescue nil
-  end
-
-  def end_on_string
-    end_on.strftime("%Y/%m/%d %H:%M") if end_on
-  end
-
-  def end_on_string=(datetime_str)
-    self.end_on = Time.parse(datetime_str) rescue nil
-  end
+  #def start_on_string
+  #  start_on.strftime("%Y/%m/%d %H:%M") if start_on
+  #end
+  #
+  #def start_on_string=(datetime_str)
+  #  self.start_on = Time.parse(datetime_str) rescue nil
+  #end
+  #
+  #def end_on_string
+  #  end_on.strftime("%Y/%m/%d %H:%M") if end_on
+  #end
+  #
+  #def end_on_string=(datetime_str)
+  #  self.end_on = Time.parse(datetime_str) rescue nil
+  #end
 
   def to_param
     permalink

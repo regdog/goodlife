@@ -42,11 +42,13 @@
       </p>
       <p>
         <%= f.label "State" %><br/>
-        <%= raw f.state_select :state, {:country => :china, :update => "reward_city", :name => "reward[state]", :current_state => @reward.state.nil? ? :beijing : @reward.state, :current_city => @reward.city.nil? ? :beijing : @reward.city } %>
+        <%= f.text_field :state %>
+        <%#= raw f.state_select :state, {:country => :china, :update => "reward_city", :name => "reward[state]" } %>
      </p>
      <p>
         <%= f.label "City" %><br/>
-        <%= raw f.city_select :city, :country => :china, :state => @reward.state.nil? ? :beijing : @reward.state.to_sym, :name => "reward[city]" %>
+       <%= f.text_field :city %>
+        <%#= raw f.city_select :city, :country => :china, :state => :beijing, :name => "reward[city]" %>
       </p>
       <p>
         <%= f.label "Street" %><br/>
@@ -55,6 +57,10 @@
       <p>
         <%= f.label "zip code" %><br/>
         <%= f.text_field :zipcode %>
+      </p>
+      <p>
+        <%= f.label "phone" %><br/>
+        <%= f.text_field :phone %>
       </p>
       <div class="Upload">
           <% if @reward.image.nil? %>

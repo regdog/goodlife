@@ -1,0 +1,41 @@
+<% content_for :main_nav do %>
+<nav class="navcontainer">
+  <ul class="menu">
+    <%= nav_to "事迹", checkins_path %>
+	<%= nav_to "事项", feats_path do %>
+      <ul class="submenu" id="subnav_feats">
+        <%= nav_to "全部事项", catalog_feats_path %>
+        <%= nav_to "计划事项", plans_path if user_signed_in? %>
+        <%= nav_to "挑战", challenges_path %>
+      </ul>
+    <% end %>
+	<%= nav_to "奖励", rewards_path do %>
+      <ul class="submenu" id="subnav_rewards">
+        <%= nav_to "本地奖励", local_rewards_path %>
+        <%= nav_to "特别奖励", premium_rewards_path %>
+        <%= nav_to "希望的奖励", wishlist_rewards_path if user_signed_in? %>
+      </ul>
+    <% end %>
+	<% if user_signed_in? %>
+	  <%= nav_to "我的圈子", teammates_path do %>
+        <ul class="submenu" id="subnav_team">
+          <%= nav_to "我的朋友", teammates_path %>
+          <%= nav_to "我们的事迹", team_checkins_path %>
+          <%= nav_to "请求", my_requests_path %>
+        </ul>
+      <% end %>
+	  <%= nav_to "关于我", profile_path do %>
+        <ul class="submenu" id="subnav_profile">
+          <%= nav_to "我的事迹", member_path(current_user) %>
+          <%= nav_to "我的资料", profile_path %>
+          <%= nav_to "登出", destroy_user_session_path %>
+        </ul>
+      <% end %>
+    <% else %>
+      <li>
+	    <%= link_to "登录", new_user_session_path, :class => 'sign_in' %> / <%= link_to "注册", new_user_registration_path, :class => 'sign_up' %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+<% end %>

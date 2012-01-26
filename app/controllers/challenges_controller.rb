@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class ChallengesController < ApplicationController
   def index
-    @page_title = "来个自我挑战吧"
+    @page_title = "挑战一下自己"
     if current_user
       @challenges = current_user.challenges.page(params[:page]).per(20)
       @view_by = "mine"

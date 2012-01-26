@@ -1,7 +1,7 @@
 <div>
   <% unless user_signed_in? %>
   <div class="rightbarsection">
-    <div class="title">做的最多的事绩</div>
+    <div class="title">做的最多的事项</div>
     <div>
       <table>
         <tbody>
@@ -37,7 +37,7 @@
    <div class="rightbarsection">
      <div class="title">快速记事</div>
      <div class="search_box">
-       <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id=>"quick-search-box"  %>
+       <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id=>"quick-search-box", :autocomplete => 'off' %>
        <div id="live-search-results"></div>
      </div>
    </div>
@@ -84,10 +84,10 @@
    </script>
 
    <div class="rightbarsection">
-     <div class="title">查找事绩或奖励</div>
+     <div class="title">查找事项或奖励</div>
      <div class="searchwrapper">
        <%= form_tag("/search/all", :method=>"get") do %>
-         <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id => "all-search-box" %>
+         <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:240px", :id => "all-search-box", :autocomplete => 'off' %>
          <%= image_submit_tag "/images/search.png", :class => "searchbox_submit", :style => "display: none;" %>
        <% end %>
      </div>
@@ -117,7 +117,7 @@
        </div>
        <div class="lifescore">
          <div class="score"><%= current_user.feats_done.size %></div>
-         <div class="name">做过的事绩</div>
+         <div class="name">做过的事项</div>
        </div>
        <div class="lifescore">
          <div class="score"><%= current_user.earned_points %></div>

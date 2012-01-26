@@ -35,17 +35,19 @@
         <%= f.label "Disclaimer" %><br/>
         <%= f.text_area :disclaimer, :size => "80x4" %>
       </p>
-      <p>
-        <%= f.label "Country" %><br/>
-        <%= raw f.country_select :country, :only => [:china], :update => "reward_state", :name => "reward[country]"  %>
-      </p>
+      <!--<p>-->
+        <%#= f.label "Country" %><br/>
+        <%#= raw f.country_select :country, :only => [:china], :update => "reward_state", :name => "reward[country]"  %>
+      <!--</p>-->
       <p>
         <%= f.label "State" %><br/>
-        <%= raw f.state_select :state, {:country => :china, :update => "reward_city", :name => "reward[state]" } %>
+        <%= f.text_field :state %>
+        <%#= raw f.state_select :state, {:country => :china, :update => "reward_city", :name => "reward[state]" } %>
      </p>
      <p>
         <%= f.label "City" %><br/>
-        <%= raw f.city_select :city, :country => :china, :state => :beijing, :name => "reward[city]" %>
+       <%= f.text_field :city %>
+        <%#= raw f.city_select :city, :country => :china, :state => :beijing, :name => "reward[city]" %>
       </p>
       <p>
         <%= f.label "Street" %><br/>
@@ -54,6 +56,10 @@
       <p>
         <%= f.label "zip code" %><br/>
         <%= f.text_field :zipcode %>
+      </p>
+      <p>
+        <%= f.label "phone" %><br/>
+        <%= f.text_field :phone %>
       </p>
       <div class="Upload">
         <%= f.fields_for :image do |image_form| %>

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   layout :layout_by_resource
   protect_from_forgery
-  before_filter :load_corp_pages
+  #before_filter :load_corp_pages
 
   protected
 

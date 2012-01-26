@@ -4,8 +4,11 @@ class Checkin < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_and_belongs_to_many :challenges
 
+  scope :everyone, where("privacy = 3")
+  scope :teammates, where("privacy >= 2")
   scope :latest, order("created_at DESC")
-  scope :epic, where("epic = 1").order("created_at DESC")
+  #scope :epic, where("epic = 1").order("created_at DESC")
+  scope :epic, where("epic = 'TRUE'").order("created_at DESC")   # FOR POSTGRESQL
   scope :with_challenge, lambda { |challenge| includes(:challenges).where("challenges.id = ?", challenge.id) }
 
   after_create :earn_points

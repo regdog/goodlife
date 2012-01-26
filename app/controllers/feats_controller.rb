@@ -13,7 +13,7 @@ class FeatsController < ApplicationController
       @feats = @category.feats.page(params[:page]).per(20) if @category
       @view_by = params[:type]
     else
-      @feats = Feat.order(:name).page(params[:page]).per(20)
+      @feats = Feat.order(:created_at).page(params[:page]).per(20)
       @view_by = "all"
     end
     render :index
@@ -22,13 +22,16 @@ class FeatsController < ApplicationController
   def show
     @feat = Feat.find_by_permalink(params[:id])
     @page_title = @feat.name
+
+    @epic_checkins = @feat.epic_checkins.everyone
+    @latest_checkins = @feat.latest_checkins.everyone
   end
 
   def plan
     @feat = Feat.find_by_permalink(params[:id])
     @plan_type = params[:type]
     if @plan_type == 'unplan'
-      PlannedTodo.find_by_user_id_and_feat_id(current_user.id, @feat.id).destroy
+      PlannedFeat.find_by_user_id_and_feat_id(current_user.id, @feat.id).destroy
     else
       current_user.plan(@feat, @plan_type)
     end

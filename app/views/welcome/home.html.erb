@@ -18,7 +18,7 @@
       <div class="subtext">
         <div class="title">今天你做了什么?</div>
         <div class="search_box">
-          <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:400px", :id=>"quick-search-box"  %>
+          <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:400px", :id=>"quick-search-box", :autocomplete => "off",  :placeholder => "输入你做的事情，比如跑步、瑜伽..."   %>
           <div id="live-search-results"></div>
         </div>
 	  </div>
@@ -29,7 +29,7 @@
           <h2><%= link_to "你计划做的事儿", plans_path %></h2>
         </div>
         <div style="border: 1px solid #f1f1f1; overflow: auto; height: 250px; width: 470px; padding: 0px; margin-top: 10px">
-          <% tableize current_user.planned_feats,
+          <% tableize current_user.habits,
                         :name => 'plans',
                         :cols => 3 do |feat| %>
 
@@ -44,13 +44,13 @@
 <div class="content" style="font-size: 16px; line-height:1.5em; overflow: hidden;">
   <div class="cols cols3">
     <div class="col first">
-      <div class="welcome_column">这听起来有点奇怪，但是我们是认真的。如果你是一个好人，我们将给你奖励，或捐赠给非营利组织。</div>
+      <div class="welcome_column">这听起来有点奇怪，但是我们是认真的。如果你是一个好人，持续做有益的事情，你将得到奖励，或将奖励捐赠给非营利组织。</div>
     </div>
     <div class="col">
       <div class="welcome_column">"有研究表明，跟踪其良好的生活习惯的人更容易使他们能跟上，并与他人分享这些信息为我们提供了一种自豪感的提升 - 即使是简单的任务..."</div>
     </div>
     <div class="col">
-      <div class="welcome_column">"当我做一件好事，那种自豪和满意的感觉，驱使我继续做好事..."</div>
+      <div class="welcome_column">"当我做一件好事或有益的事情，那种自豪和满意的感觉，驱使我继续做好事..."</div>
     </div>
   </div>
 </div>
@@ -62,43 +62,99 @@
 </div>
 </div>
 <script type="text/javascript">
-    var timer;
-    $("#quick-search-box").live("keyup", function() {
-      if (this.value.length > 0){
-          if (timer){
-              clearTimeout(timer);
-          }
-          timer = setTimeout(function(){
-              if ($("#quick-search-box").val().length > 0){
-                  $("#quick-search-box").addClass("loading"); // show the spinner
-//                      var form = $("#live-search-form"); // grab the form wrapping the search bar.
-                  var url = "/search/checkin"; // live_search action.
-//                      var formData = form.serialize(); // grab the data in the form
-                  $.get(url, {q:$("#quick-search-box").val()}, function(html) { // perform an AJAX get
-                    $("#quick-search-box").removeClass("loading"); // hide the spinner
-                    $("#live-search-results").html(html); // replace the "results" div with the results
-                    if ( $("#live-search-results > *").length > 0 ) {
-                        $("#live-search-results").addClass("search_result_border");
-                    }
-                  });
-              }
-          }, 1000);
-      }else{
-          $("#live-search-results").html('');
-          $("#live-search-results").removeClass("search_result_border");
-      }
-    });
+var timer;
+$('#quick-search-box').keyup(function(e){
+    var key = e.keyCode;
 
-    $('#quick-search-box').focus( function () {
-//            $(this).val() = ($(this).val() == "" || $(this).val() == "Search Feat") ?  "" : $(this).val();
-        return false;
-    }).blur(function (){
-        if (timer){
-            clearTimeout(timer);
-        }
-        timer = setTimeout(function(){
+    switch(key){
+        case 13:    // enter
+            return false;
+            break;
+        case 27:    // esc
+            $(this).val();
             $("#live-search-results").html('');
-            $("#live-search-results").removeClass("search_result_border");
-        }, 500);
-    });
+            break;
+        case 38:    // up
+            var curr = $('#live-search-results').find('.current');
+            if(curr.length)
+            {
+                    $(curr).attr('class', 'display_box');
+                    $(curr).prev().attr('class', 'display_box current');
+            }
+            else{
+                $('#live-search-results div:last-child').attr('class', 'display_box current');
+            }
+            break;
+        case 40:    // down
+            var curr = $('#live-search-results').find('.current');
+            if(curr.length)
+            {
+                    $(curr).attr('class', 'display_box');
+                    $(curr).next().attr('class', 'display_box current');
+            }
+            else{
+                $('#live-search-results div:first-child').attr('class', 'display_box current');
+            }
+            break;
+        default:
+            if ($(this).val().length > 0) {
+                if(timer){
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(function(){
+                    if ($("#quick-search-box").val().length > 0){
+                        $('#quick-search-box').addClass("loading"); // show the spinner
+//                        var form = $("#live-search-form"); // grab the form wrapping the search bar.
+                        var url = "/search/checkin"; // live_search action.
+//                        var formData = form.serialize(); // grab the data in the form
+                        $.get(url, {q:$('#quick-search-box').val()}, function(html){ // perform an AJAX get
+                            $("#quick-search-box").removeClass("loading"); // hide the spinner
+                            $("#live-search-results").width($('#quick-search-box')[0].offsetWidth);
+                            if (html.length == 0){
+                                $("#live-search-results").html("<div>没有匹配的结果</div>")
+                            }else{
+                                $("#live-search-results").html(html); // replace the "results" div with the results
+                            }
+                        });
+                    }
+                }, 1000);
+             }else {
+                    $("#live-search-results").html('');
+//                    $("#live-search-results").removeClass("search_result_border");
+             }
+            break;
+    }
+});
+
+$('#quick-search-box').keypress(function(e){
+    var key = e.keyCode;
+    if(key==13){
+        var curr = $('#live-search-results').find('.current');
+        curr.find('a').click();
+    }
+});
+
+$('#quick-search-box').blur(function (){
+    if (timer){
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function(){
+        $("#live-search-results").html('');
+//        $("#live-search-results").removeClass("search_result_border");
+        $('#quick-search-box').val('');
+    }, 500);
+});
+
+$('.display_box').hover(function (){
+    $(this).attr('class', 'display_box current')
+}, function (){
+    $(this).attr('class', 'display_box');
+});
+
 </script>
+<style type="text/css">
+  .current{
+    background:#3b5998;
+    color:#FFFFFF;
+  }
+</style>

@@ -1,3 +1,7 @@
+<% content_for :page_header do %>
+  <div class="pagetitle"><h1><%= @page_title %></h1></div>
+<% end %>
+
 <div class="cell" id="left"><%= render :partial => 'leftnav' %></div>
 <div class="cell" id="center">
   <%= paginate @feats %>
@@ -9,4 +13,5 @@
   <% end %>
 </div>
 <div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
+<%= javascript_include_tag 'jquery.validationEngine-zh_CN','jquery.validationEngine' %>
 

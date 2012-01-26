@@ -2,7 +2,7 @@
 class CheckinsController < ApplicationController
   respond_to :html, :js
   def index
-    @checkins = Checkin.latest.page(params[:page])
+    @checkins = Checkin.everyone.latest.page(params[:page])
     @num_pages =  Checkin.latest.page(params[:page]).num_pages
     @page_title = "鼓励人们的事迹"
     @view_by = "Latest"
@@ -13,7 +13,7 @@ class CheckinsController < ApplicationController
   end
 
   def epic
-    @checkins = Checkin.epic
+    @checkins = Checkin.everyone.epic
     @page_title = "很棒的事迹"
     @view_by = "Epic"
     render :index
@@ -22,7 +22,9 @@ class CheckinsController < ApplicationController
   def create
     @checkin = Checkin.new(params[:checkin])
     @checkin.user = current_user
-    #@checkin.location = request.location
+    #@checkin.location = "#{t(request.location.city.downcase, :scope => :cities)}, #{t(request.location.state.downcase, :scope => :states)}"
+    #@checkin.location = "#{t('sichuan', :scope => :states)}, #{t('chengdu', :scope => :cities)}"
+
     #if @checkin.save
     #  redirect_to feats_path
     #end

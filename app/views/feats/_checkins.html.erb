@@ -1,18 +1,28 @@
 <div class="feat_checkins">
-  <!-- tabs -->
+  <div class="feat_checkins_tabnav">
   <ul class="tabs">
-    <li><a href="#latest">新事迹</a></li>
-    <li><a href="#epic">好事迹</a></li>
+	<li><a href="#">最新</a></li>
+	<li><a href="#">壮举</a></li>
   </ul>
-  <!-- tab containers -->
-  <div class="clear" id="latest" >
-    <% @feat.checkins.latest.each do |checkin| %>
-      <%= render :partial => "shared/feat_checkins", :locals => {:checkin => checkin } %>
-    <% end %>
   </div>
-  <div class="clear" id="epic">
-    <% @feat.checkins.epic.each do |checkin| %>
-      <%= render :partial => "shared/feat_checkins", :locals => {:checkin => checkin } %>
-    <% end %>
+  <div class="panes">
+	<div>
+      <% @latest_checkins.each do |checkin| %>
+        <%= render :partial => "shared/feat_checkins", :locals => {:checkin => checkin } %>
+      <% end %>
+  <%#= pageless(@num_pages, feat_checkinss_path) %>
+	</div>
+	<div>
+      <% @epic_checkins.each do |checkin| %>
+        <%= render :partial => "shared/feat_checkins", :locals => {:checkin => checkin } %>
+      <% end %>
+	</div>
   </div>
 </div>
+<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+	$("ul.tabs").tabs("div.panes > div");
+  });
+</script>
+

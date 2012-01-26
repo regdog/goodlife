@@ -1,4 +1,3 @@
-# encoding: UTF-8
 class WelcomeController < ApplicationController
   layout 'welcome'
 
@@ -9,6 +8,5 @@ class WelcomeController < ApplicationController
   end
 
   def home
-
   end
 end

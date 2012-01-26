@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class PlansController < ApplicationController
   def index
-    @feats = current_user.planned_feats.page(params[:page]).per(20)
+    @feats = current_user.habits.page(params[:page]).per(20)
     @view_by = "index"
     @page_title = "我计划的事儿"
   end

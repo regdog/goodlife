@@ -14,7 +14,7 @@
 .navcontainer {
     height: 70px;
     float: right;
-    margin: 0 0 0 auto;
+    margin: 5px 0 0 auto;
     overflow: hidden;
 }
     /* site menu */
@@ -202,32 +202,31 @@
     .feat .details{
         font-size: 14px;
     }
-    .tabs{
-        margin:0;
-        }
-    .tabs li{
-        float:left;
-        margin:0 2px 0 0;
-        list-style:none;
-        }
-    .tabs li a{
-        float:left;
-        line-height:30px;
-        height:30px;
-        padding:0 20px;
-        text-decoration:none !important;
-        border:1px solid #eee;
-        background:#fff;
-        }
-    .tabs li.selected a{
-        background:#eee;
-        }
-    .tabs li a:focus{outline:none;}
-    .tab{
-        height:250px;
-        background:#eee;
-        padding:20px;
-        }
+    /*.tabs{*/
+        /*margin:0;*/
+        /*}*/
+    /*.tabs li{*/
+        /*float:left;*/
+        /*margin:0 2px 0 0;*/
+        /*list-style:none;*/
+        /*}*/
+    /*.tabs li a{*/
+        /*float:left;*/
+        /*line-height:30px;*/
+        /*height:30px;*/
+        /*padding:0 20px;*/
+        /*text-decoration:none !important;*/
+        /*border:1px solid #eee;*/
+        /*}*/
+    /*.tabs li.selected a{*/
+        /*background:#eee;*/
+        /*}*/
+    /*.tabs li a:focus{outline:none;}*/
+    /*.tab{*/
+        /*height:250px;*/
+        /*background:#eee;*/
+        /*padding:20px;*/
+        /*}*/
 
     /* // feat detail */
 
@@ -430,7 +429,7 @@ span.page.current {color: #F58220;}
     vertical-align: middle;
 }
 #live-search-results {
-    width: 240px;
+    /*width: 240px;*/
     background:#fff;
     padding: 0 5px 0 5px;
     position: absolute;

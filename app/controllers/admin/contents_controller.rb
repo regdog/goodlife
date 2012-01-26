@@ -1,5 +1,7 @@
+# encoding: UTF-8
 class Admin::ContentsController < Admin::BaseController
   def index
+    @search = Content.search(params[:search])
     if params[:type] && Tag.of_kind("Content").include?(params[:type])
       @view_by = params[:type]
       @category = Tag.of_kind("Content").find_by_name(params[:type])

@@ -8,7 +8,7 @@ class TeamController < ApplicationController
   end
 
   def checkins
-    @checkins = current_user.team_checkins
+    @checkins = current_user.team_checkins.teammates
     @page_title = "我们的事迹"
     @view_by = "Our Feats"
   end
@@ -36,7 +36,7 @@ class TeamController < ApplicationController
     if user
       current_user.request_membership(user)
     else
-      User.invite!(:email => params[:email], :name => params[:name])
+      User.invite!({:email => params[:email].downcase, :name => params[:name]}, current_user)
       invited_user = User.find_by_email_and_name(params[:email], params[:name])
       current_user.request_membership(invited_user)
     end

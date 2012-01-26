@@ -1,14 +1,16 @@
 class Reward < ActiveRecord::Base
   attr_reader :tag_tokens
   uniquify :permalink
+
   belongs_to :partner
-  has_many :user_wishes
+  has_many :wish_lists
   has_many :wanted_users, :through => :user_wishes, :source => :user
   has_many :taggings, :as => :taggable, :dependent => :destroy
   has_many :tags, :through => :taggings
-
   has_one :image, :as => :attachable, :dependent => :destroy
+
   accepts_nested_attributes_for :image, :allow_destroy => true
+
   scope :of_kind, lambda { |kind| { :conditions => {:kind => kind} } }
 
   # local rewards
@@ -23,6 +25,14 @@ class Reward < ActiveRecord::Base
 
   def tag_tokens=(ids)
     self.tag_ids = ids.split(",")
+  end
+
+  def tag_tokens
+    ids ||= []
+    self.tags.each do |f|
+      ids << f.id
+    end
+    ids.join(",");
   end
 
   def to_param

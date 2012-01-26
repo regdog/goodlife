@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Admin::TagsController < Admin::BaseController
   respond_to :json, :only => [:feat_tag_tokens, :reward_tag_tokens]
 

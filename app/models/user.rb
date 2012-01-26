@@ -1,38 +1,38 @@
 # encoding: UTF-8
-require "party_boy"
-
 class User < ActiveRecord::Base
-  include Party::Boy
   acts_as_friend
-
-  #uniquify :permalink do
-  #  email.split('@').first.downcase << rand(9999999).to_s
-  #end
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :confirmable,    
-         :lockable, :invitable, :invite_for => 2.weeks, :invitation_limit => 5
-         
+  devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable,
+         :omniauthable, :validatable, :invitable, :invite_for => 2.weeks, :invitation_limit => 5
+
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :name, :password, :password_confirmation, :remember_me, :category, :location, :phone_number, :self_description,
-                  :avatar, :prop_notification, :checkin_notification, :challenge_notification, :checkin_privacy
+  attr_accessible :email, :name, :password, :password_confirmation, :remember_me, :category, :location,
+                  :phone, :information, :role, :avatar, :prop_notification, :checkin_privacy
+
   validates_presence_of :name, :if => :name_required?
   validates_uniqueness_of :name
 
   # my authentications
   has_many :authentications, :dependent => :destroy
+
+  #has_many :invitations, :class_name => self.class.to_s, :as => :invited_by
+
   # my planned feats
-  has_many :planned_todos
-  has_many :planned_feats, :through => :planned_todos, :source => :feat
+  has_many :planned_feats
+  has_many :habits, :through => :planned_feats, :source => :feat
+
   # my challenges
   has_many :accepted_challenges
   has_many :challenges, :through => :accepted_challenges
+
   # my checkins
   has_many :checkins
+
   # my reward wishlist
-  has_many :user_wishes
-  has_many :wishes, :through => :user_wishes, :source => :reward
+  has_many :wish_lists
+  has_many :wishes, :through => :wish_lists, :source => :reward
+
   # my redemptions
   has_many :redemptions
 
@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
     feats ||= []
     checkins = Checkin.find(:all,
                 :conditions => ["checkins.user_id = #{self.id}"],
-                :group => 'checkins.user_id, checkins.feat_id')
+                :select => 'DISTINCT checkins.user_id, checkins.feat_id')
     checkins.each do |checkin|
       feats << checkin.feat
     end
@@ -125,23 +125,23 @@ class User < ActiveRecord::Base
 
   # plan feat
   def plan(feat, type)
-    plan = PlannedTodo.find_by_user_id_and_feat_id(self.id, feat.id)
+    plan = PlannedFeat.find_by_user_id_and_feat_id(self.id, feat.id)
     unless plan.nil?
-      plan.plan_type = type
+      plan.period = type
     else
-      plan = PlannedTodo.new
+      plan = PlannedFeat.new
       plan.user_id = self.id
       plan.feat_id = feat.id
-      plan.plan_type = type
+      plan.period = type
     end
     plan.save
   end
 
   # feat planed type
   def plan_type(feat)
-    plan = PlannedTodo.find_by_user_id_and_feat_id(self.id, feat.id)
+    plan = PlannedFeat.find_by_user_id_and_feat_id(self.id, feat.id)
     unless plan.nil?
-      return plan.plan_type
+      return plan.period
     else
       return nil
     end
@@ -150,7 +150,7 @@ class User < ActiveRecord::Base
   # planned feats: daily, weekly, weekend
   def daily_feats
     feats ||= []
-    PlannedTodo.daily(self).each do |plan|
+    PlannedFeat.daily(self).each do |plan|
       feats << plan.feat
     end
     return feats
@@ -158,7 +158,7 @@ class User < ActiveRecord::Base
 
   def weekly_feats
     feats ||= []
-    PlannedTodo.weekly(self).each do |plan|
+    PlannedFeat.weekly(self).each do |plan|
       feats << plan.feat
     end
     return feats
@@ -166,7 +166,7 @@ class User < ActiveRecord::Base
 
   def weekend_feats
     feats ||= []
-    PlannedTodo.weekend(self).each do |plan|
+    PlannedFeat.weekend(self).each do |plan|
       feats << plan.feat
     end
     return feats
@@ -285,7 +285,7 @@ class User < ActiveRecord::Base
 
   # add a reward to wishlist
   def add_wish(reward)
-    wish = UserWish.new
+    wish = WishList.new
     wish.user_id = self.id
     wish.reward_id = reward.id
     wish.save
@@ -293,7 +293,7 @@ class User < ActiveRecord::Base
 
   # remove a reward from wishlist
   def remove_wish(reward)
-    wish = UserWish.find_by_reward_id(reward.id)
+    wish = WishList.find_by_reward_id(reward.id)
     wish.destroy
   end
 
@@ -311,18 +311,18 @@ class User < ActiveRecord::Base
   end
 
   # password is not required if oauth already exists
-  def password_required? 
+  def password_required?
      (authentications.empty? || !password.blank?) && super
   end
-  
+
   # name is not required when being invited
   def name_required?
     persisted?
   end
-  
+
   # overwrite devise update_with_password
   def update_with_password(params={})
-    if self.encrypted_password.blank? && !self.authentications.empty? #password blank & auth not empty           
+    if self.encrypted_password.blank? && !self.authentications.empty? #password blank & auth not empty
       params.delete(:current_password)
       self.update_without_password(params)
       return true
@@ -332,7 +332,7 @@ class User < ActiveRecord::Base
 
   # overwrite devise update_without_password
   def update_without_password(params={})
-    if self.authentications.empty?          
+    if self.authentications.empty?
        params.delete(:password)
        params.delete(:password_confirmation)
     end
@@ -341,7 +341,7 @@ class User < ActiveRecord::Base
     clean_up_passwords
     result
   end
-  
+
   # insert data from omniauth into users registration build
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -357,4 +357,5 @@ class User < ActiveRecord::Base
   def to_param
     permalink
   end
+
 end

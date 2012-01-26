@@ -1,6 +1,7 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+
 $(document).ready(function() {
 
   // initialize active subnav menu
@@ -23,6 +24,16 @@ $(document).ready(function() {
     $(this).find("#subnavActive").parent().show();
   });
 
+  // menu hover effect
+  $(".menu li").hover(function() {
+      $(this).css({"border-color":"#F58220"});
+      $(this).find("ul").show();
+  }, function() {
+    $(this).css({"border-color":"#828584"});
+    $(this).find("ul").hide();
+  });
+
+
 
   // sign up modal form
   $('.sign_up').live('click', function(e) {
@@ -32,8 +43,9 @@ $(document).ready(function() {
     var dialog_form = $('<div id="dialog-form"><img id="img-loader" src="/images/spinner_squares_circle.gif" alt="Loading"/></div>').dialog({
       autoOpen: false,
       width: 470,
-      height: 560,
+//      height: 560,
       modal: true,
+      position: ['center', 120],
       closeText: "X",
       open: function() {
         return $(this).load(url + ' #d_signup');
@@ -173,41 +185,46 @@ $(document).ready(function() {
     });
   });
 
-$('.epic > div').live('click', function () {
-    $('#checkin_epic').val( $(this).attr('epic') );
-    $(this).css({'color': '#F58220'});
-    $(this).siblings().css({'color': '#828584'});
-    $('.textblock').find('.text').text( $(this).attr('text') );
-    if ($(this).attr('epic') == 'true'){
-        $('.message > textarea').removeClass('validate[required]');
-        $('.message > textarea').addClass('validate[required,minSize[60]]');
-    }else{
-       $('.message > textarea').removeClass('validate[required,minSize[60]]');
-       $('.message > textarea').addClass('validate[required] text-input');
-    }
-    $('#new_checkin').validationEngine('hide');
-});
+    $('.epic > div').live('click', function () {
+        $('#checkin_epic').val( $(this).attr('epic') );
+        $(this).css({'color': '#F58220'});
+        $(this).siblings().css({'color': '#828584'});
+        $('.textblock').find('.text').text( $(this).attr('text') );
+        if ($(this).attr('epic') == 'true'){
+            $('.message > textarea').removeClass('validate[required]');
+            $('.message > textarea').addClass('validate[required,minSize[60]]');
+        }else{
+           $('.message > textarea').removeClass('validate[required,minSize[60]]');
+           $('.message > textarea').addClass('validate[required] text-input');
+        }
+        $('#new_checkin').validationEngine('hide');
+    });
 
-$('.privacy > div').live('click', function () {
-    $('#checkin_privacy').val( $(this).attr('privacy') );
-    $(this).css({'color': '#F58220'});
-    $(this).siblings().css({'color': '#828584'});
-});
+    $('.privacy > div').live('click', function () {
+        $('#checkin_privacy').val( $(this).attr('privacy') );
+        $(this).css({'color': '#F58220'});
+        $(this).siblings().css({'color': '#828584'});
+    });
 
-$('#submit_button').live('click',function(e){
-    if ($('#new_checkin').validationEngine('validate')) {
-        var box = new ajaxLoader($('#d_checkin'), {classOveride: 'blue-loader'});
-        return true;
-    }else{
-        return false;
-    }
-//        $("#new_checkin").validationEngine({
-//            onSuccess: function(){
-//            },
-//            onFailure: function(){
-//            }
-//        });
-});
+    $('.location > span > sup').live('click', function () {
+        $('.location').html('');
+        $('#checkin_location').val('');
+    });
+
+    $('#submit_button').live('click',function(e){
+        if ($('#new_checkin').validationEngine('validate')) {
+            var box = new ajaxLoader($('#d_checkin'), {classOveride: 'blue-loader'});
+            return true;
+        }else{
+            return false;
+        }
+    //        $("#new_checkin").validationEngine({
+    //            onSuccess: function(){
+    //            },
+    //            onFailure: function(){
+    //            }
+    //        });
+    });
 
 
 // Plan feats
@@ -265,4 +282,3 @@ $('#submit_button').live('click',function(e){
   });
 
 });
-

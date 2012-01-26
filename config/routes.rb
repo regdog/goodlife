@@ -50,7 +50,7 @@ GoodLife::Application.routes.draw do
       get 'print', :on => :member
       resources :redemptions, :only => [:new, :create]
     end
-    match 'rewards/local/:type(/:address)' => 'rewards#local', :as => :search_local_rewards
+    #match 'rewards/local/:type(/:address)' => 'rewards#local', :as => :search_local_rewards
   end
 
   #resources :redemptions, :only => [:new, :create]

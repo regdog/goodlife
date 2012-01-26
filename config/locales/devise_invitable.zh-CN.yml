@@ -1,0 +1,10 @@
+en:
+  devise:
+    invitations:
+      send_instructions: '邀请电子邮件已经发送到%{email}.'
+      invitation_token_invalid: '提供的邀请令牌无效!'
+      updated: '您的密码设置成功。您现在已登录.'
+      no_invitations_remaining: '没有剩下的邀请名额'
+    mailer:
+      invitation_instructions:
+        subject: '邀请说明'

@@ -1,5 +1,5 @@
 $("#feat_<%= @feat.id %>_planoptions").hide();
-$("#feat_<%= @feat.id %>_plannote").html("<a href='#' class='planLink'><span class=<%= current_user.plan_type(@feat).nil? ? 'unplan' : 'planned' %>><%= current_user.plan_type(@feat).nil? ? '计划' : "已计划 - #{PlannedTodo::PLANS[current_user.plan_type(@feat).downcase]}做" %></span></a>")
+$("#feat_<%= @feat.id %>_plannote").html("<a href='#' class='planLink'><span class=<%= current_user.plan_type(@feat).nil? ? 'unplan' : 'planned' %>><%= current_user.plan_type(@feat).nil? ? '计划' : "已计划 - #{PlannedFeat::PLANS[current_user.plan_type(@feat).downcase]}做" %></span></a>")
 $("#feat_<%= @feat.id %>_plannote").show();
 $("#feat_<%= @feat.id %>_plannote").parent().prev('.middle').show();
 

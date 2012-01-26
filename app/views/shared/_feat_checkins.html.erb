@@ -4,12 +4,12 @@
     <div class="profilepic"></div>
   </div>
   <div class="feedright">
-    <div class="title"><%= link_to checkin.user.name, member_path(checkin.user) %>, <%= User::CATEGORIES.key(checkin.user.category) %>, 做了 <%= link_to checkin.feat.name, feat_path(checkin.feat) %></div>
+    <div class="title"><%= link_to checkin.user.name, member_path(checkin.user) %>, <%= User::CATEGORIES.key(checkin.user.role) %>, 做了 <%= link_to checkin.feat.name, feat_path(checkin.feat) %></div>
     <div class="message">
       <div class="evidence" style="display: none;">evidence pic here</div>
       <%= checkin.memo %>
     </div>
-    <div class="timelocation"><%= time_ago_in_words checkin.created_at %>前, <%= checkin.location %></div>
+    <div class="timelocation"><%= time_ago_in_words checkin.created_at %>前<%= ", #{checkin.location}" if !checkin.location.blank? %></div>
     <% checkin.challenges.each do |challenge| %>
     <div class="block">
       <div class="image"><%= link_to image_tag(challenge.image.nil? ? '/images/icon_defaultchallenge.png' : challenge.image.url(:thumb)), challenge_path(challenge) %></div>
@@ -48,12 +48,12 @@
       </div>
       <% end %>
     </div>
-    <% if checkin.feat.creator %>
-    <div class="block">
-      <div class="image"></div>
-      <div class="text"></div>
-    </div>
-    <% end %>
+    <%# if checkin.feat.creator %>
+    <!--<div class="block">-->
+      <!--<div class="image"></div>-->
+      <!--<div class="text"></div>-->
+    <!--</div>-->
+    <%# end %>
   </div>
   <!--<div style="clear:both;"></div>-->
 </div>

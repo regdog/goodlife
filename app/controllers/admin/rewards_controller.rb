@@ -3,7 +3,7 @@ class Admin::RewardsController < Admin::BaseController
     @search = Reward.search(params[:search])
     if params[:type]
       @view_by = params[:type]
-      @category = Category.reward_category.find_by_name(params[:type])
+      @category = Tag.of_kind("Reward").find_by_name(params[:type])
       if @category
         @rewards = @category.rewards.page(params[:page])
       end
@@ -28,12 +28,12 @@ class Admin::RewardsController < Admin::BaseController
   end
 
   def edit
-    @reward = Reward.find(params[:id])
+    @reward = Reward.find_by_permalink(params[:id])
     @search = Reward.search(params[:search])
   end
 
   def update
-    @reward = Reward.find(params[:id])
+    @reward = Reward.find_by_permalink(params[:id])
 
     if @reward.update_attributes(params[:reward])
       redirect_to :action => "index"
@@ -43,7 +43,7 @@ class Admin::RewardsController < Admin::BaseController
   end
 
   def destroy
-    @reward = Reward.find(params[:id])
+    @reward = Reward.find_by_permalink(params[:id])
     @reward.destroy
     redirect_to admin_rewards_path
   end

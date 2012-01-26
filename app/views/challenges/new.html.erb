@@ -1,26 +1,10 @@
-<%# content_for :head do %>
-  <%= stylesheet_link_tag "tokeninput/token-input" %>
-<%# end %>
-
-<%# content_for :scripts do%>
-  <%= javascript_include_tag 'jquery.tokeninput' %>
-  <script type="text/javascript">
-      // Disable Form Submission on Enter Key Press
-      $('*').keypress(function(e){
-          if (e.keyCode == 13){
-              return false;
-          }
-      });
-  </script>
-<%# end %>
-
 <div class="cell" id="center">
   <div class="form">
     <%= form_for @challenge, :url => {:action => "create"}, :html => { :multipart => true } do |f| %>
       <div class="header">关于挑战</div>
       <div>
         <%= f.label "名称:*" %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, :required => true %>
       </div>
       <div>
         <%= f.label "描述:*" %>
@@ -34,10 +18,10 @@
       </div>
       <br/>
       <br/>
-      <div class="header">包括哪些事绩?</div>
+      <div class="header">包括哪些事项?</div>
       <div>
         <%= f.label "添加事绩:*" %>
-        <%= f.hidden_field :feat_tokens %>
+        <%= f.hidden_field :feat_tokens, :required => true %>
         <%= text_field_tag :q, nil, :maxlength => 10, :style=>"width:350px", :id=>"quick-feat-selection"  %>
         <div id="match-feats"></div>
         <div id="selected-feats"></div>
@@ -126,4 +110,12 @@
   </div>
 </div>
 <div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
-
+<%= javascript_include_tag 'jquery.validationEngine-zh_CN','jquery.validationEngine' %>
+<script type="text/javascript">
+  // Disable Form Submission on Enter Key Press
+  $('*').keypress(function(e){
+      if (e.keyCode == 13){
+          return false;
+      }
+  });
+</script>

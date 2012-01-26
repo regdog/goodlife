@@ -1,16 +1,71 @@
+<style type="text/css">
+    .checkin_tabnav {
+        font-size: 16px;
+        z-index: 1;
+    }
+    .checkin_tabnav ul {
+        margin: 0px;
+        padding: 0px;
+    }
+    .checkin_tabnav li {
+        display: inline;
+        overflow: hidden;
+        list-style-type: none;
+    }
+    .checkin_tabnav li span.disabled {
+        background: #FAFAFA;
+        border-bottom: none;
+        padding: 2px 5px 0px 5px;
+        margin: 0;
+        text-decoration: none;
+    }
+    .checkin_tabnav a, .checkin_tabnav a.active {
+        /*line-height:30px;*/
+        /*height:30px;*/
+        /*padding:0 20px;*/
+        /*text-decoration:none !important;*/
+        border:1px solid #eee;
+        background: #EEEEEE;
+        padding: 5px 15px 5px 15px;
+        margin: 0;
+        text-decoration: none;
+    }
+    .checkin_tabnav a.active {
+        background: #72C9E5;
+        color: #FFFFFF;
+    }
+    .checkin_tabnav a:hover {
+        color: #FFFFFF;
+        background: #CCCCCC;
+    }
+    .checkin_tabnav a:visited {
+        /*color: #F58220;*/
+    }
+    .checkin_tabnav a.active:hover {
+        /*background: #FFFFFF;*/
+        /*color: #F58220;*/
+    }
+    .checkin_tabnav_content {
+        background: #FFFFFF;
+        padding-top: 20px;
+        border-top: none;
+        z-index: 2;
+    }
+</style>
 <div class="cell" id="center">
-  <div class="thirdnav" style="font-size: 16px">
-    <div class="item <%= active_li_css(@view_by, "Latest") %>"><%= link_to '新事迹', checkins_path, :class=>"#{params[:action]=='index' ? 'active' : ''}" %></div>
-    <div class="last <%= active_li_css(@view_by, "Epic") %>"><%= link_to '好事迹', epic_checkins_path, :class=>"#{params[:action]=='epic' ? 'active' : ''}" %></div>
-  </div>
-  <br/>
-  <br/>
-  <div id="results">
+  <!--<div class="thirdnav" style="font-size: 16px">-->
+    <!--<div class="item <%#= active_li_css(@view_by, "Latest") %>"><%#= link_to '新事迹', checkins_path, :class=>"#{params[:action]=='index' ? 'active' : ''}" %></div>-->
+    <!--<div class="last <%#= active_li_css(@view_by, "Epic") %>"><%#= link_to '好事迹', epic_checkins_path, :class=>"#{params[:action]=='epic' ? 'active' : ''}" %></div>-->
+  <!--</div>-->
+  <% tabnav :checkin do %>
+    <div id="results">
       <% @checkins.each do |checkin| %>
         <%= render :partial => "shared/checkinfeed", :locals => {:checkin => checkin } %>
       <% end %>
       <%= pageless(@num_pages, checkins_path) %>
-  </div>
+    </div>
+  <% end %>
+
 </div>
 <div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
 <div id="toTop">^ 回顶部</div>
@@ -21,6 +76,7 @@
     $(this).next('.giveprop').show();
     return false;
   });
+  // back to top
     $(function() {
         $(window).scroll(function() {
             if($(this).scrollTop() != 0) {

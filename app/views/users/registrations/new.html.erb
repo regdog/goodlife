@@ -26,9 +26,9 @@
     </div>
     <div>
       <%= f.label "你是:" %>
-      <%= f.select :category, User::CATEGORIES %>
+      <%= f.select :role, User::CATEGORIES %>
     </div>
-    <% if resource.password_required? %>
+    <%# if resource.password_required? %>
       <div>
         <%= f.label "密码:*" %>
         <%= f.password_field :password %>
@@ -37,7 +37,7 @@
         <%= f.label "密码确认:*" %>
         <%= f.password_field :password_confirmation %>
       </div>
-    <%end%>
+    <%# end %>
     <p><%= f.submit "注册" %></p>
   <% end %>
 

@@ -9,11 +9,18 @@
       <div class="evidence" style="display: none;">evidence pic here</div>
       <%= checkin.memo %>
     </div>
-    <div class="timelocation"><%= time_ago_in_words checkin.created_at %>前, <%= checkin.location %></div>
+    <div class="timelocation"><%= time_ago_in_words checkin.created_at %>前<%= ", #{checkin.location}" if !checkin.location.blank? %></div>
     <% checkin.challenges.each do |challenge| %>
     <div class="block">
       <div class="image"><%= link_to image_tag(challenge.image.nil? ? '/images/icon_defaultchallenge.png' : challenge.image.url(:thumb)), challenge_path(challenge) %></div>
-      <div class="text"><%= checkin.user.name %> 正在挑战 <%= link_to challenge.name, challenge_path(challenge)  %></div>
+      <div class="text">
+        <%= checkin.user.name %>
+        <% if checkin.user.complete_challenge?(challenge) %>
+          完成了挑战 <%= link_to challenge.name, challenge_path(challenge)  %><i> +<%= challenge.bonus_points %>分!</i>
+        <% else %>
+          正在挑战 <%= link_to challenge.name, challenge_path(challenge)  %>
+        <% end %>
+      </div>
     </div>
     <% end %>
     <div class="props" id="checkin_<%= checkin.id %>_props">
@@ -48,12 +55,12 @@
       </div>
       <% end %>
     </div>
-    <% if checkin.feat.creator %>
-    <div class="block">
-      <div class="image"></div>
-      <div class="text"></div>
-    </div>
-    <% end %>
+    <%# if checkin.feat.creator %>
+    <!--<div class="block">-->
+      <!--<div class="image"></div>-->
+      <!--<div class="text"></div>-->
+    <!--</div>-->
+    <%# end %>
   </div>
   <!--<div style="clear:both;"></div>-->
 </div>

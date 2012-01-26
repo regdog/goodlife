@@ -5,16 +5,16 @@
       <div class="bottombar"></div>
 	</li>
 	<li>
-	  <%= link_to "事绩", feats_path %>
+	  <%= link_to "事项", feats_path %>
       <div class="bottombar"></div>
 	  <span id="subnav_feats" class="submenu">
-        <%= link_to "全部事绩", catalog_feats_path, :id => active?("feats") %>
-        <%= link_to "计划的事绩", plans_path, :id => active?("plans") if user_signed_in? %>
+        <%= link_to "全部事项", catalog_feats_path, :id => active?("feats") %>
+        <%= link_to "计划事项", plans_path, :id => active?("plans") if user_signed_in? %>
         <%= link_to "挑战", challenges_path, :id => active?("challenges") %>
       </span>
 	</li>
 	<li>
-	  <%= link_to "激励", rewards_path %>
+	  <%= link_to "奖励", rewards_path %>
       <div class="bottombar"></div>
 	  <span id="subnav_rewards" class="submenu">
         <%= link_to "本地奖励", local_rewards_path, :id => active?("rewards", "local") %>

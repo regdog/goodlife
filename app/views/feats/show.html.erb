@@ -23,4 +23,52 @@
   </div>
 </div>
 <div class="cell" id="right"><%= render :partial => "shared/rightbar" %></div>
-
+<style type="text/css">
+    .feat_checkins_tabnav {
+        font-size: 16px;
+        z-index: 1;
+    }
+    .feat_checkins_tabnav ul {
+        margin: 0px;
+        padding: 0px;
+    }
+    .feat_checkins_tabnav li {
+        display: inline;
+        overflow: hidden;
+        list-style-type: none;
+    }
+    .feat_checkins_tabnav li span.disabled {
+        background: #FAFAFA;
+        border-bottom: none;
+        padding: 2px 5px 0px 5px;
+        margin: 0;
+        text-decoration: none;
+    }
+    .feat_checkins_tabnav a, .feat_checkins_tabnav a.active {
+        background: #EEEEEE;
+        padding: 2px 10px 2px 10px;
+        margin: 0;
+        text-decoration: none;
+    }
+    .feat_checkins_tabnav a.current {
+        background: #72C9E5;
+        color: #FFFFFF;
+    }
+    .feat_checkins_tabnav a:hover {
+        color: #FFFFFF;
+        background: #CCCCCC;
+    }
+    .feat_checkins_tabnav a:visited {
+        /*color: #F58220;*/
+    }
+    .feat_checkins_tabnav a.active:hover {
+        background: #FFFFFF;
+        /*color: #F58220;*/
+    }
+    .feat_checkins_tabnav_content {
+        background: #FFFFFF;
+        padding-top: 20px;
+        border-top: none;
+        z-index: 2;
+    }
+</style>
