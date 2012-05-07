@@ -1,0 +1,27 @@
+!!! 5
+%html{ :lang => "en"}
+  = render "layouts/head"
+  %body.application
+    = render "layouts/flash"
+    = render "layouts/head_panel"
+    .bluepanel{:style=>"background-color: #509DD1;width: 100%;padding: 27px 0 1px 0px;margin-bottom: 30px;"}
+      = yield :bluepanel
+    .container
+      %h3 cameo的帐号
+      %br
+      = yield :settings_navigation
+      -#%ul.nav.nav-tabs{:style=>"font-size:15px;"}
+      -#  %li{ :class => "active" }
+      -#    = link_to settings_account_path, :class => "activities-tab tab" do
+      -#      个人资料
+      -#  -#%li{ :class => "" }
+      -#  -#  = link_to settings_password_path, :class => "activities-tab tab" do
+      -#  -#    更改头像
+      -#  %li{ :class => "" }
+      -#    = link_to settings_password_path, :class => "activities-tab tab" do
+      -#      更改密码
+      -#  %li{ :class => "" }
+      -#    = link_to settings_notifications_path, :class => "activities-tab tab" do
+      -#      设置提醒
+
+      = yield

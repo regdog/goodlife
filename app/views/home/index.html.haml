@@ -1,0 +1,35 @@
+- content_for :center do
+  .row
+    .span4.textarea{:style=>"line-height:2.4em;"}
+      .bigtext{:style=>"font-size:28px;color:#08C;padding: 20px 0;"} 欢迎回来, cameo
+      %p
+        .subtext{:style=>"font-size:22px;padding-bottom:5px;color: #595959;"} 今天你做了什么?
+        = text_field_tag :q, nil, :maxlength => 10, :style=>"width: 100%;", :id=>"quick-search-box", :autocomplete => "off",  :placeholder => "输入你做的事情，比如跑步、瑜伽..."
+        .live-search-results
+        %p{:style=>"font-size:11px;"} 不知道做什么? 去#{link_to '事项', feats_path }看看吧!
+    .span7.plannings.pull-right
+      %ul.nav.nav-tabs{:style=>"font-size:15px;"}
+        %li.active
+          %a{:href=>"#habits", "data-toggle"=>"tab"} 你的习惯
+        %li
+          %a{:href=>"#challenges", "data-toggle"=>"tab"} 你的挑战
+
+      .tab-content
+        .tab-pane.active#habits
+          .content{:style=>"border: 1px solid #f1f1f1; overflow: auto; height: 250px; padding: 0px; margin-top: 10px;"}
+            = render "habit_list"
+        .tab-pane#challenges
+          .content{:style=>"border: 1px solid #f1f1f1; overflow: auto; height: 250px; padding: 0px; margin-top: 10px;"}
+            = render "challenge_list"
+
+
+- content_for :bottom do
+  .row
+    .span4
+      %p 这听起来有点奇怪，但是我们是认真的。如果你是一个好人，持续做有益的事情，你将得到奖励，或将奖励捐赠给非营利组织。
+    .span4
+      %p "有研究表明，跟踪其良好的生活习惯的人更容易使他们能跟上，并与他人分享这些信息为我们提供了一种自豪感的提升 - 即使是简单的任务..."
+    .span4
+      %p "当我做一件好事或有益的事情，那种自豪和满意的感觉，驱使我继续做好事..."
+
+

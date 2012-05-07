@@ -1,0 +1,164 @@
+.stream-checkin {
+    position: relative;
+    min-height: 60px;
+    padding: 9px 0px 0px;
+    border-top: 1px solid #E8E8E8;
+    border-left:1px solid #E8E8E8;
+    border-right:1px solid #E8E8E8;
+}
+.stream-checkin-content {
+    margin-left: 68px;
+    padding-right: 12px;
+}
+.checkinslist:last-child {
+    border-bottom: 1px solid #E8E8E8;
+}
+.stream-item-shadow {
+    margin: 12px 0;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0 0 2px 2px rgba(0, 105, 214, 0.25);
+    border-radius: 2px;
+    box-shadow: 0 0 2px 2px rgba(0, 105, 214, 0.25);
+}
+
+.stream-item-header .actions, .stream-item-header .time {
+    position: absolute;
+    top: 9px;
+    right: 12px;
+    -webkit-transition: opacity .15s ease-in-out;
+    -moz-transition: opacity .2s ease-in-out;
+    transition: opacity .15s ease-in-out;
+}
+.stream-item-header .avatar {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+.stream-item-header .actions {
+    padding-left: 45px;
+    display: none	9;
+    -moz-opacity: 0;
+    opacity: 0;
+}
+.stream-checkin .actions li {
+    display: inline;
+}
+.tweet .action-open-container span:hover {
+text-decoration: underline;
+}
+.stream-item-header .separator {
+    margin-left: 5px;
+    margin-right: -4px;
+}
+.stream-checkin .stream-item-footer {
+    overflow: hidden;
+    font-size: 12px;
+}
+.stream-checkin .challenge-context {
+    display: block;
+    color: #999;
+}
+.stream-checkin .context a {
+    color: #999;
+}
+.challenge-context {
+    padding-bottom:10px;
+}
+.expanded-content {
+    position: relative;
+    /*height: 0;*/
+    display: none;
+    overflow: hidden;
+}
+.client-and-actions .actions {
+    position: relative;
+    top: 0;
+    right: 0;
+    padding-left: 0;
+    margin: 0 ;
+}
+
+.stream-checkin:hover .stream-item-header .actions {
+    opacity: 1;
+}
+.stream-checkin:hover .stream-item-header .time {
+    opacity: 0;
+}
+
+.replies {
+    position: relative;
+    display: none;
+    padding: 0;
+    background: #F6F6F6;
+    /*background: whiteSmoke;*/
+    border-top: 1px solid #DDD;
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+}
+.replies .item {
+    position: relative;
+    padding: 9px 12px 5px;
+    min-height: 32px;
+    padding-left: 70px;
+    font-size: 12px;
+    border-bottom: 1px solid #DDD;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.replies .item .content {
+    margin-left: 0;
+}
+.replies .item .avatar {
+    left: 28px;
+    width: 32px;
+    height: 32px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.replies .content-divider {
+    position: absolute;
+    top: -1px;
+    left: 36px;
+}
+.content-divider.down .inner-carrot {
+    top: 0;
+    border-bottom: 0;
+    border-top: 7px solid #DDD;
+}
+.content-divider .inner-carrot {
+    top: 1px;
+    left: 1px;
+    z-index: 11;
+    border-bottom: 7px solid white;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+}
+/*.content-divider .outer-carrot, .content-divider .inner-carrot {*/
+    /*position: absolute;*/
+    /*width: 0;*/
+    /*height: 0;*/
+    /*vertical-align: text-bottom;*/
+    /*border-style: solid;*/
+/*}       */
+#comment .modal-header {
+    background-color: whiteSmoke;
+    -webkit-border-radius: 6px 6px 0 0 ;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0 ;
+}
+#comment .modal-header img {
+    display: block;
+    float: left;
+    width: 48px;
+    height: 48px;
+    line-height: 1;
+}
+#comment .modal-header span, #comment .modal-header p,  {
+    display: block;
+    margin: 0 0 0 59px;
+    padding: 0;
+}

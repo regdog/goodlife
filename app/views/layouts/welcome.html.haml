@@ -1,0 +1,13 @@
+!!! 5
+%html{ :lang => "en"}
+  = render "layouts/head"
+  %body.application
+    -#= render "layouts/flash"
+    %nav
+      %ul
+        %li
+          = link_to "Sign in", new_user_session_path
+          = link_to "Sign up", new_user_registration_path
+
+    = yield
+

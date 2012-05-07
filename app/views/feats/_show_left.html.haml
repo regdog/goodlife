@@ -1,0 +1,59 @@
+.featdetail{:style=>"min-height: 600px;"}
+  .leaderboard{:style=>"margin-bottom:20px;overflow:hidden;border: 1px solid #CCC;-webkit-border-radius: 4px;-webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);"}
+    .leaderrow{:style=>"display:table-row;"}
+      .user{:style=>"border-right: 4px double #FAA14F;padding: 9px 30px 5px 30px;max-width:75px;display:table-cell;vertical-align:top;"}
+        .placement{:style=>"min-height: 20px;text-align: center;width: 73px;"}
+        %img{:src=>"/assets/im_facebookprofile.png", :style=>"-webkit-border-radius: 4px;width: 75px;height: 75px;"}
+        .record{:style=>"padding:0;text-align:center;"}
+          %h5 六度分离
+          %p
+            0
+            %br
+            次
+      .user{:style=>"padding: 9px 20px 0px 20px;max-width:75px;display:table-cell;vertical-align:top;"}
+        .placement{:style=>"min-height: 20px;text-align: center;width: 73px;"} 第一名
+        %img{:src=>"/assets/im_facebookprofile.png", :style=>"-webkit-border-radius: 4px;width: 75px;height: 75px;"}
+        .record{:style=>"padding:0;text-align:center;"}
+          %h5{} 六度分离六度分离六度分离
+          %p
+            1230
+            %br
+            次
+      .user{:style=>"padding: 9px 20px 0px 20px;max-width:75px;display:table-cell;vertical-align:top;"}
+        .placement{:style=>"min-height: 20px;text-align: center;width: 73px;"} 第二名
+        %img{:src=>"/assets/im_facebookprofile.png", :style=>"-webkit-border-radius: 4px;width: 75px;height: 75px;"}
+        .record{:style=>"padding:0;text-align:center;"}
+          %h5{} 六度分离六度分离六度分离
+          %p
+            1230
+            %br
+            次
+      .user{:style=>"padding: 9px 20px 0px 20px;max-width:75px;display:table-cell;vertical-align:top;"}
+        .placement{:style=>"min-height: 20px;text-align: center;width: 73px;"} 第三名
+        %img{:src=>"/assets/im_facebookprofile.png", :style=>"-webkit-border-radius: 4px;width: 75px;height: 75px;"}
+        .record{:style=>"padding:0;text-align:center;"}
+          %h5{} 六度分离
+          %p
+            1230
+            %br
+            次
+      .user{:style=>"padding: 9px 20px 0px 20px;max-width:75px;display:table-cell;vertical-align:top;"}
+        .placement{:style=>"min-height: 20px;text-align: center;width: 73px;"} 第四名
+        %img{:src=>"/assets/im_facebookprofile.png", :style=>"-webkit-border-radius: 4px;width: 75px;height: 75px;"}
+        .record{:style=>"padding:0;text-align:center;"}
+          %h5{} 六度分离
+          %p
+            1230
+            %br
+            次
+
+  = yield :feat_navigation
+  -#%ul.nav.nav-tabs{:style=>"font-size:15px;"}
+  -#  %li{ :class => "active" }
+  -#    = link_to checkins_path, :class => "activities-tab tab" do
+  -#      最新事迹
+  -#  %li{ :class => "" }
+  -#    = link_to checkins_path, :class => "activities-tab tab" do
+  -#      最新壮举
+
+  .feat_checkins= render "checkins/checkinslist"

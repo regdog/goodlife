@@ -1,0 +1,256 @@
+%div{:style=>"padding-bottom:20px;"}
+  .checkinslist
+    .stream-checkin.first{:id=>"1", :expanded=>0}
+      .stream-checkin-content
+        .stream-item-header
+          %small.time 3月28
+          %span
+            = image_tag "im_facebookprofile.png", :width => 48, :height => 48, :class=>"avatar", :style=>"-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+          %span.checkin-title
+            %strong
+              = link_to "柒子的马甲","#"
+            %code 我是一个妈妈
+            做了
+            %strong
+              = link_to "真实的自己", "#"
+          %ul.actions
+            %li= link_to "评论", "javascript:void(0);", :class=>"comment", "checkin"=>"1"
+            %li 赞
+            %li 分享
+            %li
+              %span.separator·
+              %span.open-checkin= link_to "展开", "javascript:void(0);"
+        %p.checkin-text{:style=>"word-wrap: break-word;"} 匪我思存，20部小说的作者，10部电视连续剧的原著者，国内原创爱情小说领军人物，在多家知名杂志发表过小说。
+        .stream-item-footer
+          .context
+            %span.challenge-context
+              %i.badge-promoted
+              = link_to "柒子的马甲", "#"
+              正在挑战
+              = link_to "保持苗条", "#"
+        .expanded-content
+          .client-and-actions
+            %span{:title=>"2010-3-29 上午8:47"} 2010-3-29 上午8:47
+            %ul.actions
+              %li 评论
+              %li 赞
+              %li 分享
+      .replies{:id=>"replies-1"}
+        .replies-wrapper{:style=>"padding-top:4px;"}
+          .item
+            .content
+              .stream-item-header
+                %small.time 3月28
+                %span
+                  = image_tag "im_facebookprofile.png", :class=>"avatar"
+                %strong
+                  = link_to "画旅途","#"
+                %p{:style=>"word-wrap: break-word;"} 我在做一个项目，是尽可能 把YouTube上和电影电视剧相关的频道收集起来，包括大电影公司的幕后采访，预告片，特效公司，电视剧预告片等，目的就是给喜欢电影电视剧
+          .item
+            .content
+              .stream-item-header
+                %small.time 3月28
+                %span
+                  = image_tag "im_facebookprofile.png", :class=>"avatar"
+                %strong
+                  = link_to "画旅途","#"
+                %p{:style=>"word-wrap: break-word;"} 匪我思存，20部小说的作者。
+        .content-divider.down
+          .inner-carrot
+    .stream-checkin{:expanded=>0}
+      .stream-checkin-content
+        .stream-item-header
+          %small.time 3月28
+          %span
+            = image_tag "im_facebookprofile.png", :width => 48, :height => 48, :class=>"avatar", :style=>"-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+            %strong
+              = link_to "画旅途","#"
+            %code 我是一个学生
+            做了
+            %strong
+              = link_to "真实的自己", "#"
+          %ul.actions
+            %li 评论
+            %li 赞
+            %li 分享
+            %li
+              %span.separator ·
+              %span.open-checkin= link_to "展开", "javascript:void(0);"
+              -#%span.close-checkin= link_to "收起", "javascript:void(0);"
+        %p{:style=>"word-wrap: break-word;"} 我已经完成了一点，在你填写之前，先检查检查有没有重复的。
+        .stream-item-footer
+          .context
+            %span.challenge-context
+              -#%i.badge-promoted
+              -#= link_to "柒子的马甲", "#"
+              -#正在挑战
+              -#= link_to "保持苗条", "#"
+        .expanded-content
+          .client-and-actions
+            %span{:title=>"2010-3-29 上午8:47"} 2010-3-29 上午8:47
+            %ul.actions
+              %li 评论
+              %li 赞
+              %li 分享
+    .stream-checkin{:expanded=>0}
+      .stream-checkin-content
+        .stream-item-header
+          %small.time 3月28
+          %span
+            = image_tag "im_facebookprofile.png", :width => 48, :height => 48, :class=>"avatar", :style=>"-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+            %strong
+              = link_to "不喜欢微博纯为加MM","#"
+            %code 我是一个工作的成年人
+            做了
+            %strong
+              = link_to "真实的自己", "#"
+          %ul.actions
+            %li 评论
+            %li 赞
+            %li 分享
+            %li
+              %span.separator·
+              %span.open-checkin= link_to "展开", "javascript:void(0);"
+              -#%span.close-checkin= link_to "收起", "javascript:void(0);"
+        %p{:style=>"word-wrap: break-word;"} 我在做一个项目，是尽可能 把YouTube上和电影电视剧相关的频道收集起来，包括大电影公司的幕后采访，预告片，特效公司，电视剧预告片等，目的就是给喜欢电影电视剧的G友提供方便，有点delicious书签分享的味道。但由于个人知识有限，希望和广大G+一起来做，假如你知道任何和电影电视剧相关的YouTube频道，请花一点时间填在这个Google 文档里。我已经完成了一点，在你填写之前，先检查检查有没有重复的。
+        .stream-item-footer
+          .context
+            %span.challenge-context
+              -#%i.badge-promoted
+              -#= link_to "柒子的马甲", "#"
+              -#正在挑战
+              -#= link_to "保持苗条", "#"
+        .expanded-content
+          .client-and-actions
+            %span{:title=>"2010-3-29 上午8:47"} 2010-3-29 上午8:47
+            %ul.actions
+              %li 评论
+              %li 赞
+              %li 分享
+    .stream-checkin.first{:id=>"1", :expanded=>0}
+      .stream-checkin-content
+        .stream-item-header
+          %small.time 3月28
+          %span
+            = image_tag "im_facebookprofile.png", :width => 48, :height => 48, :class=>"avatar", :style=>"-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+          %span.checkin-title
+            %strong
+              = link_to "柒子的马甲","#"
+            %code 我是一个妈妈
+            做了
+            %strong
+              = link_to "真实的自己", "#"
+          %ul.actions
+            %li= link_to "评论", "javascript:void(0);", :class=>"comment", "checkin"=>"1"
+            %li 赞
+            %li 分享
+            %li
+              %span.separator·
+              %span.open-checkin= link_to "展开", "javascript:void(0);"
+        %p.checkin-text{:style=>"word-wrap: break-word;"} 匪我思存，20部小说的作者，10部电视连续剧的原著者，国内原创爱情小说领军人物，在多家知名杂志发表过小说。
+        .stream-item-footer
+          .context
+            %span.challenge-context
+              %i.badge-promoted
+              = link_to "柒子的马甲", "#"
+              正在挑战
+              = link_to "保持苗条", "#"
+        .expanded-content
+          .client-and-actions
+            %span{:title=>"2010-3-29 上午8:47"} 2010-3-29 上午8:47
+            %ul.actions
+              %li 评论
+              %li 赞
+              %li 分享
+      .replies{:id=>"replies-1"}
+        .replies-wrapper{:style=>"padding-top:4px;"}
+          .item
+            .content
+              .stream-item-header
+                %small.time 3月28
+                %span
+                  = image_tag "im_facebookprofile.png", :class=>"avatar"
+                %strong
+                  = link_to "画旅途","#"
+                %p{:style=>"word-wrap: break-word;"} 在你填写之前，先检查检查有没有重复的。
+          .item
+            .content
+              .stream-item-header
+                %small.time 3月28
+                %span
+                  = image_tag "im_facebookprofile.png", :class=>"avatar"
+                %strong
+                  = link_to "画旅途","#"
+                %p{:style=>"word-wrap: break-word;"} 匪我思存，20部小说的作者。
+        .content-divider.down
+          .inner-carrot
+    .stream-checkin{:expanded=>0}
+      .stream-checkin-content
+        .stream-item-header
+          %small.time 3月28
+          %span
+            = image_tag "im_facebookprofile.png", :width => 48, :height => 48, :class=>"avatar", :style=>"-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+            %strong
+              = link_to "画旅途","#"
+            %code 我是一个学生
+            做了
+            %strong
+              = link_to "真实的自己", "#"
+          %ul.actions
+            %li 评论
+            %li 赞
+            %li 分享
+            %li
+              %span.separator ·
+              %span.open-checkin= link_to "展开", "javascript:void(0);"
+              -#%span.close-checkin= link_to "收起", "javascript:void(0);"
+        %p{:style=>"word-wrap: break-word;"} 我已经完成了一点，在你填写之前，先检查检查有没有重复的。
+        .stream-item-footer
+          .context
+            %span.challenge-context
+              -#%i.badge-promoted
+              -#= link_to "柒子的马甲", "#"
+              -#正在挑战
+              -#= link_to "保持苗条", "#"
+        .expanded-content
+          .client-and-actions
+            %span{:title=>"2010-3-29 上午8:47"} 2010-3-29 上午8:47
+            %ul.actions
+              %li 评论
+              %li 赞
+              %li 分享
+    .stream-checkin{:expanded=>0}
+      .stream-checkin-content
+        .stream-item-header
+          %small.time 3月28
+          %span
+            = image_tag "im_facebookprofile.png", :width => 48, :height => 48, :class=>"avatar", :style=>"-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;"
+            %strong
+              = link_to "不喜欢微博纯为加MM","#"
+            %code 我是一个工作的成年人
+            做了
+            %strong
+              = link_to "真实的自己", "#"
+          %ul.actions
+            %li 评论
+            %li 赞
+            %li 分享
+            %li
+              %span.separator·
+              %span.open-checkin= link_to "展开", "javascript:void(0);"
+              -#%span.close-checkin= link_to "收起", "javascript:void(0);"
+        %p{:style=>"word-wrap: break-word;"} 我在做一个项目，是尽可能 把YouTube上和电影电视剧相关的频道收集起来，包括大电影公司的幕后采访，预告片，特效公司，电视剧预告片等，目的就是给喜欢电影电视剧的G友提供方便，有点delicious书签分享的味道。但由于个人知识有限，希望和广大G+一起来做，假如你知道任何和电影电视剧相关的YouTube频道，请花一点时间填在这个Google 文档里。我已经完成了一点，在你填写之前，先检查检查有没有重复的。
+        .stream-item-footer
+          .context
+            %span.challenge-context
+              -#%i.badge-promoted
+              -#= link_to "柒子的马甲", "#"
+              -#正在挑战
+              -#= link_to "保持苗条", "#"
+        .expanded-content
+          .client-and-actions
+            %span{:title=>"2010-3-29 上午8:47"} 2010-3-29 上午8:47
+            %ul.actions
+              %li 评论
+              %li 赞
+              %li 分享

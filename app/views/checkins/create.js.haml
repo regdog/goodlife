@@ -1,0 +1,4 @@
+:plain
+  $("#d_checkin_post").html("#{escape_javascript(render(:partial => 'checkins/checkedin', :locals =>{ :checkin => @checkin }))}");
+  $("#d_checkin_pre").hide();
+

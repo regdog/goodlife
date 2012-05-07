@@ -1,6 +1,7 @@
 namespace :bootstrap do
       desc "populate database with data from tags.csv"
       task :default_tags => :environment do
+        Tag.delete_all
         lines = File.new('db/data/tags.csv').readlines
         header = lines.shift.strip
         keys = header.split(',')
@@ -16,6 +17,7 @@ namespace :bootstrap do
 
       desc "populate database with data from feats.csv"
       task :default_feats => :environment do
+        Feat.delete_all
         lines = File.new('db/data/feats.csv').readlines
         header = lines.shift.strip
         keys = header.split(',')
@@ -31,6 +33,7 @@ namespace :bootstrap do
 
       desc "populate database with data from taggings.csv"
       task :default_taggings => :environment do
+        Tagging.delete_all
         lines = File.new('db/data/taggings.csv').readlines
         header = lines.shift.strip
         keys = header.split(',')

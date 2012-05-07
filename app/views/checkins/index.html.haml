@@ -1,0 +1,20 @@
+- case params[:action]
+- when "friends"
+  = nav_at "朋友", in: 'checkins'
+- when "epics"
+  = nav_at "壮举", in: 'checkins'
+- else
+  = nav_at "全部", in: 'checkins'
+
+
+- content_for :page_title do
+  .marketing{:style=>"position: relative;"}
+    %h1 事迹榜
+    #checkin-illus
+      = image_tag "checkin-illus.png", :width=>300
+
+- content_for :bluepanel do
+  .container
+    %p{:style=>"color: #1F557A;font-size: 18px;width: 393px;line-height: 26px;font-style: italic;font-weight: bold;"}
+      We founded Widdit with an aim to provide a seamless and more efficient experience for users while navigating and seeking information online.
+

@@ -1,0 +1,14 @@
+.feats-list {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+}
+.feats-list li  i {
+    opacity: 0;
+}
+.feats-list li:hover {
+    background-color: #D9EDF7;
+}
+.feats-list li:hover i {
+    opacity: 1;
+}

@@ -1,62 +1,89 @@
-# encoding: UTF-8
 class FeatsController < ApplicationController
-  respond_to :json, :only => :feat_tokens
-
+  #layout "feats"
+  # GET /feats
+  # GET /feats.json
   def index
-    redirect_to catalog_feats_path
-  end
-
-  def catalog
-    @page_title = "今天你做了什么事儿？"
-    if params[:type]
-      @category = Tag.of_kind("Feat").find_by_name(params[:type])
-      @feats = @category.feats.page(params[:page]).per(20) if @category
-      @view_by = params[:type]
-    else
-      @feats = Feat.order(:created_at).page(params[:page]).per(20)
-      @view_by = "all"
-    end
-    render :index
-  end
-
-  def show
-    @feat = Feat.find_by_permalink(params[:id])
-    @page_title = @feat.name
-
-    @epic_checkins = @feat.epic_checkins.everyone
-    @latest_checkins = @feat.latest_checkins.everyone
-  end
-
-  def plan
-    @feat = Feat.find_by_permalink(params[:id])
-    @plan_type = params[:type]
-    if @plan_type == 'unplan'
-      PlannedFeat.find_by_user_id_and_feat_id(current_user.id, @feat.id).destroy
-    else
-      current_user.plan(@feat, @plan_type)
-    end
+    @feats = Feat.all
+    @tags = Feat.category_counts
     respond_to do |format|
-      format.js
+      format.html # index.html.erb
+      format.json { render json: @feats }
     end
   end
+
+  # GET /feats/1
+  # GET /feats/1.json
+  def show
+    @feat = Feat.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @feat }
+    end
+  end
+
+  # GET /feats/new
+  # GET /feats/new.json
+  def new
+    @feat = Feat.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @feat }
+    end
+  end
+
+  # GET /feats/1/edit
+  def edit
+    @feat = Feat.find(params[:id])
+  end
+
+  # POST /feats
+  # POST /feats.json
+  def create
+    @feat = Feat.new(params[:feat])
+
+    respond_to do |format|
+      if @feat.save
+        format.html { redirect_to @feat, notice: 'Feat was successfully created.' }
+        format.json { render json: @feat, status: :created, location: @feat }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @feat.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /feats/1
+  # PUT /feats/1.json
+  def update
+    @feat = Feat.find(params[:id])
+
+    respond_to do |format|
+      if @feat.update_attributes(params[:feat])
+        format.html { redirect_to @feat, notice: 'Feat was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @feat.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /feats/1
+  # DELETE /feats/1.json
+  def destroy
+    @feat = Feat.find(params[:id])
+    @feat.destroy
+
+    respond_to do |format|
+      format.html { redirect_to feats_url }
+      format.json { head :ok }
+    end
+  end
+
 
   def checkin
-    @feat = Feat.find_by_permalink(params[:id])
+
   end
-
-  def feat_tokens
-    if !params[:q]
-      @feats = Feat.all
-    else
-      @feats = Feat.where("name like ?", "%#{params[:q]}%").order(:name)
-    end
-
-    ActiveRecord::Base.include_root_in_json = false
-    respond_with(@feats.to_json(:only=>[:id, :name]))
-  end
-
-  #def select
-  #  @feat = Feat.find_by_permalink(:params[:id])
-  #  render :layout => false
-  #end
 end

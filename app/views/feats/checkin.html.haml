@@ -1,0 +1,19 @@
+%div{:id=>"d_checkin"}
+  .checkinbox
+    %div{:id=>"d_checkin_post"}
+    %div{:id=>"d_checkin_pre"}
+      %p
+        %a.selected{:href=>"#", :id=>"regular"} 常规
+        |
+        %a{:href=>"#", :id=>"epic"} 壮举
+      = text_area_tag :checkin_memo, "", :style=>"width: 97%"
+      .options
+        = link_to "提交", "#", :class => "btn btn-primary"
+        = link_to "关闭", "#", :class => "btn btn-close"
+        %span.pull-right
+          %a{:href=>"#"} 我
+          |
+          %a{:href=>"#"} 朋友
+          |
+          %a{:href=>"#"} 所有人
+

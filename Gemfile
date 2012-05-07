@@ -1,53 +1,59 @@
 source 'http://rubygems.org'
 
-gem "rake", "0.8.7"
-gem 'rails', '3.0.9'
+gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem "devise", "~> 1.4.9"
-gem "devise_invitable", "~> 0.6.0"
+
+
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.1.5'
+  #gem 'coffee-rails', '~> 3.1.1'
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'rake'
+gem 'jquery-rails'
+gem "devise"
+gem "devise_invitable"
+gem "multi_json"
 gem 'omniauth', "~> 0.3.2"
 gem 'party_boy', "~> 0.3.3"
 gem 'meta_search'
-gem 'kaminari'
-gem 'paperclip', '~> 2.4.5'
-gem 'permalink'
+gem "kaminari"
+gem "haml"
+gem "haml-rails"
+gem 'bootstrap-sass'
+gem "carrierwave"
+gem "rmagick"
+gem "stamp"
+gem "six"
+gem "resque"
 gem 'geocoder'
-gem 'jquery-rails'
-gem 'cancan'
 gem "uniquify"
 gem 'goose'
+gem 'kpi'
+gem 'apotomo'
+gem 'paths_of_glory', :git => 'git://github.com/raid5/paths_of_glory.git', :branch => 'rails3'
+gem 'acts-as-taggable-on'
+gem 'seymour'
+gem 'draper'
+gem 'acts_as_list'
+gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 
-
-group :production do
-  gem 'pg'
+group :development do
+  gem 'mysql2'
+  gem "bullet"
+  gem "letter_opener"
+  gem "rails-footnotes"
+  gem "annotate" #, :git => "https://github.com/ctran/annotate_models.git"
 end
-group :development, :test do
-  gem 'sqlite3'
+
+group :test do
+  # Pretty printed test output
+  gem 'turn', '0.8.2', :require => false
 end
-
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end

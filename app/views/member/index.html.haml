@@ -1,0 +1,39 @@
+.page-header{:style=>"overflow:hidden;"}
+  = image_tag "im_facebookprofile.png", :class=>"pull-left"
+  .user-card.pull-left{:style=>"padding-left:10px;"}
+    %h1 六度分离
+    %h2 sinoyang
+  .profile-card.pull-right
+    = link_to "编辑你的帐户", settings_path, :class=>"btn"
+    %table.table.table-condensed
+      %tbody
+        %tr
+          %td 120条事迹
+        %tr
+          %td 24条鼓励
+        %tr
+          %td 10位朋友
+
+
+%div{:style=>"clear:both"}
+
+.row
+  .span4
+    %ul.nav.nav-tabs.nav-stacked{:style=>"font-size:15px;"}
+      %li.active= link_to "你的事迹", "#"
+      %li= link_to "你收到的鼓励", "#"
+      %li= link_to "你的朋友", "#"
+      %li= link_to "你的习惯", "#"
+      %li= link_to "你的挑战", "#"
+    %br
+    .thumbnail
+      与你相似的人
+      %hr
+
+  .span8
+    -#.thumbnail
+    %h3 你的事迹
+    %br
+    = render "checkins/checkinslist"
+
+

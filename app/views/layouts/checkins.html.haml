@@ -1,0 +1,45 @@
+!!! 5
+%html{ :lang => "en"}
+  = render "layouts/head"
+  %body.application
+    = render "layouts/flash"
+    = render "layouts/head_panel"
+    .container
+      = yield :page_title
+    .bluepanel{:style=>"background-color: #509DD1;width: 100%;padding: 27px 0 1px 0px;margin-bottom: 30px;"}
+      = yield :bluepanel
+    .container
+      .row
+        .span8
+          = yield :checkins_navigation
+      .row
+        .span8{:style=>"min-height:600px;"}
+          .checkins-list
+            = render "checkinslist"
+        .span4
+          %p
+            Every day, users build 43 Places by adding places, asking questions, giving travel advice, uploading pictures of their favorite places and writing stories about the places they've been and want to go.
+          %ul
+            %li
+              %h5 今天得到鼓励最多的事迹
+            %li
+              %h5 你最新得到鼓励的事迹
+            %li
+              %h5 你收到评论的事迹
+
+
+      .modal.fade#comment
+        .modal-header
+          %a.close{"data-dismiss"=>"modal"} x
+        .modal-body
+          %h3 评论
+          = form_for Comment.new, :url=>comments_path, :method=> :post, :remote => true  do |f|
+            = f.hidden_field :checkin_id
+            = f.hidden_field :user_id, :value=>current_user.nil? ? "": current_user.id
+            .clearfix
+              .input= f.text_area :content, :style=>"width:98%;", :rows => 2
+            .clearfix
+              .pull-right
+                = f.submit 'Save', :class => "btn btn-primary"
+                = link_to 'Close', "#", :class => "btn btn-close"
+  -#.modal-footer

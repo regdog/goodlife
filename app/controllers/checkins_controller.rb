@@ -1,57 +1,108 @@
-# encoding: UTF-8
 class CheckinsController < ApplicationController
-  respond_to :html, :js
+  respond_to :html, :json, :js
+
+  def friends
+    @checkins = Checkin.friends(current_user.friend_ids)
+
+    render "index"
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.json { render json: @checkins }
+    #end
+  end
+
+  def epics
+    @checkins = Checkin.epics
+
+    render "index"
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.json { render json: @checkins }
+    #end
+  end
+
+  # GET /checkins
+  # GET /checkins.json
   def index
-    @checkins = Checkin.everyone.latest.page(params[:page])
-    @num_pages =  Checkin.latest.page(params[:page]).num_pages
-    @page_title = "鼓励人们的事迹"
-    @view_by = "Latest"
-    if request.xhr?
-      sleep(2)
-      render :partial => @checkins
+    @checkins = Checkin.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @checkins }
     end
   end
 
-  def epic
-    @checkins = Checkin.everyone.epic
-    @page_title = "很棒的事迹"
-    @view_by = "Epic"
-    render :index
+  # GET /checkins/1
+  # GET /checkins/1.json
+  def show
+    @checkin = Checkin.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @checkin }
+    end
   end
 
+  # GET /checkins/new
+  # GET /checkins/new.json
+  def new
+    @checkin = Checkin.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @checkin }
+    end
+  end
+
+  # GET /checkins/1/edit
+  def edit
+    @checkin = Checkin.find(params[:id])
+  end
+
+  # POST /checkins
+  # POST /checkins.json
   def create
     @checkin = Checkin.new(params[:checkin])
-    @checkin.user = current_user
-    #@checkin.location = "#{t(request.location.city.downcase, :scope => :cities)}, #{t(request.location.state.downcase, :scope => :states)}"
-    #@checkin.location = "#{t('sichuan', :scope => :states)}, #{t('chengdu', :scope => :cities)}"
+    @checkin.user_id = 1
 
-    #if @checkin.save
-    #  redirect_to feats_path
+    respond_with @checkin, :layout => !request.xhr?
+
+    #respond_to do |format|
+    #  if @checkin.save
+    #    format.html { redirect_to @checkin, notice: 'Checkin was successfully created.' }
+    #    format.json { render json: @checkin, status: :created, location: @checkin }
+    #  else
+    #    format.html { render action: "new" }
+    #    format.json { render json: @checkin.errors, status: :unprocessable_entity }
+    #  end
     #end
+  end
 
-    if @checkin.save
-      #Notifier.checkin_notification(@checkin).deliver
-      respond_with @checkin, :layout => !request.xhr?
+  # PUT /checkins/1
+  # PUT /checkins/1.json
+  def update
+    @checkin = Checkin.find(params[:id])
+
+    respond_to do |format|
+      if @checkin.update_attributes(params[:checkin])
+        format.html { redirect_to @checkin, notice: 'Checkin was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @checkin.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def comment
+  # DELETE /checkins/1
+  # DELETE /checkins/1.json
+  def destroy
     @checkin = Checkin.find(params[:id])
-    @comment = Comment.new(params[:comment])
-    @comment.user_id = current_user.id
-    @checkin.comments << @comment
+    @checkin.destroy
 
     respond_to do |format|
-      format.js
-    end
-  end
-
-  def comments
-    @checkin = Checkin.find(params[:id])
-    @comments = @checkin.comments
-
-    respond_to do |format|
-      format.js
+      format.html { redirect_to checkins_url }
+      format.json { head :ok }
     end
   end
 end

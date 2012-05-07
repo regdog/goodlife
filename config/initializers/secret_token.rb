@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-GoodLife::Application.config.secret_token = '7d7e2f2f72fb86df537512f26b602262e238c42b9cd57ad51a8a01b27234f75a370ceb165c7472ee3131eada9184b1c7b461e7ec3cee3d74508c124c958d3b35'
+Dailythings::Application.config.secret_token = '108ef070e658a69ca818fc5d48c25240d3bf95fc707e38b6a2efad599d6ac2d90c4a4ad7ca55220e41b0d53b95a7bd72b0efe590b60fa59ca15547784a0de1f7'

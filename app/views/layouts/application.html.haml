@@ -1,0 +1,23 @@
+!!! 5
+%html{ :lang => "en"}
+  = render "layouts/head"
+  %body.application
+    = render "layouts/flash"
+    = render "layouts/head_panel"
+    .container
+      = yield :page_title
+    .bluepanel{:style=>"background-color: #509DD1;width: 100%;padding: 27px 0 1px 0px;margin-bottom: 30px;"}
+      = yield :bluepanel
+    .container
+      = yield
+
+
+    .modal#checkin{:style=>"display:none;"}
+      .modal-header
+        %a.close{"data-dismiss"=>"modal"} x
+        %h3 Modal header
+      .modal-body
+        %p One day I will be a King
+      .modal-footer
+        = link_to "Close", "#", :class=>"btn"
+        = link_to "Save Change", "#", :class=>"btn btn-primary"

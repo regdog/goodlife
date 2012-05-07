@@ -1,0 +1,20 @@
+- if @habits.empty?
+  %p 你还没有任何习惯，去#{link_to '事项', feats_path }看看吧!
+- else
+  %table.table
+    %thead
+      %tr
+        %th 事项
+        %th 做过次数
+        %th 最近一次
+        %th
+    %tbody
+      - @habits.each do |h|
+        %tr
+          %td
+            = frequency_label(h.frequency.value)
+            = link_to h.feat.name, feat_path(h.feat)
+          %td= h.checkins.count
+          %td= h.checkins.last.nil? ? "": h.checkins.last.created_at.strftime('%b %d, %Y')
+          %td
+            = link_to "完成", "javascript:void(0)", :class => "example", "feat-id"=>h.feat.id, "feat-name"=>h.feat.name

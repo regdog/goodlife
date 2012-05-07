@@ -1,0 +1,43 @@
+= nav_at "最新壮举", in: 'feat'
+
+.marketing
+  %h1{:style=>"margin-top:0;"}= @feat.name
+  -#%span.pull-right= link_to "完成","#",:class=>"btn"
+
+.row
+  .span8
+    = render "show_left"
+  .span4
+    = render "show_right"
+
+
+-#%p#notice= notice
+-#
+-#%p
+-#  %b Permalink:
+-#  = @feat.permalink
+-#%p
+-#  %b Name:
+-#  = @feat.name
+-#%p
+-#  %b Why:
+-#  = @feat.why
+-#%p
+-#  %b How:
+-#  = @feat.how
+-#%p
+-#  %b Bonus points:
+-#  = @feat.bonus_points
+-#%p
+-#  %b Checkin count:
+-#  = @feat.checkin_count
+-#%p
+-#  %b Published:
+-#  = @feat.published
+-#%p
+-#  %b Image:
+-#  = image_tag @feat.image_url(:thumb).to_s
+-#
+-#= link_to 'Edit', edit_feat_path(@feat)
+-#\|
+-#= link_to 'Back', feats_path

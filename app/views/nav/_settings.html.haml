@@ -1,0 +1,6 @@
+- content_for :settings_navigation do
+  %ul.nav.nav-tabs{:style=>"font-size:15px;"}
+    = nav_to "个人资料", settings_account_path
+    = nav_to "更改密码", settings_password_path
+    = nav_to "设置提醒", settings_notifications_path
+

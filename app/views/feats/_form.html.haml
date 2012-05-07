@@ -1,0 +1,36 @@
+= form_for @feat do |f|
+  -if @feat.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@feat.errors.count, "error")} prohibited this feat from being saved:"
+      %ul
+        - @feat.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :permalink
+    = f.text_field :permalink
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :categories
+    = f.text_field :category_list
+  .field
+    = f.label :why
+    = f.text_area :why
+  .field
+    = f.label :how
+    = f.text_area :how
+  .field
+    = f.label :bonus_points
+    = f.number_field :bonus_points
+  .field
+    = f.label :checkin_count
+    = f.number_field :checkin_count
+  .field
+    = f.label :published
+    = f.check_box :published
+  .field
+    = f.file_field :image
+  .actions
+    = f.submit 'Save'

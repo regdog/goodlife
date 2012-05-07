@@ -1,0 +1,26 @@
+%aside
+  %ul.thumbnails
+    %li.section
+      .thumbnail.half-box-shadow
+        .alert.alert-info 类别
+        %p{:style => "line-height: 1.8em;"}
+          = link_to "全部", feats_path, :class=>"label label-warning"
+          - @tags.each do |c|
+            = link_to c.name, feats_path(:category =>c.name), :class=>"label label-warning"
+    %li.section
+      .thumbnail.half-box-shadow
+        .alert.alert-info 最新的壮举
+        %p
+          %ol.linenums
+            %li.L0 巧巧做了多吃素菜
+            %li.L1 叉叉做了打羽毛球
+    %li.section
+      .thumbnail.half-box-shadow
+        .alert.alert-info 人们都做什么
+        %p
+          %ol.linenums
+            %li.L0 巧巧做了多吃素菜
+            %li.L1 叉叉做了打羽毛球
+
+
+

@@ -1,0 +1,4 @@
+- content_for :feats_navigation do
+  %ul.nav.nav-tabs{:style=>"font-size:15px;"}
+    - @tags.each do |c|
+      = nav_to c.name, feats_path(:category =>c.name)

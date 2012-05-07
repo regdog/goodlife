@@ -1,0 +1,70 @@
+- if params[:category]
+  = nav_at params[:category], in: 'feats'
+- else
+  = nav_at "健康", in: 'feats'
+
+- content_for :page_title do
+  .marketing{:style=>"position: relative;"}
+    %h1 生活那些事儿
+    #feat-illus
+      = image_tag "company-illus.png", :width=>300
+
+- content_for :bluepanel do
+  .container
+    %p{:style=>"color: #1F557A;font-size: 18px;width: 393px;line-height: 26px;font-style: italic;font-weight: bold;"}
+      We founded Widdit with an aim to provide a seamless and more efficient experience for users while navigating and seeking information online.
+
+
+.row
+  .span8
+    = yield :feats_navigation
+.row.content
+  .span8
+    = render "feats_list"
+  .span4{:style=>"margin-top:200px"}
+    %p
+      Every day, users build 43 Places by adding places, asking questions, giving travel advice, uploading pictures of their favorite places and writing stories about the places they've been and want to go.
+    %ul
+      %li
+        %h5 今天做得多的事项
+      %li
+        %h5 一直做得多的事项
+      %li
+        %h5 新事项
+
+    %p Create a list
+    %p Build a habit
+
+
+
+-#%h1 Listing feats
+-#
+-#%table
+-#  %tr
+-#    %th Permalink
+-#    %th Name
+-#    %th Why
+-#    %th How
+-#    %th Bonus points
+-#    %th Checkin count
+-#    %th Published
+-#    %th
+-#    %th
+-#    %th
+-#
+-#  - @feats.each do |feat|
+-#    %tr
+-#      %td= feat.permalink
+-#      %td= feat.name
+-#      %td= feat.why
+-#      %td= feat.how
+-#      %td= feat.bonus_points
+-#      %td= feat.checkin_count
+-#      %td= feat.published
+-#      %td= link_to 'Show', feat
+-#      %td= link_to 'Edit', edit_feat_path(feat)
+-#      %td= link_to 'Destroy', feat, :confirm => 'Are you sure?', :method => :delete
+-#
+-#%br
+-#
+-#= link_to 'New Feat', new_feat_path

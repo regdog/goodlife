@@ -1,7 +1,0 @@
-<% checkin.comments.each do |comment| %>
-<div class="userprop row" userpropid=<%= comment.id %>>
-  <div class="profilepic cell"><%= image_tag "/images/im_facebookprofile.png" %><%#= link_to image_tag(comment.user.image.url(:thumb)), member_path(comment.user) %></div>
-  <div class="text cell"><%= link_to comment.user.name, member_path(comment.user) %> <%= comment.content %></div>
-  <div class="timestamp cell"><%= time_ago_in_words comment.created_at %>前</div>
-</div>
-<% end %>

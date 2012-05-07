@@ -1,0 +1,22 @@
+.cloud-container
+  %ol.tag-cloud
+    - @feats.each do |f|
+      - case f.checkin_count
+        - when 0..40
+          %li.not-popular
+            = link_to f.name, feat_path(f)
+        - when 41..100
+          %li.not-very-popular
+            = link_to f.name, feat_path(f)
+        - when 101..400
+          %li.somewhat-popular
+            = link_to f.name, feat_path(f)
+        - when 401..800
+          %li.popular
+            = link_to f.name, feat_path(f)
+        - when 801..1000
+          %li.very-popular
+            = link_to f.name, feat_path(f)
+        - when 1001..2000
+          %li.ultra-popular
+            = link_to f.name, feat_path(f)

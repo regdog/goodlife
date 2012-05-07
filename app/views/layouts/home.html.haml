@@ -1,0 +1,27 @@
+!!! 5
+%html{ :lang => "en"}
+  = render "layouts/head"
+  %body.application
+    = render "layouts/flash"
+    = render "layouts/head_panel"
+    .home_center{:style=>"background-color: #509DD1;margin: 40px 0 10px 0;padding:20px 0;"}
+      .container{:style=>"background-color: white;border: 1px solid white;"}
+        .content{:style=>"padding: 20px;"}
+          = yield :center
+    %br
+    .home_bottom
+      .container= yield :bottom
+
+    = render_widget :checkin
+
+  -#.modal.fade{:style=>"display:none;"}
+  -#  #d_checkin_post
+  -#  #d_checkin_pre
+  -#    .modal-header
+  -#      %a.close{"data-dismiss"=>"modal"} x
+  -#      %h3 Modal header
+  -#    .modal-body
+  -#      %p One day I will be a King
+  -#    .modal-footer
+  -#      = link_to "Close", "#", :class=>"btn"
+  -#      = link_to "Save Change", "#", :class=>"btn btn-primary"

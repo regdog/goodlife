@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Memo:
+  = @checkin.memo
+%p
+  %b Epic:
+  = @checkin.epic
+%p
+  %b Privacy:
+  = @checkin.privacy
+%p
+  %b Location:
+  = @checkin.location
+
+= link_to 'Edit', edit_checkin_path(@checkin)
+\|
+= link_to 'Back', checkins_path

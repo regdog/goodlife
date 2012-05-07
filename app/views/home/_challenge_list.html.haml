@@ -1,0 +1,19 @@
+- if @challenges.empty?
+  %p 你还没有任何挑战，去#{link_to '新建', new_challenge_path }挑战吧!
+- else
+  %table.table
+    %thead
+      %tr
+        %th 挑战
+        %th 进展
+        %th 剩余事项
+        %th 到期日
+    %tbody
+      - @challenges.each do |c|
+        %tr
+          %td= link_to c.name, challenge_path(c.challenge)
+          %td
+            .progress.progress-info.progress-striped.active{:style => "margin-bottom: 6px;"}
+              .bar{:style => "width:#{c.progress}%;"}
+          %td #{c.unfinished_feats.count} / #{c.challenge.feats.count}
+          %td= c.due_on.strftime('%b %d, %Y')

@@ -1,20 +1,14 @@
 class ApplicationController < ActionController::Base
-  layout :layout_by_resource
+  before_filter :authenticate_user!
   protect_from_forgery
-  #before_filter :load_corp_pages
 
-  protected
+  layout :layout_by_resource
 
   def layout_by_resource
     if devise_controller?
-      "welcome"
+      "devise"
     else
       "application"
     end
-  end
-
-  def load_corp_pages
-    tag = Tag.find_by_name("Page")
-    @pages = tag.contents
   end
 end

@@ -1,0 +1,29 @@
+= nav_at "个人资料", in: 'settings'
+
+= form_for @user, :url => settings_account_path, :method => :put, :html => {:class => "form-horizontal"} do |f|
+  -if @user.errors.any?
+    %div.alert-message.block-message.error
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+
+  .control-group
+    = f.label "名号", :class=>"control-label"
+    .controls= f.text_field :email, :class => "input-xlarge"
+  .control-group
+    = f.label "登录邮箱", :class=>"control-label"
+    .controls= f.text_field :email, :class => "input-xlarge"
+  .control-group
+    = f.label "常居地", :class=>"control-label"
+    .controls= f.text_field :email, :class => "input-xlarge"
+  .control-group
+    = f.label "手机号码", :class=>"control-label"
+    .controls= f.text_field :email, :class => "input-xlarge"
+  .control-group
+    = f.label :twitter, :class=>"control-label"
+    .controls= f.text_field :email, :class => "input-xlarge"
+  .control-group
+    = f.label "自我介绍", :class=>"control-label"
+    .controls= f.text_area :email, :rows => 3, :class => "input-xlarge"
+  .form-actions
+    = f.submit '更新资料', :class => "primary btn"

@@ -1,8 +1,0 @@
-<div class="leftnavitem <%= active_li_css(@view_by, "all") %>"><%= link_to "全部", local_rewards_path(:address => params[:address]) %></div>
-<% Tag.of_kind("Reward").each do |type| %>
-  <% if params[:address].nil? %>
-    <div class="leftnavitem <%=active_li_css(@view_by, type.name) %>"><%= link_to type.name, local_rewards_path(:type => type.name) %></div>
-  <% else %>
-    <div class="leftnavitem <%=active_li_css(@view_by, type.name) %>"><%= link_to type.name, local_rewards_path(:type => type.name, :address => params[:address]) %></div>
-  <% end %>
-<% end %>

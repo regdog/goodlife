@@ -1,8 +1,0 @@
-<div id="checkin" class="checkin" style="position: relative;">
-  <!--<div class="close" onclick="javascript:$('#dialog-form').remove();">x</div>-->
-  <div class="title">很好! 你已经赢得了<%= checkin.feat.bonus_points %>个奖励积分</div>
-  People also do the feats
-  <br/>
-  <%= link_to image_tag(checkin.feat.image.url(:medium)), feat_path(Feat.first) if checkin.feat.image %></div>
-  <input type="button" onclick="javascript:$('#dialog-form').remove();" value="OK" />
-</div>

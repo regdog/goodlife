@@ -1,0 +1,20 @@
+/ Page Header
+%header.top_panel_holder
+  .container
+    .top_panel_content
+      .app_logo.pull-left{:style=>"padding-top:5px;"}
+        = link_to root_path, :class => "home", :title => "Home" do 
+          = image_tag "im_logo_full.png"
+      .top_panel_menu.pull-right
+        .pagination.pull-left
+          %ul{:style=>"color: #595959;"}
+            %li{:style=>"font-size:16px;"}= link_to "首页", root_path
+            %li{:style=>"font-size:16px;"}= link_to "事迹", checkins_path
+            %li{:style=>"font-size:16px;"}= link_to "事项", feats_path
+            %li{:style=>"font-size:16px;"}= link_to "我的资料", member_path(current_user)
+            %li{:style=>"font-size:16px;"}= link_to '退出', destroy_user_session_path, :class => "logout", :method => :delete
+        = link_to image_tag("im_facebookprofile.png", :width=>34, :height=>34), "/settings", :style=>"float: right;height: 36px;margin: 18px 0 18px 10px;"
+
+
+
+

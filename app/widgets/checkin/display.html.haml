@@ -1,0 +1,34 @@
+= widget_div do
+  .modal.fade#d_checkin
+    #d_checkin_post
+    #d_checkin_pre
+      = form_for(Checkin.new, :remote => true, :url => url_for_event(:submit)) do |f|
+        .modal-header
+          %a.close{"data-dismiss"=>"modal"} x
+          %h3= Feat.first.name
+        .modal-body
+          = f.hidden_field :feat_id
+          %p
+            %label{:style=>"display:inline;"}
+              = f.radio_button :epic, "0", :style=>"display:none"
+              常规
+            |
+            %label{:style=>"display:inline;"}
+              = f.radio_button :epic, "1", :style=>"display:none"
+              壮举
+          = f.text_area :memo, :style=>"width: 98%", :rows => 2
+        .modal-footer
+          %span.pull-left
+            %label.radio.inline
+              = f.radio_button :privacy, "1"
+              我
+            %label.radio.inline
+              = f.radio_button :privacy, "2"
+              朋友
+            %label.radio.inline
+              = f.radio_button :privacy, "3"
+              所有人
+          = link_to "关闭", "#", :class=>"btn btn-close"
+          = f.submit "做了", :class => "btn btn-primary"
+
+

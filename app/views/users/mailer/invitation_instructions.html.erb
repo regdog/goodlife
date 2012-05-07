@@ -1,9 +1,0 @@
-<div style="font-family: Arial,sans-serif; color:black; font-size: 12px;text-align:justify;background-color:#E0ECFF;width:680px;margin-left:180px;padding:20px;">
-  <div style="background-color:white;">
-    <p>您好，<%= @resource.email %>!</p>
-    <p>您的朋友，<%= link_to User.find(@resource.invited_by_id).name, member_url(User.find(@resource.invited_by_id)) %>，邀请您加入<%= link_to root_url, root_url %>，您可以点击下面的链接接受邀请。</p>
-    <p><%= link_to '接受邀请', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
-    <p>如果您不想接受邀请，请忽略此封邮件。<br />
-    只有您访问上面的链接并设置密码以后，您的帐户才会生效。</p>
- </div>
-</div>

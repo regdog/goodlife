@@ -1,0 +1,36 @@
+- if params[:category]
+  = nav_at params[:category], in: 'feats'
+- else
+  = nav_at "全部", in: 'feats'
+
+- content_for :page_title do
+  .page-header
+    %h1 挑战自己
+
+- content_for :menu do
+  = yield :feats_navigation
+
+= render "feats/feattags"
+
+
+-#%h1 Listing challenges
+-#
+-#%table
+-#  %tr
+-#    %th Permalink
+-#    %th Name
+-#    %th
+-#    %th
+-#    %th
+-#
+-#  - @challenges.each do |challenge|
+-#    %tr
+-#      %td= challenge.permalink
+-#      %td= challenge.name
+-#      %td= link_to 'Show', challenge
+-#      %td= link_to 'Edit', edit_challenge_path(challenge)
+-#      %td= link_to 'Destroy', challenge, :confirm => 'Are you sure?', :method => :delete
+-#
+-#%br
+-#
+-#= link_to 'New Challenge', new_challenge_path

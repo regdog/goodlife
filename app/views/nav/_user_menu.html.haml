@@ -1,0 +1,8 @@
+- content_for :user_menu_navigation do
+  .subnav
+    %ul.nav.nav-pills
+      = nav_to "首页", dashboard_checkins_path
+      = nav_to "我的习惯", dashboard_feats_path
+      = nav_to "我的挑战", dashboard_challenges_path
+      = nav_to "我想要的奖励", dashboard_wishes_path
+      = nav_to "我的圈子", dashboard_friends_path

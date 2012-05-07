@@ -1,0 +1,6 @@
+- content_for :checkins_navigation do
+  %ul.nav.nav-tabs{:style=>"font-size:15px;"}
+    = nav_to "全部", checkins_path
+    = nav_to "朋友", friends_checkins_path
+    = nav_to "壮举", epics_checkins_path
+
